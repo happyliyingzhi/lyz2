@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>慢慢买比价网--手机版</title>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script>
+        document.querySelector("html").style.fontSize = window.screen.width / 10 + "px";
+        if (window.screen.width > 375) {
+            document.querySelector("html").style.fontSize = 37.5 + "px";
+        }
+    </script>
+
+    <!-- <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css"> -->
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="./css/common.css"> -->
+    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+
+
+
+
+
+
+    <script src="./lib/jquery/jquery.min.js"></script>
+
+    <script src="./lib/mui/js/mui.min.js"></script>
+
+
+    <script src="./js/register.js"></script>
+
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/register.css">
+
+
+
+</head>
+
+<body>
+    <div class="container ">
+        <div class="header clearfix">
+            <a href="./index.html" class="log"></a>
+            <a href="javascript:;" class="appdown"></a>
+        </div>
+        <div class="main clearfix  ">
+            <div class="searchbar ">
+                <input type="text" class="back" placeholder="请输入你想比价的商品">
+                <button class="mui-btn mui-btn-warning">搜索</button>
+            </div>
+            <!-- 登录 -->
+
+        </div>
+
+        <form class="zhuce " action="" method="post">
+            <table>
+                <tr>
+
+                    <td>
+                        <input type="text" name="nickName" placeholder="请输入用户名">
+                    </td>
+                </tr>
+
+
+
+                <tr>
+
+                    <td>
+                        <input type="password" name="pwd" placeholder="密码6-20个字符">
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <input type="text" name="phone" placeholder="请输入手机号">
+                    </td>
+                </tr>
+                <tr>
+
+                    <td style="display: flex;">
+                        <img src="./images/CheckCode (1).aspx" alt="" style="vertical-align: middle;height: 100%;">
+                        <input  class="box" type="text" name="txtyz" >
+                        <input class="yanzhengma" type="button" style="display: inline-block;background-color: #dfdfdf;" value="获取手机验证码">
+
+                        
+                    </td>
+                </tr>
+                <tr>
+
+                        <td>
+                            <input type="text"  placeholder="请输入手机验证码">
+                        </td>
+                    </tr>
+            
+                <tr>
+
+                    <td>
+                        <input type="text" name="email" placeholder="请输入邮箱">
+                    </td>
+                </tr>
+                <tr >
+                    <td>
+                        <input class="tijiao" type="button" name="submit" value="注册">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        </fieldset>
+
+
+
+
+        <div class="footer clearfix">
+            <div class="top">
+                <a href="login.html" class="login">登录</a>
+                <a href="register.html" class="regedit">注册</a>
+                <a href="javascript:scrollTo(0,0,)" class="gotop">
+                    <img src="images/top.jpg" alt="">
+                    <span>返回顶部</span>
+                </a>
+            </div>
+            <div class="bottom">
+                <p>
+                    <a href="">手机APP下载</a>
+                    <span>慢慢买手机版&nbsp;--&nbsp;掌上比价平台</span>
+                </p>
+                <span> m.manmanbuy.com </span>
+            </div>
+        </div>
+        <!--  -->
+        <div class="kong back"></div>
+        <div class="xiazai">
+            <div class="left">
+                <span class="mui-icon mui-icon-closeempty"></span>
+                <img src="./images/TB2.jpg" alt="">
+                <div class="right">
+                    <span class="shang" style="color: #b0afae;">慢慢买</span>
+                    <span style="color:#c3c2c1;">全网比价,查历史价格</span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default ">立即打开</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

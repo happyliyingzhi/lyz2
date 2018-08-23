@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>慢慢买比价网--手机版</title>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script>
+        document.querySelector("html").style.fontSize = window.screen.width / 10 + "px";
+        if (window.screen.width > 375) {
+            document.querySelector("html").style.fontSize = 37.5 + "px";
+        }
+    </script>
+    <!-- jq -->
+    <script src="./lib/jq/jquery-3.1.1.min.js"></script>
+    <!-- mui -->
+    <script src="./lib/mui/js/mui.min.js"></script>
+    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+    <!-- 模板 -->
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <!-- 自己写的js和css -->
+    <link rel="stylesheet" href="./css/pdetail.css">
+    <script src="./js/pdetail.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <div class="header-box">
+                <a href="./index.html" class="log">
+                    <img src="./images/mlogo.png" alt="">
+                </a>
+                <div class="searchbox">
+
+                    <i class="mui-icon mui-icon-search icon-search"></i>
+                    <input type="text" class="search" placeholder="搜索商品比价">
+                </div>
+                <a href="javascript:;" class="appdown">下载</a>
+            </div>
+
+            <div class="header-tab">
+                <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                    <div class="mui-scroll">
+                        <!--这里放置真实显示的DOM内容-->
+                        <ul class="tab-list">
+                            <li>
+                                <a href="./index.html">
+                                    <span class="tabTitle">首页</span>
+                                    <span class="line"></span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="./promotion.html">
+                                    <span class="tabTitle">省钱购</span>
+                                    <span class="line"></span>
+                                </a>
+                                
+                            </li>
+                            <li>
+                                <a href="./listclass.html">
+                                    <span class="tabTitle">比价搜索</span>
+                                    <span class="line"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./discount.html">
+                                    <span class="tabTitle">国内折扣</span>
+                                    <span class="line"></span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a>
+                                    <span class="tabTitle">历史价</span>
+                                    <span class="line"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./baicai.html">
+                                    <span class="tabTitle">白菜价</span>
+                                    <span class="line"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <span class="tabTitle">小时风云榜</span>
+                                    <span class="line"></span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main clearfix">
+            <div class="descBox">
+                <!-- 模板渲染详情 -->
+            </div>
+            <div class="commentBox">
+                <!-- 模板渲染评论 -->
+            </div>
+        </div>
+        <div class="footer clearfix">
+            <div class="nav">
+                <a href="#">首页 > </a>
+                <a href="./promotion.html">省钱控 > </a>
+                <a href="#">活动详情 </a>
+            </div>
+            <div class="top">
+                <a href="" class="login">登录</a>
+                <a href="" class="regedit">注册</a>
+                <a href="javascript:scrollTo(0,0,)" class="gotop">
+                    <img src="images/top.jpg" alt="">
+                    <span>返回顶部</span>
+                </a>
+            </div>
+            <div class="bottom">
+                <p>
+                    <a href="">手机APP下载</a>
+                    <span>慢慢买手机版&nbsp;--&nbsp;掌上比价平台</span>
+                </p>
+                <span> m.manmanbuy.com </span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<!-- 详情 -->
+<script type="text/html" id="pdetail">
+    {{#result[0].productImgSm}}
+    <div class="info">
+        <span class="mall"> {{result[0].productFrom}}</span>
+        <span>|</span>
+        <span class="time">{{result[0].productTime}}</span>
+        <span>|</span>
+        <span class="author">{{result[0].productTips}}</span>
+        <span>|</span>
+        <span class="comment">{{result[0].productComCount}}</span>
+    </div>
+    <h3 class="title">{{ result[0].productName }}</h3>
+    <h3 class="price">{{ result[0].productPinkage }}</h3>
+    <div class="golink">
+        <a href="#">直达链接</a>
+    </div>
+    <div class="desc">
+        <p class="desc1">
+            <!-- {{result[0].productInfo}} -->
+        </p>
+        <br>
+        <p class="desc2">
+           {{#result[0].productInfo2}}
+        </p>
+        <br>
+        {{#result[0].productImg2}}
+    </div>
+</script>
+<!-- 评论 -->
+<script type="text/html" id="comment">
+     <div class="comment">
+        {{#result[0].productComment}}
+        <div class="morecom">
+            <a href="http://m.manmanbuy.com/app.html?type=cuxiaopl_373093&value=wap">打开APP</a><span> 查看更多评论</span>
+        </div>
+    </div>
+</script>
+<!-- js -->
+<!-- <script>
+    function urlTool(urlStr) {
+        //1. 把url以？分割
+        var arr = urlStr.split("?").pop().split("&");
+        // console.log(arr); //["proName=1", "page=1"]
+        var query = {};
+        arr.forEach(function (v) {
+            var param = v.split("=");
+            query[param[0]] = param[1];
+        });
+        return query;
+    }
+
+    var urlstr = window.location.href; //拿到当前页面的url
+    var query = urlTool(urlstr);
+
+    $.ajax({
+        url: "http://mmb.ittun.com/api/getmoneyctrlproduct",
+        type: "GET",
+        data: { productid: query.productid },
+        success: function (res) {
+            // 渲染详情
+            var html = template('pdetail', res);
+            $(".descBox").html(html);
+            // 渲染评论
+            var html1 = template('comment', res);
+            $('.commentBox').html(html1);
+
+        }
+    })
+</script> -->

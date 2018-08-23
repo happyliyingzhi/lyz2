@@ -1,0 +1,288 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input {
+  border: 0;
+  outline: none;
+}
+
+img {
+  display: block;
+  vertical-align: top;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.container .header {
+  background-color: #ff841d;
+  height: 1.3333333333rem;
+  padding: 0rem 0.2666666667rem;
+  display: flex;
+  justify-content: space-between;
+}
+.container .header .log {
+  height: 100%;
+  flex: 1;
+  background: url("../images/log.png") no-repeat left center/auto 0.6666666667rem;
+}
+.container .header .appdown {
+  width: 1.3333333333rem;
+  height: 1.3333333333rem;
+  background: url("../images/appdown.png") no-repeat center center/0.9066666667rem auto;
+}
+.container .main {
+  flex: 1;
+}
+.container .footer {
+  height: 2.6666666667rem;
+  background-color: #efefef;
+}
+.container .footer .top {
+  height: 1.0666666667rem;
+  display: flex;
+}
+.container .footer .top a {
+  width: 33.3333%;
+  height: 100%;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #5a5a5a;
+}
+.container .footer .top a:nth-child(1) {
+  border-left: 0;
+  border-right: 0;
+}
+.container .footer .top a:nth-child(3) {
+  border-right: 0;
+  border-left: 0;
+}
+.container .footer .top .gotop {
+  display: flex;
+  align-items: center;
+}
+.container .footer .top .gotop img {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-right: 0.1333333333rem;
+  position: relative;
+  bottom: 1px;
+}
+.container .footer .bottom {
+  height: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 12px;
+}
+.container .footer .bottom p {
+  text-align: center;
+}
+.container .footer .bottom p a {
+  color: #f00;
+}
+.container .footer .bottom p span {
+  color: #5a5a5a;
+}
+.container .footer .bottom span {
+  text-align: center;
+  color: #666;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.main .searchbar {
+  display: flex;
+  align-items: center;
+  height: 1.3333333333rem;
+  border-bottom: 0.0266666667rem solid #e6e6e6;
+  border-top: 0.0266666667rem solid #e6e6e6;
+}
+.main .searchbar input, .main .searchbar button {
+  height: 0.8rem;
+  margin: 0.2666666667rem 0.2666666667rem;
+  border-radius: 0.2666666667rem;
+  font-size: 0.3733333333rem;
+}
+.main .searchbar button {
+  margin-left: -0.5333333333rem;
+}
+.main .nav {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0.2666666667rem 0.5333333333rem;
+}
+.main .nav li {
+  width: 25%;
+}
+.main .nav li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #5a5a5a;
+}
+.main .nav li a img {
+  width: 1.8666666667rem;
+  height: 1.8666666667rem;
+}
+.main .nav .active {
+  display: none;
+}
+.main .cuxiao .zhekou {
+  height: 1.0666666667rem;
+  background-color: #ff960f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 0.4rem;
+}
+.main .cuxiao .zhekou span {
+  font-size: 0.5333333333rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+.main .cuxiao .zhekou img {
+  height: 0.5333333333rem;
+  width: 0.5333333333rem;
+}
+.main .mui-table-view li {
+  height: 3.4666666667rem;
+}
+.main .mui-table-view li a {
+  padding: 0.4rem 0.2666666667rem;
+}
+.main .mui-table-view li a .mui-pull-left {
+  height: 1.8666666667rem;
+  width: 1.8666666667rem;
+}
+.main .mui-table-view li a .mui-pull-left img {
+  width: 100%;
+}
+.main .mui-table-view li a .mui-media-body {
+  color: #333333;
+}
+.main .mui-table-view li a .mui-media-body .shang {
+  min-height: 1.6rem;
+  font-size: 0.4266666667rem;
+}
+.main .mui-table-view li a .mui-media-body .shang span {
+  color: #ff6c00;
+}
+.main .mui-table-view li a .mui-media-body .xia {
+  display: flex;
+  justify-content: space-between;
+}
+.main .mui-table-view li a .mui-media-body .xia .mui-icon {
+  font-size: 0.3733333333rem;
+}
+.main .paihang .pailist {
+  margin-bottom: 0.4rem;
+  height: 1.0666666667rem;
+  background-color: #ff960f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 0.4rem;
+}
+.main .paihang .pailist span {
+  font-size: 0.5333333333rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+.main .paihang .pailist img {
+  height: 0.5333333333rem;
+  width: 0.5333333333rem;
+}
+.main .youhui {
+  width: 100%;
+  background-color: #f8f8f8;
+  border-radius: 0.1333333333rem;
+  border: 0.0266666667rem solid #e6e6e6;
+  height: 0.8rem;
+  text-align: center;
+  line-height: 0.8rem;
+  color: #5a5a5a;
+  margin: 0.2666666667rem 0rem 0.5333333333rem 0rem;
+}
+
+.container {
+  position: relative;
+}
+.container .Fixed-layer {
+  position: absolute;
+  right: 0rem;
+  bottom: 1.6rem;
+  z-index: 999;
+  position: fixed;
+}
+.container .Fixed-layer img {
+  height: 1.8933333333rem;
+  width: 1.7066666667rem;
+}
+.container .back-top {
+  position: absolute;
+  right: 0rem;
+  bottom: 0.2666666667rem;
+  z-index: 999;
+  position: fixed;
+  height: 1.1733333333rem;
+  width: 1.1733333333rem;
+  background-color: #fdfdfd;
+  right: 0.2666666667rem;
+  border-radius: 0.5866666667rem;
+}
+.container .back-top img {
+  margin: 0.1333333333rem;
+  height: 0.88rem;
+  width: 0.88rem;
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>慢慢买比价网--手机版</title>
+    <link rel="shortcut icon" href="favicon.ico"/>
+	<link rel="stylesheet" href="lib/mui/css/mui.min.css">
+	<script src="lib/jq/jquery-3.1.1.min.js"></script>
+	<script src="lib/mui/js/mui.min.js"></script>
+	<script src="lib/artTemplate/template-web.js"></script>
+	<script src="js/wshangchengdaohang.js"></script>
+	<!-- 使用rem相对单位 -->
+	<link rel="stylesheet" href="css/wshangchengdaohang.css">
+	<script>
+		document.querySelector("html").style.fontSize = window.screen.width / 10 + "px";
+		if (window.screen.width > 375) {
+			document.querySelector("html").style.fontSize = 37.5 + "px";
+		}
+	</script>
+
+
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<!-- <a href="./index.html" class="log"></a> -->
+			<span class="youjiantou mui-icon mui-icon-arrowleft"></span>
+			<h3>商城导航</h3>
+			<a href="javascript:;" class="appdown"></a>
+		</div>
+
+
+		<div class="main">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="pingpailiebiao">
+						<ul id="list">
+							
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="top">
+				<a href="" class="login">登录</a>
+				<a href="" class="regedit">注册</a>
+				<a href="" class="gotop">
+					<img src="images/top.jpg" alt="">
+					<span>返回顶部</span>
+				</a>
+			</div>
+			<div class="bottom">
+				<p>
+					<a href="">手机APP下载</a>
+					<span>慢慢买手机版&nbsp;--&nbsp;掌上比价平台</span>
+				</p>
+				<span> m.manmanbuy.com </span>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
+
+<script type="text/html" id="result">
+	
+	{{each list value}}
+	
+		<li>
+			<a href="{{value.navHref}}" data-id="{{value.navId}}">
+				<img src="{{value.navImg}}" alt="">
+				<span>{{value.navTitle}}</span>
+			</a>
+		</li>
+	
+	
+	{{/each}}
+</script>

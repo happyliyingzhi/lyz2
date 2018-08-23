@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>慢慢买比价网--手机版</title>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <!-- 使用rem相对单位 -->
+    <script>
+        document.querySelector("html").style.fontSize = window.screen.width / 10 + "px";
+        if (window.screen.width > 375) {
+            document.querySelector("html").style.fontSize = 37.5 + "px";
+        }
+    </script>
+    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+    <!-- <link rel="stylesheet" href="./css/common.css"> -->
+    
+
+    
+    
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/mui/js/mui.min.js"></script>
+   
+    <script src="./js/index.js"></script>
+
+    <link rel="stylesheet" href="./css/index.css">
+
+
+
+</head>
+
+<body>
+    <div class="container ">
+        <div class="header clearfix">
+            <a href="./index.html" class="log"></a>
+            <a href="javascript:;" class="appdown"></a>
+        </div>
+        <div class="main clearfix">
+            <div class="searchbar">
+                <input  type="text" placeholder="请输入你想比价的商品">
+                <button class="mui-btn mui-btn-warning">搜索</button> 
+            </div>
+            <!-- 导航 -->
+            <ul class="nav">
+                <!-- (li>a>(img[src="./images/nav$@0.png"]+span{导航}))*8 -->
+                <li>
+                    <a href="./listclass.html">
+                        <img src="./images/ic_search.png" alt="">
+                        <span>比价搜寻</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./promotion.html">
+                        <img src="./images/ic_cu.png" alt="">
+                        <span>省钱控</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./discount.html">
+                        <img src="./images/ic_coudanpin.png" alt="">
+                        <span>国内折扣</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./baicai.html">
+                        <img src="./images/ic_bcj.png" alt="">
+                        <span>白菜价</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="./images/ic_temai.png" alt="">
+                        <span>小时风云榜</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./wyouhuijuan.html">
+                        <img src="./images/ic_trend.png" alt="">
+                        <span>优惠劵</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./brand.html">
+                        <img src="./images/ic_pp.png" alt="">
+                        <span>品牌大全</span>
+                    </a>
+                </li>
+                <li id="more">
+                    <a href="javascript: void ( 0 );">
+                        <img class="gengduo" src="./images/ic_coudanpin(2).png" alt="">
+                        <span>查看更多</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="./coudanpin.html">
+                        <img src="./images/ic_coudanpin(2).png" alt="">
+                        <span>凑单品</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="">
+                        <img src="./images/ic_coudanpin(2).png" alt="">
+                        <span>口碑排行</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="./wshangchengdaohang.html">
+                        <img src="./images/ic_coudanpin(2).png" alt="">
+                        <span>商城导航</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="./overseas.html">
+                        <img src="./images/ic_coudanpin(2).png" alt="">
+                        <span>海淘折扣</span>
+                    </a>
+                </li>
+            </ul>
+            <a href="./promotion.html" class="cuxiao">
+                <div class="zhekou">
+                    <span>超值折扣推荐</span>
+                    <img src="./images/more.png" alt="">
+                </div>
+            </a>
+            <ul class="mui-table-view">
+
+
+                <!-- <li class="mui-table-view-cell mui-media">
+                    <a href="javascript:;">
+                        <img class=" mui-pull-left" src="./images/j_sources.jpg">
+                        <div class="mui-media-body">
+                            <div class="shang">
+                                    Haier 海尔 KFR-72LW/09UCP22AU1 3匹 变频 立柜式空调 
+                                <span>5599元包邮</span>
+                            </div>
+                            <div class="xia">
+                                <span>国美 | 08-18 17:33</span>
+                                <span>
+                                    <i class="mui-icon mui-icon-chat"  ></i> 0
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </li> -->
+                
+            </ul>
+            
+
+            <div class="youhui">更多优惠信息 >></div>
+            <a href="./promotion.html" class="paihang">
+                <div class="pailist">
+                    <span>品牌排行</span>
+                    <img src="./images/more.png" alt="">
+                </div>
+            </a>
+
+        </div>
+        <div class="footer clearfix">
+            <div class="top">
+                <a href="login.html" class="login">登录</a>
+                <a href="register.html" class="regedit">注册</a>
+                <a href="javascript:scrollTo(0,0,)" class="gotop returnTop">
+                    <img src="images/top.jpg" alt="">
+                    <span>返回顶部</span></a>
+            </div>
+            <div class="bottom">
+                <p>
+                    <a href="">手机APP下载</a>
+                    <span>慢慢买手机版&nbsp;--&nbsp;掌上比价平台</span>
+                </p>
+                <span> m.manmanbuy.com </span>
+            </div>
+        </div>
+        <div class="Fixed-layer">
+            <a>
+                <img src="./images/TB2Wep.png" alt="">
+            </a>
+        </div>
+        <a href="javascript:scrollTo(0,0,100)" class="back-top ">
+            <img src="./images/top.jpg" alt="">
+        </a>
+    </div>
+        
+
+</body>
+
+</html>
+<!-- 导入模板 -->
+<script src="./lib/template-web.js"></script>
+
+<!-- 准备模板 -->
+<script type="text/html" id="tpl">
+
+    {{each result v i}}
+
+    <li class="mui-table-view-cell mui-media">
+            <a href="./pdetail.html?productid={{v.productId}}">
+               <div  class=" mui-pull-left">
+                   {{#v.productImgSm}}
+               </div>
+                <div class="mui-media-body">
+                    <div class="shang">
+                            {{v.productId}} 
+                        <span>{{v.productPinkage}}</span>
+                    </div>
+                    <div class="xia">
+                        <span>{{v.productFrom}} | {{v.productTime}}</span>
+                        <span>
+                            <i class="mui-icon mui-icon-chat"  ></i> 0
+                        </span>
+                    </div>
+                </div>
+            </a>
+        </li>
+
+
+    {{/each}}
+</script>

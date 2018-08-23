@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>慢慢买比价网--手机版</title>
+    <!-- 使用rem相对单位 -->
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script src="./lib/jq/jquery-3.1.1.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+    <script src="./lib/mui/js/mui.min.js"></script>
+    <script>
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+        if (window.screen.width > 500) {
+            document.querySelector('html').style.fontSize = 37.5 + "px";
+        }
+    </script>
+
+    <link rel="stylesheet" href="./css/brand.css">
+    <script src="./js/brand.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <a href="javascript:void(0)" class="left">
+        </a>
+        <a href="javascript:void(0)" class="right">
+        </a>
+    </div>
+    <div class="search">
+        <div class="left">
+            <input type="text" placeholder="请输入你想比价的商品" id="onfocus" class="text">
+            <ul class="history" id="history">
+
+            </ul>
+        </div>
+        <input type="submit" class="searchbtn" value="搜索">
+    </div>
+    <div class="main">
+        <div class="nav">
+            <a href="./index.html">首页</a> &nbsp;>&nbsp;
+            <a href="#">品牌大全</a>
+        </div>
+        <div class="hot">热门品牌排行</div>
+        <ul class="mui-table-view">
+
+        </ul>
+        <!-- 旋转盒子 -->
+        <div class="mask">
+            <div class="cirlebox"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="top">
+            <a href="javascript:void(0)" class="login">登录</a>
+            <a href="javascript:void(0)" class="regedit">注册</a>
+            <a class="gotop">
+                <img src="images/top.jpg" alt="">
+                <span id="back-top">返回顶部</span>
+            </a>
+        </div>
+        <div class="bottom">
+            <p>
+                <a href="javaScript: void(0)">手机APP下载</a>
+                <span>慢慢买手机版&nbsp;--&nbsp;掌上比价平台</span>
+            </p>
+            <span> m.manmanbuy.com </span>
+        </div>
+        <!-- 广告 -->
+        <div class="ad">
+            <div class="left">
+                <a class="off"></a>
+                <div class="info">
+                    <img src="./images/bar.jpg" alt="">
+                    <p class="text">
+                        <span class="text1">慢慢卖</span>
+                        <span class="text2">全网比价，查历史价格</span>
+                    </p>
+                </div>
+            </div>
+            <div class="right">
+                <button class="open">立即打开</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<!-- 品牌模板 -->
+<script type="text/html" id="tmp">
+    {{ each result v i }}
+    <li class="mui-table-view-cell" data-brandTitleId="{{ v.brandTitleId }}" data-brandTitle="{{ v.brandTitle }}">{{ v.brandTitle }}
+        <a href="#"></a>
+    </li>
+    {{ /each }}
+
+</script>
+
+<!-- 搜索历史记录 -->
+<script type="text/html" id="tmp1">
+    {{each list v i }}
+    <li>
+        <span class="historytext">{{ v }}</span>
+        <span class="shangchu" data-index='{{ i }}'>X</span>
+    </li>
+    {{ /each }}
+
+</script>

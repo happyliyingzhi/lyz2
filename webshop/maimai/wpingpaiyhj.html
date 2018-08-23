@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>慢慢买比价网--手机版</title>
+    <link rel="shortcut icon" href="favicon.ico"/>
+	<link rel="stylesheet" href="lib/mui/css/mui.min.css">
+	<script src="lib/jq/jquery-3.1.1.min.js"></script>
+	<script src="lib/mui/js/mui.min.js"></script>
+	<script src="lib/artTemplate/template-web.js"></script>
+	<script src="js/wpingpaiyhj.js"></script>
+	<!-- 使用rem相对单位 -->
+	<link rel="stylesheet" href="css/wpingpaiyhj.css">
+	<script>
+		document.querySelector("html").style.fontSize = window.screen.width / 10 + "px";
+		if (window.screen.width > 375) {
+			document.querySelector("html").style.fontSize = 37.5 + "px";
+		}
+	</script>
+
+
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<!-- <a href="./index.html" class="log"></a> -->
+			<span class="youjiantou mui-icon mui-icon-arrowleft"></span>
+			<h3>肯德基优惠劵</h3>
+			<a href="javascript:;" class="appdown"></a>
+		</div>
+		
+
+		<div class="main">
+			<div class="mui-scroll-wrapper" id="fanhui">
+				<div class="mui-scroll">
+		<!--这里放置真实显示的DOM内容-->
+			
+							<p>--点餐前出示手机中的优惠卷,即可享受优惠--</p>
+										<div class="biaotiliebiao">
+											<ul id="result">
+							
+											</ul>
+										</div>
+							
+										<div class="zhezhaocheng">
+											<div class="lubotu">
+											
+												<div id="slider" class="mui-slider" >
+												  <div class="mui-slider-group mui-slider-loop" id="lbotu">
+													
+													
+												
+													</div>
+												</div>		
+											</div>
+										</div>
+					</div>
+			</div>
+						<div class="dizhi">
+			
+							<div class="neihe">
+								<span class="shouye">首页</span>
+								<span>></span>
+								<span>商品优惠</span>
+			
+							</div>
+						</div>
+		</div>
+		<div class="footer">
+			<div class="top">
+				<a href="" class="login">登录</a>
+				<a href="" class="regedit">注册</a>
+				<a href="javascript:scrollTo(0,0,)" class="gotop">
+					<img src="images/top.jpg" alt="">
+					<span id="nani">返回顶部</span>
+				</a>
+			</div>
+			<div class="bottom">
+				<p>
+					<a href="">手机APP下载</a>
+					<span>慢慢买手机版&nbsp;--&nbsp;掌上比价平台</span>
+				</p>
+				<span> m.manmanbuy.com </span>
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+
+</html>
+
+<script type="text/html" id="result1">
+	{{each list value}}
+
+	<li>
+		<a href="#">
+			{{#value.couponProductImg}}
+			<div class="jieshao">
+				<p>{{value.couponProductName}}</p>
+				<span class="qian">{{value.couponProductPrice}}</span>
+				<span class="mui-icon mui-icon-arrowright mui-pull-right"></span>
+			</div>
+		</a>
+		<span class="riqi">
+			<span>{{value.couponProductTime}}</span>
+		</span>
+	</li>
+
+
+	{{/each}}
+
+</script>
+
+
+<!-- <script type="text/html" id="result2">
+	
+	{{each list2 value key}}
+				{{if key == 56 }}
+								<div class="mui-slider-item mui-slider-item-duplicate {{key}}">
+										<a href="#">
+											{{#value.couponProductImg}}
+										</a>
+								</div>
+				
+				{{/if}}
+	{{/each}}	
+	
+				{{each list2 value key}}
+										
+							<div class="mui-slider-item {{key}}">
+								<a href="#">
+									{{#value.couponProductImg}}
+								</a>
+							</div>
+							
+				{{/each}}
+				
+				{{each list2 value key}}
+										{{ if key == 0 }}
+										<div class="mui-slider-item mui-slider-item-duplicate {{key}}">
+											<a href="#">
+												{{#value.couponProductImg}}
+											</a>
+										</div>
+										{{/if}}
+							{{/each}}
+
+</script> -->

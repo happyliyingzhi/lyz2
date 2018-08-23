@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>慢慢买比价网--手机版</title>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script>
+        document.querySelector("html").style.fontSize = window.screen.width / 10 + "px";
+        if (window.screen.width > 375) {
+            document.querySelector("html").style.fontSize = 37.5 + "px";
+        }
+    </script>
+
+    <script src="./lib/jq/jquery-3.1.1.min.js"></script>
+
+    <link rel="stylesheet" href="./css/overseas.css">
+
+    <script src="./lib/artTemplate/template-web.js"></script>
+
+    <script src="./lib/mui/js/mui.min.js"></script>
+    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="./js/details.js"></script>
+
+    <link rel="stylesheet" href="./css/details.css">
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <a href="./index.html" class="log"></a>
+            <a href="javascript:;" class="appdown"></a>
+        </div>
+        <div class="banner">
+            <div class="search">
+                <input type="text" value="海淘" class="searchBox" placeholder="请输入你想比价的商品">
+                <input type="submit" value="搜索" class="searchButton">
+            </div>
+        </div>
+
+        <div class="nav">
+            <a class="homePage">首页 </a>
+            <a href="#" class="searchNav"> > 搜索：</a>
+            <font style="color:red">海淘</font>
+            <a class="select">筛选</a>
+        </div>
+
+        <div class="main clearfix">
+
+            <div class="navClassify">
+                <a href="./index.html" class="f12">首页</a> >
+                <a href="" class="category"></a>
+                <span> > 单个商品</span>
+            </div>
+
+            <div class="detailsBox">
+                <!-- 模板渲染 -->
+            </div>
+
+        </div>
+
+
+        <!-- 遮罩层 -->
+        <div class="mask">
+            <div class="cirlebox"></div>
+        </div>
+
+  
+
+        <div class="footer clearfix">
+            <div class="top">
+                <a href="./login.html" class="login">登录</a>
+                <a href="./register.html" class="regedit">注册</a>
+                <a href="javascript:scrollTo(0,0,)" class="gotop" id="back-top">
+                    <img src="images/top.jpg" alt="">
+                    <span>返回顶部</span>
+                </a>
+            </div>
+
+            <div class="bottom">
+                <p>
+                    <a href="">手机APP下载</a>
+                    <span>慢慢买手机版&nbsp;--&nbsp;掌上比价平台</span>
+                </p>
+                <span> m.manmanbuy.com </span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script type="text/html" id="navBar">
+
+    <div class="navClassify">
+            <a href="http://m.manmanbuy.com" class="f12">首页</a> >
+            <a href=""  class="category">{{result[0].category}}</a>
+            <span> > 单个商品</span>
+    </div>
+
+</script>
+
+
+<script type="text/html" id="details">
+    
+            <div class="tImage" >
+                {{#result[0].productImgSm}}
+            </div>
+
+            <div class="productName">
+                <span><h1>{{result[0].productName}}</h1></span> 
+            </div>
+
+            <div class="shoppingMall">
+                商城：<a href="" class="productFrom">{{result[0].productFrom}}</a>【自营商品】
+            </div>
+            <div style="margin: 13px 6px; text-align: left;">
+                最新报价：
+                <span class="productPinkage">{{ result[0].productPinkage }}</span>
+
+            </div>
+
+            <div style="margin: 13px 6px; text-align: left;">
+                评论数：<a href="" class="productComCount">{{result[0].productComCount}}</a>
+            </div>
+            <div style="margin: 13px 6px; font-size:12px; text-align: left; display:none;">
+                慢慢买 从2017/9/1 开始收录该产品
+            </div>
+            <div style="margin: 18px 6px; text-align: left;">
+
+                <div class="goTpShop">
+                    <a href="">去商城看看</a>
+                </div>
+            </div>
+
+            <div class="nav">
+                历史价格变动情况
+            </div>
+            <div style=" text-align:center; ">
+
+                <div style="margin: 13px 6px; text-align: left;">历史最低价:{{ result[0].productPinkage }}</div>
+                <iframe id="iframeId" class="iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="310" height="190"></iframe>
+            </div>
+         
+
+</script>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>慢慢买比价网--手机版</title>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script src="./lib/jq/jquery-3.1.1.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+    <script src="./lib/mui/js/mui.min.js"></script>
+    <script>
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+        if (window.screen.width > 1000) {
+            document.querySelector('html').style.fontSize = 37.5 + "px";
+        }
+    </script>
+
+    <link rel="stylesheet" href="./css/getbrand.css">
+    <script src="./js/getbrand.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <a href="javascript:void(0)" class="left">
+        </a>
+        <a href="javascript:void(0)" class="right">
+        </a>
+    </div>
+    <div class="search">
+        <input type="text" placeholder="请输入你想比价的商品" class="text">
+        <input type="submit" class="searchbtn" value="搜索">
+    </div>
+    <div class="main">
+        <div class="nav">
+            <a href="./index.html">首页</a> &nbsp;>&nbsp;
+            <a href="./brand.html">品牌大全</a>&nbsp;>&nbsp;
+            <span class="good">哪个品牌好</span>
+        </div>
+        <div class="hot">哪个牌子好</div>
+        <ul class="mui-table-view" id="ul1">
+
+
+        </ul>
+        <div class="hot1">产品销量排行</div>
+        <ul class="mui-table-view xiaoliang">
+
+        </ul>
+        <div class="pinlun">
+            <p class="title" id="str2">最有用的用户评论</p>
+            <ul class="mui-table-view" id="ul3">
+
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="top">
+            <a href="" class="login">登录</a>
+            <a href="" class="regedit">注册</a>
+            <a href="" class="gotop">
+                <img src="images/top.jpg" alt="">
+                <span id="back-top">返回顶部</span>
+            </a>
+        </div>
+        <div class="bottom">
+            <p>
+                <a href="">手机APP下载</a>
+                <span>慢慢买手机版&nbsp;--&nbsp;掌上比价平台</span>
+            </p>
+            <span> m.manmanbuy.com </span>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+<!-- 十大品牌模板 -->
+<script type="text/html" id="tmp">
+    {{ each result v i }}
+    <li class="mui-table-view-cell" data-categoryid='{{v.categoryId}}' data-brandId='{{ v.brandId }}' data-brandTitleId='{{ v.brandTitleId }}'>
+        <a class="mui-navigate-right">
+            <div class="left">
+                <p class="title">
+                    <span class='{{if i==0 }}one{{/if}} {{if i ==1 }}two{{ /if }} {{ if i == 2}}three{{ /if }}'>{{ i+1 }}</span>{{ v.brandName }}</p>
+                <p class="num">{{ v.brandInfo }}</p>
+            </div>
+        </a>
+    </li>
+    {{ /each }}
+
+</script>
+
+<!-- 销量排行模板 -->
+<script type="text/html" id="tmp2">
+    {{ each result v i }}
+    <li class="mui-table-view-cell" data-productId='{{ v.productId }}' data-categoryId='{{v.categoryId}}'>
+        <a href="javascript:void(0)">
+            <div class="left">
+                {{#v.productImg}}
+                <div class="info">
+                    <p class="name">{{ v.productName }}</p>
+                    <p class="price">{{ v.productPrice }}</p>
+                    <p class="num">
+                        <span class="baojia">{{ v.productQuote }}</span>
+                        <span class="pinglun">全网{{ v.productCom }}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="right">
+                ★ ★ ★ ★ ★
+            </div>
+        </a>
+    </li>
+    {{ /each }}
+</script>
+
+<!-- 评论模板 -->
+<script type="text/html" id="tmp3">
+    {{ each result v i }}
+    <li class="mui-table-view-cell">
+        <div class="top">
+            <img src="./images/pinglun.jpg" alt="">
+            <p class="name">LG 49LF5400 49英寸 全高清 普通LED液晶电视</p>
+        </div>
+        <div class="info">
+            <p class="user">
+                <span class="userxinxin">{{ v.comName }}:
+                    <i>★★★★★</i>
+                </span>
+                <span class="time">{{ v.comTime }}</span>
+            </p>
+            <p class="text">
+                <a href="#">
+                    {{ v.comContent }}
+                </a>
+            </p>
+        </div>
+    </li>
+    {{ /each }}
+</script>

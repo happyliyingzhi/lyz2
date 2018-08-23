@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>慢慢买比价网--手机版</title>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="./css/coudanpin.css">
+    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+    <link rel="stylesheet" href="./lib/mui/fonts/mui.ttf">
+    <script src="./lib/jq/jquery-3.1.1.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/mui/js/mui.min.js"></script>
+    <script src="./js/coudanpin.js"></script>
+
+    <!-- 使用rem相对单位 -->
+    <script>
+        document.querySelector("html").style.fontSize = window.screen.width / 10 + "px";
+        if (window.screen.width > 375) {
+            document.querySelector("html").style.fontSize = 37.5 + "px";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <span class="mui-icon mui-icon-back"></span>
+            <p>凑单品</p>
+            <span></span>
+
+        </div>
+        <div class="main clearfix">
+            <div class="nav">
+                <div class="left">
+                    <a id="st">
+                        <ul class="store">
+                            <li>京东</li>
+                        </ul>
+                        <span></span>
+                    </a>
+                    <a id="ar">
+                        <ul class="area">
+                            <li>华北</li>
+                        </ul>
+                        <span></span>
+                    </a>
+                    <a id="mo">
+                        <ul class="money">
+                            <li>全部价格</li>
+                        </ul>
+                        <span></span>
+                    </a>
+                </div>
+                <div class="right mui-icon mui-icon-bars"></div>
+            </div>
+            <div class="subnav">
+                <ul class="uls1">
+
+                </ul>
+                <ul class="uls2">
+
+                </ul>
+                <ul class="uls3">
+
+                </ul>
+            </div>
+            <div class="subnav2">
+                <div class="search">
+                    <input type="text" placeholder="搜索您想要的凑单品">
+                    <span>搜索</span>
+                </div>
+                <div class="paixu">
+                    <p>排序</p>
+                    <div>
+                        <button>销量</button>
+                        <button>价格up</button>
+                        <button>价格down</button>
+                    </div>
+                </div>
+                <div class="category">
+                    <p>分类</p>
+                    <div>
+                        <button>全部</button>
+                        <button>家居</button>
+                        <button>数码</button>
+                        <button>办公</button>
+                        <button>个护</button>
+                        <button>食品</button>
+                        <button>母婴</button>
+                        <button>服饰</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                
+            </div>
+        </div>
+        <div class="footer clearfix">
+            <div class="top">
+                <a href="" class="login">登录</a>
+                <a href="" class="regedit">注册</a>
+                <a href class="gotop">
+                    <img src="images/top.jpg" alt="">
+                    <span id="back-top">返回顶部</span>
+                </a>
+            </div>
+            <div class="bottom">
+                <p>
+                    <a href="">手机APP下载</a>
+                    <span>慢慢买手机版&nbsp;--&nbsp;掌上比价平台</span>
+                </p>
+                <span> m.manmanbuy.com </span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script type="text/html" id="tpl">
+    {{each list v}} {{if (v.shopName)}}
+    <li data-shopid={{v.shopId}} data-shopname={{v.shopName}}>{{v.shopName}}
+        <span class="mui-icon mui-icon-checkmarkempty"></span>
+    </li>
+    {{/if}} {{if (v.areaName)}}
+    <li data-areaid={{v.areaId}} data-areaname={{v.areaName}}>{{v.areaName}}
+        <span class="mui-icon mui-icon-checkmarkempty"></span>
+    </li>
+    {{/if}} {{/each}}
+</script>
+
+<script type="text/html" id="tpl2">
+    {{each list v}}
+    <div class="products">
+        <div class="product">
+            <img src="{{v.productImg}}" alt="">
+            <p class="mui-ellipsis-2">{{v.productName}}</p>
+            <span>{{v.productPrice}}</span>
+        </div>
+    </div>
+    {{/each}}
+</script>

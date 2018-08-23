@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模板展示页</title>
+    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+    <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/bijia.css">
+    <script src="./lib/jq/jquery-3.1.1.min.js"></script>
+    <script src="lib/zepto/zepto.min.js"></script>
+    <script src="./lib/mui/js/mui.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./js/bijia.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <a class="log"></a>
+            <a href="javascript:;" class="appdown"></a>
+        </div>
+        <div class="main clearfix">
+            <!--搜索框-->
+            <div class="searchtxt">
+                <input type="text" placeholder="请输入你想比对的商品">
+                <button class="header-btn">搜索</button>
+            </div>
+            <!--商品导航-->
+            <div class="nav">
+                <!--模板渲染-->
+            </div>
+            <!--商品列表-->
+            <div class="detail-head">
+                <!--模板渲染-->
+            </div>
+
+            <div class="comment">
+                <div class="wyoucommet">
+                    <span>网友评价</span>
+                </div>
+                <div class="detail-comment">
+                    <ul>
+                        <li>
+                            <div class="title">
+                                <span>6xxx</span>
+                                <span>2016/10/1</span>
+                            </div>
+                            <div class="comment-from">
+                                购买自：京东商城
+                            </div>
+                            <div class="comment-content">
+                                送货和安装是分开进行的，如果是一起会更好。电视是58寸的，放在客厅非常大气，样式也好看漂亮。家里人都非常喜欢，很赞
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!--商品的分页-->
+            <div class="pagePation">
+                <button>查看更多评论</button>
+            </div>
+        </div>
+        <div class="footer clearfix">
+            <div class="top">
+                <a href="" class="login">登录</a>
+                <a href="" class="regedit">注册</a>
+                <a class="gotop">
+                    <img src="images/top.jpg" alt="">
+                    <span id="back-top">返回顶部</span></a>
+            </div>
+            <div class="bottom">
+                <p>
+                    <a href="">手机APP下载</a>
+                    <span>慢慢买手机版&nbsp;--&nbsp;掌上比价平台</span>
+                </p>
+                <span> m.manmanbuy.com </span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script type="text/html" id="shopdetail">
+    <!--商品的详情-->
+    {{each result v}}
+    <div class="product-list">
+        <div class="title">
+            {{v.productName}}
+        </div>
+        <div class="picture">
+            {{#v.productImg}}
+        </div>
+        <div class="proSave">
+            <img src="./images/sc.jpg" alt="">
+        </div>
+    </div>
+    <div class="producteDes">
+        <span>比价购买</span>
+        <span>产品参数</span>
+        <span>评价(2322)</span>
+    </div>
+    <div class="priceDes">
+        {{#v.bjShop}}
+    </div>
+    <div class="note">
+        <p> * 实际价格以各网站列出的实时售价为准，我们提供的价格可能有数小时至数日的延迟。</p>
+    </div>
+
+    {{/each}}
+</script>
+<!--商品的评论-->
+<script type="text/html" id="comments">
+
+    <ul>
+        {{each result v}}
+        <li>
+            <div class="title">
+                <span>{{v.comName}}</span>
+                <span>{{v.comTime}}</span>
+            </div>
+            <div class="comment-from">
+                {{v.comFrom}}
+            </div>
+            <div class="comment-content">
+                {{v.comContent}}
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+
+
+
+
+
+</script>
+<!--三级分类-->
+<script type="text/html" id="catagory">
+    {{each result v}}
+    <a href="./index.html">首页 ></a>
+    <a href="./listclass.html">全部分类 ></a>
+    <a href="#" class="active">{{v.category}} ></a>
+    <button class="nav-btn">筛选</button> {{/each}}
+</script>
+
+
+
+
+<!-- 使用rem相对单位 -->
+<script>
+    document.querySelector("html").style.fontSize = window.screen.width / 10 + "px";
+    if (window.screen.width > 375) {
+        document.querySelector("html").style.fontSize = 37.5 + "px";
+    }
+</script>

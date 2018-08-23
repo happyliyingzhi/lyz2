@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>产品分类,慢慢买比价网</title>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script>
+        document.querySelector("html").style.fontSize = window.screen.width / 10 + "px";
+        if (window.screen.width > 375) {
+            document.querySelector("html").style.fontSize = 37.5 + "px";
+        }
+    </script>
+    <script src="./lib/jq/jquery-3.1.1.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <link rel="stylesheet" href="css/iconfont.css">
+
+    <link rel="stylesheet" href="./css/proList.css">
+    <script src="./js/proList.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <a class="log"></a>
+            <a href="javascript:;" class="appdown"></a>
+        </div>
+        <div class="main clearfix">
+            <div class="search">
+                <input type="text" placeholder="请输入你想比价的商品">
+                <span class="searchBtn">搜索</span>
+            </div>
+            <div class="products">
+                <div class="productTop">
+                    <ul class="nav">
+                        <!-- 导航模板渲染 -->
+                    </ul>
+                    <a class="filter">
+                        筛选
+                    </a>
+                </div>
+                <div class="productBottom">
+                    <ul class="productList">
+                        <!-- 模板渲染 -->
+                    </ul>
+
+                    <!-- 遮罩层 -->
+                    <div class="mask">
+                        <div class="cirlebox"></div>
+                    </div>
+
+                    <div class="pages">
+                        <a class="pre">上一页</a>
+                        <div class="page">
+                            <select name="" id="select">
+                            <!-- 模板渲染 -->
+                            </select>
+                        </div>
+                        <a class="next">下一页</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer clearfix">
+            <div class="top">
+                <a href="" class="login">登录</a>
+                <a href="" class="regedit">注册</a>
+                <a class="gotop">
+                    <img src="images/top.jpg" alt="">
+                    <span id="back-top">返回顶部</span></a>
+            </div>
+            <div class="bottom">
+                <p>
+                    <a href="">手机APP下载</a>
+                    <span>慢慢买手机版&nbsp;--&nbsp;掌上比价平台</span>
+                </p>
+                <span> m.manmanbuy.com </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 筛选内容 -->
+    <div class="filterlist">
+        <div class="side">
+            <div class="headdit">
+                <span class "dit">筛选</span>
+                <span class="closefilt iconfont icon-guanbi"></span>
+            </div>
+            <div class="sideitem">
+                <div class="itemtitle">
+                    <div class="brand">
+                        <span class="title">品牌</span>
+                        <span class="titledetail">全部品牌</span>
+                    </div>
+                    <span class="more iconfont icon-xuanzeqishouqi"></span>
+                </div>
+                <div class="sidelist">
+                    <a href="javascript:;"><span class="active">全部品牌</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">苹果</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">华为</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">小米</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">荣耀</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">OPPO</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">三星</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">金立</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">锤子</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">步步高</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">诺基亚</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">魅族</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">酷派</span></a>
+                </div>
+            </div>
+            <div class="sideitem">
+                <div class="itemtitle">
+                    <div class="brand">
+                        <span class="title">品类</span>
+                        <span class="titledetail">全部品类</span>
+                    </div>
+                    <span class="more iconfont icon-xuanzeqishouqi"></span>
+                </div>
+                <div class="sidelist">
+                    <a href="javascript:;"><span class="active">全部品类</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">液晶电视</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">曲面电视</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">3D电视</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">会议</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">广告机</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">3G网络</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">全网通4G</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">双4G</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">移动5G</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">2G网络</span></a>
+                </div>
+            </div>
+            <div class="sideitem">
+                <div class="itemtitle">
+                    <div class="brand">
+                        <span class="title">尺寸</span>
+                        <span class="titledetail">尺寸</span>
+                    </div>
+                    <span class="more iconfont icon-xuanzeqishouqi"></span>
+                </div>
+                <div class="sidelist">
+                    <a href="javascript:;"><span class="active">全部尺寸</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">苹果</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">华为</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">小米</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">荣耀</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">OPPO</span></a>
+                </div>
+            </div>
+            <div class="sideitem">
+                <div class="itemtitle">
+                    <div class="brand">
+                        <span class="title">分辨率</span>
+                        <span class="titledetail">分辨率</span>
+                    </div>
+                    <span class="more iconfont icon-xuanzeqishouqi"></span>
+                </div>
+                <div class="sidelist">
+                    <a href="javascript:;"><span class="active">全部分辨率</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">苹果</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">华为</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">小米</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">荣耀</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">OPPO</span></a>
+                </div>
+            </div>
+            <div class="sideitem">
+                <div class="itemtitle">
+                    <div class="brand">
+                        <span class="title">功能</span>
+                        <span class="titledetail">全部功能</span>
+                    </div>
+                    <span class="more iconfont icon-xuanzeqishouqi"></span>
+                </div>
+                <div class="sidelist">
+                    <a href="javascript:;"><span class="active">全部品牌</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">苹果</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">华为</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">小米</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">荣耀</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">OPPO</span></a>
+                </div>
+            </div>
+            <div class="sideitem">
+                <div class="itemtitle">
+                    <div class="brand">
+                        <span class="title">品牌</span>
+                        <span class="titledetail">全部品牌</span>
+                    </div>
+                    <span class="more iconfont icon-xuanzeqishouqi"></span>
+                </div>
+                <div class="sidelist">
+                    <a href="javascript:;"><span class="active">全部品牌</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">苹果</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">华为</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">小米</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">荣耀</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">OPPO</span></a>
+                </div>
+            </div>
+            <div class="sideitem">
+                <div class="itemtitle">
+                    <div class="brand">
+                        <span class="title">品牌</span>
+                        <span class="titledetail">全部品牌</span>
+                    </div>
+                    <span class="more iconfont icon-xuanzeqishouqi"></span>
+                </div>
+                <div class="sidelist">
+                    <a href="javascript:;"><span class="active">全部品牌</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">苹果</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">华为</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">小米</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">荣耀</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">OPPO</span></a>
+                </div>
+            </div>
+            <div class="sideitem">
+                <div class="itemtitle">
+                    <div class="brand">
+                        <span class="title">品牌</span>
+                        <span class="titledetail">全部品牌</span>
+                    </div>
+                    <span class="more iconfont icon-xuanzeqishouqi"></span>
+                </div>
+                <div class="sidelist">
+                    <a href="javascript:;"><span class="active">全部品牌</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">苹果</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">华为</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">小米</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">荣耀</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">OPPO</span></a>
+                </div>
+            </div>
+            <div class="sideitem">
+                <div class="itemtitle">
+                    <div class="brand">
+                        <span class="title">品牌</span>
+                        <span class="titledetail">全部品牌</span>
+                    </div>
+                    <span class="more iconfont icon-xuanzeqishouqi"></span>
+                </div>
+                <div class="sidelist">
+                    <a href="javascript:;"><span class="active">全部品牌</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">苹果</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">华为</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">小米</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">荣耀</span></a>
+                    <a href="javascript:;"><span data-categoryid="10">OPPO</span></a>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+<!-- 路径导航模板 -->
+<script type="text/html" id="tplNav">
+
+    <li><a href="./index.html">首页</a></li>
+    <li><a href="./listclass.html">全部分类</a></li>
+    <li><a class="active" href="javascript:;">{{result[0].category}}</a></li>
+
+
+</script>
+<!-- 内容模板渲染 -->
+<script type="text/html" id="tplList">
+    {{each result value}}
+    <li class="item">
+        <a href="./bijia.html?categoryid={{value.categoryId}}&productid={{value.productId}}" data-brandId={{value.brandId}}>
+            <div class="left">
+                {{#value.productImg}}
+            </div>
+            <div class="right">
+                <span class="title">{{value.productName}}</span>
+                <span class="price">{{value.productPrice}}</span>
+                <p class="info">
+                    <span class="offer">商城{{value.productQuote}}</span>
+                    <span class="comment">有{{value.productCom}}人评论</span>
+                </p>
+
+            </div>
+        </a>
+    </li>
+    {{/each}}
+</script>
+<!-- 页码数渲染 -->
+<script type="text/html" id="sect">
+
+    <% for(var i=1;i<=pageTotal;i++){%>
+        <option value="{{i}}">{{i}}/{{pageTotal}}</option>
+        <%}%>
+
+</script>

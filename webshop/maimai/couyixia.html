@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>凑单品
+
+        --慢慢买比价网
+        </title>
+    <!-- 使用rem相对单位 -->
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="./css/couyixia.css">
+    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+    <!-- <link rel="stylesheet" href="./lib/mui/fonts/mui.ttf"> -->
+    <script src="./lib/jq/jquery-3.1.1.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/mui/js/mui.min.js"></script>
+    <script src="./js/couyixia.js"></script>
+    <!-- 使用rem相对单位 -->
+    <script>
+        document.querySelector("html").style.fontSize = window.screen.width / 10 + "px";
+        if (window.screen.width > 375) {
+            document.querySelector("html").style.fontSize = 37.5 + "px";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <span class="mui-icon mui-icon-back"></span>
+            <p>凑单品</p>
+            <span></span>
+
+        </div>
+        <div class="main clearfix">
+            <section class="section1">
+                距离免运费还差:
+            </section>
+            <section class="section2">
+                <span>💰输入差额:</span>
+                <input type="text" placeholder="请输入金额">
+            </section>
+            <section class="section3">
+                <span>商城和地区选择:</span>
+            </section>
+            <section class="section4">
+                <div class="stores">
+                    <span>🏬商城选择:</span>
+                    <a>京东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></a>
+                </div>
+                <ul class="uls1">
+                    <li>i love you</li>
+                </ul>
+                <div class="areas">
+                    <span>🚚选择配送地区:</span>
+                    <a>华北&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;> </a>
+                </div>
+                <ul class="uls2">
+                    <li>i love you</li>
+                </ul>
+            </section>
+            <section class="section5">
+                <button type="button" class="mui-btn mui-btn-outlined">凑一下</button>
+            </section>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script type="text/html" id="tpl">
+    {{each list v}} {{if (v.shopName)}}
+    <li calss="lis" data-shopid={{v.shopId}} data-shopname={{v.shopName}}>{{v.shopName}}
+    </li>
+    {{/if}} {{if (v.areaName)}}
+    <li calss="lis" data-areaid={{v.areaId}} data-areaname={{v.areaName}}>{{v.areaName.split("（")[0]}}
+    </li>
+    {{/if}} {{/each}}
+</script>

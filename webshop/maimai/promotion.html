@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>慢慢买比价网--手机版</title>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script>
+        document.querySelector("html").style.fontSize = window.screen.width / 10 + "px";
+        if (window.screen.width > 375) {
+            document.querySelector("html").style.fontSize = 37.5 + "px";
+        }
+    </script>
+    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+    <!-- mui -->
+    <script src="./lib/jq/jquery-3.1.1.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/mui/js/mui.min.js"></script>
+    <!--  -->
+    <link rel="stylesheet" href="./css/promotion.css">
+    <script src="./js/promotion.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <div class="header-box">
+                <a href="./index.html" class="log">
+                    <img src="./images/mlogo.png" alt="">
+                </a>
+                <div class="searchbox">
+
+                    <i class="mui-icon mui-icon-search icon-search"></i>
+                    <input type="text" class="search" placeholder="搜索商品比价">
+                </div>
+                <a href="javascript:;" class="appdown">下载</a>
+            </div>
+
+            <div class="header-tab">
+                <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                    <div class="mui-scroll">
+                        <!--这里放置真实显示的DOM内容-->
+                        <ul class="tab-list">
+                            <li>
+                                <a href="./index.html">
+                                    <span class="tabTitle">首页</span>
+                                    <span class="line"></span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="./promotion.html">
+                                    <span class="tabTitle">省钱购</span>
+                                    <span class="line"></span>
+                                </a>
+                                
+                            </li>
+                            <li>
+                                <a href="./listclass.html">
+                                    <span class="tabTitle">比价搜索</span>
+                                    <span class="line"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./discount.html">
+                                    <span class="tabTitle">国内折扣</span>
+                                    <span class="line"></span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a>
+                                    <span class="tabTitle">历史价</span>
+                                    <span class="line"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./baicai.html">
+                                    <span class="tabTitle">白菜价</span>
+                                    <span class="line"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <span class="tabTitle">小时风云榜</span>
+                                    <span class="line"></span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main clearfix">
+            <!-- <div class="content"> -->
+            <!-- 模板渲染商品列表页 -->
+            <!-- </div> -->
+            <div class="productBottom">
+                <ul class="content">
+                    <!-- 模板渲染 -->
+                </ul>
+
+                <!-- 遮罩层 -->
+                <div class="mask">
+                    <div class="cirlebox"></div>
+                </div>
+
+                <div class="pages">
+                    <a class="pre">上一页</a>
+                    <div class="page">
+                        <select name="" id="select">
+                            <!-- 模板渲染 -->
+                        </select>
+                    </div>
+                    <a class="next">下一页</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer clearfix">
+            <div class="nav">
+                <a href="./index.html">首页 > </a>
+                <a href="./promotion.html">省钱控 </a>
+            </div>
+            <div class="top">
+                <a href="" class="login">登录</a>
+                <a href="" class="regedit">注册</a>
+                <a href="javascript:scrollTo(0,0,)" class="gotop">
+                    <img src="images/top.jpg" alt="">
+                    <span>返回顶部</span>
+                </a>
+            </div>
+            <div class="bottom">
+                <p>
+                    <a href="">手机APP下载</a>
+                    <span>慢慢买手机版&nbsp;--&nbsp;掌上比价平台</span>
+                </p>
+                <span> m.manmanbuy.com </span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<!-- 列表页渲染 -->
+<script type="text/html" id="plist">  
+    <ul>
+        {{each result v i}}
+        <li data-id={{v.productId}}>
+            <div class="left">
+                {{#v.productImgSm}}
+            </div>
+            <div class="right">
+               <a href="./pdetail.html?productid={{v.productId}}">
+                    <p class="title">{{v.productName}}
+                        <span class="price">{{v.productPinkage}}</span>
+                    </p>
+                    <p class="other">
+                        <span class="mall">{{v.productFrom}} | {{v.productTime}}</span>
+                        <span class="comment fr">{{v.productComCount}}</span>
+                    </p>
+               </a>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</script>
+<!-- 页码数渲染 -->
+<script type="text/html" id="sect">
+
+    <% for(var i=1;i<=pageTotal;i++){%>
+        <option value="{{i}}">{{i}}/{{pageTotal}}</option>
+    <%}%>
+
+</script>
