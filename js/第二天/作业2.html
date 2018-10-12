@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+     //  1.练习:问用户喜欢吃什么水果(fruits),假如用户输入”苹果”,
+     // 则显示”哈哈,这么巧,我也喜欢吃苹果”
+    // var favaritor=prompt("请问你喜欢吃什么水果？");
+    // if (favaritor="苹果"){
+    //     alert("哈哈，这么巧，我也喜欢吃苹果");
+    // }
+     //  2.练习:请用户输入姓名性别年龄,
+     // 当用户按下确定后在屏幕上显示：您好:XX您的年龄是XX是个X生
+      //      var name=prompt("请输入你的姓名");
+      //       var gender=confirm("请选择你的性别");
+      //  var age=prompt("请输入你的年龄");
+      //  alert("你好："+name+"您的年龄是"+age+"是个"+(gender ? "男生":"女生"));
+   // 写下判断闰年的表达式,设待判断的年份变量为year.
+   //         润年的判定(符合下面两个条件之一):
+   // 年份能够被400整除.
+   //         年份能够被4整除但不能被100整除.
+   //         让用户输入一个年份,如果是润年,则输出true,如果不是,
+   // 则输出false.
+     //2100/1600/1800/2009年是闰年吗？
+     //  var year=+prompt("请输入年份");
+     //  var res=year%400==0||year%4==0&&year%100!=0;
+     //  if (res){
+     //      alert("true");
+     //  }else {
+     //      alert("false");
+     //  }
+        //1. 某学生三门课成绩为,
+        // 语文:90  数学:80  英语:67,编程求总分和平均分
+          // var a=90;
+          //   var b=80;
+          //  var c=67;
+          // var sum=a+b+c;
+          // var avenge=sum/3;
+          // alert("总分是："+sum);
+          //  alert("平均分是："+avenge);
+   // 2. 定义两个变量如:number1,number2分别赋值为10和5,
+   // 写程序交换两个变量的值(两种方法都掌握)
+   // 一种方法是借助于第三方变量，一种是不借助于第三方变量的方式
+    //  var number1=10;
+    //   var number2=5;
+    //console.log(number1);
+    //console.log(number2);
+     //利用第三方交换
+  //      number3=number1;
+  //        number1=number2;
+  //         number2=number3;
+  //  console.log(number1);
+  //  console.log(number2);
+        //不借助第三方交换
+   //  number1=number1+number2;//number1=15
+   //  number2=number1-number2;//number=15-5=10
+   //  number1=number1-number2;
+   //onsole.log(number1);
+   //onsole.log(number2);
+        //1.让用户输入年龄,
+        // 如果输入的年龄大于23(含)岁,则给用户显示你到了结婚的年龄了.
+       // var age=+prompt("请输入你的年龄");
+       //  if (age>=23){
+       //      alert("你到了结婚的年龄");
+       //  }else{
+       //      alert("还未到结婚的年龄");
+       //  }
+        //2.如果小明的(chinese  music)语文成绩大于90并且音乐成绩大于80,
+        // 则奖励50元
+     //语文成绩等于100并且音乐成绩大于70,则奖励100元.
+       //     var chinese=+prompt("输入小明的语文成绩");
+       //   var music=+prompt("输入小明的音乐成绩");
+       //    if (chinese>90&&music>80){
+       //        alert("奖励50元");
+       //    }else if(chinese==100&&music>70){
+       //        alert("奖励100元");
+       //    }else {
+       //        alert("好好学习")
+       //    }
+        //3.让用户输入用户名和密码,如果用户名为admin,密码为mypass,
+        // 则提示登录成功.
+      //  var admin=prompt("请输入用户名");
+      // var mypass=prompt("请输入密码");
+      // if (admin=="admin"&&mypass=="mypass"){
+      //     alert("登录成功")
+      // }else{
+      //         alert("登录失败")
+      // }
+
+        //1、小红买了一筐鸡蛋，如果坏蛋少于5个，他就吃掉，否则他就去退货
+      // var egg=+prompt("请输入买的坏的鸡蛋");
+      // if (egg<5){
+      //     alert("选择吃掉他");
+      // }else {
+      //     alert("去退货")
+      // }
+        //2、要求用户输入两个数a、b，
+        // 如果a被b整除或者a加b大于100，则输出a的值，否则输出b的值
+      // var a=+prompt("请输入一个数");
+      // var b=+prompt("请在输入一个数");
+      // if (a%b==0||a+b>100) {
+      //      alert(a);
+      // }else{
+      //     alert(b);
+      // }
+        //3、对学员的结业考试成绩评测(考虑用if好还是用if-else好)
+    // 成绩>=90 ：A
+    // 90>成绩>=80 ：B
+    // 80>成绩>=70 ：C
+    // 70>成绩>=60 ：D
+    // 成绩<60  ：E
+     //   var score=+prompt("请输入你的成绩");
+     //   if (score>=90){
+     //       alert("A");
+     //   }else if(score>=80){
+     //       alert("B");
+     //   }else if(score>=70){
+     //       alert("C");
+     //   }else if(score>=60){
+     //       alert("D");
+     //   }else {
+     //       alert("E")
+     //   }
+        //先用if-else-if实现以下练习，
+        // 再用switch-case来实现下面这个练习，两种方式都试一下：
+    //对学员的结业考试成绩评测
+    //成绩>=90 ：A
+    //90>成绩>=80 ：B
+    //80>成绩>=70 ：C
+    //70>成绩>=60 ：D
+    //成绩<60   ：E
+    //用if-else实现?(大家考虑) 先用if-else实现一下，
+    // 再用if-else if-else if来实现
+    //更好的方法:if-else if
+  //switch case
+       // var score=+prompt("请输入你的成绩");
+       // switch (score/10){
+       //     case 10:
+       //     case 9:
+       //           alert("A");
+       //         break;
+       //     case 8:
+       //         alert("B");
+       //         break;
+       //     case 7:
+       //         alert("C");
+       //         break;
+       //     case 6:
+       //         alert("D");
+       //         break;
+       //     case 5:
+       //     case 4:
+       //     case 3:
+       //     case 2:
+       //     case 1:
+       //     case 0:
+       //         alert("E");
+       //         break;
+       //     default :
+       //         alert("请输入正确的数");
+       //         break;
+       // }
+        //练习1：提示用户输入密码，如果密码是“88888”则提示正确，
+        // 否则要求再输入一次，如果密码是“88888”则提示正确，
+        // 否则提示错误,程序结束。(如果我的密码里有英文还要转换吗,
+        // 密码:abc1)
+     //  var password=prompt("请输入密码");
+     //  if (password=="abc1"){
+     //      alert("密码正确");
+     //  }else {
+     //      alert("密码错误，请在输入一次密码");
+     //      var password=prompt("请输入密码");
+     //      if (password=="abc1"){
+     //          alert("密码正确");
+     //      }else{
+     //          alert("密码错误");
+     //      }
+     //  }
+        //练习2：提示用户输入用户名，然后再提示输入密码，
+        // 如果用户名是“admin”并且密码是“88888”，则提示正确，
+        // 否则，如果用户名不是admin还提示用户用户名不存在,
+        // 如果用户名是admin则提示密码错误.
+     // var user=prompt("请输入用户名");
+     // var password=+prompt("请输入密码");
+     // if(user=="admin"&&password==888888){
+     //     alert("密码正确");
+     // }else if(user!="admin"){
+     //              alert("用户名不存在");
+     // }else{
+     //     alert("密码错误");
+     // }
+        //练习3：提示用户输入年龄，如果大于等于18，
+        // 则告知用户可以查看，如果小于10岁，则告知不允许查看，
+        // 如果大于等于10岁并且小于18，
+        // 则提示用户是否继续查看（yes、no），
+        // 如果输入的是yes则提示用户请查看，
+        // 否则提示"退出,你放弃查看"。
+      // var age=+prompt("请输入年龄");
+      //if (age>=18){
+      //    alert("精彩内容不容错过");
+      //}else if(age>=10&&age<18){
+      //      var res=confirm("是否确定观看");
+      //    if(res){
+      //        alert("精彩马上呈现");
+      //    }else{
+      //        alert("退出，你放弃查看");
+      //    }
+      //}else {
+      //    alert("未满十岁不准查看");
+      //}
+        //先使用switch-case实现如下练习，再使用if-else  if实现一遍，比较两种方式的优劣：
+     //李四的年终工作评定,如果定为A级,则工资涨500元,如果定为B级,
+     // 则工资涨200元,如果定为C级,工资不变,如果定为D级工资降200元,
+     // 如果定为E级工资降500元.
+            // 设李四的原工资为5000,请用户输入李四的评级,
+            // 然后显示李四来年的工资.
+            // var swage=prompt("请输入李四的工资");
+
+            //switch (swage){
+            //    case "A":
+            //        alert(5000+500);
+            //        break;
+            //    case "B":
+            //        alert(5000+200);
+            //        break;
+            //    case "C":
+            //        alert(5000);
+            //        break;
+            //    case "D":
+            //        alert(5000-200);
+            //        break;
+            //    case "E":
+            //        alert(5000-500);
+            //        break;
+            //    default :
+            //        alert("请输入正确的评级");
+            //        break;
+            //}
+          //   if (swage=="A"){
+          //       alert(5000+500);
+          //   }else if(swage=="B"){
+          //       alert(5000+200);
+          //   }else if(swage=="C"){
+          //       alert(5000);
+          //   }else if(swage=="D"){
+          //       alert(5000-200);
+          //   }else if(swage=="E"){
+          //       alert(5000-500);
+          //   }else{
+          //       alert("请输入正确的评级")
+          //   }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

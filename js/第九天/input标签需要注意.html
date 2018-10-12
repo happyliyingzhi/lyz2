@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<!--1.input标签在创建的时候,type属性值有很多,这一点要注意-->
+<button id="textBtn">创建文本框</button>
+<button id="radioBtn">创建单选框</button>
+<br>
+</body>
+</html>
+<script>
+var text=id("textBtn");
+    var radio=id("radioBtn");
+//创建一个文本框
+
+  // text.onclick= function () {
+  //     var text=document.createElement("input");
+  //     text.setAttribute("type","text");
+  //     document.body.appendChild(text);
+  // }
+    //创建一个单选框
+  radio.onclick= function () {
+      for(var i=0;i<=5;i++ ){
+          var ras=document.createElement("input");
+          ras.setAttribute("type","radio");
+          document.body.appendChild(ras);
+      }
+
+  }
+//    radio.onclick= function () {
+//        var radio1=document.createElement("input");
+//        radio1.setAttribute("type","radio");
+//        document.body.appendChild(radio1);
+//    }
+</script>

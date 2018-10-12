@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>；
+
+</body>
+</html>
+<script>
+    var btn=document.getElementById("btn");
+//    //1.on+事件名称
+//    btn.onclick= function () {
+//        console.log("我被打印了");
+//    }
+//    btn.onclick= function () {
+//        console.log("我是第二个打印的");
+//    }
+    //如果有多个相同的on+xx事件，后面的会覆盖前面的
+    //2.addEventListener:也是用来注册事件的方法
+// 可以同时注册相同的事件，但是ie8以下不支持
+    //addEventListener (参数一,参数二,参数三)
+    //参数一：事件类型：click mouseover
+    //参数二：你要执行什么代码，函数或者是匿名函数
+    //参数三：true铺获事件，false冒泡事件
+    function box(){
+        console.log("我是老大，我在这里");
+    }
+    function box1(){
+        console.log("我是老二，我在外面");
+    }
+//    btn.addEventListener("click",box,false);
+//    btn.addEventListener("click",box1,false);
+    //attachEvent是IE8支持的，但是谷歌不支持
+//    btn.attachEvent("onclick",box);
+//    btn.attachEvent("onclick",box1);
+
+         setEvent(btn,"click",box);
+    //兼容版本
+       function setEvent(ele,type,fun) {
+        if(ele.attachEvent){
+             ele.attachEvent("on"+type,fun);
+        }else{
+            ele.addEventListener(type,fun,false);
+        }
+    }
+//    function setEventListener(ele,type,fun) {
+//        //能力测试
+//        if(ele.attachEvent){
+//            //你当前用的是ie8浏览器
+//            ele.attachEvent("on"+type,fun);
+//        }else {
+//            //恭喜你你的浏览器比较正常
+//            ele.addEventListener(type,fun,false);
+//        }
+//    }
+//       setEventListener(btn,"click",box);
+</script>

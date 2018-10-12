@@ -1,0 +1,73 @@
+/*
+* @Author: 李英芝
+* @Date:   2018-05-08 10:33:34
+* @Last Modified by:   李英芝
+* @Last Modified time: 2018-05-08 10:45:25
+*/
+ div,
+ p,
+ body,
+ strong,
+ b,
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ span,
+ i,
+ em,
+ del,
+ ul,
+ ol,
+ li,
+ img {
+ 	margin:0 ;
+ 	padding:0px;
+ 	/* 清楚所有的内外边距 */
+ }
+ img {
+ 	border:0 none;
+ 	vertical-align: middle;
+ 	/* 清楚图片的边框和图片与文字中线对齐 */
+ }
+ body {
+ 	background-color: white;
+ 	font: 12px/100% "微软雅黑";
+ 	/* 设置body的背景，设置body的默认的文字 */
+ }
+ input {
+ 	border:0 none;
+ 	outline:0 none;
+ 	/* 清楚输入框的边框和提示框边框 */
+ }
+ .w {
+ 	width: 1000px;
+ 	margin:0 auto;
+ }
+ .clearfix::after {
+ 	content: ""
+ 	display: block;
+ 	height: 0px;
+ 	visibility: hidden;
+
+ }
+ .clearfix {
+ 	*zoom:1;
+ }
+ a{
+ 	text-decoration: none;
+ 	color: #000;
+ }
+  h{
+ 	font-weight: normal;
+ }
+ strong{
+ 	font-weight: normal;
+ }
+ i,em {
+ 	font-style: normal;
+ }
+ li {
+ 	list-style: none;
+ }

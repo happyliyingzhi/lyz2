@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var head = ["学号","姓名","年龄"];
+        var students = [
+
+            {"num":1,"name":"andy","age":16},
+            {"num":2,"name":"rose","age":17},
+            {"num":3,"name":"jack","age":18}
+
+        ];//json的数组
+        document.write("<table>")
+        document.write("<thead>")
+        document.write("<tr>")
+          for(var i=0;i<head.length;i++){
+              document.write("<th>")
+              document.write(head[i]+"&nbsp;");
+              document.write("</th>")
+          }
+        document.write("</tr>")
+        document.write("</thead>")
+        document.write("<tbody>")
+        for(var j=0;j<students.length;j++){
+            document.write("<tr>")
+                 for(var key in students[j]){
+                     document.write("<td>")
+                     document.write(students[j][key])
+                     document.write("</td>")
+                 }
+            document.write("</tr>")
+        }
+        document.write("</tbody>")
+        document.write("</table>")
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 2000px;
+      height: 2000px;
+
+    }
+    .one {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+      margin-top: 10px;
+      position: relative;
+      top: 100px;
+      left: 100px;
+    }
+  </style>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //1.事件对象:任意事件被触发,都会产生一个对象来记录这个事件发生时候的一些情况.比如有么有按住alt键盘,触发事件的坐标...
+      //如何获取事件对象:事件参数e
+      //jQuery事件对象其实就是js事件对象的一个封装，处理了兼容性。
+
+
+      //$('#one').on('click', function (e) {
+        //alert('我是div,我被单击了...');
+        //console.log(e);
+
+        //2.事件对象里面常用的三个坐标.
+        // console.log("screenX :"+e.screenX + "-" + e.screenY); //屏幕左上角距离触发事件的那一点的距离
+        // console.log("clientX :"+e.clientX + "-" + e.clientY); //页面可视区左上角距离触发事件的那一点之间的距离.
+        // console.log("pageX :"+e.pageX + "-" + e.pageY);//页面坐上角距离触发事件那一点之间的距离.
+
+
+        //3.
+        // event.stopPropagation()    阻止事件冒泡行为
+        // event.preventDefault()    阻止浏览器默认行为
+        // return false:既能阻止事件冒泡，又能阻止浏览器默认行为。
+
+
+        //4.
+        // event.keyCode    按下的键盘代码
+
+
+      //});
+
+
+      //给a标签设置一个鼠标单击事件.
+      $('#one>a').on('click', function (e) {
+        // e.stopPropagation(); //阻止事件冒泡
+        // e.preventDefault(); //阻止默认行为.
+
+        alert('我是a标签,我被单击了...');
+
+        return false; //既能阻止冒泡,又能阻止默认行为
+      });
+
+
+      //给window设置键盘按下事件.
+      // $(window).on('keydown', function (e) {
+      //   console.log(e.keyCode);
+      // });
+
+
+      //e.data,就可以获取用on的方式注册事件的时候,第三个参数.
+      // $('body').on('click','div',"传递的数据", function (e) {
+      //   console.log(e.data);
+      // });
+
+
+    });
+  </script>
+</head>
+<body>
+<div id="one" class="one">
+  <a href="https://www.baidu.com">百度一下，你就知道</a>
+</div>
+</body>
+</html>

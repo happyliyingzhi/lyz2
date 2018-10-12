@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .one {
+      width: 200px;
+      border: 10px solid red;
+      padding: 20px;
+      margin: 30px;
+    }
+    .one::after{
+      content: '哈哈哈';
+      background-color: green;
+    }
+  </style>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+
+      $('#btn').on('click', function () {
+        //a.jQuery中,用css()方法可以获取样式.
+        //得到的值是带px的字符串.
+        // console.log($('#one').css('width'));
+        // console.log($('#one').css('height'));
+
+        //b.width()方法与height()方法;  设置\获取宽度和高度;  不包括内边距、边框和外边距.
+        //得到的值是不带px的number类型的值.
+//
+//        console.log($('#one').width());
+//        console.log($('#one').height());
+//        //也可以设置宽高
+//        console.log($('#one').height(100));
+//        console.log($('#one').width(100));
+
+
+
+
+
+        //c.innerWidth()/innerHeight();  方法返回元素的宽度/高度（包括内边距）。
+        //包括padding+设置的内容
+//        console.log($('#one').innerHeight());
+//        console.log($('#one').innerWidth());
+
+        //设置的数字也是包括了内容的宽+padding的值
+//        console.log($('#one').innerWidth(100));
+//        console.log($('#one').innerWidth());
+//        console.log($('#one').width());
+
+
+        //d.outerWidth()/outerHeight(); 方法返回元素的宽度/高度（包括内边距和边框）。
+//        //这是的宽=内容的设置+padding+边框   相当于真实的盒子的宽高
+//        console.log($('#one').outerHeight());
+//        console.log($('#one').outerWidth());
+
+        //设置盒子的真实宽高
+//        console.log($('#one').outerWidth(100));
+//        console.log($('#one').outerWidth());
+//        console.log($('#one').width());
+
+
+
+
+
+
+        //e.outerWidth(true)/outerHeight(true); 方法返回元素的宽度/高度（包括内边距和边框和外边距）。
+        // console.log($('#one').outerWidth(true));
+        // console.log($('#one').outerHeight(true));
+
+
+        //要获取页面的宽高.
+        console.log($(window).width());
+        console.log($(window).height());
+
+      });
+
+
+      //模拟响应式布局
+      $(window).on('resize', function () {
+        //console.log($(this).width());
+        var width = $(this).width();
+        if(width > 1200){
+          $('body').css('backgroundColor','red');
+        }else if(width > 800){
+          $('body').css('backgroundColor','green');
+        }else if(width > 400){
+          $('body').css('backgroundColor','pink');
+        }else {
+          $('body').css('backgroundColor','blue');
+        }
+      });
+
+
+    });
+  </script>
+
+
+
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+<div id="one" class="one" style="height: 200px;"></div>
+</body>
+</html>

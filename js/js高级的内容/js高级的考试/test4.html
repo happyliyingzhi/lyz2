@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+function Animal(sex,age){
+    this.gender=sex;
+    this.age=age;
+}
+//动物的方法
+    Animal.prototype.eat= function () {
+        console.log("大口吃东西");
+    }
+    //狗的构造函数
+    function Dog(color){
+        this.color=color;
+    }
+    //狗的原型继承Animal的方法
+    Dog.prototype=new Animal('男',15);
+
+    Dog.prototype.lookHouse= function () {
+        console.log("看家的本事");
+    }
+    var dog=new Dog('yellow');
+console.log(dog.gender + '---' + dog.age + '---' + dog.color);
+    dog.eat();
+    dog.lookHouse();
+</script>

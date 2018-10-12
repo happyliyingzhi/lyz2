@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="myul">
+    <li>隔壁老宋1</li>
+    <li>隔壁老宋2</li>
+    <li id="li3">隔壁老宋3</li>
+    <!--我是一个11111屎棍-->
+
+    我是一个搅屎棍
+    <!--我是一个搅屎棍-->
+    我是一个搅屎棍
+    <!--我是一个搅 屎棍-->
+    <li>隔壁老宋4</li>
+    <li>隔壁老宋5</li>
+</ul>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+var li3=id("li3");
+//console.log(li3);
+    //如何获得li3下一个节点
+    //nextSibling:可以得到下一个节点(文本节点(空文本以及非空文本),注释节点,元素节点)
+    //注意：ie8以下，得到下一个节点(文本节点(非空文本),注释节点,元素节点)
+console.log(li3.nextSibling);
+    //如何获得下一个元素节点
+    //nextElementSibling;下一个元素节点
+    //注意ie8不支持
+console.log(li3.nextElementSibling);
+    //如何兼容ie8得到下一个元素节点
+//就是封装一个方法,这个方法新浏览器可以用,老版本的浏览器也可以用
+   function getNextElement(ele){
+       //思路：首先呀判断一下，是否能得到下一个节点元素
+       if(ele.nextElementSibling){
+           return ele.nextElementSibling;
+           //返回得到下一个节点元素
+       }else{
+           //如果上面不能判断，进入下面
+           //首先得到下一个节点
+           var node=ele.nextSibling;
+           //然后对得到下一节点进行判断如果是元素节点那么元素类型是为1，如果不是1就继续往下找
+
+           while(node.nodeType !=1){
+               node=node.nextSibling;
+           }
+         //直到找到这个为1的类型，然后跳出这个循环
+       }
+       return node;
+   }
+console.log(getNextElement(li3));
+
+</script>

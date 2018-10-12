@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.函数上下文调用模式有什么用.
+    //需求: 把伪数组转成真数组.
+
+    //准备一个伪数组.
+    var weiArr = {
+      0:"林黑群",
+      1:"林狗群",
+      2:"林绿群",
+      3:"林依鸿",
+      4:"林绿鸿",
+      5:"林狗鸿",
+      6:'林骚鸿',
+      7:'骚浪贱',
+      length:8
+    }
+    // for(var i = 0 ; i < weiArr.length; i++){
+    // 	console.log(weiArr[i]);
+    // }
+    // weiArr.push('敬业福'); //报错了,因为伪数组没有数组的push方法.
+
+
+    //2.实现需求01:
+    // var arr = [];
+    // for(var i = 0 ; i < weiArr.length; i++){
+    // 	arr[i] = weiArr[i];
+    // }
+    // console.log(arr);
+
+
+    //3.实现需求02:
+    // var arr = [];
+    // //arr.push(weiArr);//如果是这样,就会把伪数组当成是一个元素push进去arr数组中.
+    // arr.push.apply(arr,weiArr); //就会把weiArr里面的每一个元素依次的交给push方法.
+    // console.log(arr);
+
+
+    //4.实现需求03:
+    // var arr = [];
+    // arr = arr.concat.apply(arr,weiArr); //把weiArr里面的每一个元素和前面的arr做连接.
+    // console.log(arr);
+
+
+    //5.实现需求04:
+    //var newArr = weiArr.slice(0);//报错了,  如果weiArr真的可以调用这个slice方法,就可以满足需求.
+    var arrNew = Array.prototype.slice.call(weiArr,0); //修改slice方法的this为weiArr,就感觉是weiArr在调用这个slice方法.
+    console.log(arrNew);
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+  //var 与let的区别
+  //var在js解析中，会将是var 和function会提前在当前作用域的前面，先赋值undefined,
+  //允许同一个变量的赋值，后面的值会覆盖前面的值
+        // //   console.log(a)//undefined
+        // var a=10
+        // var a=100;
+        // console.log(a)//100,允许同一个变量申请，并且后面的值会覆盖前面的值
+
+   // console.log(a)//报错 a is not defined
+    //    let a=10;
+    //     let a=100;
+    //     console.log(a)//报错  Identifier 'a' has already been declared
+
+
+    //作用域链的规则
+        //1.在当前作用域中，如果一个变量有声明，不管是在这打印的前面的还是后面，这个打印的变量，只会首先在这个作用域中找这个变量
+      //  var num=100;
+      //  function res(){
+      //    //  var num=10;//10
+      //      //var num；
+      //      console.log(num);
+      //     // var num=10;//undefined
+      //      num=10;
+      //      //当申明在后面打印在前面的时候，这个时候会出现undefined
+      //      //在当前作用域运行的最开始，会将所有的变量的声明提前到作用域的最前面，赋值语句，留在原地
+//
+      //  }
+      //  res()//10
+        //2.在当前作用域中，如果一个变量在当前作用域没有声明，但是被使用了，那么会往上一级找这个变量，如果找到了这变量，就使用，
+        // 如果没有找到这个变量，会一直往上一级找，直到找到这全局变量也没有为止
+        //如果全局变量也没有，就会报错
+        // arr()
+       var num=99;
+
+       function arr(){
+
+           arr1();
+
+           function arr1(){
+             //   var num=100;
+               arr2();
+                   function arr2(){
+                      // var num=50;
+                       console.log(num);//50//100//99//undefined//undefined
+                   }
+
+           }
+       }
+       arr();
+     //  var num=99;
+        //当函数里面没有申明num这个变量是，这个时候函数打印这个变量会往全局变量找//99
+        //当函数里面有申明这个变量，会显示函数里面这个变量//100
+        //当函数里面同时有两个申明相同的值，下面的值会覆盖的上面的值
+        //当函数里面有赋值，全局变量也会有赋值。这个时候会根据函数里面的赋值输出
+        //先找函数里面的，在找函数外面的
+        //函数里面是从上到下，下面的值会覆盖上面相同的值
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

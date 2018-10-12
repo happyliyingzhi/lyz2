@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="ul1">
+    <li>我是第1个li标签</li>
+    <li>我是第2个li标签</li>
+    <li>我是第3个li标签</li>
+    <li>我是第4个li标签</li>
+    <li>我是第5个li标签</li>
+</ul>
+</body>
+</html>
+<script>
+//点击上面的li弹出当前这个li对应的索引
+    //之前的做法
+    var uli1=document.getElementById("ul1");
+    var li=uli1.children;
+//console.log(li);
+//    for(var i=0;i<li.length;i++){
+//           li[i].setAttribute("index",i);
+//        li[i].onclick= function () {
+//            var index = this.getAttribute("index");
+//            alert(index);
+//        }
+//    }
+    //现在需要：用闭包实现
+    for(var i=0;i<li.length;i++){
+        function outer(){
+            var num=i;
+
+        function inner(){
+            console.log(num);
+        };
+       return inner;
+        };
+        li[i].onclick=outer();
+    }
+    document.getElementsByName()
+</script>

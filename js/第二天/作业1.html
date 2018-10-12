@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+      //1.请用户输年份
+
+     // 输出该年是平年还是闰年。
+     // 闰年的计算方法：
+     // a.能被400整除
+     // b.能被4整除且不能被100整除
+     //  var year =+prompt("请输入年份");
+     //  var res=year%400||year%4==0&&year/100!=100
+     //  if ( res){
+     //        alert("润年");
+     //  }else {
+     //      alert("平年");
+     //  }
+        //3. 请用户输入1个月份,然后打印这个月份数属于哪个季节.
+      //345  678    9 10 11     12 1 2
+       // var month=+prompt("请输入月份");
+       // switch (month){
+       //     case 3:
+       //     case 4:
+       //     case 5:
+       //         alert("春天");
+       //         break;
+       //     case 6:
+       //     case 7:
+       //     case 8:
+       //         alert("夏天");
+       //         break;
+       //     case 9:
+       //     case 10:
+       //     case 11:
+       //         alert("秋天");
+       //     case 12:
+       //     case 1:
+       //     case 2:
+       //         alert("冬天");
+       //         break;
+       //     default :
+       //         alert("请输入正月的月份");
+       //         break;
+       // }
+     //4. 请用户输入1个星期数. 就将对应的英文的星期打印出来.
+     //        英文自己查有道
+     // .Monday  Tuesday Wednesday Thursday Friday Saturday Sunday
+      //  var week=+prompt("请输入星期几");
+      //  switch (week) {
+      //      case 1:
+      //          alert("monday");
+      //          break;
+      //      case 2:
+      //          alert("Tuesday");
+      //          break;
+      //      case 3:
+      //          alert("Wednesday");
+      //          break;
+      //      case 4:
+      //          alert("Thursday");
+      //          break;
+      //      case 5:
+      //          alert("Friday");
+      //          break;
+      //      case 6:
+      //          alert("Saturday");
+      //          break;
+      //      case 7:
+      //          alert("Sunday");
+      //          break;
+      //      default :
+      //          alert("请输入正确的数字");
+      //          break;
+      //  }
+    // 5. 提示用户输入年龄，如果大于等于18，则告知用户可以查看，
+    // 如果小于10岁，则告知不允许查看，
+    // 如果大于等于10岁并且小于18，则提示用户是否继续查看（yes、no），
+    // 如果输入的是yes则提示用户请查看，否则提示"退出,你放弃查看"。
+   //  var age=+prompt("请输入你的年龄");
+   //  if(age>=18){
+   //      alert("精彩内容不能错过");
+   //  }else if(age>=10){
+   //      var res=confirm("是否确定观看");
+   //      if(res){
+   //          alert("精彩内容，马上呈现");
+   //      }else {
+   //          alert("好好学习");
+   //      }
+   //  }else{
+   //      alert("耐心等待长大");
+   //  }
+     // 6. 编一个程序，输入一个整数,如果该数大于0，
+     // 则加上100，如果小于0加上500，如果等于0,则什么都不做,输出结果
+    //var num=+prompt("请输入一个整数");
+    //   var num1=parseInt(num);
+    // //console.log(num1);
+    //   if(num1>0){
+    //       console.log(num1+100);
+    //   }else if(num1<0){
+    //       console.log(num1 + 500);
+    //   }else {
+    //       console.log(num1);
+    //   }
+     // 7.  要求用户输入两个数a、b，如果a能被b整除或者a加b大于100，
+     // 则输出a的值，否则输出b的值
+       //var a=+prompt("请输入一个数");
+       //var b=+prompt("请在输入一个数");
+       ////
+       //if (a+b>100){
+       //    alert(a);
+       //}else if(a%b==0) {
+       //    alert(a);
+       //}else {
+       //    alert(b);
+        //}
+        //8. 对学员的结业考试成绩做出评测
+        // 成绩>=90 ：A, 成绩>=80
+        // ：B,成绩>=70 ：C,  成绩>=60 ：D  , 成绩<60   ：E
+       // var score=+prompt("请输入成绩");
+       // if (score>=90) {
+       //     alert("A");
+       // }else if(score>=80){
+       //     alert("B");
+       // }else if(score>=70){
+       //     alert("C");
+       // }else if(score>=60){
+       //     alert("D");
+       // }else {
+       //     alert("E");
+       // }
+        //9. 编一个程序，从键盘上输入三个数，把最大数找出来
+      //var a=+prompt("请输入第一个数");
+      //var b=+prompt("请输入第二个数");
+      //var c=+prompt("请输入第三个数");
+      //    if (a>b){
+      //       //alert(a);
+      //        if (a>c) {
+      //            alert(a);
+      //        }
+      //        else {
+      //            alert(c);
+      //        }
+      //    }else{
+      //       // alert(b);
+      //        if (b>c) {
+      //            alert(b);
+      //        }
+      //        else {
+      //            alert(c);
+      //        }
+      //    }
+     // 10、 提示用户输入密码，如果密码是“888888”则提示正确，
+     // 否则要求再输入一次，如果密码是“888888”则提示正确，
+     // 否则提示错误,程序结束。
+      //  var password=+prompt("请输入你的密码");
+       // var password1=+prompt("请输入你的密码");
+      //  if (password==888888){
+      //      alert("密码正确");
+      //  }else{
+      //      alert("请在输入一个次");
+      //      var password=+prompt("请输入你的密码");
+      //      if (password==888888){
+      //          alert("密码正确")
+      //      }
+      //      else {
+      //          alert("密码错误")
+      //      }
+      //  }
+     // 11、 提示用户输入用户名和密码，如果用户名是admin,密码是“888888”
+     // 则提示正确，
+     // 否则要求再输入一次，如果用户名是admin
+     // ,密码是“888888”则提示正确,否则提示错误,程序结束。
+     //ar user=prompt("请输入用户名");
+     //var password=+prompt("请输入密码");
+     //if (user=="admin"&&password==888888){
+     //          alert("密码正确");
+     //      }else {
+     //    alert("请在输入一次");
+     //    var user=prompt("请输入用户名");
+     //    var password=+prompt("请输入密码");
+     //     if(user=="admin"&&password==888888){
+     //         alert("密码正确")
+     //        }else{
+     //            alert("密码错误")
+     //        }
+     //    }
+
+        //3.switch-case小练习题
+     // 女神聊天翻译器：
+//
+     // 呵呵                 你说的内容我不感兴趣
+     // 嗯                   你说的内容还可以，继续吧
+     // 哦                   无所谓
+     // 我要去洗澡了         结束聊天
+      // var a=prompt("请输入语句");
+      // switch (a){
+      //     case "呵呵":
+      //         alert("你说的内容我不感兴趣");
+      //         break;
+      //     case  "嗯":
+      //         alert(" 你说的内容还可以，继续吧");
+      //         break;
+      //     case "哦":
+      //         alert("无所谓");
+      //         break;
+      //     case "我要去洗澡了":
+      //         alert("结束聊天");
+      //         break;
+      //     default :
+      //         alert("你的女神已经抛弃了你");
+      //         break;
+      // }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

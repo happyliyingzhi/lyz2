@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+
+</div>
+<input  type="submit" id="btn" />
+</body>
+</html>
+<script>
+    var btn=document.getElementById("btn");
+     var box=document.getElementById("box");
+     var arraytemp=['火箭1','火箭2','火箭3','火箭4','火箭5'];
+      btn.onclick= function () {
+          var ul=document.createElement('ul');
+          box.appendChild(ul);
+          for(var i=0;i<arraytemp.length;i++){
+              var li=document.createElement('li');
+              li.innerHTML=arraytemp[i];
+              ul.appendChild(li);
+
+
+              //鼠标移入就改变颜色
+              var oldColor=null;
+              li.onmouseover= function () {
+                  oldColor=this.style.backgroundColor;
+                  this.style.backgroundColor='red';
+              }
+              //鼠标移出恢复之前的颜色
+              li.onmouseout= function () {
+                  this.style.backgroundColor=oldColor;
+              }
+          }
+
+
+
+      }
+
+
+
+
+
+
+
+
+
+
+//    btn.onclick= function () {
+//        var ul = document.createElement('ul');
+//          box.appendChild(ul);
+//         for(var i=0;i<5;i++) {
+//             var li = document.createElement("li");
+//             li.innerHTML = "我是球队" + (i + 1);
+//             ul.appendChild(li)
+//
+//
+//             var oldColor;
+//             li.onmouseover = function () {
+//                 oldColor = this.style.backgroundColor;
+//                 this.style.backgroundColor = "red";
+//             };
+//             //11.鼠标移出时恢复他的颜色
+//             li.onmouseout = function () {
+//                 this.style.backgroundColor = oldColor;
+//             };
+//         }
+//    }
+
+</script>

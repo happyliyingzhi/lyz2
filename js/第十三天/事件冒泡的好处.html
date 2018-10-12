@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>标题</title>
+
+</head>
+<body>
+<ul id="ul1">
+    <li>我是第1个li标签</li>
+    <li>我是第2个li标签</li>
+    <li>我是第3个li标签</li>
+    <li>我是第4个li标签</li>
+    <li>我是第5个li标签</li>
+</ul>
+</body>
+</html>
+<script>
+var ul1=document.getElementById("ul1");
+    ul1.onclick= function (e) {
+        e=e||window.event;
+        alert(e.target.innerHTML);//这个事件是由谁触发的，事件的源头
+        //e.target:是触发事件的源头
+        //意思：虽然点击事件设置在ul身上，但是我点击的是li，但是li的点击事件是为空
+        //然后程序会冒泡到他的父级元素，去触发父级元素的点击事件
+    }
+</script>

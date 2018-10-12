@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        .clock {
+            width: 600px;
+            height: 600px;
+            margin: 100px auto;
+            background: url(images/clock.jpg) no-repeat;
+            position: relative;
+        }
+
+        .clock div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(images/hour.png) no-repeat center center;
+        }
+
+        #m {
+            background-image: url(images/minute.png);
+        }
+
+        #s {
+            background-image: url(images/second.png);
+        }
+    </style>
+</head>
+<body>
+<div class="clock">
+
+    <div id="h"></div>
+    <div id="m"></div>
+    <div id="s"></div>
+</div>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+//1.获取相关的元素
+    var nowH=id("h");
+    var nowM=id("m");
+      var nowS=id("s");
+//console.log(nowH,nowM,nowS);
+    function getTime(){
+        //2.获取当前的时间
+        var date= new Date();
+        var secS=date.getSeconds();
+        var minS=date.getMinutes();
+        var hourH=date.getHours();
+        var haoM=date.getMilliseconds();
+      //  console.log(minS, secS, hourH);
+     //3,设置时分秒的度数
+        //注意这里的设置不能只设置分秒时的度数，要设置相应的对数，这样
+        //表走的不是间断性的
+        var s1=secS*6+(haoM/1000*6)+"deg";
+        var m1=minS*6+(secS/60*6)+"deg";
+        var h1=hourH*30+(minS/60*30)+"deg";
+        //4设置旋转度数
+        nowH.style.transform="rotate("+h1+")";
+        nowM.style.transform="rotate("+m1+")";
+        nowS.style.transform="rotate("+s1+")";
+
+
+    }
+ setInterval(getTime,1000);
+  //  getTime();
+</script>

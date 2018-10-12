@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="myul">
+    <li>隔壁老宋1</li>
+    <li>隔壁老宋2</li>
+    <li id="li3">隔壁老宋3</li>
+    <li>隔壁老宋4</li>
+    <li>隔壁老宋5</li>
+</ul>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+    var li=id("li3");
+    //parentNode:可以找到父节点
+    //注意:ie竟然支持
+    console.log(li.parentNode);
+</script>

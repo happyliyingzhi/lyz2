@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <style>
+        .one {
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            border: 22px solid #000;
+            overflow: auto;
+        }
+        img {
+            width: 400px;
+            height: 400px;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/> <br/><br/>
+<div class="one" id="box">
+    <img src="1.jpg" alt=""/>
+</div>
+<script>
+//clientWidth:就是当前这个元素可视区的宽(没有边框)
+    //clientHeight:就是当前这个元素的可视区的高
+var btn=document.getElementById("btn");
+    var box=document.getElementById("box");
+  btn.onclick= function () {
+    // console.log(box.clientWidth);//220
+    // console.log(box.clientHeight);//220
+//      console.log(box.offsetHeight);
+  }
+    //封装可视区的兼容的函数
+    function getClient(){
+        return{
+            clientWidth:window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth||0,
+            clientHeight:window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight||0
+
+        }
+    }
+console.log(getClient().clientHeight);
+console.log(getClient().clientWidth);
+</script>

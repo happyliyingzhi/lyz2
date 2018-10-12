@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    //翻新:方法一
+   //    function old(arr){
+   //        for(var i=0;i<arr.length/2;i++){
+   //            var temp;
+   //            temp=arr[i];
+   //            arr[i]=arr[arr.length-1-i];
+   //            arr[arr.length-1-i]=temp;
+   //        }
+   //        return arr;
+   //    }
+   //    var num=[10,20,30,40];
+   //    var res=old(num);
+   //console.log(res);
+        //方法二：
+  // var num=[10,20,30,40];
+  //     var res=[];
+  //     function old(arr){
+  //         for(var i=arr.length-1;i>=0;i--){
+  //             res[res.length]=arr[i]
+  //         }
+  //         return res;
+  //     }
+  //     var num1=old(num);
+  // console.log(num1);
+        //方法三：
+  // var num=[10,20,30,40];
+  //     var res=num.reverse();
+  // console.log(res);
+        //冒号排序:方法一
+  //     function arr(num){
+  //         for(var i=0;i<num.length-1;i++){
+  //                for(var j=0;j<num.length-1-i;j++){
+  //                    if(num[j]>num[j+1]){
+  //                        var temp;
+  //                        temp=num[j];
+  //                        num[j]=num[j+1];
+  //                        num[j+1]=temp;
+  //                    }
+
+  //                }
+  //         }
+  //         return num;
+  //     }
+  //     var res=[1,2,3,1,40,20,10];
+  //     var num1=arr(res);
+  // console.log(num1);
+        //方法二：
+//      var res=[1,2,3,1,40,20,10];
+//          function arr(a,b){
+//              return a-b;
+//          }
+//       res.sort(arr)
+//    console.log(res);
+
+        //去重函数
+      //  var res=[num[0]];
+//       function arr(num){
+//           var res=[num[0]];
+//           for(var i=0;i<num.length;i++){
+//                var flag=true;
+//               for(var j=0;j<res.length;j++){
+//                   if(num[i]==res[j]){
+//                       flag=false;
+//                       break;
+//                   }
+//               }
+//               if(flag){
+//                   res[res.length]=num[i];
+//               }
+//           }
+//           return res;
+//       }
+//        var num1=[1,1,30,2,40,30,40,60];
+//        var num2=arr(num1);
+//    console.log(num2);
+       //6.输入一个年份，判断是否是闰年(能被4整除而不能被100整除.2.能被400整除.)
+//        var num=+prompt()
+//        function arr(num){
+//           if((num%4==0&&num%100!=0)||(num%400==0)){
+//              return alert("润年")
+//           }else{
+//              return alert("平年")
+//           }
+//        }
+//        var res=arr(num);
+//    console.log(res);
+ //    2月1号
+ //   一年有365天
+ // 2月*30=60天
+ // 1hao
+ // 总数60+1=61
+    //7.输入某年某月某日，判断这一天是这一年的第几
+     //   var num=+prompt("请输入年份");
+     //   var num1=+prompt("请输入月份");
+     //   var num2=+prompt("请输入日期");
+     //   function arr(num,num1,num2){
+     //       var month= num1*30;
+     //       var sum=month+num2;
+     //       return alert(sum);
+     //   }
+     //   arr(num,num1,num2);
+ //  8.判断一个数是否是素数
+ //  素数（质数）：就只能被1和自身整除的数就是素数
+
+ //  1既不是素数也不是合数
+ // var num=+prompt("请输入一个数");
+
+ // function arr(num){
+ //         if((num%1==0&&num%num==0)&&num!==1){
+ //             return alert("素数")
+ //         }
+ //     }
+ // arr(num);
+        //3.求斐波那契数列Fibonacci中的第n个数是多少？ 封装成函数，我传几当参数，你就给我返回几的值
+//模拟
+        //1,1,2,3,5,8,13,21,34,55.....  求第八位是多少？
+        //模拟  第2位=第一位+第零位=1+1=2
+        //        arr[2]=arr[2-1]+arr[2-2]
+        //        第3位=第2位+第1位
+        //       arr[3]=arr[3-1]+arr[3-2]
+        //          第4位=第3位+第2位
+          //        arr[4]=arr[4-1]+arr[4-2]
+        //         arr[i]=arr[i-1]+arr[i-2]
+//       var arr=[1,1,2,3,5,8];
+//    for(var i=2;i<8;i++){
+//        arr[i]=arr[i-1]+arr[i-2];
+
+//    }
+// console.log(arr);
+
+
+    function arr(num){
+            var arr = [1,1];
+            for(var i=2;i<num;i++){
+                arr[arr.length]=arr[arr.length-2]+arr[arr.length-1];
+            }
+            console.log(arr);
+            return arr;
+        }
+
+     arr(12);
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度换肤</title>
+    <!--<script src= "common.js">-->
+
+    <!--</script>-->
+    <style>
+        html, body, div {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            background: url(images/1.jpg) no-repeat;
+            background-size: 100%;
+        }
+
+        .back {
+            width: 100%;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.3);
+            padding-top: 50px;
+            text-align: center;
+        }
+
+        .back img {
+            width: 200px;
+            height: 125px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="back">
+    <a href="images/1.jpg">
+        <img src="images/1.jpg" alt="">
+    </a>
+    <a href="images/2.jpg">
+        <img src="images/2.jpg" alt="">
+    </a>
+    <a href="images/3.jpg">
+        <img src="images/3.jpg" alt="">
+    </a>
+    <a href="images/4.jpg">
+        <img src="images/4.jpg" alt="">
+    </a>
+    <a href="images/5.jpg">
+        <img src="images/5.jpg" alt="">
+    </a>
+</div>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+    //思路首先：我要使a不用跳转，所有会有return false
+    //
+   var box=document.getElementsByTagName("a");
+   console.log(box);
+   for(var i=0;i<box.length;i++){
+//          box[i].onclick= function () {
+//              //数组，前面必须要box【i】，否则点击没有效果
+//            document.body.style.background="url("+this.href+") no-repeat";
+//              //当我点击时，将我点击的图片地址给body，this.href是谁点击就获取谁的图片地址，++是为了连接前面的url和no-repeat
+//            document.body.style.backgroundSize= "100%";
+//              //设置body照片的尺寸
+//           return false;
+//              //阻止a标签的跳转
+//       }
+       //这里是鼠标经过时候，改变body的背景图
+       box[i].onmouseover= function () {
+           document.body.style.background="url("+this.href+") no-repeat";
+           document.body.style.backgroundSize="100%";
+           return false;
+       }
+   }
+
+</script>

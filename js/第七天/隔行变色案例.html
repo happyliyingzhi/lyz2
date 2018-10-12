@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>你好？明天1</li>
+    <li>你好？明天2</li>
+    <li>你好？明天3</li>
+    <li>你好？明天4</li>
+</ul>
+</body>
+</html>
+<script>
+    //如何隔行变色？
+    //思想首先要找到所有li标签，变成伪数组
+//    var liList=document.getElementsByTagName("li");
+//    console.log(liList);
+//    //然后进行循环
+//    for(var i=0;i<liList.length;i++){
+//        if(i%2==0){
+//            liList[i].style.backgroundColor="blue";
+//        }else{
+//            liList[i].style.backgroundColor="green";
+//        }
+//    }
+    //思路，先后的li的标签
+    var liList=document.getElementsByTagName("li");
+    console.log(liList);
+    //利用循环
+    for(var i=0;i<liList.length;i++){
+        if(i%2==0){
+            liList[i].style.backgroundColor="red";
+        }else{
+            liList[i].style.backgroundColor="green";
+        }
+    }
+</script>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .wrap {
+            width: 400px;
+            height: 400px;
+            margin: 100px auto 0;
+        }
+
+        .wrap h1 {
+            text-align: center;
+        }
+
+        .wrap div {
+            width: 400px;
+            height: 300px;
+            background: pink;
+            font-size: 30px;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+      $(function () {
+          $(window).on('keydown', function (e) {
+              var $bgChange=$('#bgChange');
+              switch (e.keyCode){
+                  case 37:
+                      $bgChange.css('backgroundColor','red');
+                      $('#keyCodeSpan').text(e.keyCode);
+                      break;
+                  case 38:
+                      $bgChange.css('backgroundColor','pink');
+                      $('#keyCodeSpan').html(e.keyCode);
+                      break;
+                  case 39:
+                      $bgChange.css('backgroundColor','green');
+                      $('#keyCodeSpan').html(e.keyCode);
+                      break;
+                  case 40:
+                      $bgChange.css('backgroundColor','yellow');
+                      $('#keyCodeSpan').html(e.keyCode);
+                      break;
+                  default :
+                      $bgChange.css('backgroundColor','skyblue');
+                      $('#keyCodeSpan').html("查无此键");
+                      break;
+              }
+          })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//         //给当前的页面设置一个键盘按下的事件，找出按的那个键
+//          $(document).on('keydown', function (e) {
+//              //console.log(e.keyCode);  //r 82   b 66  p80   y89     g71  s83  o79
+//              var $bgcDiv =  $('#bgChange');
+//
+//              switch (e.keyCode){
+//                  case 82:
+//                      $bgcDiv.css({
+//                          backgroundColor:'red'
+//                      });
+//                      $('#keyCodeSpan').text(e.keyCode);
+//                      break;
+//                  case 66:
+//                      $bgcDiv.css({
+//                          backgroundColor:'blue'
+//                      });
+//                      $('#keyCodeSpan').text(e.keyCode);
+//                      break;
+//                  case 80:
+//                      $bgcDiv.css({
+//                          backgroundColor:'purple'
+//                      });
+//                      $('#keyCodeSpan').text(e.keyCode);
+//                      break;
+//                  case 82:
+//                      $bgcDiv.css({
+//                          backgroundColor:'red'
+//                      });
+//                      $('#keyCodeSpan').text(e.keyCode);
+//                      break;
+//                  case 89:
+//                      $bgcDiv.css({
+//                          backgroundColor:'yellow'
+//                      });
+//                      $('#keyCodeSpan').text(e.keyCode);
+//                      break;
+//                  default :
+//                      $bgcDiv.css({
+//                          backgroundColor:'pink'
+//                      });
+//                      $('#keyCodeSpan').text('查无此键');
+//                      break;
+//
+//              }
+//          });
+      });
+    </script>
+</head>
+<body>
+
+    <div class="wrap">
+        <h1>按键改变颜色</h1>
+        <div id="bgChange">
+            keyCode为：
+            <span id="keyCodeSpan"></span>
+        </div>
+    </div>
+
+</body>
+</html>

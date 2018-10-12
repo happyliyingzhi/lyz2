@@ -1,0 +1,43 @@
+/*旋转木马的css*/
+
+.poster-main {
+    height: 500px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.poster-main a,
+.poster-main img {
+    display:block;
+}
+
+.poster-main .poster-list {
+    width: 1000px;
+    height: 500px;
+}
+
+.poster-main .poster-list .poster-item {
+    width: 200px;
+    height: 500px;
+    position:absolute;
+    left:0;
+    top:0;
+}
+
+.poster-main .poster-btn {
+    position:absolute;
+    top:0;
+    z-index:10;
+    cursor:pointer;
+}
+
+.poster-main .poster-prev-btn {
+    left:0;
+    background: url('../images/left.png') no-repeat center center;
+}
+
+.poster-main .poster-next-btn {
+    right:0;
+    background: url('../images/right.png') no-repeat center center;
+}
+/*旋转木马结束*/

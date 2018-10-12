@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #c table {
+      border: 1px solid hotpink;
+      width: 500px;
+      border-collapse: collapse;
+    }
+    #c table td, #c table th {
+      border: 1px solid hotpink;
+    }
+  </style>
+</head>
+<body>
+  <div id="c">
+  </div>
+
+
+  <br/><br/><br/>
+
+  <div id="d">
+  </div>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script src="jQuery-table.js"></script>
+  <script>
+    $('#c').table(['序号', '姓名', '年龄', '工资'],[
+      {n: 'xy', age: 20, s: 10},
+      {n: 'wy', age: 10, s: 8},
+      {n: 'pl', age: 11, s: 9}
+    ]);
+
+
+
+
+
+    $('#d').table(['序号','姓名','性别','成绩'],[
+      {'name':'丁天','gender':'女','score':100},
+      {'name':'程龙','gender':'男','score':99},
+      {'name':'火箭','gender':'男','score':90},
+      {'name':'大汉','gender':'男','score':89}
+    ]);
+  </script>
+
+</body>
+</html>

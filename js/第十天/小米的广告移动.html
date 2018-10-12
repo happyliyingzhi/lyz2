@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .xiaomi {
+            width: 512px;
+            height: 400px;
+            border: 1px solid #f00;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .xiaomi span {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            cursor: pointer;
+
+        }
+
+        .up {
+            top: 0;
+
+        }
+
+        .down {
+            bottom: 0;
+
+        }
+
+        .xiaomi img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="xiaomi">
+    <img src="images/mi.png" alt="" id="pic"/>
+    <span class="up" id="goUp"></span>
+    <span class="down" id="goDown"></span>
+</div>
+</body>
+<script src="common.js"></script>
+<script>
+//1.获取相关的元素
+    var pic=id("pic");
+    var goUp=document.getElementById("goUp");
+    var goDowm=id("goDown");
+      var picTop=0;
+    //  var picDow=-1070;
+    var timeId;
+console.log(goUp);
+console.log(pic);
+console.log(goDowm);
+//2,给鼠标设置移入事件
+    goUp.onmouseover= function () {
+          clearInterval(timeId);
+       timeId= setInterval(function () {
+             //清空计时器
+                    picTop-=10;
+                      pic.style.top=picTop+"px";
+                       if(picTop<=-1070){
+                           pic.style.top="-1070px";
+                           clearInterval(timeId);
+                       }
+                },10)
+    }
+    //3.给鼠标移出事件
+   goUp.onmouseout= function () {
+       clearInterval(timeId);
+   }
+    //4。给下godown设置鼠标移入事件
+//这里注意首清空计时器，往上的时候，用的同一个变量，否则你的图片滚动的位置不一样
+    goDowm.onmouseover= function () {
+        clearInterval( timeId);
+      timeId=setInterval(function () {
+                  picTop+=10;
+                pic.style.top=picTop+"px";
+          if(picTop>=0){
+              pic.style.top="0px";
+              clearInterval(timeId);
+          }
+                },50)
+    }
+    //4.给godown设置鼠标移出事件
+     goDowm.onmouseout= function () {
+    clearInterval(timeId);
+}
+</script>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="append" id="btnAppend"/>
+<input type="button" value="prepend" id="btnPrepend"/>
+<input type="button" value="after" id="btnAfter"/>
+<input type="button" value="before" id="btnBefore"/>
+<input type="button" value="appendTo" id="btnAppendTo"/>
+<ul id="ul1">
+    <li>我是第1个li标签</li>
+    <li>我是第2个li标签</li>
+    <li id="li3">我是第3个li标签</li>
+    <li>我是第4个li标签</li>
+    <li>我是第5个li标签</li>
+</ul>
+
+<ul id="ul2">
+    <li>我是第1个li标签2</li>
+    <li>我是第2个li标签2</li>
+    <li id="li32">我是第3个li标签2</li>
+    <li>我是第4个li标签2</li>
+    <li>我是第5个li标签2</li>
+</ul>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+$(function () {
+    //添加节点
+    //1.父节点.append(要调加的节点)
+    //把整个要添加的节点，添加到父节点的最后一个子元素
+   // $('#btnAppend').click(function () {
+//        var $list=$('<li>我是新建的li表情哦i按</li>');
+//        $('#ul1').append($list)
+
+
+        //把当前这个ul中的某个li追加到当前的这个ul中
+        //剪切追到到最后一个
+//        var   $li32=$('#li32');
+//        $('#ul1').append($li32)
+   // })
+    //2.父节点 .prepend(要追加的元素)；
+    //把这个要追加的元素，添加到父元素的第一个子节点
+//    $('#btnPrepend').click(function () {
+//        var $new=$('<li>我是最新的li</li>');
+//        $('#ul1').prepend($new)
+//    })
+    //3.兄弟节点A.after(兄弟节点B)；
+    //把B这个节点，插入到A这个节点的后面
+//    $('#btnAfter').click(function () {
+//        //a 新建一个div
+//        var $div=$('<li>我是新创建的兄弟div</li>');
+//        $('#ul1').after($div)
+//    })
+    //4.兄弟节点A.before(兄弟节点B)
+    //把节点B插入到节点A的前面
+//    $('#btnBefore').click(function () {
+//        //新建一个li
+//        var newli=$('<li>我是新建的li</li>');
+//        $('#ul1').before(newli)
+//    })
+      //5.子元素.appendTo(父元素)
+    //把子元素作为到父元素的最后一个子元素追加
+    $('#btnAppendTo').click(function () {
+        var $new=$('<li>我是新的子元素</li>');
+        $new.appendTo($('#ul1'))
+    })
+
+
+})
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div {
+			position: relative;
+			perspective: 800px;
+		}
+
+		img {
+			position: absolute;
+			transition: all 2s;
+		}
+
+		img.qian {
+			backface-visibility: hidden;
+		}
+
+		div:hover img {
+			transform: rotateY(180deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="imgs/hou.svg">
+		<img src="imgs/qian.svg" class="qian">
+	</div>
+</body>
+</html>

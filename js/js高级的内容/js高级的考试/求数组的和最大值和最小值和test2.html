@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function arr(num){
+        var list=[];
+        //最大值
+         list[0]=-Number.MAX_VALUE;
+        //最小值
+           list[1]=Number.MAX_VALUE;
+        //求数组的和
+              list[2]=0;
+        for(var i=0;i<num.length;i++){
+            //求和
+              list[2]+=num[i];
+            //最大值
+            if(num[i]>list[0]){
+                list[0]=num[i];
+            }
+            //最小值
+            if(num[i]<list[1]){
+                list[1]=num[i];
+            }
+        }
+        return  list;
+
+    }
+    var num=[10,2,40,50];
+      var box=arr(num);
+    console.log(box);
+
+
+    //    function getArrayValue(array) {
+//        var arr=[];
+//        //最大值
+//        arr[0]=Number.MIN_VALUE;
+//        //最小值
+//        arr[1]=Number.MAX_VALUE;
+//        arr[2]=0;//和
+//        for(var i=0;i<array.length;i++){
+//            arr[2]+=array[i];
+//            if(arr[0]<array[i]){
+//                arr[0]=array[i];
+//            }
+//            if(arr[1]>array[i]){
+//                arr[1]=array[i];
+//            }
+//        }
+//        return arr;
+//    }
+//    var arr=getArrayValue([10,20,30,40,50]);
+//    console.log("最大值"+arr[0]);
+//    console.log("最小值"+arr[1]);
+//    console.log("和:"+arr[2]);
+
+
+
+////封装元素最大值
+//var arr=[1,9,3,7,5];
+//var max=-Number.MAX_VALUE;
+//function res(arr){
+//    for(var i=0;i<arr.length;i++){
+//        if(arr[i]>max){
+//            max=arr[i]
+//        }
+//
+//    }
+//    return max
+//}
+//res(arr);
+//console.log(max);
+//
+//   //封装最小值
+//var mix=Number.MAX_VALUE;
+//    function res1(arr){
+//        for(var i=0;i<arr.length;i++){
+//            if(arr[i]<mix){
+//                mix=arr[i]
+//            }
+//
+//        }
+//        return mix
+//    }
+//res1(arr);
+//console.log(mix);
+//
+////封装数组的和
+//var sum=0;
+//function res3(arr){
+//    for(var i=0;i<arr.length;i++){
+//       sum+=arr[i];
+//
+//    }
+//    return sum
+//}
+//res3(arr);
+//console.log(sum);
+</script>

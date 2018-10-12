@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+     //  var num = 10;
+
+     //  function fn(){
+
+     //      num = 20;
+
+     //      alert(num)
+
+     //  }
+
+     //  alert(num);
+   // var str3 = "get-element-by-id";
+   // function get(str3) {
+   //     var newstr = str3.split("-");
+   //     var len = newstr.length;
+   //     for(var i = 0 ; i<len;i++) {
+   //         if(i==0){
+   //             newstr[i] = newstr[i];
+   //         }else{
+   //             newstr[i] = newstr[i].replace(newstr[i].charAt(0),(newstr[i].charAt(0)).toLocaleUpperCase())
+   //             // console.log(newstr[i]);
+   //         }
+   //     }
+   //     return newstr.join("");
+   // }
+   // console.log(get(str3));
+     //  var a=[,,,];
+     //  console.log(a);
+     //  console.log(a[0]);
+   //  编写一个函数，将如下字符串'get-element-by-id'修改为驼峰表示法'getElementById'
+     var str = 'get-element-by-id';
+   // var parts = str.split('-');
+    //  console.log(parts.length);
+    // console.log(parts[i].substring(1));
+     function combo(str) {
+         var parts = str.split('-');
+       //  console.log(parts);
+         for (var i = 1, len = parts.length; i < len; i++) {
+             parts[i] = parts[i].charAt(0).toUpperCase()+parts[i].substring(1);
+         }
+         return parts.join('');
+     }
+     //substring(  )  这个是截取字符串    里面有两个参数,从第几个下标开始,到哪一个下标结束
+     //所以,  substring( 1 )  就是从第一个下标开始截取
+     alert(combo(str));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

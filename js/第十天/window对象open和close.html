@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" id="open" value="打开">
+<input type="button" id="close" value="关闭">
+</body>
+</html>
+<script>
+    var box=document.getElementById("open");
+    var box1=document.getElementById("close");
+var num=10;
+    var win;
+    box.onclick=function demo(){
+       win= window.open("https://www.baidu.com","width=400,height=400,left=400,top=400","false")
+        //url:路径
+        //name:打开的方式
+        //控制打开的新窗口的样式
+        //true/false是否覆盖历史纪录
+    }
+    box1.onclick= function () {
+     //   window.close();//只能直接关闭当前使用的窗口
+        win.close();
+       //使用其他窗口调用，则是关闭其他窗口，前面的调用的函数名
+    }
+</script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="father">
+    <span>
+        <span>1</span>
+    </span>
+     <span>
+        <span>1</span>
+    </span>
+     <span>
+        <span>1</span>
+    </span>
+     <span>
+        <span>1</span>
+    </span>
+</div>
+</body>
+</html>
+<script>
+//求一个元素的所有的后代元素：
+    //先找后代元素，让后代找后代的元素，后代元素在找后代
+     var father=document.getElementById("father");
+//console.log(father.children);
+    //声明一个数组空的数组list，用来存放元素的后代元素
+//思路：1.首先声明一个空的数组，
+//2.设置一个构造函数，获取传入参数，获取后代，
+//3.做一个循环遍历整个后代元素，然后添加在空数组里面
+//4.然后这调用这个函数，递归，在重新执行这个函数，
+//var list=[];
+//    function getHD(ele){
+//        var children=ele.children;
+//        for(var i=0;i<children.length;i++){
+//            var child=children[i];
+//            list.push(child);
+//            getHD(child)
+//        }
+//    }
+//    getHD(father);
+//console.log(list);
+    //声明一个空数组
+  // var list=[];
+  // function box(ele){
+  //     var children=ele.children;
+  //     for(var i=0;i<children.length;i++){
+  //         var child=children[i];
+  //         list.push(child);
+  //         box(child);
+  //     }
+  // }
+    var list=[];
+    function box(ele){
+        var chilren= ele.children;
+        for(var i=0;i<chilren.length;i++){
+            var arr=chilren[i];
+            list.push(arr);
+            box(arr);
+        }
+    };
+    box(father);
+console.log(list);
+</script>

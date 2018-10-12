@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//函数上下文调用模式有什么用
+    //需求：把伪数组转成真数组
+    //准备一个伪数组
+//    var weiArr={
+//        0:"一一",
+//        1:"林狗群",
+//        2:"记得",
+//        3:"一",
+//        4:"二",
+//        5:"三",
+//        6:"三",
+//        7:"三",
+//        8:"三",
+//        lenght:9
+//    };
+  var weiArr={
+      0:"ab",
+      1:"你好2",
+      2:"你好3",
+      3:"你好4",
+      4:"你好5",
+      length:5
+  }
+// var  weiArr = {
+//    0:"234",
+//    1:"456",
+//    2:"林绿群",
+//    3:"林依鸿",
+//    4:"林绿鸿",
+//    5:"林狗鸿",
+//    6:'林骚鸿',
+//    7:'骚浪贱',
+//    length:8
+//}
+//console.log(arr);
+ // for (var i=0;i<arr.lenght;i++){
+ //     console.log(arr[i]);
+ // }
+     //  arr.push("2")//undefined
+    //伪数组有数组属性，没有数组的方法
+    //要实现伪数组有真数组的方法
+    //1.实现需要
+//    var res=[];
+//    for(var i=0;i<arr.lenght;i++){
+//        res[res.length]=arr[i]
+//    }
+//console.log(res);//可以实现
+    //2.实现需求02
+ // var arr=[];
+//   res.push(arr)//这样会把arr作为一个元素push进去，只有一个元素
+//onsole.log(res);
+//  arr.push.apply(arr,weiArr);
+// console.log(arr);
+    //实现需求03：
+
+//   var arr=[];
+//   arr=arr.concat.apply(arr,weiArr);
+//console.log(arr);
+var arr = [];
+arr = arr.concat.apply(arr,weiArr); //把weiArr里面的每一个元素和前面的arr做连接.
+console.log(arr);
+    //实现需求04：
+    var arrnew=Array.prototype.slice.call(weiArr,0);
+//修改slice方法的this伪weiarr，就感觉是weiarr在调用这个slice方法
+console.log(arrnew);
+</script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //格式
+        //switch(表示式) {
+        // case 值1：
+         //    当等于值1的时候执行的代码;
+            //   break;
+         // case 值2：
+        //        当等于值2的时候执行的代码;
+        //         break;
+        // case 值3：
+        //          当等于值3的时候执行的代码
+        //          break;
+        // case 的值4:
+        //          当等于值4的时候执行的代码;
+        //         break;
+        //  default:
+        //        以上代码都没有满足的时候，执行的代码;
+         //          break;
+        // }
+        //请输入一个月份,然后判断这个月份的季节
+        //春季:3,4,5 夏季:6,7,8 秋季:9,10,11 冬季:12,1,2
+        var month=+prompt("请输入月份");//这里式前面必须转换成数值类型
+        console.log(typeof month);
+        switch (month) {
+            case 3:
+            case 4:
+            case 5:
+                alert("春天");
+                break;
+            case 6:
+            case 7:
+            case 8:
+                alert("夏天");
+                break;
+            case 9:
+            case 10:
+            case 11:
+                alert("秋季");
+                break;
+            case 12:
+            case 1:
+            case 2:
+                alert("冬季");
+                break;
+            default :
+                alert("不要犯傻");
+                break;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

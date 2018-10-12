@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="common.js"></script>
+    <style>
+        select {
+            width: 100px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+<select name="" id="left" multiple>
+    <option value="">林志玲</option>
+    <option value="">范冰冰</option>
+    <option value="">陈奕迅</option>
+    <option value="">周杰伦</option>
+    <option value="">胡歌</option>
+    <option value="">爱谁谁</option>
+</select>
+<input type="button" value=">>" id="btn1"/>//全部到右边
+<input type="button" value="<<" id="btn2"/>//全部到左边
+<input type="button" value=">" id="btn3"/>//选中的到右边
+<input type="button" value="<" id="btn4"/>//选中的到左边
+<select name="" id="right" multiple>
+</select>
+</body>
+</html>
+<script>
+var left=id("left");
+    var right=id("right");
+    var btn1=id("btn1");
+    var btn2=id("btn2");
+    var btn3=id("btn3");
+    var btn4=id("btn4");
+var right=id("right");
+      var option=document.getElementsByTagName("option");
+console.log(option);
+console.log(option[0].innerHTML);
+//全部去右边
+btn1.onclick= function () {
+   var inputList=left.children;
+  // console.log(inputList);
+    //记住这里的inputList长度是根据里面的子节点改变，不是固定的
+    // 当里面的子节点为空时，这里的长度就是0，就能结束
+    for (var i = 0; i < inputList.length; i++) {
+             right.appendChild(inputList[i]);
+       // console.log(inputList);
+        i--;
+    }
+}
+  //全部去左边
+   btn2.onclick= function () {
+       var input1=right.children;
+       for(var i=0;i<input1.length;i++){
+           left.appendChild(input1[i]);
+           i--;
+       }
+   }
+    //3.选择到右边去
+
+         btn3.onclick=function(){
+             var list=left.children;
+             for(var i=0;i<list.length;i++){
+                 if(list[i].selected){
+                     right.appendChild(list[i]);
+                     //这里的i都是要自减，要保证每次都能拿到第零位
+                     i--;
+                 }
+             }
+         }
+
+
+
+
+
+
+  //  btn3.onclick= function () {
+  //      var input=left.children;
+  //      for(var i=0;i<input.length;i++){
+  //          if(input[i].selected){
+  //              right.appendChild(input[i]);
+  //              i--;
+  //          }
+  //      }
+  //  }
+    //4.到左边去
+    btn4.onclick= function () {
+        var input=right.children;
+        for(var i=0;i<input.length;i++){
+            if(input[i].selected){
+                left.appendChild(input[i]);
+                i--;
+
+            }
+        }
+    }
+</script>

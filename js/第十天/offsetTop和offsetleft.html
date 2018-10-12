@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #father {
+            width: 500px;
+            height: 500px;
+            background-color: red;
+            position: relative;
+            /*padding-left: 300px;*/
+            /*padding-top: 300px;*/
+            border: 30px solid gold;
+        }
+        #son {
+            width: 100px;
+            height: 100px;
+            background-color: lightpink;
+            position: absolute;
+            /*margin-left: 100px;*/
+            top: 700px;
+            /*left: 100px;*/
+            margin-top: 50px;
+            /*border: 30px solid forestgreen;*/
+        }
+    </style>
+</head>
+<body>
+<div id="father">
+    <div id="son"></div>
+</div>
+</body>
+</html>
+<script>
+var son=document.getElementById("son");
+console.log(son.offsetLeft);
+    //盒子的左外框到参照位移的父级盒子的左内边框的距离
+console.log(son.offsetTop);
+    //盒子的上外边框到参照位移的父级盒子的内边框的距离
+</script>

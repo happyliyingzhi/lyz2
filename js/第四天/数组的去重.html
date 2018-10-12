@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //1.数组的去重-去掉数组中重复的项
+        //[10,8,10,7,8,6,78]    [10,8,7,6,78];
+         //首先申明一个数组
+          var arr=[10,8,10,7,8,6,78,10,78];
+           var newarr=[arr[0]]//申明一个新的数组，新数组的第一个数肯定不会重复，所以可以放进来
+        //思路：假设我申明的一个新数组是和老的数组是不会重复的，永远成立
+          for(var i=0;i<arr.length;i++){
+              var flag=true
+               for(var j=0;j<newarr.length;j++){
+                     if(arr[i]==newarr[j]){
+                         flag=false
+                         break;
+                     }
+                  
+               }
+               if(flag){
+                         newarr[newarr.length]=arr[i]
+                     }
+          }
+         console.log(newarr)
+       
+        //var flag=true
+        // for(var i=1;i<arr.length;i++){
+        //     var flag=true;
+        //      for(var j=0;j<newarr.length;j++){
+        //          if(arr[i]==newarr[j]){
+        //              flag=false;
+        //              break;
+        //          }
+        //      }
+        //     if(flag){
+        //                newarr[newarr.length]=arr[i]
+
+        //     }
+        // }
+        // console.log(newarr);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

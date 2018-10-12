@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //假如弟弟年龄比哥哥小五岁,请输入弟弟的年龄,求哥哥的年龄
+    //     var num=prompt("请输入哥哥的年龄");
+    //   console.log(typeof num);//输出是string
+    //   var res=num+5;//这里的加号是连接符号 eg你输入的数字是3，输出是35，字符串+是连接意思
+    //   console.log(res);
+        //这里需要将字符串转换成数值类型
+        //1，在接受变量的时候，添加一个加号
+       // var num=+prompt("请输入哥哥的年龄");//在前面加了一个+
+       //  console.log(typeof num);//输出的number
+       //    var res=num+5;
+       // console.log(res);
+        //输出的结果是正常的，这里将字符串转换成数值类型
+          //2如果是不加+在前面，可以用算术运算来实现（不包括+，如果是+就是连接符号）
+//     var num="undefined";
+//     console.log(typeof num);//这里输出是string类型
+//     var num2=num*2;
+//     console.log(typeof num2);//输出的number
+//     console.log(num2);//NaN
+//     console.log(typeof num2);//number
+//        var num="null";
+//        console.log(typeof num);//这里输出是string类型
+//        var num2=num*2;
+//        console.log(typeof num2);//输出的number
+//        console.log(num2);//NaN
+//        console.log(typeof num2);//number
+        //3.加上Number()转换成字符串
+          //  var num="abc";
+          //   var num1= Number(num);
+          //onsole.log(typeof num1);//number
+          //本身字符串，里面不是不是数字
+         // var num="undefined";
+         // var num1= Number(num);
+         //   console.log(typeof num1);
+        //字符串为undefined，也能转换成字符串
+          //   var num="null";
+          //var num1= Number(num);
+          //  console.log(typeof num1);
+        //如果字符串里面是null，也能转换成数值类型
+//           var num="NaN";
+//        var num1= Number(num);
+//          console.log(typeof num1);
+//              如果字符串里面是NaN，也能转换成数值类型
+                 //var num="";
+                 //var num1= Number(num);
+                 //console.log(typeof num1);//number
+                 //console.log(num1);//输出为0
+        //如果字符串里面是为零的，输出结果为0，也能转换成数值类型
+        // 4.存在小数点情况下字符串怎么转换数值类型的整数？
+//           var num="12.34";
+//           var num1=parseInt(num);
+//        console.log(typeof num1);//number
+//        console.log(num1);//12
+        //这里的pareInt（）自动转换成字符串类型，然后取整数
+//        var num="1a2a.34abc";
+//        var num1=parseInt(num);
+//        console.log(typeof num1);//number
+//        console.log(num1);//1
+        //如果字符串前面是数字后a面字母的话，系统默认的兄左到右，直到找到小数前面的数，非数字的数停止
+      //  var num="aaa12.34";
+      //  var num1=parseInt(num);
+      //  console.log(typeof num1);//number
+      //  console.log(num1);//NaN
+      //  如果字符串前面的有非数字的数，这里不能输出数字，因为只能从左到右，前面左边第一个数必须是数值，输出才有会数值
+        //字符串转换成数值并取小数点
+      //  var num=+"12.32abc"
+      //  var num1=parseFloat(num);
+      //  console.log(typeof num1);
+      //  console.log(num1);//12.32
+        //字符串转换成数值类型，并且取后面的小数点，从左到有直到遇到非数字
+        //如果这里用其他类型的转换数值了类型，输出的会是NaN，但是都会转换成数值类型
+       //字符串转换成数值类型
+        // toNumber()
+
+
+
+
+         //布尔值转换成数值类型
+//        var num=Number(true);
+//        console.log(typeof num);//number
+//        console.log(num);//1
+       // var num=Number(false);
+       // console.log(typeof num);//number
+       // console.log(num);//0
+        //布尔值转换成数值类型
+        //true：1
+        //false：0
+    </script>
+</head>
+<body>
+
+</body>
+</html>

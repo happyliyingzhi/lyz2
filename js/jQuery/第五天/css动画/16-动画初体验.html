@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		@keyframes moving {
+			/* 从哪里来,到哪里去 */
+			from {
+				transform: translateX(0px);
+				/* 原点 */
+			}
+			to {
+				transform: translateX(1200px);
+				/* 终点 */
+			}
+		}
+		/* 先声明动画 */
+
+		div.red {
+			width: 200px;
+			height: 200px;
+			background-color: #0f0;
+			animation: moving 2s infinite alternate;
+			/* 动画的名称 动画的时间 动画的运动曲线 何时开始 次数 是否反方向 */
+		}
+		div.green {
+			width: 300px;
+			height: 300px;
+			background-color: red;
+			animation: moving 1s infinite alternate;
+			/* 动画你想用,就直接调用即可 */
+		}
+	</style>
+</head>
+<body>
+	<div class="red"></div>
+	<div class="green"></div>
+	<div class="red"></div>
+	<div class="green"></div>
+	<div class="red"></div>
+	<div class="green"></div>
+	<div class="red"></div>
+	<div class="green"></div>
+</body>
+</html>

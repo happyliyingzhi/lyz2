@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #red {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+            left: 0;
+        }
+
+        #blue {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            top: 200px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="to400" value="红色到400">
+<input type="button" id="to800" value="蓝色到800">
+<div id="red"></div>
+<div id="blue"></div>
+</body>
+</html>
+<script>
+    //1.获取元素
+    var to400 = document.getElementById("to400");
+    var to800 = document.getElementById("to800");
+    var red = document.getElementById("red");
+    var blue = document.getElementById("blue");
+
+    //2.给to400设置点击事件
+    to400.onclick = function () {
+        animate(red,400);
+    };
+
+    //3.设置到800
+    to800.onclick = function () {
+        animate(blue,800);
+    };
+
+    /*******************************************************/
+    //4.动画函数封装
+    function animate(ele,target) {
+        clearInterval(ele.timeID);
+        //clearInterval(timeID);
+        //因为他们共用了一个计时器,所以其中一个开始,另外一个就结束
+        //思路,应该给每个移动的元素自己设置一个timeID,只有自己能停止自己的计时器:对象是可以设置属性的
+        //设置计时器
+        ele.timeID = setInterval(function () {
+            //得到等前的位置
+            var current = ele.offsetLeft;
+            //设置步长
+            var step = Math.ceil((target - current)/10);
+            current += step;
+            //修改位置
+            if(current < target){
+                ele.style.left = current + "px";
+            }else {
+                ele.style.left = target+"px";
+                clearInterval(ele.timeID);
+            }
+        },30)
+    }
+</script>

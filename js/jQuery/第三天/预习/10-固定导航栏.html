@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>固定导航栏</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .top, .nav {
+      width: 1423px;
+      margin: 0 auto;
+    }
+
+    .main {
+      width: 1000px;
+      margin: 10px auto;
+    }
+
+    img {
+      display: block;
+      vertical-align: middle;
+    }
+
+  </style>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //思路:给页面设置一个滚动事件,监视页面的scrollTop的值,
+      // 如果这个值大于第一部分的高度,就设置第二部分为固定定位.
+      // 如果这个值小于第一部分的高度,就设置第二部分的定位还原.
+      //获取top的高
+//   var $topheight=$('.top').height();
+//   //获取mian的高
+//   var $navheight=$('.nav').height();
+////
+//     console.log($topheight);
+//   $(window).on('scroll', function () {
+//     //获取当前页面滚动出去的高
+//        var $scrolltop=$(this).scrollTop();
+//          console.log($scrolltop);
+//     if($scrolltop>$topheight){
+//       $('.nav').css({
+//         'position':'fixed',
+//          left:0,
+//         top:0
+//       })
+//       $('.main').css({
+//         marginTop:$navheight+10
+//       })
+//     }else{
+//       $('.nav').css({
+//         'position':'static'
+////
+//       })
+//       $('.main').css({
+//         marginTop:10
+//            })
+//        }
+//         })
+      //获取top 的高
+      var $topheight=$('.top').height();
+      var $navheight=$('.nav').height();
+       $(window).scroll(function () {
+         //获取当前页面滚动出去的高度
+        var $scrolltop=$(this).scrollTop;
+         console.log($scrolltop);
+
+
+       })
+
+    });
+  </script>
+</head>
+
+<body>
+
+<div class="top">
+  <img src="images/top.png"/>
+</div>
+<div class="nav">
+  <img src="images/nav.png"/>
+</div>
+<div class="main">
+  <img src="images/main.png"/>
+</div>
+
+
+</body>
+</html>

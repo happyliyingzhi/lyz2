@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--//正常实现a标签的跳转-->
+<a href="http://www.baidu.com">百度</a>
+<!--以下三种方式，都是阻止a标签跳转-->
+<!--javascript:void(0) 是伪协议意思就是我什么事件都不做-->
+<!--当被点击时，返回false，有直接在行内样式加，有在js后面写-->
+<a href="javascript:void(0)" target="_blank">京东</a>
+<!--偷赖的写法-->
+<a href="javascript:" target="_blank">京东</a>
+<!--行内设置点击事件-->
+<a href="http://baidu.com" target="_blank" onclick="return false">百度</a>
+</body>
+</html>
+<script>
+var box=document.getElementsByTagName("a")[0];
+console.log(box);
+box.onclick=function(){
+    console.log("我被点击了");
+    return false;
+    //这个return false 肯定是在点击事件的后面，如果在前面，后面的代码不会执行
+    }
+</script>

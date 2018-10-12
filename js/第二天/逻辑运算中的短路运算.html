@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+       //短路就是前面式子的结果，导致后面的式子不会执行
+       // var num=10,num1=20;
+       //  var res=num++>20&&++num1>10;
+       //console.log(res);
+       //console.log(num);//11
+       //console.log(num1);//20
+        //短路运算，前面的式子运算完，就已经直到结果，后面的运算式不会在取
+       // 运算的，这里的20就没有进行运算了
+       var num=10,num1=20;
+       var res=num++<20||++num1>10;
+       console.log(res);//true
+       console.log(num);//11
+       console.log(num1);//20
+//短路运算，这里到前面第一个式子，就直到式真的，有真就是真，后面就不用
+        //运行了
+    </script>
+</head>
+<body>
+
+</body>
+</html>

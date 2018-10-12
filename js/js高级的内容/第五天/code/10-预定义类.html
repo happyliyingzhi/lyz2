@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.预定义类-就是事先给他赋予了一些含义的字符.
+    //  .	[^\n\r]	  除了换行和回车之外的任意字符
+
+    //  \d	[0-9]		数字字符    [0123456789]  digit
+    //  \D	[^0-9]	非数字字符
+
+    //  \s	[\f\r\n\t\v]	不可见字符
+    //  \S	[^\f\r\n\t\v]	可见字符
+
+    //  \w	[a-zA-Z0-9_]		单词字符(所有的字母数字和_)
+    //  \W	[^a-zA-Z0-9_]	非单词字符
+
+
+
+    //--------.	除了换行和回车之外的任意字符-----------------------------------------
+    // console.log(/./.test("\r"));   //false
+    // console.log(/./.test("\r\n")); //false
+    // console.log(/./.test("" +
+    //         ""));  //false
+    // console.log(/./.test("\r1")); //true
+    // console.log(/./.test("32435dh1")); //true
+    // console.log(/./.test("d")); //true
+
+
+    //---------\d	数字字符--------------------------------------
+    // console.log(/\d/.test("abc"));  //false
+    // console.log(/\d/.test("!@#$")); //false
+    // console.log(/\d/.test("!@#$adfgethfe"));  //false
+    // console.log(/\d/.test("!@#$adfgethfe1")); //true
+    // console.log(/\d/.test("123456")); //true
+
+
+
+    //---------\D		非数字字符--------------------------------------
+    //test检测： 只要被检测的字符串中包含了非数字字符,那么结果就是true.
+    // console.log(/\D/.test("abc"));  //true
+    // console.log(/\D/.test("!@#$")); //true
+    // console.log(/\D/.test("!@#$adfgethfe"));  //true
+    // console.log(/\D/.test("!@#$adfgethfe1")); //true
+    // console.log(/\D/.test("13243546b576871")); //true
+    // console.log(/\D/.test("123456")); //false
+
+
+    //--------\s  不可见字符-----------------------------------------
+    //  console.log(/\s/.test("abc\r"));  //true
+    //  console.log(/\s/.test("abc\n"));  //true
+    //  console.log(/\s/.test("abc\r\n"));  //true
+    //  console.log(/\s/.test(" "));  //true  **** 空格字符串
+    //  console.log(/\s/.test("" +
+    //          ""));  //false  他是一个空字符串，没有不可见字符。
+    //  console.log(/\s/.test("\r\n\t\r"));  //true
+    //  console.log(/\s/.test("abcdeg"));  //false
+    //  console.log(/\s/.test("12354676"));  //false
+    //  console.log(/\s/.test("12354676aahgrjtj"));  //false
+    //  console.log(/\s/.test("12354676aahgrjtj!@#$"));  //false
+    //  console.log(/\s/.test("12354676aahgrjtj!@#$ "));  //true
+
+
+
+
+    //--------\S  可见字符-----------------------------------------
+    // console.log(/\S/.test("abc\r"));  //true
+    // console.log(/\S/.test("abc\n"));  //true
+    // console.log(/\S/.test("abc\r\n"));  //true
+    // console.log(/\S/.test(" "));  //false
+    // console.log(/\S/.test("\r\n\t\r"));  //false
+    // console.log(/\S/.test("abcdeg"));  //true
+
+
+
+
+
+    //------ \w 单词字符(所有的字母数字和_)--------------------------------
+    // console.log(/\w/.test("!@#$%#@#$%$#@"));  //false
+    // console.log(/\w/.test("!@#$%#@#$%$#@a")); //true
+    // console.log(/\w/.test("!@#$%#@0#$%$#@")); //true
+    // console.log(/\w/.test("!@#$%#@_#$%$#@")); //true
+    // console.log(/\w/.test("!!!!!1234567")); //true
+    // console.log(/\w/.test("!!!!!")); //false
+
+
+    //------ \W 非单词字符(所有的字母数字和_)--------------------------------
+    //  console.log(/\W/.test("abcserge3"));  //false
+    //  console.log(/\W/.test("fsdgetherg!")); //true
+    //  console.log(/\W/.test("!123456@")); //true
+    //  console.log(/\W/.test("!@#$%#@_#$%$#@")); //true
+    //  console.log(/\W/.test("!!!!!1234567")); //true
+    //  console.log(/\W/.test("!!!!!")); //true
+
+
+
+    //参数
+    // i	忽略大小写
+    // g	全局匹配 global
+    // gi	全局匹配+忽略大小写
+    // console.log(/a/.test("a")); //true
+    // console.log(/a/.test("A")); //false
+    // console.log(/a/i.test("A")); //true
+    // console.log(/a/i.test("bbb"));//false
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script src="jQuery-bgColor.js"></script>
+  <script>
+    $(function () {
+
+      //
+      //$('div').width(100).height(100).css('backgroundColor','red');
+
+      //要给jQuery扩展方法(写插件),就是给jQuery.prototype原型中添加方法.
+      //$('div').width(100).height(100).bgColor('red');
+
+
+      //$('div').width(100).bgColor('red').height(100);
+
+
+
+
+      //
+      $('p').height(200).width(200).bgColor('yellow');
+
+
+    });
+  </script>
+</head>
+<body>
+<div></div>
+
+<p></p>
+</body>
+</html>

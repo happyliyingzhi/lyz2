@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//delete 关键字
+    //1.可以删除对象中的属性和方法
+    var num={
+        name:"123",
+        age:20
+    }
+    num.gender="男";//添加对象的属性
+//   console.log(num);
+//删除属性
+//   delete  num.age;
+  delete num.name;
+console.log(num);
+//  console.log(num);//{name: "123", gender: "男"}gender: "男"name: "123"__proto__: Object
+    //注意这里的  removeAttribute()方法，使用会报错
+      //这里的removeAttribute()只能删除的dom，普通对象用delete
+//     num.removeAttribute("name");
+//      console.log(num);//报错
+</script>

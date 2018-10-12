@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    //编写一个函数，将如下字符串'get-element-by-id'修改为驼峰表示法'getElementById'
+//        var num="get-element-by-id"
+//    var ser=num.split("-");
+//    console.log(ser);
+//    console.log(ser.length);
+//    console.log(ser[1][0]);
+//    // console.log(num[0]);
+//    //console.log(num.length);
+//    function res(ser){
+//         for (var i=0;i<ser.length;i++){
+//                for(var i=1;i<ser.length;i++){
+//                    var arr=ser[i][0].toLocaleUpperCase();
+//                     // ser[i][0]=arr
+//                    console.log(arr);
+//                   // console.log(ser[i][0]);
+//                }
+//         }
+//        return ser;
+//        }
+//        res(ser);
+   // console.log(ser);
+           var num="get-element-by-id"
+      function arr(num){
+          var num2=num.split("-");
+          for(var i= 1;i<num2.length;i++){
+              num2[i]=num2[i].charAt(0).toLocaleUpperCase()+num2[i].substring(1);
+          }
+          return num2.join('');
+      }
+        var res=arr(num);
+    console.log(res);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

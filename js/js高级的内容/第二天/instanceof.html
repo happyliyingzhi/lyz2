@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//1.instance of  数组类型检测
+    //语法：对象   instance of 构造函数
+    //用来判断这个构造函数的prototype属性，在不在这个对象的原型链上
+     // arr---Array----Object----null
+    var arr=[10,30];
+console.log(arr instanceof  Array);//true
+console.log(arr.__proto__);//Array
+console.log(arr.__proto__.__proto__);//Object
+console.log(arr.__proto__.__proto__.__proto__);//null
+console.log(arr instanceof Object);//true
+    //因为Object在原型链上，所以为true
+//Object  的原型链上
+ // Object----Function-----Object-----null
+console.log(Object instanceof Object);//true
+console.log(Object instanceof Function);//true
+console.log(Object instanceof Array);//falese
+console.log(Array.__proto__.__proto__);//Object
+//Function 对象的原型链
+   //Function----Function.ptorotype-----Object.prototype-----null
+console.log(Function instanceof  Object);//true
+console.log(Function instanceof Array);//false
+</script>
+</script>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    img{
+        width: 500px;
+        height: 500px;
+        /*display: none;*/
+    }
+    .right{
+        position: relative;
+    }
+    .left{
+        position: relative;
+    }
+    .right img{
+        position: absolute;
+        right: 0;
+    }
+    .left img{
+        position: absolute;
+        left: 0;
+    }
+</style>
+<body>
+<div class="right">
+    <img src="./images/tianyu.jpg" alt=""/>
+</div>
+<img src="./images/tianyu.jpg" alt=""/>
+<div class="left">
+    <img src="./images/tianyu.jpg" alt=""/>
+</div>
+<img src="./images/tianyu.jpg" alt=""/>
+<img src="./images/tianyu.jpg" alt=""/>
+<img src="./images/tianyu.jpg" alt=""/>
+<img src="./images/tianyu.jpg" alt=""/>
+</body>
+</html>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    //缓动动画的函数
+    function getstyle(ele,attr){
+        if(ele.currentStyle){
+            return ele.currentStyle[attr];
+        }else{
+            return window.getComputedStyle(ele,null)[attr];
+        }
+    }
+
+    function huandong(target,box,attr,spd){
+        clearInterval(box.timeId);
+        box.timeId = setInterval(function () {
+            var boxleft = parseInt(getstyle(box,attr));
+            var stup = target > boxleft ? Math.ceil((target - boxleft) / 10) : Math.floor((target - boxleft) / 10);
+            boxleft += stup;
+            if(Math.abs(target - boxleft) > Math.abs(stup)){
+                box.style[attr] = boxleft + "px";
+            }else{
+                box.style[attr] = target + "px";
+                clearInterval(box.timeId)
+            }
+        },spd)
+    }
+
+
+    if(window.pageYOffset >= 10){
+//        $(".cbg .banner .phone").hide()
+        huandong(-90,$('img'),"left",20)
+//        $(".cbg .banner .banner-r").hide()
+        huandong(-90,$('img'),"right",20)
+    }
+
+
+
+
+
+
+</script>

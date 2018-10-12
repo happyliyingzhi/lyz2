@@ -1,0 +1,111 @@
+/*.hotnew {*/
+    /*width: 100%;*/
+    /*height: 78px;*/
+    /*background-color: #fafafa;*/
+    /*position: relative;*/
+    /*z-index: 1;*/
+/*}*/
+
+/*.hotnew .ddnews {*/
+    /*height: 57px;*/
+    /*line-height: 78px;*/
+    /*position: relative;*/
+/*}*/
+
+/*.hotnew .news-log {*/
+    /*margin: 28px 10px 0 0;*/
+    /*width: 87px;*/
+    /*height: 20px;*/
+    /*background: url('images/ddnews.png') no-repeat left center;*/
+    /*-webkit-background-size: 80px;*/
+    /*background-size: 87px 16px;*/
+/*}*/
+
+/*.hotnew .news {*/
+    /*height: 57px;*/
+    /*width: 510px;*/
+    /*/!*overflow: hidden;*!/*/
+    /*position: relative;*/
+    /*cursor: pointer;*/
+/*}*/
+
+/*.hotnew .news .newslist {*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+/*}*/
+
+/*.hotnew .news .newslist li {*/
+    /*position: relative;*/
+/*}*/
+
+/*.hotnew .news .newslist .hotnew {*/
+    /*background: url("images/hot1.png") no-repeat;*/
+    /*position: absolute;*/
+    /*top: 32px;*/
+    /*right: -32px;*/
+    /*width: 27px;*/
+    /*height: 17px;*/
+
+/*}*/
+
+/*.hotnew .news span.line {*/
+    /*margin: 0 5px;*/
+    /*color: #ccc;*/
+/*}*/
+
+/*.hotnew .news-more {*/
+    /*font-size: 16px;*/
+    /*padding-right: 15px;*/
+    /*cursor: pointer;*/
+/*}*/
+
+/*.hotnew .news-more i {*/
+    /*position: absolute;*/
+    /*top: 1px;*/
+    /*right: 0;*/
+    /*font-weight: 700;*/
+/*}*/
+
+/*.hotnew .news {*/
+    /*font-size: 16px;*/
+/*}*/
+
+/*.hotnew .news:hover,*/
+/*.hotnew .news-more:hover {*/
+    /*color: #3296fa;*/
+/*}*/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.main{
+    width: 200px;
+    height: 100px;
+    margin-left: 100px;
+    /*line-height: 78px;*/
+
+}
+.kuangjia{
+    position: relative;
+    width: 200px;
+    height: 100px;
+    border: 1px solid green;
+    margin-left: 100px;
+    margin-top: 100px;
+    /*line-height: 78px;*/
+    overflow: hidden;
+
+}
+.ulli{
+    width: 200px;
+    height: 78px;
+    border: 1px solid red;
+    position: absolute;
+    margin-top: 8px;
+    /*overflow: hidden;*/
+
+}
+.ulli li{
+    line-height: 78px;
+}

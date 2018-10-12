@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body, ul, ol, li, img {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 490px;
+            height: 270px;
+            padding: 5px;
+            position: relative;
+            border: 1px solid #ccc;
+            margin: 100px auto 0;
+        }
+
+        .ad {
+            width: 490px;
+            height: 270px;
+            /*overflow: hidden;*/
+            position: relative;
+        }
+
+        #box img {
+            width: 490px;
+        }
+
+        .ad ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .ad ol li {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background: #fff;
+            float: left;
+            margin-right: 10px;
+            cursor: pointer;
+            _display: inline;
+        }
+
+        .ad ol li.current {
+            background: yellow;
+        }
+
+        .ad ul li {
+            float: left;
+        }
+
+        .ad ul {
+            position: absolute;
+            top: 0;
+            width: 2940px;
+        }
+
+        .ad ul li.current {
+            display: block;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+
+        .square {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .square span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #c0c6ff;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        .square span.current {
+            background-color: orangered;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="all">
+    <div class="ad">
+        <ul id="imgs">
+            <li><img src="images/1.jpg"/></li>
+            <li><img src="images/2.jpg"/></li>
+            <li><img src="images/3.jpg"/></li>
+            <li><img src="images/4.jpg"/></li>
+            <li><img src="images/5.jpg"/></li>
+        </ul>
+        <div class="square">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+    </div>
+
+    <div id="arr">
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+</div>
+</body>
+<script src="common.js"></script>
+<script src="../moveAnimate.js"></script>
+<script>
+    //获得相关的属性
+var box=id("box");//获取大盒子
+//console.log(box);
+    var ad=box.children[0];//获得ad
+//console.log(ad);
+    var adwidth=ad.offsetWidth;//获得盒子的真实宽度
+//console.log(adwidth);
+    var img=id("imgs");//获得ul
+//console.log(img);
+    var list=img.children;//获得ul下面的子元素li
+//console.log(list);
+    var spans=ad.children[1].children;//获得span
+//console.log(spans);
+ var arr=id("arr");//获得arr
+//console.log(arr);
+    var left=id("left");//获得左边
+    var right=id("right");//获得右边
+//console.log(left, right);
+//1.鼠标移入到盒子上面就显示左右箭头
+    box.onmouseover= function () {
+        arr.style.display="block";
+    }
+    //2.鼠标移出的盒子上面箭头就隐藏
+    box.onmouseout= function () {
+        arr.style.display="none";
+    }
+    //3.下标鼠标点击时改变颜色，而且换图片
+    //3.1下标循环
+    for(var i=0;i<spans.length;i++){
+        //3.4设置下标索引的值
+          spans[i].setAttribute("index",i);
+        spans[i].onclick= function () {
+            //3.3排他思想只有点击的图片背景色改变
+            for(var j=0;j<spans.length;j++){
+                spans[j].className="";
+            }
+            //3.2鼠标点击时更换背景色
+            this.setAttribute("class","current");
+           //3.5设置每次的位移的距离
+            var target=this.getAttribute("index")*adwidth;
+            //3.6设置图片的移动
+            animate(img,-target);
+            //7.点击按钮的属性要与索引的图片的一样
+            index1=this.getAttribute("index");
+        }
+    }
+    //4.右边鼠标点击时图片会显示相应的图片
+    //4.1用来存照片的索引
+    var index1=0;
+    right.onclick= function () {
+        //4.2判断条件，符合就执行
+        if(index1<4){
+            index1++;
+            //4.3图片移动的距离
+            var target=index1*adwidth;
+            animate(img,-target);
+    //6.下标值与图片的索引对应
+
+        }
+        //6.1排他思想
+        for(var i=0;i<spans.length;i++){
+            spans[i].removeAttribute("class");
+        }
+        spans[index1].setAttribute("class","current");
+
+    }
+    //5.左边点击
+    left.onclick= function () {
+        //4.2判断条件，符合就执行
+        if(index1>0){
+            index1--;
+            //4.3图片移动的距离
+            var target=index1*adwidth;
+            animate(img,-target);
+        }
+        for(var i=0;i<spans.length;i++){
+            spans[i].removeAttribute("class");
+        }
+        spans[index1].setAttribute("class","current");
+    }
+</script>

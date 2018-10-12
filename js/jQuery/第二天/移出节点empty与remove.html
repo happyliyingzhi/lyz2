@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+<ul id="ul1">
+    <li>我是第1个li标签</li>
+    <li>我是第2个li标签</li>
+    <li id="li3">我是第3个li标签</li>
+    <li>我是第4个li标签</li>
+    <li>我是第5个li标签</li>
+</ul>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+$('#btn').click(function () {
+    //移出元素的内容，但是元素的标签还是在结构里面。只是内容为空
+  //  $('#li3').empty()
+    //自己移出自己，这种方式清空的元素，里面的标签结构也会清除
+   // $('#li3').remove();
+
+
+    //如果要移出ul1
+    $('#ul1').remove()
+})
+</script>

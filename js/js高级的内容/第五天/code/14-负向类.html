@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.负向类   [^ ]
+    //注意:负向类是中括号中的小尖尖.
+
+
+
+
+    //如果用test检测的字符串中，有 除了中括号中的内容之外的任意一个，出现一次或者一次以上，就是true
+    // console.log(/[^abc]/.test('a')); //false
+    // console.log(/[^abc]/.test('abcaaabbbcccaaabc')); //false
+    // console.log(/[^abc]/.test('abcaaabbbcccaaabc!')); //true
+    // console.log(/[^abc]/.test('ad')); //true
+    // console.log(/[^abc]/.test('a1')); //true
+
+
+      console.log(/[^abc]/.test('abcabc')); //false
+      console.log(/[^abc]/.test('abcabcd')); //true
+      console.log(/[^abc]/.test('ad')); //true
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

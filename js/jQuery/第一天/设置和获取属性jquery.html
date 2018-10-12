@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1 {
+            height: 200px;
+            background-color: pink;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" style="width:200px"></div>
+<div id="div2" style="width:300px"></div>
+<div id="div3" style="width:400px"></div>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        //设置单个样式
+     //   $('#div2').css('height',300)
+        //设置多个样式,用对象
+//        $('#div2').css({
+//            height:300,
+//            border:'1px solid red',
+//            backgroundColor:"red"
+//        })
+        //获取样式
+        console.log($('#div1').css('height'));
+        //获取多个样式
+        console.log($('div').css('width'));
+        //注意这里只能获取多个样式的第一个
+    })
+
+</script>

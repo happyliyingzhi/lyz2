@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            width: 980px;
+            margin: 0 auto;
+        }
+        ul li{
+            width:230px;
+            height: 230px;
+            float: left;
+            margin-right:20px;
+            margin-bottom:20px;
+        }
+        ul li.last{
+            margin-right:0;
+        }
+        ul li img{
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div style="margin-bottom: 2000px">
+    <!--<img src="data:image/png;base64,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" alt=""/>-->
+</div>
+<ul>
+    <li><img data-original="http://img.daimg.com/uploads/allimg/160324/1-160324232117.jpg" alt=""></li>
+    <li><img data-original="http://img.daimg.com/uploads/allimg/160318/1-16031P01P0.jpg" alt=""></li>
+    <li><img data-original="http://img.daimg.com/uploads/allimg/160318/1-16031P01332.jpg" alt=""></li>
+    <li class="last"><img data-original="images/guojidapai.jpg" alt=""></li>
+</ul>
+<!--
+图片懒加载
+1. 不管图片隐藏还是显示  有src属性都会去加载
+2. 那么如果页面上有太多的图片  而且有些图片不在可视窗口内  如果加载了会影响页面的渲染页面时间
+3. 解决方案：自己控制图片的加载  当进入可视区域内容才去加载
+4. 怎么控制呢？ 通过控制src属性来控制图片加载
+5. 思路怎么样？ 首先默认所有的图片都不使用src属性，自定义一个属性存路径，当进入可视区域追加到src属性
+6. 使用插件  基于jquery的图片加载插件
+7. jquery.lazyload.js  延时加载图片
+-->
+<script src="jquery-1.12.4.js"></script>
+<script src="plugin/jquery.lazyload.js"></script>
+<script>
+    $(function () {
+        /*1.需要初始化*/
+        /*2.先需要找  懒加载的图片 */
+        /*3.把src属性改成自定义属性  默认的是  data-original */
+        $('ul img').lazyload({
+            effect : "fadeIn",
+           'placeholder':'data:image/png;base64,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'
+        });
+        /*4. data:image/png:djsadjslkajdslkajdlksajdlskajdlsaj;*/
+        /*5. base64数据  也可以当作图片使用*/
+    })
+</script>
+</body>
+</html>

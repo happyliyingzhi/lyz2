@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5f085f2d-70bd-4218-8101-03d32f041d1b" name="web21" url="http://www.web21.com">
+        <fileTransfer port="0" mountedRoot="C:\php\web21" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

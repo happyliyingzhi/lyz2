@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1,
+        #box2{
+            width: 30px;
+            height: 300px;
+            background-color: red;
+            position: absolute;
+            left: 50%;
+            margin-left: -15px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="box1"></div>
+<div id="box2"></div>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+    //1.获得相关的属性值
+var box1=id("box1");
+    var box2=id("box2");
+console.log(box1, box2);
+    //2.让设置旋转
+    var timeID;
+    var box=0;
+    setInterval(function () {
+        box +=10;
+        box1.style.transform="rotate("+box+"deg"+")";
+    },100)
+    setInterval(function(){
+        box+=10;
+        box2.style.transform="rotate("+(-box)+"deg"+")";
+    },100)
+</script>

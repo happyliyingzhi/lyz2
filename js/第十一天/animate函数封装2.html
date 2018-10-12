@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <style>
+        .one {
+            height: 100px;
+            width: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0px;
+            top: 50px;
+        }
+        .two {
+            height: 100px;
+            width: 100px;
+            background-color: green;
+            position: absolute;
+            left: 0px;
+            top: 170px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="到400" id="to400"/>
+<input type="button" value="到800" id="to800"/>
+<div class="one" id="box"></div>
+<div class="two" id="box2"></div>
+</body>
+<script src="common.js"></script>
+<script src="moveAnimate.js"></script>
+<script>
+var to400=id("to400");
+    var to800=id("to800");
+    var box=id("box");
+    var box2=id("box2");
+     var step=0;
+var timeID;
+console.log(to400, to800, box, box2);
+to400.onclick= function () {
+    animate(box,400);
+    animate(box2,400);
+}
+to800.onclick= function () {
+    animate(box,800);
+    animate(box2,800);
+}
+  //用来记录计时器的id的变量
+//400到800的代码是一样的，所以我们可以做一个封装函数
+    //timeID可以用对象性来保存自己的计时器id
+    function animate(ele,target) {
+        //设置计时器之前，要清除原来的计时器
+        clearInterval(ele.timeID);
+        //设置计时器
+        ele.timeID=setInterval(function () {
+                    //获取当前这个box和他的定位父级body之间的距离
+            var currentLeft= ele.offsetLeft;
+            //设计一个步长
+            var step=10;
+            //计算
+            currentLeft+=step;
+            //判断和赋值
+            if(currentLeft<target){
+                ele.style.left=currentLeft+"px";
+            }else{
+                ele.style.left=target+"px";
+                clearInterval(ele.timeID);
+            }
+                },100)
+
+    }
+</script>

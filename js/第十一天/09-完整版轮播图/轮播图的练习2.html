@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            /*overflow: hidden;*/
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background: yellow;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="all" id='box'>
+    <div class="screen">
+        <ul>
+            <li><img src="images/1.jpg" width="500" height="200"/></li>
+            <li><img src="images/2.jpg" width="500" height="200"/></li>
+            <li><img src="images/3.jpg" width="500" height="200"/></li>
+            <li><img src="images/4.jpg" width="500" height="200"/></li>
+            <li><img src="images/5.jpg" width="500" height="200"/></li>
+        </ul>
+        <ol>
+            <!-- 动态创建的小方块，添加在这里，样式已经给写好了-->
+        </ol>
+    </div>
+    <div id="arr">
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+</div>
+</body>
+</html>
+<script src="../common.js"></script>
+<script src="../moveAnimate.js"></script>
+<script>
+//1获得相关的属性
+    var box=id("box");
+   var screen=box.children[0];//ul的上级
+  var ul=screen.children[0];//ul
+  var list=ul.children;//li
+  var ol=screen.children[1];//ol
+  var arr=id("arr");
+var  left=id("left");
+var right=id("right");
+var imgwidth=screen.offsetWidth;//图片移动的宽度
+//console.log(imgwidth);
+//2.根据图片创建新的li元素
+    for(var i=0;i<list.length;i++){
+        var newLi=document.createElement("li");
+        newLi.innerHTML=i;
+        ol.appendChild(newLi);
+    }
+  //3.添加第一个li的背景颜色
+    var olli=ol.children
+//console.log(olli);
+      olli[0].className="current";
+    //下标鼠标移入就改变颜色和图片
+    //4.遍历循环olli
+    for(var i=0;i<olli.length;i++){
+        //6设置索引
+        olli[i].setAttribute("index",i);
+        olli[i].onmouseover= function () {
+            for(var j=0;j<olli.length;j++){
+                olli[j].removeAttribute("class");
+            }
+            //5当前点击时背景改变
+            this.setAttribute("class","current");
+            //7.设置目标距离
+            target=-this.getAttribute("index")*imgwidth;
+            animate(ul,target);
+            imgIndex=liIndex=this.getAttribute("index");
+        }
+    }
+    //8.鼠标的移入和移出事件
+    box.onmousemove= function () {
+        arr.style.display="block";
+          clearInterval(timeID);
+    }
+    box.onmouseout= function () {
+        arr.style.display="none";
+        timeID=setInterval(arr1, 2000);
+    }
+    //9.克隆一个图片
+    ul.appendChild(list[0].cloneNode(true));
+    //10.右边点击事件
+// 存点击的次数，图片的位移
+  var imgIndex=0;
+   //用来改变图片与下标数字对应
+  var liIndex=0
+    right.onclick= function () {
+//        if(imgIndex==5){
+//            imgIndex=0;
+//            ol.style.left=0;
+//        }
+//        imgIndex++;
+//        target=-imgIndex*imgwidth;
+//        animate(ul,target);
+//        //点击图片显示的与下标图对应
+//        for(var i=0;i<olli.length;i++){
+//            olli[i].removeAttribute("class");
+//        }
+//        liIndex++;
+//        if(liIndex==5){
+//            liIndex=0;
+
+//        }
+
+//            olli[liIndex].setAttribute("class","current");
+        arr1();
+    }
+    //左边点击事件
+left.onclick= function () {
+    if(imgIndex==0){
+        imgIndex=5;
+    ul.style.left = -imgIndex * imgwidth +"px";
+
+    }
+    imgIndex--;
+    target=-imgIndex*imgwidth;
+    animate(ul,target);
+    //点击图片显示的与下标图对应
+    for(var i=0;i<olli.length;i++){
+        olli[i].removeAttribute("class");
+    }
+    liIndex--;
+    if(liIndex<0){
+        liIndex=4;
+
+    }
+
+    olli[liIndex].setAttribute("class","current");
+}
+//7.设置计时器
+     var timeID;
+  timeID=setInterval(arr1, 2000);
+    //封装成函数
+    function arr1(){
+        if(imgIndex==5){
+            imgIndex=0;
+            ol.style.left=0;
+        }
+        imgIndex++;
+        target=-imgIndex*imgwidth;
+        animate(ul,target);
+        //点击图片显示的与下标图对应
+        for(var i=0;i<olli.length;i++){
+            olli[i].removeAttribute("class");
+        }
+        liIndex++;
+        if(liIndex==5){
+            liIndex=0;
+
+        }
+
+        olli[liIndex].setAttribute("class","current");
+    }
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //其他数据类型转换成string
+        //1.String()
+      //  var num=123;
+      //  var num1=String(num);
+      //  console.log(typeof num1);//string
+      //  console.log(num1);//123
+      ////如果直接是数据类型，可以转换字符串类型
+       //var num=undefined;
+       //var num1=String(num);
+       //console.log(typeof num1);//string
+       //console.log(num1);//undefined
+       //如果是未被定义的，也可以转换成字符类型
+        //var num=null;
+       //var num1=String(num);
+       //console.log(typeof num1);//string
+       //console.log(num1);//null
+       //如果是null，也可以转换成字符型
+       //var num=NaN;
+       //var num1=String(num);
+       //console.log(typeof num1);//string
+       //console.log(num1);//NaN
+       //如果是NaN 也可以转换成字符串
+
+      // var num1=String(false);
+      // console.log(typeof num1);//string
+      // console.log(num1);//false
+        //如果是布尔值，也可以转换成字符串
+        //2 .toString()
+      // var num=123;
+      // var num1=num.toString();
+      // console.log(typeof num1);//string
+      // console.log(num1);//123
+      // num.toString()也可以转换成字符chuan
+        //var num=null;
+        //var num1=num.toString();
+        //console.log(typeof num1);//报错
+        //console.log(num1);//报错
+        //.toString()不能转换null
+       //var num=undefined;
+       //var num1=num.toString();
+       //console.log(typeof num1);//报错
+       //console.log(num1);//报错
+        //toString()是不能转换成字符串
+       //var num=NaN;
+       //var num1=num.toString();
+       //console.log(typeof num1);//string
+       //console.log(num1);//NaN
+        //NaN本身是数值类型，是可以转换成字符串类型
+      //  var num1=false.toString();
+      //  console.log(typeof num1);//string
+      //  console.log(num1);//false
+        //布尔值可以转换成字符串
+
+        //在数据后面加+""
+        var num=123;
+        var num1=num+"";
+        console.log(num1);//123
+        console.log(typeof num1);//string
+    </script>
+</head>
+<body>
+
+</body>
+</html>

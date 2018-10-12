@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+      //arguments是用来让js模拟重载的
+        //1.aguments函数是无法使用的，但是在函数内可以的
+        //2.arguments是一个实参数组，但是这个数组是个伪数组,:拥有数组的下标，拥有数组的长度，但是没有数组的方法
+       //3.arguments的元素的个数，跟调用的时候传进来的实际参数的个数是一致的
+         //4.arguments修改对应的下标元素，只会影响到形参，但是不会影响到实参
+
+    //  console.log(arguments);//报错
+   //  function arr(){
+   //      console.log(arguments);
+   //  }
+   //   arr()//arguments[]
+     function arr(a,b,c){
+         console.log(arguments);
+         console.log(arguments[3]);
+         arguments[0]=100;
+         console.log(a);//100
+     }
+     var num=10;
+     var num1=30;
+      var num2=90;
+      arr(num,num1,num2)
+      console.log(num);//10
+      //在js中，如果有多个重名的函数，那么只会最后一个生效
+   //    function arr(){
+   //        console.log("你好");
+   //    }
+   //  function arr(){
+   //      console.log("123");
+   //  }
+   //  function arr(){
+   //      console.log("789");
+   //  }
+   //  arr();//789
+      //怎么利用arguments来实现重载
+      //  function getsum(a,b,c){
+       //方法一   // if(arguments.length==2){
+          //     var sum=a+b;
+          //     return sum;
+          // }else{
+          //     var sum=a+b+c;
+          //     return sum;
+          // }
+            //方法二：
+   //        var sum=0;
+   //        for(var i=0;i<arguments.length;i++){
+   //            sum=sum+arguments[i]
+   //        }
+   //        return sum;
+   //    }
+   //    var res=getsum(10,20,30,40,80);
+   //  console.log(res);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

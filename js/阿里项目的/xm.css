@@ -1,0 +1,111 @@
+.lunbotu{
+    width: 100%;
+    height: 500px;
+    background-color:black;
+}
+.conment.bg1{
+    width: 100%;
+    height: 375px;
+    background: url("°¢ÀïÌÔ±¦Í¼Æ¬/572.jpg") repeat-y center ;
+    width: 1423px;
+    margin: 0 auto;
+}
+.tupian-img{
+    width: 1000px;
+    height: 375px;
+    margin: 0 auto;
+}
+.conment.bg1 img{
+    /*width: 1000px;*/
+    height: 375px;
+    margin: 0 auto;
+}
+.banxin{
+    height: 100%;
+    /*background-color: blue;*/
+}
+.main-ad{
+    height: 210px;
+    background-color: deeppink;
+
+}
+.ad{
+    /*width: 1000px;*/
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.ad .zhitongche3{
+    position: absolute;
+    top: 98px;
+    left: 378px;
+    height: 55px;
+    width: 187px;
+    z-index: 20;
+    /*background-color: red;*/
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #666666;
+    opacity: 0.3;
+}
+.footer-main{
+    height: 224px;
+    width: 100%;
+    /*background-color: gold;*/
+
+}
+.footer-two{
+    /*height: 100px;*/
+
+    height: 224px;
+    /*background-color:palegoldenrod;*/
+}
+.footer{
+    width: 980px;
+    height: 162px;
+    padding: 30px 10px;
+    /*background-color: blue;*/
+    margin: 0 auto;
+    font-size: 12px;
+    line-height: 2.4;
+
+}
+.footer .alimama-info a{
+    margin-right: 20px;
+    opacity: 0.5;
+}
+.aligroup-info b{
+    margin:0 10px;
+}
+.aligroup-info a,b{
+    opacity: 0.5;
+}
+.ficate-info{
+    margin-top: 8px;
+
+}
+.ficate-info a{
+    margin-right: 20px;
+    opacity: 0.5;
+}
+.slide-group {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.slide-group .slide{
+    float: left;
+    margin: 0 10px 10px 0;
+
+}
+.slide-group>li>img{
+    width: 400px;
+    /*height: 400px;*/
+    margin-left:60px;
+}
+.footer-main a:hover{
+    opacity: 1;
+}

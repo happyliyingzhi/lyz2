@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1 {
+            width: 200px;
+            height: 200px;
+            border: 50px solid red;
+            padding: 50px;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+<div id="box1"></div>
+</body>
+<script>
+var box=document.getElementById("box1");
+console.log(box.offsetHeight);
+console.log(box.offsetWidth);
+    //这里得出的高度是盒子最真实的高度：设置的高度+垂直的border+垂直的padding
+    //这里得出的高度是盒子最真实的宽度：设置的宽度+水平的border+水平的padding
+    //注意这里的数值，只有数值是没有单位的
+    //能不能修该他的宽度了
+    box.offsetWidth="500px";
+    //这能只能获得他的真实高度，是不能设置修改的
+</script>

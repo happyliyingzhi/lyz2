@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #red {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+            left: 0;
+        }
+
+        #blue {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            top: 200px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="to400" value="到400">
+<input type="button" id="to800" value="到800">
+<div id="red"></div>
+</body>
+</html>
+<script>
+    //1.获取元素
+    var to400 = document.getElementById("to400");
+    var to800 = document.getElementById("to800");
+    var red = document.getElementById("red");
+//    var step=0;
+  to400.onclick= function () {
+
+      setInterval(function () {
+          var currentstep=red.offsetLeft;
+           // step+=9
+           // currentstep+=step;
+           var step =currentstep>400? Math.floor ((400-currentstep)/10):Math.ceil((400-currentstep)/10);
+          currentstep+=step;
+          if(Math.abs(400-currentstep)>Math.abs(step)){
+              red.style.left=currentstep+"px";
+          }else{
+              red.style.left=400+"px";
+          }
+
+      },30)
+  }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //2.给to400设置点击事件
+//    to400.onclick = function () {
+//        animate(red,400);
+//    };
+
+//    //3.设置到800
+//    to800.onclick = function () {
+//        animate(red,800);
+//    };
+
+//    /*******************************************************/
+//    //4.动画函数封装
+//    function animate(ele,target) {
+//        clearInterval(ele.timeID);
+//        //clearInterval(timeID);
+//        //因为他们共用了一个计时器,所以其中一个开始,另外一个就结束
+//        //思路,应该给每个移动的元素自己设置一个timeID,只有自己能停止自己的计时器:对象是可以设置属性的
+//        //设置计时器
+//        ele.timeID = setInterval(function () {
+//            //得到等前的位置
+//            var current = ele.offsetLeft;
+//            //设置步长
+//            //什么时候是正数,什么时候是负数
+//            //当前位置小于目标位置,那么就是正数
+//            //当前位置大于目标位置,那么就是负数
+//            var step = current > target ? Math.floor((target - current)/10) : Math.ceil((target - current)/10);
+//            //console.log(step);
+//            current += step;
+//            console.log(current);
+//            //修改位置
+//            //如果距离大于步长,那么就走一步,如果距离小于步长,那么就直接等于目的地
+//            if(Math.abs(target-current) > Math.abs(step)){
+//                ele.style.left = current + "px";
+//            }else {
+//                ele.style.left = target+"px";
+//                clearInterval(ele.timeID);
+//            }
+        <!--},30)-->
+    <!--}-->
+</script>

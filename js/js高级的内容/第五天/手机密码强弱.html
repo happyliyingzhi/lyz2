@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    body {
+        background: #ccc;
+    }
+
+    label {
+        width: 40px;
+        display: inline-block;
+    }
+
+    span {
+        color: red;
+    }
+
+    .container {
+        margin: 100px auto;
+        width: 400px;
+        padding: 50px;
+        line-height: 40px;
+        border: 1px solid #999;
+        background: #efefef;
+    }
+
+    span {
+        margin-left: 30px;
+        font-size: 12px;
+    }
+
+    .wrong {
+        color: red
+    }
+
+    .right {
+        color: green;
+    }
+
+    .strengthLv0 {
+        height: 6px;
+        width: 120px;
+        border: 1px solid #ccc;
+        padding: 2px;
+    }
+
+    .strengthLv1 {
+        background: red;
+        height: 6px;
+        width: 40px;
+        border: 1px solid #ccc;
+        padding: 2px;
+    }
+
+    .strengthLv2 {
+        background: orange;
+        height: 6px;
+        width: 80px;
+        border: 1px solid #ccc;
+        padding: 2px;
+    }
+
+    .strengthLv3 {
+        background: green;
+        height: 6px;
+        width: 120px;
+        border: 1px solid #ccc;
+        padding: 2px;
+    }
+</style>
+<body>
+<div class="container">
+    <label>密码</label>
+    <input type="text" id="inp1" maxlength="16">
+    <!--<input type="password" id="inp1" maxlength="16"/>-->
+    <div class="pass-wrap">
+        <em>密码强度：</em><em id="strength"></em>
+
+        <div id="strengthLevel" class="strengthLv0"></div>
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+//获取相关的元素
+    var txt=document.getElementById("inp1");
+    var strength=document.getElementById("strength");
+    var strengthLevel=document.getElementById("strengthLevel")
+ //失去鼠标焦点的事件  onblur
+//获取鼠标焦点的事件    onfocus
+var arr=["","弱","中","强"]
+txt.onblur= function () {
+    var level=0;
+    if(/[0-9]/.test(txt.value)){
+        level++;
+    };
+    if(/[a-zA-Z]/.test(txt.value)){
+        level++;
+    };
+    if(/[^0-9a-zA-Z]/.test(txt.value)){
+        level++;
+    }
+    if(txt.value<6){
+        level=0;
+    }
+    strength.innerHTML=arr[level];
+    strengthLevel.className="strengthLv"+level;
+
+
+
+}
+
+
+
+
+//    var arr="qq ";
+//   var box= /[0-9]/.test(arr)
+//    console.log(box);
+ //  var arr=["","弱","中","高"]
+ //  txt.onblur= function () {
+ //      //定义个空的数组
+ //      var strengthLv=0;
+ //      if(/[0-9]/.test(txt.value)){
+ //          strengthLv++;
+ //      }
+ //      if(/[a-zA-Z]/.test(txt.value)){
+ //          strengthLv++;
+ //      }
+ //      if(/[^0-9a-zA-Z]/.test(txt.value)){
+ //          strengthLv++;
+ //      }
+ //      strength.innerHTML=arr[strengthLv];
+ //      strengthLevel.className="strengthLv"+ strengthLv;
+ //      if(txt.value<6){
+ //           strengthLv=0;
+ //      }
+ //  }
+
+</script>

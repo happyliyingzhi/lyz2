@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text" id="box"  value="请输入内容"/>
+</body>
+</html>
+<script>
+    //当鼠标聚焦输入框时，上面提示字就消失，让内容为空时，就提示
+    //onfocus 获得焦点事件
+    //onblur 失去焦点事件
+
+
+    //思路：首先要获得id元素
+    //然后判断一下，在执行代码效果
+var box=document.getElementById("box");
+    box.onfocus=function (){
+        //当鼠标聚焦时，显示的效果
+        //这里必须要this.属性，否则无效
+        if(this.value=="请输入内容"){
+            this.value="";
+        }
+    }
+    //判断的是，失去焦点事件执行的代码
+    box.onblur=function (){
+        if(this.value==""){
+            this.value="请输入内容";
+        }
+    }
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.自定义类
+
+    //预定义类 \d 是表示数字
+    //console.log(/\d/.test("123")); //true
+
+
+    //自定义类
+    //你用test检测的字符串里面，有没有包含d这个字母。如果有就是true.
+    // console.log(/d/.test("123")); //false
+    // console.log(/d/.test("123d")); //true
+
+
+
+    //你用test检测的字符串里面， 有没有包含heima，，如果有就是true.
+     console.log(/heima/.test("hei")); //false
+     console.log(/heima/.test("ma")); //false
+     console.log(/heima/.test("heima")); //true
+     console.log(/heima/.test("heiheimama")); //true
+     console.log(/heima/.test("heihei.mama")); //false
+     console.log(/heima/.test("heimaheima")); //true
+     console.log(/heima/.test("林黑群真尼玛hei")); //false
+     console.log(/heima/.test("he1im2a")); //false
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

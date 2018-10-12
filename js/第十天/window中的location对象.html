@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="btn1">assign</button>
+<button id="btn2">reload</button>
+<button id="btn3">replace</button>
+</body>
+</html>
+<script>
+    console.log(window.location);
+    console.log(window.location.host);
+    //主机名以及端口号
+    console.log(window.location.hostname);
+    //主机名
+    console.log(window.location.href);
+    //完整的域名
+    var btn1=document.getElementById("btn1");
+    btn1.onclick= function () {
+        window.location.assign("http://www.baidu.com");
+        //打开新的文档和window.open
+
+    }
+    var btn2=document.getElementById("btn2");
+    btn2.onclick= function () {
+        window.location.reload();
+        //刷新当前的文档
+    }
+    var btn3=document.getElementById("btn3");
+    btn3.onclick= function () {
+        window.location.replace("http://www.jd.com");
+        //替换当前的文档
+    }
+</script>

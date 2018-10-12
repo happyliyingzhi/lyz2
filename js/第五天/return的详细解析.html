@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    //分析有return和没有return的情况
+        //1.没有return的情况
+   //  //函数默认返回值是undefined
+    //function res(a,b){
+    //    alert("我被调用了"+a+b);
+    //
+    //}
+    //var arr=res(10,20);
+    //lert(arr);//undefined
+    //var test=res(a,b);
+    // console.log(test);//输出我被调用了，undefined
+   //2.有return 后面没有值，undefined;
+        //return代表的的结束，所以return后面的代码不会执行
+    //  function res(){
+    //      console.log("我被调用了");
+    //      return;
+    //      console.log("我在return的后面");//这句代码没有被执行
+    //
+    //  }
+    //  var text=res();
+    //nsole.log(text);//"我被调用了"undefined
+    //有return，后面有值,此时会返回return后面的值
+        //那么此时return后面的值。就是函数返回的值
+       // function test(){
+       //     console.log("我在这里");
+       //     return 123;
+       // }
+  //      var arr=test();
+  //  console.log(arr);//"我在这里"123
+        test();//输出我在这里，
+        //return存在返回函数值，如果没有将函数返回，而是直接调用函数，那么就不会执行return的内容
+    </script>
+</head>
+<body>
+
+</body>
+</html>

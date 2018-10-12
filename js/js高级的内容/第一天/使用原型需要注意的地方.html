@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//使用原型需要注意的地方
+    //1.构造函数实例化出来的对象们，共有的数据才能存进
+    //构造函数对应的原型中
+//    function arr(name,age){
+//        this.name=name;
+//        this.age=age;
+//    }
+//    arr.prototype.box= function () {
+//        console.log("我的名字叫" + this.name);
+//    }
+
+
+//      //添加属性
+//    arr.prototype.type="hunmen";
+//    var d1=new  arr("一一",30);
+//console.log(d1.type);//humen
+//         d1.box();//我的名字叫一一
+//console.log(d1);
+//    var d2=new arr("二二",12);
+//console.log(d1.box === d2.box);//true
+    //构造函数实例化出来的对象访问成员的访问规则：
+    // 自己有就先访问自己构造函数里面的，自己没有在访问原型里面的
+ //     function box(name,age){
+ //         this.name=name;
+ //         this.age=age;
+ //          this.sayHi= function () {
+ //              console.log("我是在构造函数里面的函数");
+ //          }
+ //     };
+ //  box.prototype.sayHi= function () {
+ //      console.log("我是在box原型里面的");
+ //  }
+ //  var arr=new box("依依",40);
+ //  arr.sayHi();//我是在构造函数里面的函数
+    //这里是构造函数里面有这个属性，就先访问构造函数里面的
+    //访问原型（给原型添加成员或者修改成员），必须要使用
+    //构造函数名.prototype这种语法
+//      function cat(name,vari){
+//          this.name=name;
+//          this.vari=vari;
+////          this.type="maole"
+//}
+//     cat.prototype.type="猫科";//这个是给原型添加的属性
+//    cat.prototype.sayHi= function () {
+//        console.log("我是添加的cat里面的原型函数");
+//    }
+//   console.log(cat.type);//"猫科2"
+//  var box=new cat("yiyi","机械猫");
+//  box.type="猫科2"//这里添加元素只给cat添加了元素，并没有在原型里面添加
+//
+//    box.sayHi()//我是添加的cat里面的原型函数
+//console.log(box.type);//"猫科"
+//console.log(box);
+ //实例化对象访问原型中的成员，访问的是修改原型前的还是修改原型
+    //后的。要看这个对象是在修改原型之前创建的还是修改原型
+    //之后创建的
+//修改原型对象，相应的修改了他的构造函数和实例化对象
+//构造函数
+//    function person(name,age){
+//        this.name=name;
+//        this.age=age;
+//    };
+    function person(name,age){
+        this.name=name;
+        this.age=age;
+    }
+//原型
+//    person.prototype.box= function () {
+//        console.log("我是person的原型");
+//    }
+     person.prototype.box= function () {
+         console.log("我是person的原型");
+     }
+    //实例化对象
+//    var p1=new person("yi dyi",30);
+  var arr=new person("liyingzhi",15);
+     arr.box();//调用原型，实例化对象访问
+console.log(person.prototype);//构造函数访问原型
+console.log(person.prototype.constructor);//原型访问构造函数
+//    p1.box()//我是person的原型
+//console.log(person.prototype);
+//修改原型
+//   person.prototype.box= function () {
+//       console.log("我是person修改后的原型");
+//   }
+//   p1.box()//我是person修改后的原型
+//console.log(person.prototype)
+//console.log(p1);
+</script>

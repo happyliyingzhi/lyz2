@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    var arr=[20.30,40];
+      arr.push(100);//对象调用方法？这里我并没有声明对象啊，难道arr是一个对象吗？
+    console.log(arr);
+    var res=Object.prototype.toString.call(arr);
+    console.log(res);//object Array
+        //系统内部会将我们声明的数据类型，在内部做一层包装，称为一个对象的
+    </script>
+</head>
+<body>
+
+</body>
+</html>

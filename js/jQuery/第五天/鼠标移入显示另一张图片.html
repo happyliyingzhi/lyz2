@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .got-hot{
+            width: 100px;
+            height: 100px;
+            position: relative;
+
+        }
+        .hot-link{
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            overflow: hidden;
+            /*top: 20px;*/
+
+        }
+        img:first-child{
+            width: 200px;
+            height: 100px;
+            position: absolute;
+
+        }
+        img:last-child{
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<div class="got-hot" >
+    <a href=""class="hot-link">
+        <img  class="fir" src="images/1.png" alt=""/>
+        <!--<div class="hot-find">-->
+        <img  class="hot-find" src="images/kind1.jpg" alt=""/>
+        <!--</div>-->
+    </a>
+</div>
+
+</body>
+</html>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+      $('.got-hot').on('mouseenter', function () {
+             $('.hot-find').fadeIn(500)
+      }).on('mouseleave', function () {
+          $('.hot-find').fadeOut(500)
+
+      })
+
+    })
+</script>

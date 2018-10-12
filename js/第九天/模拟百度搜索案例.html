@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-size: 20px;
+        }
+        .box {
+            width: 600px;
+            height: 40px;
+            margin: 200px auto;
+            position: relative;
+        }
+        #txt {
+            width: 498px;
+            height: 38px;
+            border: 1px solid #f00;
+            font-size: 20px;
+        }
+        #search {
+            width: 100px;
+            height: 40px;
+        }
+        #keywords {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: rgb(12, 255, 24);
+            list-style: none;
+            width: 500px;;
+        }
+        li {
+            line-height: 24px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="top">
+        <input type="text" id="txt"/><input type="button" value="search" id="search"/>
+    </div>
+    <ul id="keywords"></ul>
+</div>
+
+</body>
+</html>
+<script src="common.js"></script>
+
+<script>
+    var keywords = ["王宝强","王宝强的经纪人","王宝强的老婆","林丹出轨门","林丹夺冠","123","1234","2341","林丹的生平","JavaScript","Java","王思聪","王健林","社会王","隔壁老王","林哥"];
+ //1.获取相关值
+    var text=id("txt");
+ //   console.log(text);
+    var keyUi=id("keywords");
+   // console.log(keyUi);
+    //2.字符串下标的位置
+   // var str="我很快乐";
+   // var res="快";
+   // console.log(str.indexOf(res));
+    //如果是空字符串，返回的是零
+  //3.键盘按下onkeydown
+  // text.onkeydown= function () {
+  //     console.log("我被按下了");
+  // }
+    //4.键盘弹起onkeyup
+  // text.onkeyup= function () {
+  //     console.log("我被弹起了");
+  // }
+    //5.判断输入框的值与我数组的里面的匹配，如果相同就创建一个新的盒子将他拿出来，如果没有就不显示
+    text.onkeyup= function () {
+        //6，将用户输入信息存入一个新的变量
+        var str=this.value.trim();
+        //7.判断如果为空就不需要执行
+        if(str==""){
+            keyUi.innerHTML="";
+            return;
+        }
+        //9,每一次执行时，都将前面的清空，然后在执行后面的代码，
+        // 排他思想，这样就不会出现我删掉一个字就增加一个后面的文字，前面的内容没有删掉
+        keyUi.innerHTML="";
+        //8,如果输入框与数组里面有相同的数字，就把相同的数组显示在新的元素，添加在ul页面里面
+        for(var i=0;i<keywords.length;i++){
+            if(keywords[i].indexOf(str) !=-1){
+                var newList=document.createElement("li");
+                newList.innerHTML=keywords[i];
+                keyUi.appendChild(newList);
+                //10.鼠标选中时改变他的颜色
+                var oldColor;
+                newList.onmouseover= function () {
+                    oldColor = this.style.backgroundColor;
+                    this.style.backgroundColor = "red";
+                };
+                    //11.鼠标移出时恢复他的颜色
+                      newList.onmouseout = function () {
+                        this.style.backgroundColor = oldColor;
+                    };
+                //12.当鼠标时，会清空下面ul的，输入框显示选中的内容
+                     newList.onclick= function () {
+                             text.value=this.innerHTML;
+                             keyUi.innerHTML="";
+                         }
+                     }
+                }
+
+
+
+
+    }
+
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            margin-top: 10px;
+
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="top" id="topPart">
+    <img id="pic" src="images/top.png" alt=""/>
+</div>
+<div class="nav" id="navBar">
+    <img src="images/nav.png" alt=""/>
+</div>
+<div class="main" id="mainPart">
+    <img src="images/main.png" alt=""/>
+</div>
+<script src="../tools.js"></script>
+<script>
+    //1.获取元素
+    var topPart = document.getElementById("topPart");
+    var navBar = document.getElementById("navBar");
+    var mainPart = document.getElementById("mainPart");
+
+    //2.给页面设置一个滚动事件
+    window.onscroll = function () {
+        //2.1 获取当前滚动的scrollTop
+        var top1 = getPageScroll().top;
+        console.log(top1);
+        //2.2 判断,如果当前滚出去的部分scrollTop的值,大于等于第一部分的高度.
+        if(top1 >= topPart.offsetHeight){
+            //就应该给第二部分设置固定定位.
+            navBar.style.position = "fixed";
+            navBar.style.top = "0px";
+            navBar.style.left = "0px";
+            //防止固定定位后脱标,下面的部分一下子就上去了
+            mainPart.style.marginTop = navBar.offsetHeight+10+ "px";
+        }else {
+            //就应该给第二部分设置回去
+            navBar.style.position = "static";
+            navBar.style.top = "0px";
+            navBar.style.left = "0px";
+
+            mainPart.style.marginTop = 10+ "px";
+        }
+
+    }
+
+</script>
+</body>
+</html>

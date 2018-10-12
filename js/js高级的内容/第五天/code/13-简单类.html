@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.简单类   []
+    //简单类只代表一个字符
+
+
+    //如果用test检测的字符串中，出现[]中的字符任意一个，就是true.
+    //  console.log(/[abc]/.test("a"));  //true
+    //  console.log(/[abc]/.test("b"));  //true
+    //  console.log(/[abc]/.test("c"));  //true
+    //  console.log(/[abc]/.test("123456a")); //true
+    //  console.log(/[abc]/.test("123456abcabc")); //true
+    //  console.log(/[abc]/.test("123456")); //false
+    //  console.log(/[abc]/.test("ddddddddd!!!!!!")); //false
+    //  console.log(/[abc]/.test("dddddbdddd!!!!!!"));//true
+    //  console.log(/[abc]/.test("dddddBdddd!!!!!!")); //false
+    //  console.log(/[abc]/i.test("dddddBdddd!!!!!!")); //true
+
+
+    //因为这里是一个自定义类，所以要出现至少 是y中间是a或者b或者cz连起来的三个字符。
+    //检测的字符串中有： yaz  ybz   ycz   ,就是为true。
+    // console.log(/y[abc]z/.test("yaz")); //true
+    // console.log(/y[abc]z/.test("ybz")); //true
+    // console.log(/y[abc]z/.test("ycz")); //true
+    // console.log(/y[abc]z/.test("yz")); //false
+    // console.log(/y[abc]z/.test("yabcz")); //false
+    // console.log(/y[abc]z/.test("yazybzycz")); //true
+    // console.log(/y[abc]z/.test("lallalalalallayaz")); //true
+    // console.log(/y[abc]z/.test("lallalalalallaybz")); //true
+    // console.log(/y[abc]z/.test("lallalalalallaycz")); //true
+
+
+    //yaaz   ybbz   yccz
+    //console.log(/y(aa|bb|cc)z/.test("yaaz")); //true
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

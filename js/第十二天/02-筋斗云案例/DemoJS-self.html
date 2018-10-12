@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>筋斗云动态效果</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    body {
+      background-color: #333;
+    }
+    
+    .nav {
+      width: 800px;
+      height: 42px;
+      margin: 100px auto;
+      /*background-color: red;*/
+      background: #fff url(images/rss.png) no-repeat right center;
+      border-radius: 10px;
+      position: relative;
+    }
+    
+    .nav li {
+      width: 83px;
+      height: 42px;
+      /*background-color: red;*/
+      text-align: center;
+      line-height: 42px;
+      float: left;
+      cursor: pointer;
+    }
+    
+    ul {
+      position: relative;
+    }
+    
+    .nav span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 83px;
+      height: 42px;
+      background: url(images/cloud.gif) no-repeat;
+    }
+  </style>
+</head>
+<body>
+<div class="nav">
+  <span id="cloud"></span>
+  <ul id="navBar">
+    <li>北京校区</li>
+    <li>上海校区</li>
+    <li>广州校区</li>
+    <li>深圳校区</li>
+    <li>武汉校区</li>
+    <li>关于我们</li>
+    <li>联系我们</li>
+    <li>招贤纳士</li>
+  </ul>
+</div>
+<script>
+  //1.获取元素
+  var cloud = document.getElementById("cloud");
+  var lis = document.getElementById("navBar").children;
+
+  //3.声明一个变量,用来保存筋斗云原来的位置.
+  var lastPosition = 0;
+
+  //2.遍历li标签们
+  for(var i = 0 ; i < lis.length; i++){
+    //2.1 给每一个li设置鼠标移入事件
+    lis[i].onmouseover = function () {
+      //获取当前li标签的位置
+      var target = this.offsetLeft;
+      //调用animateSlow函数
+      animateSlow(cloud,target);
+    }
+
+    //4.给每一个li设置鼠标移出事件
+    lis[i].onmouseout = function () {
+      //调用animateSlow函数
+      animateSlow(cloud,lastPosition);
+    }
+
+    //5.给每一个li设置鼠标点击事件
+    lis[i].onclick = function () {
+      //找到当前这个li标签的位置,赋值给lastPosition
+      lastPosition = this.offsetLeft;
+    }
+  }
+
+
+
+  //缓动动画
+  function animateSlow(ele,target){
+    //设置计时器之前,清空计时器
+    clearInterval(ele.timerID);
+    //设置计时器
+    ele.timerID = setInterval(function () {
+      //获取当前的left值
+      var currentLeft = ele.offsetLeft;
+      //计算步长.
+      var step = (target - currentLeft)/3;
+      step = step > 0 ? Math.ceil(step) : Math.floor(step);
+      //计算
+      currentLeft += step;
+      //赋值:因为步长最后是1,无论如何都会赋值的.
+      ele.style.left = currentLeft + "px";
+      console.log(currentLeft);
+      if(currentLeft == target){
+        clearInterval(ele.timerID);
+      }
+    },50);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+
+.message {
+    width: 655px;
+    height: 80px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.message div {
+    width: 130px;
+    height: 80px;
+    float: left;
+    margin-right: 1px;
+    color: #FFFFFF;
+    font-size: 20px;
+    text-align: center;
+    line-height: 80px;
+    background: url("../images/head-nav-bg_h.png");
+    position: relative;
+}
+
+.message .mesBox1 {
+    background: url("../images/head-nav-bg_h.png");
+}
+
+.message i {
+    width: 130px;
+    height: 80px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 4;
+}
+
+.message em {
+    position: absolute;
+    width: 0px;
+    height: 80px;
+    left: 0;
+    top: 0;
+    background: url("../images/head-nav-bg_h.png");
+}
+
+.message .mesBox2 {
+    position: relative;
+}
+
+.message .mesBox2 i {
+    background: url("../images/i1.png") no-repeat center center #0b66a1;
+}
+
+.message .mesBox3 i {
+    background: url("../images/i2.png") no-repeat center center #0b66a1;
+}
+
+.message .mesBox4 i {
+    background: url("../images/i3.png") no-repeat center center #0b66a1;
+}
+
+.message .mesBox5 i {
+    background: url("../images/i4.png") no-repeat center center #0b66a1;
+}

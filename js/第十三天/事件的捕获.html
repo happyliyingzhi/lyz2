@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <style>
+        .one {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 250px;
+            top: 250px;
+        }
+    </style>
+</head>
+<body>
+<div class="one" id="box">
+    <input type="button" value="按钮" id="btn"/>
+    <div class="son" id="son"></div>
+</div>
+
+</body>
+</html>
+<script>
+    var box = document.getElementById("box");
+    var btn = document.getElementById("btn");
+    var son = document.getElementById("son");
+    document.addEventListener("click", function () {
+        alert("我是老大")
+    },true);
+    btn.addEventListener("click", function () {
+        alert("我是老二")
+    },true);
+     son.addEventListener("click", function () {
+        alert("我是老三")
+    },true);
+    //铺获事件：当一个元素的某个事件触发后，那么会先从最外层的父盒子开始执行然后一层一层外下找
+    //冒泡事件：当一个元素的某个事件触发后，那么会从触发事件开始，在一层一层的往外面找
+</script>

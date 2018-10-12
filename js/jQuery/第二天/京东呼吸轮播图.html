@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>动画-案例《轮播图》</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .slider {
+            height: 340px;
+            width: 790px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .slider li {
+            position: absolute;
+            display: none;
+        }
+
+        .slider li:first-child {
+            display: block;
+        }
+
+
+        .arrow {
+            display: none;
+        }
+
+        .slider:hover .arrow {
+            display: block;
+        }
+
+        .arrow-left,
+        .arrow-right {
+            font-family: "SimSun", "宋体";
+            width: 30px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 60px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        .arrow-left:hover,
+        .arrow-right:hover {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .arrow-left {
+            left: 0;
+        }
+
+        .arrow-right {
+            right: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="slider">
+    <ul>
+        <li><a href="#">1<img src="images/jd/1.jpg" alt=""></a></li>
+        <li><a href="#">2<img src="images/jd/2.jpg" alt=""></a></li>
+        <li><a href="#">3<img src="images/jd/3.jpg" alt=""></a></li>
+        <li><a href="#">4<img src="images/jd/4.jpg" alt=""></a></li>
+        <li><a href="#">5<img src="images/jd/5.jpg" alt=""></a></li>
+        <li><a href="#">6<img src="images/jd/6.jpg" alt=""></a></li>
+        <li><a href="#">7<img src="images/jd/7.jpg" alt=""></a></li>
+        <li><a href="#">8<img src="images/jd/8.jpg" alt=""></a></li>
+    </ul>
+    <!--箭头-->
+    <div class="arrow">
+        <span class="arrow-left">&lt;</span>
+        <span class="arrow-right">&gt;</span>
+    </div>
+</div>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+//   $(function () {
+//       //思路：首先获取当前的右边点击的按钮，然后设置一个索引，每点击一次就增加一次
+//       //设置判断条件，当为8的时候重新回归零，
+//       //设置对应的索引已照片的向对应
+//       //当前的照片淡入其他兄弟的照片淡出
+//          var index=0;
+//       //清除计时器
+//       var timeId;
+//       //点击右边显示图片
+//         $('.arrow-right').on('click', function() {
+//                   arr();
+//         });
+//
+//
+////             index++;
+////              if(index==8){
+////                  index=0;
+////              }
+////
+////             $('.slider li').eq(index).fadeIn(500).siblings('li').fadeOut(100);
+//
+//       //点击左边显示图片
+//       $('.arrow-left').on('click', function () {
+//           index--;
+//           console.log(index);
+//           if(index==-1){
+//               index=7
+//           }
+//           $('.slider li').eq(index).fadeIn(500).siblings('li').fadeOut(100);
+//       })
+//
+//
+//       function arr() {
+//
+//           index++;
+//           if (index == 8) {
+//               index = 0;
+//           }
+//
+//           $('.slider li').eq(index).fadeIn(500).siblings('li').fadeOut(100);
+//       }
+//
+//     timeId= setInterval(arr,4000);
+//
+//        $('ul').on('mouseenter', function () {
+//            clearInterval(timeId);
+//        }).on('mouseleave', function () {
+//            timeId= setInterval(arr,4000);
+//
+//        })
+
+//       var index=0;
+//       $('.arrow-right').click(function () {
+//           index++;
+//           var list=$('li').length
+//           if(index==list){
+//               index=0;
+//           }
+//           $('.slider li').eq(index).fadeIn(1000).siblings('li').fadeOut(1000);
+//       })
+//               $('.arrow-left').click(function () {
+//                   index--;
+//                   console.log(index);
+//                   if(index==-1){
+//                       index=7
+//
+//                   }
+//                   $('.slider li').eq(index).fadeIn(1000).siblings('li').fadeOut(1000);
+//               })
+
+
+
+
+
+
+
+
+
+//          var index=0;
+//          $('.slider .arrow-right').click(function () {
+//              index++;
+//              console.log(index);
+//               if(index== 8){
+//                   index=0;
+//               }
+//              $('.slider li').eq(index).fadeIn(500).siblings('li').fadeOut(500);
+
+
+
+//          })
+//       $('.slider .arrow-left').click(function () {
+//           index--;
+//           console.log(index);
+//           if(index==-1){
+//               index=7
+//           }
+//           $('.slider li').eq(index).fadeIn(500).siblings('li').fadeOut(500);
+//       })
+//        //需求:左右焦点设置单击事件, 显示(淡入)对应索引的li.
+
+//        //声明一个index属性,用来控制显示图片的索引
+//        var index = 0;
+//
+//        //右边焦点
+//        $('.slider .arrow-right').click(function () {
+//            index++;
+//            console.log(index);
+//            //如果index超出了要显示的图片,处理下
+//            if(index == 8){ //8是要显示的图片的个数.
+//                index = 0;
+//            }
+
+//            //对应索引的li淡入,其他的兄弟li淡出.
+//            $('.slider li').eq(index).fadeIn(500).siblings('li').fadeOut(500);
+//        });
+
+
+//        //左边
+//        $('.slider .arrow-left').click(function () {
+//            index--;
+
+//            if(index == -1){
+//                index = 7; //7是要显示的图片的个数-1.
+//            }
+
+//            //对应索引的li淡入,其他的兄弟li淡出.
+//            $('.slider li').eq(index).fadeIn(500).siblings('li').fadeOut(500);
+
+
+
+//    });
+</script>

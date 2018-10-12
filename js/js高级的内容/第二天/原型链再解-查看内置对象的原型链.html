@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//数组的原型
+//    var box=[10,20,30,40];
+//    //相当于  var box=new Array(10,20,30,40)
+//console.log(box.__proto__);//Array(0)
+//console.log(box.__proto__ == Array.prototype);//true
+//console.log(box.__proto__.__proto__);//{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+//console.log(box.__proto__.__proto__.constructor);//ƒ Object() { [native code] }
+//console.log(box.__proto__.__proto__==Object.prototype);//true
+//console.log(box.__proto__.__proto__.__proto__);//null
+//2.时间对象
+    var date=new Date();
+console.log(date.__proto__);//{constructor: ƒ, toString: ƒ, toDateString: ƒ, toTimeString: ƒ, toISOString: ƒ, …}
+console.log(date.__proto__.constructor);//ƒ Date() { [native code] }
+console.log(date.__proto__==Date.prototype)//true
+console.log(date.__proto__.__proto__);//{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+console.log(date.__proto__.__proto__.constructor);//ƒ Object() { [native code] }
+console.log(date.__proto__.__proto__.__proto__);//null
+
+
+</script>

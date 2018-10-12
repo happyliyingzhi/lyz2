@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var num=(10,20,30,50);
+        console.log(num);
+        //输出为50
+        var num1=20,num2=30;
+        var res=(num1++, ++num2,num1+num2);//52
+        console.log(res);
+        //逗号表达式
+        //式子之间用逗号隔开的表达式
+        //逗号表达式的结果式最后一个式子的结果
+        //逗号表达式虽然式最后的一个式子但是，前面的式子还是会执行//52
+        //20，31，52
+        //让用户输入他的名字，年龄，性别，然后打印出来
+        //我的名字是。。。。我今年。。。。。岁 我是一个。。。孩子
+        var name=prompt("请输入你的名字");
+        var age=prompt("请输入你的年龄");
+        var gender=confirm("请选择你的性别");
+        var sex=gender ? "男生":"女生";
+        console.log("我的名字是："+name+"我今年"+age+"岁"+"我是一个"+sex);
+        //我的名字是：李同学我今年20岁我是一个女生
+    </script>
+</head>
+<body>
+
+</body>
+</html>

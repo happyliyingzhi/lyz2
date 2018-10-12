@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" id="btn" value="按钮">
+
+</body>
+</html>
+<script>
+    var btn = document.getElementById("btn");
+//      btn.onclick= function () {
+//          console.log("我被点击了");
+////          点击之后移出这个事件，也就是上面只会执行一次
+//          this.onclick=null;
+//      }
+    //
+    function box(){
+        console.log("我被点击了，我是老二");
+    }
+//    btn.addEventListener("click",box,false);
+//    btn.removeEventListener("click",box,false);
+    //移除事件参数与添加的必须一致，但是里面的函数是匿名函数除外
+    //只能在谷歌应用
+
+
+
+
+    //只能在ie8里面用，移出的函数与添加的函数要一致，除了匿名函数之外
+//    btn.attachEvent("onclick",box);
+//    btn.detachEvent("onclick",box);
+
+    //兼容
+//    function setRemoveEventListene(ele,type,fun){
+//        if(ele.detachEvent){
+//             ele.detachEvent("on"+type,fun);
+//        }else{
+//             ele.removeEventListener(type,fun,false)
+//        }
+//    };
+ //   btn.setRemoveEventListene("click",box);
+    function setRemoveEvent(ele,type,fun) {
+        //能力检测
+        if(ele.detachEvent){
+            //进入这里代表你是ie8
+            ele.detachEvent("on"+type,fun);
+        }else{
+            //代表谷歌或火狐
+            ele.removeEventListener(type,fun,false);
+        }
+    }
+    setRemoveEvent(btn,"click",box);
+</script>

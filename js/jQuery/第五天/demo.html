@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .big{
+            position: absolute;
+            top: 0;
+            left: 50px;
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            border-radius: 50%;
+            /*display: none;*/
+            text-align: center;
+        }
+
+        @keyframes move {
+            from {
+                transform: scale(1, 1);
+            }
+
+            to {
+                transform: scale(2, 2);
+            }
+
+        }
+        .box1{
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            border-radius: 50%;
+            /*display: none;*/
+            opacity: 0.2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transition: all 2s;
+            animation: move 1s infinite alternate;
+
+        }
+        .box2{
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background-color: red;
+            border-radius: 50%;
+            /*display: none;*/
+            opacity: 0.5;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transition: all 2s;
+            animation: move 1s infinite alternate;
+
+        }
+        .box3{
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background-color: red;
+            border-radius: 50%;
+            /*display: none;*/
+            opacity: 0.3;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transition: all 2s;
+            animation: move 1s infinite alternate;
+
+        }
+        .box4{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            /*display: none;*/
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transition: all 2s;
+            animation: move 1s infinite alternate;
+
+        }
+    </style>
+</head>
+<body>
+<div class="big">
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+<div class="box4"></div>
+</div>
+<input type="button" value="按钮" id="btn"/>
+</body>
+</html>
+<script src="jquery-1.12.4.js"></script>
+<script>
+
+
+
+
+    $(function () {
+        $('#btn').on('click', function () {
+                arr();
+//
+       })
+
+
+        function arr(){
+            $('.box1').animate({
+
+                width: 100,
+                height: 100
+            },1000, function () {
+                $('.box2').animate({
+                    width: 180,
+                    height: 180
+
+
+                },1000, function () {
+                    $('.box3').animate({
+                        width: 200,
+                        height: 200
+                    },1000, function () {
+                        $('.box4').animate({
+                            width: 240,
+                            height:240
+                        })
+                    })
+                })
+
+            })
+        }
+
+//   setInterval(arr,1000)
+
+    })
+    
+</script>

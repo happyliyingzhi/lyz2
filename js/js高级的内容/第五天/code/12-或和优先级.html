@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.或和优先级   |    （）
+
+    //用test检测的字符串里面，如果有hei或者有ma都是true.
+    //  console.log(/hei|ma/.test("hei")); //true
+    //  console.log(/hei|ma/.test("ma")); //true
+    //  console.log(/hei|ma/.test("heima")); //true
+    //  console.log(/hei|ma/.test("heiheimama")); //true
+    //  console.log(/hei|ma/.test("heimaheima")); //true
+    //  console.log(/hei|ma/.test("林黑群真尼玛hei")); //true
+    //  console.log(/hei|ma/.test("he1im2a")); //false
+
+
+
+    //用test检测的字符串里面，如果有heia,或者hema，那么就是true.
+     console.log(/he(i|m)a/.test("hei")); //false
+     console.log(/he(i|m)a/.test("ma")); //false
+     console.log(/he(i|m)a/.test("heima")); //false
+     console.log(/he(i|m)a/.test("heia")); //true
+     console.log(/he(i|m)a/.test("hema")); //true
+     console.log(/he(i|m)a/.test("heimaheima")); //false
+     console.log(/he(i|m)a/.test("heiahahahhaha")); //true
+     console.log(/he(i|m)a/.test("hahahhahahema")); //true
+     console.log(/he(i|m)a/.test("heiaheiahemahema")); //true
+     console.log(/he(i|m)a/.test("he1iaheaiahe3mahe4ma")); //false
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

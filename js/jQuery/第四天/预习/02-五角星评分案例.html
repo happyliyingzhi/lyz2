@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>五角星评分案例</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .comment {
+            font-size: 40px;
+            color: red;
+        }
+
+        .comment li {
+            float: left;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+      $(function () {
+         //需求1:鼠标移入到li标签上,当前li标签和他之前的li标签显示实心五角心,后面的li显示空心五角心.
+         //需求2:鼠标离开li,所有的li都变成空心.
+         //需求3:点击li,当前li和之前的li都变成实心五角心,后面空心五角心.
+
+         var sx_wjx = "★";
+         var kx_wjx = "☆";
+
+         //prev() 上一个兄弟
+         //prevAll() 之前所有的兄弟
+         //next(); 下一个兄弟
+         //nextAll(); 之后所有的兄弟
+          $('.comment>li').on('mouseenter', function () {
+                $(this).html(sx_wjx).prevAll().html(sx_wjx);
+         });
+          $('.comment>li').on('mouseleave', function () {
+                  $('.comment>li').html(kx_wjx);
+                 $('.comment>li.current').html(sx_wjx).prevAll() .html(sx_wjx);
+                $('.comment>li.current').nextAll().html(kx_wjx)
+          });
+          $('.comment>li').on('click', function () {
+                  $(this).attr('class','current').siblings().removeAttr('class')
+          })
+
+
+
+
+
+      });
+    </script>
+</head>
+
+<body>
+
+    <ul class="comment">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+
+</body>
+
+</html>

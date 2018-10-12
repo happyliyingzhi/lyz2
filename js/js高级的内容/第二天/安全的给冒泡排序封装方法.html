@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //var arr = new Array();
+    function Mysort() {
+
+    }
+    //修改原型:修改这个构造函数myArray()的原型为一个空数组对象.
+    Mysort.prototype = [];//[]的原型是Array.prototype里面有push方法.
+    Mysort.prototype.mysort = function() {
+        for(var i = 0; i < this.length - 1; i++) {
+            for(var j = 0; j < this.length - 1 - i; j++) {
+                if(this[j] > this[j + 1]) {
+                    var temp;
+                    temp = this[j + 1];
+                    this[j + 1] = this[j];
+                    this[j] = temp;
+                }
+            }
+        }
+    }
+
+    var sort = new Mysort();
+   //console.log(sort);
+   //sort.unshift(12,3,4,66,20,19,8);//push
+    sort.mysort();
+    console.log(sort);
+</script>

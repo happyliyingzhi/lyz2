@@ -1,0 +1,45 @@
+ .course-ul .a-gd2 {
+    float: left;
+     width: 158px;
+     height: 198px;
+     overflow: hidden;
+     margin: 0 10px 10px 0;
+     top: 0;
+     border: 1px solid #f1f1f1;
+     position: relative;
+}
+ .a-gd2 a {
+    display: block;
+    width: 158px;
+    height: 198px;
+    text-align: center;
+}
+.course-ul .a-gd2 a img {
+    margin-top: 38px;
+    position: relative;
+    left: auto;
+    bottom: auto;
+    top: 0;
+    transition: all 0.4s ease-in-out;
+}
+ .course-ul .a-gd2 a p {
+    font-size: 18px;
+    position: relative;
+    right: auto;
+    bottom: 0;
+    padding-top: 30px;
+    transition: all 1s ease-in-out;
+}
+.course-ul .a-gd2 a:hover img {
+    top: 15px;
+    transition: all 1s ease-in-out;
+}
+ .course-ul .a-gd2 a:hover p {
+    bottom: 5px;
+    transition: all 0.4s ease-in-out;
+}
+/*p.clear {*/
+    /*width: 100%;*/
+    /*height: 20px;*/
+    /*clear: both;*/
+/*}*/

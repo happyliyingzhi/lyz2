@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" id="start" value="开始">
+<input type="button" id="stop" value="停止">
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+var strat=id("start");
+    var stop=id("stop");
+    var timeBox;
+   strat.onclick= function () {
+       //注意:在计时器开始之前,先把计时器清空
+       clearInterval(timeID);
+       //1.setInterval 设置计时器，1000毫秒就是1秒，直接在后写
+       //setInterval("console.log('我不知道');",1000 );
+       //  2.传入函数的计时器
+       // setInterval(love,1000);//这里时传入函数名
+       function love() {
+           console.log("i love you");
+
+       }
+   }
+
+//       //3。匿名函数设置计时器
+//      timeBox= setInterval(function () {
+//           console.log("我时一个");
+//       },1000);
+//       console.log(timeBox);
+//   }
+    //4.清空计时器
+    //每生成一个计时器，计时器本身都是有一个编码
+//clearInterval
+    stop.onclick= function () {
+        clearInterval(timeBox);//传入的时前面设置的返回值
+    }
+</script>

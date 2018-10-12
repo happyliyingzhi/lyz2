@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      position: absolute;
+      display: none;
+    }
+  </style>
+
+ <script src="jquery-1.12.4.js"></script>
+ <script src="plugin/jquery.color.js"></script>
+ <script>
+   $(function () {
+     $('#btn').on('click', function () {
+       $('div').fadeIn(500, function () {
+         $('div').animate({
+           top:300,
+           left:1000,
+           width:500,
+           height:500,
+           backgroundColor:'green'
+         })
+       })
+
+     })
+
+
+
+   });
+ </script>
+
+
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/> <br/> <br/>
+<div></div>
+</body>
+</html>

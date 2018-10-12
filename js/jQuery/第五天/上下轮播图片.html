@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            width: 400px;
+            height: 200px;
+            margin: 50px auto;
+            position: relative;
+            border: 1px solid red;
+            /*overflow: hidden;*/
+        }
+        ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        li {
+            list-style: none;
+            width: 398px;
+            height: 198px;
+            border: 1px solid red;
+
+        }
+        .spot {
+            position: absolute;
+              top: 150px;
+              left: 50%;
+            /*right: 0;*/
+            /*transform: translateY(-50%);*/
+            transform: translateX(-50%);
+        }
+        .span {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: skyblue;
+            border-radius: 50%;
+            float: left;
+        }
+        .color {
+            background: yellow;
+        }
+        .arrow{
+            position: relative;
+            text-align: center;
+            line-height: 30px;
+            top: 50%;
+           
+            
+        }
+        .left-arrow{
+            width: 30px;
+            height: 30px;
+            background-color: silver;
+            position: absolute;
+            left: 0;
+        }
+        .right-arrow{
+            width: 30px;
+            height: 30px;
+            background-color:silver;
+            position:absolute;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div class='box'>
+    <ul>
+        <li>11111</li>
+        <li>22222</li>
+        <li>33333</li>
+        <li>44444</li>
+        <li>55555</li>
+    </ul>
+    <div class='spot'>
+        <!--<span></span>-->
+    </div>
+    <div class="arrow">
+        <div class="left-arrow"><</div>
+        <div class="right-arrow">></div>
+    </div>
+
+</div>
+
+</body>
+<script src='jquery-1.12.4.js'></script>
+<script>
+    $(function() {
+        //根据li的个数生成对应的小圆圈
+      $('li').each(function (index,ele) {
+//          console.log(index);
+//          console.log(ele);
+          $('<span></span>').addClass('span').appendTo($('.spot'))
+      })
+        $('span').eq(0).addClass('color')
+
+//        $('.box').on('mouseenter',function() {
+//            clearInterval(timeID);
+//        })
+//        $('.box').on('mouseleave',function() {
+//            timeID = setInterval(get,2000);
+//        })
+        //给小圆圈添加点击事件
+        var index=0
+          $('span').on('mouseenter', function () {
+              //鼠标移上去显示相应的颜色，排他思想
+//              console.log('11');
+              $(this).addClass('color').siblings('span').removeClass('color');
+              //获取点击时候的索引
+               var picindecx=$(this).index();
+//              console.log(picindecx);
+              //ul移动的距离
+              $('ul').animate({
+                  top:-picindecx*200
+              })
+              //为了让下面的箭头点击和小圆圈的索引一致
+              index=picindecx;
+          })
+           //点击右边的图片滚动出去
+           $('.right-arrow').on('click', function () {
+               rightclick();
+           } )
+        //点击左边图片滚动
+        $('.left-arrow').on('click', function () {
+                index--;
+            if(index==-1){
+                index=4;
+            }
+            console.log(index);
+            //相应的下面的圆圈添加颜色，排他思想
+            $('span').eq(index).addClass('color').siblings('span').removeClass('color')
+          //让ul移动的距离
+            $('ul').animate({
+                top:-index*200
+              })
+
+
+
+        })
+
+        //自动播放
+        //封装右边点击的函数
+        function rightclick () {
+            index++;
+//               console.log(index);
+            if(index==5){
+                index=0;
+            }
+            console.log(index);
+            //小圆圈添加相应的颜色
+            $('span').eq(index).addClass('color').siblings('span').removeClass('color')
+            //ul移动的距离
+            $('ul').animate({
+                top:-index*200
+            })
+
+
+
+        }
+
+        //自动播放
+        var timeid=null;
+        timeid=setInterval(rightclick,3000);
+
+        //鼠标移入停止播放
+         $('.box').on('mouseenter', function () {
+             clearInterval(timeid);
+         })
+
+       //鼠标移出恢复滚动
+        $('.box').on('mouseleave', function () {
+            timeid=setInterval(rightclick,3000);
+        })
+
+//        var move = $('li').outerHeight(true);
+//        $('.span').on('click',function() {
+//
+//            $(this).addClass('color').siblings().removeClass('color');
+//            var idx = $(this).index();
+//            index = idx;
+//            $('ul').animate({
+//                top: -idx*move
+//            },1000);
+//        })
+
+//        $('ul').append($('li:first').clone());
+//        //自动轮播
+//        var timeID;
+//        var index = 0;
+//        function get() {
+//            index++;
+//
+//            if(index == $('li').length-1) {
+//                $(".spot span").eq(0).addClass("color").siblings().removeClass("color");
+//            }
+//            if(index == $('li').length){
+//                $('ul').css('top',0);
+//                index = 1;
+//            };
+//            $('ul').animate({
+//                top: -index*move
+//            },1000)
+//            $('span').eq(index).addClass('color').siblings().removeClass('color');
+//        }
+//        timeID = setInterval(get,2000);
+    })
+</script>
+</html>

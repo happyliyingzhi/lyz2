@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    function arr(a,b){
+        sum=a+b;
+        //console.log(sum);
+        //return sum;
+    }
+       //arr(10,20);这是直接调用函数，可以不用return
+   //   var res=arr(10,20);只有函数赋值了，就必须要return，否则就会是
+   //onsole.log(res);undefined
+        //1.type of
+   //   var res=typeof arr;//不需要写括号，如果写了括号就是直接调用函数
+   //onsole.log(res);//function
+    //    //2.instanceof
+    //    var res=arr instanceof Function;
+    //console.log(res);//true
+        //3.Object.prototype.toString.call()
+    var res3 = Object.prototype.toString.call(arr);
+    console.log(res3);//object Function
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        th,td{
+            border: 1px solid black;
+            width: 200px;
+        }
+       #tBe{
+           border-collapse: collapse;
+       }
+        thead{
+            background-color: blueviolet;
+        }
+        tbody{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+ 请输入姓名:<input type="text"value=""/><br/>
+ 请输入邮箱:<input type="text"value=""/><br/>
+ 请输入手机:<input type="text"value=""/><br/>
+ 请输入地址:<input type="text"value=""/><br/>
+  <button id="btn">添加</button>
+<table id="tBe">
+    <thead>
+      <tr>
+          <th>姓名</th>
+          <th>邮箱</th>
+          <th>手机</th>
+          <th>地址</th>
+      </tr>
+    </thead>
+    <tbody id="tBd">
+    <tr>
+        <td>小黑</td>
+        <td>xiaohei@126.com</td>
+        <td>199990999</td>
+        <td>北京</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+<script>
+//获取相关的元素
+    var input=document.getElementsByTagName("input");
+    var btn=document.getElementById("btn");
+    var tBd=document.getElementById("tBd");
+console.log(input);
+btn.onclick= function () {
+    //首先假设input里面全部输入,假设法
+    var flag=true;
+        //遍历input的数组
+         for(var i=0;i<input.length;i++){
+             //判断如果input有一个为空就弹出提示，否则就是创建一个新的数组，然后添加在页面上
+             if(input[i].value==0){
+                 flag=false;
+                 break;
+             }
+         }
+      if(flag){//这里代表input输入不为空
+//          for(var j=0;j<input.length;j++){
+                //创建新的一行，添加在页面上
+              var newTr=document.createElement("tr");
+               tBd.appendChild(newTr);
+             for(var i=0;i<input.length;i++){
+                 var newTd=document.createElement("td");
+                 newTd.innerHTML=input[i].value;
+                 newTr.appendChild(newTd);
+//             }
+          }
+      }else{
+          alert("请填入完整的信息");
+      }
+
+    //隔行变色
+    var tr=document.getElementsByTagName("tr");
+    for(var i=0;i<tr.length;i++){
+        if(i%2==0){
+            tr[i].style.backgroundColor="blue";
+        }else{
+            tr[i].style.backgroundColor="pink";
+        }
+    }
+}
+
+</script>

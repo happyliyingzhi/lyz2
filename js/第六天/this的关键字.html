@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function funt(){
+            console.log("每天都很开心" + this.favorite + this.love);
+        }
+      var yz=new Object();
+        yz.favorite="唱歌";
+        yz.gender="女";
+        yz.love="吃东西";
+       yz.res=funt;
+     yz.res();
+        var a=new Object();
+        a.favorite="跳舞";
+        a.love="吃泡面";
+        a.arr=funt;
+        a.arr();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

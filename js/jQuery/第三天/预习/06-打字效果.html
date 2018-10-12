@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1
+            }
+            50% {
+                opacity: 0
+            }
+        }
+
+        @-webkit-keyframes blink {
+            0%,
+            100% {
+                opacity: 1
+            }
+            50% {
+                opacity: 0
+            }
+        }
+
+        @-moz-keyframes blink {
+            0%,
+            100% {
+                opacity: 1
+            }
+            50% {
+                opacity: 0
+            }
+        }
+
+        .wrap {
+            width: 1000px;
+            text-align: center;
+            margin: 100px auto 0;
+        }
+
+        .wrap h1 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 300;
+        }
+
+        .word {
+            font-weight: 700;
+        }
+
+        .typed-cursor {
+            opacity: 1;
+            -webkit-animation: blink .7s infinite;
+            -moz-animation: blink .7s infinite;
+            animation: blink .7s infinite;
+            display: none;
+        }
+
+        .saySection {
+            margin-top: 50px;
+        }
+
+        .saySection input {
+            font-size: 30px;
+        }
+
+        .saySection .txtSay {
+            padding-left: 10px;
+        }
+
+        .saySection .btnSay {
+            display: inline-block;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+      $(function () {
+         //思想：首先要获取点击事件，文本框的内容，
+          //2.显示在word里面是一个一个的显示的，要想到字符串的拼接
+          //3.他是间接的出现，想到计时器
+          //4.页面默认打开的内容设置，要将计时器的封装成一个函数，然后在设置内容
+          //5.在每个内容出现在页面之前，清空计时器
+
+          var timeid=null;
+            clearInterval(timeid);
+           testarr('欢迎来到王者峡谷')
+          $('#btnSay').on('click', function () {
+
+               var testcontent= $('#inValue').val();
+//              console.log(testcontent);
+
+
+                //封装成方法
+                 clearInterval(timeid);
+              testarr(testcontent);
+
+          })
+
+
+             function testarr(testcontent){
+                 var str="";
+                 var index=0;
+                 timeid =setInterval(function () {
+                     if(testcontent[index]!==undefined){
+                         str=str+testcontent[index];
+                         $('.word').html(str);
+                            $('.word').css({'color':'blue'})
+                         index++;
+                         $('.typed-cursor').show();
+                     }else{
+                         clearInterval(timeid);
+                         $('.typed-cursor').hide();
+
+                     }
+
+                 },1000)
+             }
+
+
+
+
+
+
+
+
+//          //存一个变量的计时器
+//          var timeID=null;
+//          //打开页面默认的文字
+//          clearInterval(timeID);
+//          text('欢迎来到王者峡谷');
+//        //获取点击事件
+//          $('#btnSay').on('click', function () {
+//              //获取输入文本框的内容
+//              var $textcon = $('#inValue').val();
+////              console.log($textcon);
+//
+////              //设置一个空的数组
+////              var str = "";
+////              //设置一个索引
+////              var index = 0;
+////              var timeID = setInterval(function () {
+////                  if ($textcon[index] !== undefined) {
+////                      str += $textcon[index]
+//////                    console.log(str);
+////                      $('.word').text(str)
+////                      index++;
+////                      //显示光标的闪动
+////                      $('.typed-cursor').show()
+////                  } else {
+////                      //清空计时器
+////                      clearInterval(timeID);
+////                      $('.typed-cursor').hide()
+////
+////                  }
+////
+////              }, 1000)
+//              //显示之前清除之前的计时器
+//              clearInterval(timeID);
+//
+//              text($textcon)
+//
+//          });
+//
+//
+//
+//          //将打字的这个封装成方法
+//          function text($textcon){
+//              //设置一个空的数组
+//              var str = "";
+//              //设置一个索引
+//              var index = 0;
+//          timeID= setInterval(function () {
+//                  if ($textcon[index] !== undefined) {
+//                      str += $textcon[index]
+////                    console.log(str);
+//                      $('.word').html(str)
+//                      index++;
+//                      //显示光标的闪动
+//                      $('.typed-cursor').show()
+//                  } else {
+//                      //清空计时器
+//                      clearInterval(timeID);
+//                      $('.typed-cursor').hide()
+//
+//                  }
+//
+//              }, 1000)
+//          }
+
+      });
+    </script>
+
+
+</head>
+
+<body>
+
+    <div class="wrap">
+        <h1>
+            You want to say ：
+            <span class="word"></span>
+            <span class="typed-cursor">|</span> ！
+        </h1>
+        <div class="saySection">
+            <input type="text" id="inValue" class="txtSay"/>
+            <input type="button" value="Say" id="btnSay" class="btnSay"/>
+        </div>
+    </div>
+
+</body>
+</html>

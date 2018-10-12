@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <style>
+        .one {
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 250px;
+            top: 250px;
+        }
+    </style>
+</head>
+<body>
+<div class="one" id="box">
+    我是粉色盒子啦啦啦
+    <input type="button" value="按钮" id="btn"/>
+    <div class="son" id="son">我是绿色盒子哈哈哈哈</div>
+</div>
+
+<script>
+    //1.事件冒泡
+    //如果一个元素的某个事件被触发了，那么这个元素的所有父元素相同的事件
+    //都会被触发
+    //事件冒泡一直都在，只是以前没有给那个元素设置相同的事件而已
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("box");
+    var son = document.getElementById("son");
+
+    //  btn.onclick = function () {
+    //    alert("我是按钮,我被单击了....");
+    //  }
+     var box=document.getElementById("box");
+    var btn=document.getElementById("btn");
+    var son=document.getElementById("son");
+    btn.onclick= function (e) {
+        console.log("我是按钮我被点击了");//会出现按钮和大盒子一起被打印出来
+        e.stopPropagation();//阻止冒泡蔓延到父盒子，这能到这一层就结束
+    }
+   box.onclick= function () {
+       console.log("我的大盒子我被点击了");//只有大盒子能打印出来
+   }
+    son.onclick= function (e) {
+        console.log("我的绿盒子我被点击le");//绿盒子和大盒子一起被打印出来
+//        e.stopPropagation();
+    }
+</script>
+</body>
+</html>

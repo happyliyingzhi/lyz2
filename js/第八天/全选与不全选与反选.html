@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>请输入你喜欢的性别</h1>
+
+<input type="checkbox"/> 男
+<input type="checkbox"/> 女
+<input type="checkbox"/> 李宇春
+
+<hr/>
+
+<button id="all">全选</button>
+<button id="noall">全不选</button>
+<button id="reverse">反选</button>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+var all=id("all");
+console.log(all);
+var input=document.getElementsByTagName("input");
+console.log(input);
+all.onclick=function(){
+            for(var i=0;i<input.length;i++){
+                input[i].checked=true;
+            }
+        }
+    var noall=document.getElementById("noall");
+console.log(noall);
+    noall.onclick= function () {
+        for(var i=0;i<input.length;i++){
+            input[i].checked=false;
+        }
+    }
+    var reverse=id("reverse");
+console.log(reverse);
+    reverse.onclick= function () {
+       for (var i=0;i<input.length;i++){
+           //首先判断目前的状态，checked是默认勾选，checked=true是勾选，checked=false是不能勾选
+//            if(input[i].checked){
+//                input[i].checked=false;
+//            }else{
+//                input[i].checked=true;
+//            }
+           //这里是取反思想，
+           input[i].checked=!input[i].checked;
+
+       }
+    }
+</script>

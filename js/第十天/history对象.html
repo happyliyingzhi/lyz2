@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="11-histroy的测试页面.html">跳转到测试页面</a>
+<button id="btn1">前进</button>
+</body>
+</html>
+<script>
+var box=document.getElementById("btn1");
+    box.onclick= function () {
+        window.history.forward();
+        //历史浏览器前进的按钮，首先要有历史浏览器
+    }
+</script>

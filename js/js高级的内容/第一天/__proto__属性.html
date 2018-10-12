@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+   function  cat(name,age){
+       this.name=name;
+       this.age=age;
+
+
+   }
+   console.log(cat);
+   //访问原型   构造函数名.prototype
+  // console.log(cat.prototype);//object.对象，原型对象
+    cat.prototype.sayHi= function () {
+        console.log("我是原型");
+    };
+    var p1=new cat("小英",30);
+ //  console.log(p1);//name :"小英"   age:30  __proto__
+   //这里是用对象的点语法，会点出原型
+  // console.log(p1.sayHi);//ƒ () {
+//       console.log("我是原型");
+//       }
+</script>

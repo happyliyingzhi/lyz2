@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="common.js"></script>
+    <style>
+        #one {
+            width: 400px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="one"></div>
+<input type="button" id="btn" value="创建按钮">
+
+</body>
+</html>
+<script>
+//创建元素的方法：
+    //1.document.write:效率不高，代码不好阅读
+    //2.innerHtml，用的不是很多
+     //   var one=id("one");
+     //    one.innerHTML="<p>我是一个p</p>"
+        //3.creatElement()方法，来创建一个元素
+//但是不是主动放在页面上
+    var btn=id("btn");
+    btn.onclick= function () {
+        //creat Element创建的元素，一开始只会在内存里面,不会直接添加页面上
+
+          var p1=document.createElement("p");//里面传的是字符
+
+        //将创建的p标签添加到one盒子中,appendChild()，添加元素
+        id("one").appendChild(p1);
+        p1.innerHTML="我是一个p标签"
+
+    }
+</script>

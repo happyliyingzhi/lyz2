@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<script>-->
+      <!--var num=document.getElementById("box");-->
+      <!--console.log(num);//null-->
+        <!--//原因是：因为执行代码的时候，页面还没有加载完成，所以找到这个盒子-->
+        <!--//如果js执行的代码要写在前面，需要执行后面的语句，可以用window-->
+        <!--window.onload=function(){-->
+            <!--//翻译：当页面加载完毕之后，来调用这个函数-->
+            <!--var num=document.getElementById("box");-->
+            <!--console.log(num);//此时这里输出的id位box的代码的全部内容-->
+        <!--}-->
+    <!--</script>-->
+</head>
+<body>
+<div id="box" class="arr" style="width: 200px;height: 200px;background-color:red;"></div>
+</body>
+</html>
+ <script>
+ var num=document.getElementById("box");
+ console.log(num);
+     //这里js代码就可以获取打印了。
+     //原因是偶们的代码是为了获取到页面的元素，必须要等页面加载完毕之后，才能找到这个元素
+
+ </script>

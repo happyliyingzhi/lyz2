@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="lr400" value="水平400与垂直800">
+<div id="box"></div>
+</body>
+</html>
+<script src="tools.js"></script>
+<script>
+    var box=document.getElementById("box");
+    var btn=document.getElementById("lr400");
+          btn.onclick= function () {
+              var json1={
+                  "left":"400",
+                  "top":"800"
+              }
+              animateSlow(box,json1, function () {
+                  animateSlow(box,{
+                      "left":"0",
+                      "top":"100"
+                  }, function () {
+                      alert("主人已经执行完了")
+                  })
+              })
+          }
+
+
+
+    //给函数传入一个函数,这就是回调函数,当某个函数执行完毕之后执行的函数就叫回调函数
+    function animateSlow(ele,obj,fn){
+        //设置计时器之前,清空计时器
+        clearInterval(ele.timerID);
+        //设置计时器
+        ele.timerID = setInterval(function () {
+
+            var flag = true;
+            //假设,所有的目的都已经达到
+            //因为现在传入的是一个对象,所以应该要遍历对象中的属性
+            //对象的遍历用什么
+            for(var key in obj){
+                //获取当前的位置距离(left,top)
+                //因为得到的是一个字符串,例如10px.那么要做一个取整的动作,只要前面的数字10
+                var currentDistance = parseInt(getStyle(ele,key));
+                //计算步长.
+                var step = (obj[key] - currentDistance)/3;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                //计算
+                currentDistance += step;
+                //赋值:因为步长最后是1,无论如何都会赋值的.
+                ele.style[key] = currentDistance + "px";
+                //console.log(currentLeft);
+                //注意,这个清空计时器的代码是有问题:当其中一个目的达到之后,就立刻停止,那么另外一个目的还没执行完就结束
+                //if(currentDistance == obj[key]){
+                //    clearInterval(ele.timerID);
+                //}
+                if(currentDistance != obj[key]){
+                    flag = false;
+                }
+            }
+            if(flag){
+                //如果进入这里,那么假设成功,多个目的地都已经到达就要停止计时器
+                clearInterval(ele.timerID);
+                if(Object.prototype.toString.call(fn) == "[object Function]" ){
+                    //判断是否是函数对象,如果是再调用
+                    fn();
+                }
+
+            }
+        },50);
+    }
+</script>

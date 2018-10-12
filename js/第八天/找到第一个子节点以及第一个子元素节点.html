@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="myul">
+    你是搅屎棍
+    <!--我是注释-->
+    <li>隔壁老宋1</li>
+    <li>隔壁老宋2</li>
+    <li id="li3">隔壁老宋3</li>
+    <li>隔壁老宋4</li>
+    <li>隔壁老宋5</li>
+</ul>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+var my=id("myul");
+console.log(my);
+//1.找到myul的第一个子节点
+console.log(my.firstChild);
+//firstChild:可以找到第一个子节点:(文本节点,注释节点,元素节点)
+//注意:ie8以及以下版本:(非空文本节点,注释节点,元素节点)
+//2.找到第一个子元素节点
+console.log(my.firstElementChild);
+//firstElementChild:可以找到第一个子元素节点
+//注意:ie8以及以下版本不支持
+    //3.兼容
+  //  function getFirstElement(ele){
+  //           if(ele.firstElementChild){
+  //               return ele.firstElementChild;
+  //           }else{
+  //               var node = ele.firstChild;
+  //               while(node.nodeType !=1){
+  //                   node=node.nextSibling;
+  //               }
+  //           }
+  //      return node;
+  //      }
+
+function getFirstElement(ele) {
+    if(ele.firstElementChild){
+        return ele.firstElementChild;
+    }else {
+        var node1 = ele.firstChild;
+        while(node1.nodeType !=1){
+            node1 = node1.nextSibling;
+        }
+        return node1;
+    }
+}
+
+console.log(getFirstElement(my));
+</script>

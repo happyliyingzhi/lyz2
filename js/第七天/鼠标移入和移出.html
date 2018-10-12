@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #small{
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            right: 0px;
+            top: 50%;
+            background-image: url("../images/bgs.png");
+            background-position: -163px -50px;
+
+        }
+        #big{
+
+            position: relative;
+
+        }
+     img {
+         position: absolute;
+         left: -420px;
+         top: -200px;
+     }
+    </style>
+</head>
+<body>
+<div id="small">
+    <div id="big">
+        <img src="../images/hmewm.jpg" />
+    </div>
+</div>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+// var small= id("small");
+// console.log(small);
+// var big=id("big");
+//    small.onmouseover =function (){
+//        big.style.display="block";
+//    }
+//    small.onmouseout =function (){
+//        big.style.display="none";
+//    }
+   var small=id("small");
+    var big=id("big");
+    small.onmouseover=function (){
+        big.style.display="block";
+    }
+    small.onmouseout=function (){
+        big.style.display="none";
+    }
+</script>

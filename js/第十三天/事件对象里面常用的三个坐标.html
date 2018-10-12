@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <style>
+        * {
+            padding:  0;
+            margin:  0;
+        }
+        body {
+            width: 2000px;
+            height: 2000px;
+        }
+        .one {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="one" id="box"></div>
+
+</body>
+</html>
+<script>
+var box=document.getElementById("box");
+    box.onclick= function (e) {
+        e=e||window.event;
+        //可视区左上角距离触发事件的那一点的距离，肉眼能看到的距离到你聚焦的那个点的距离，如果有内容滚动出去了，就不是可视区域
+        console.log(("clientX:" + e.clientX + ":" + e.clientY));
+        //页面左上角距离触发事件的那一点的距离，左上角是固定的，不管你怎么滚动，页面的左上角都是固定的
+        console.log(("pageX:" + e.pageX + ":" + e.pageY));
+        //屏幕的左上角距离触发事件的哪一点的距离，固定的屏幕的左上角的距离，注意是你的电脑的屏幕
+        console.log(("screenX:" + e.screenX + ":" + e.screenY));
+    }
+</script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="father">1
+<span>2</span>
+<span>2</span>
+<span>2</span>
+</div>
+</body>
+</html>
+<script>
+    //递归：在函数内部直接或者间接的调用函数本身
+    //递归两个要素：
+    //1.要在函数中调用自己
+    //2.要有结束条件
+
+    //    var i=0;
+//function test(){
+//    i++;
+//    console.log("哈哈"+i);
+//    if(i<4){
+//        test();
+//    };
+//    console.log("呵呵"+i);
+//}
+  //  test();
+    //求前n项和
+    //前5项和   1 + 2 + 3 + 4 + 5  前4项和 + 5
+    //前4项和   1 + 2 + 3 + 4      前3项和 + 4
+    //前3项和   1 + 2 + 3          前2项和 + 3
+    //前2项和   1 + 2              前1项和 + 2
+    //前1项和   1
+//    function sum(n){
+//        if(n==1){
+//            return 1;
+//        }
+//        return sum(n-1)+n;
+//    }
+//console.log(sum(3));
+    //求n
+    //5的阶乘   1 * 2 * 3 * 4 * 5
+    //4的阶乘   1 * 2 * 3 * 4
+    //3的阶乘   1 * 2 * 3
+    //2的阶乘   1 * 2
+    //1的阶乘   1
+ // function box(n){
+ //     if(n==1){
+ //         return 1;
+ //     }
+ //     return box(n-1)*n;
+ //     //这里时重新调用函数，递归
+ // }
+ // console.log(box(3));
+    //斐波那契数列
+     //1，1，2，3，5，8，13，21，34
+    //fn(n) = fn(n - 1) + fn(n - 2)
+
+    //fn(n) = f(n - 1) + n
+  //  function Fb(n){
+  //      if(n==1||n==2){
+  //          return 1;
+  //      }
+  //      return Fb(n-1)+Fb(n-2);
+  //  }
+  //console.log(Fb(5));
+    function fb(n){
+        if(n==1||n==2){
+            return 1;
+        }
+        return fb(n-1)+fb(n-2);
+    }
+</script>

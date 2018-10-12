@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+var spanHour=document.getElementById("spanHour");
+    var spanMin=document.getElementById("spanMin");
+    var spanSec=document.getElementById("spanSec");
+var timeiD
+   timeiD= setInterval(
+            function () {
+                spanSec1=spanSec.innerHTML;
+                if(spanSec1==0){
+                    spanSec1=60;
+                }
+                spanMin1=spanSec.innerHTML;
+                if(spanMin1==0){
+                    spanMin1=60;
+                }
+                spanHour1=spanHour.innerHTML;
+                if(spanHour1==0){
+                    clearTimeout(timeiD);
+                    return;
+
+                }
+                spanSec1--;
+                spanSec1<10? "0"+spanSec1:spanSec;
+                spanMin1--;
+                spanMin1<10?"0"+spanMin1:spanMin;
+                spanHour1--;
+                spanHour1<10?"0"+spanHour1:spanHour;
+
+            },1000 )
+</script>

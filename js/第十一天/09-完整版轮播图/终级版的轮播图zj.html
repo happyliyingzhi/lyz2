@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background: yellow;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="all" id='box'>
+    <div class="screen">
+        <ul>
+            <li><img src="images/1.jpg" width="500" height="200"/></li>
+            <li><img src="images/2.jpg" width="500" height="200"/></li>
+            <li><img src="images/3.jpg" width="500" height="200"/></li>
+            <li><img src="images/4.jpg" width="500" height="200"/></li>
+            <li><img src="images/5.jpg" width="500" height="200"/></li>
+        </ul>
+        <ol>
+            <!-- 动态创建的小方块，添加在这里，样式已经给写好了-->
+        </ol>
+    </div>
+    <div id="arr">
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+</div>
+</body>
+</html>
+<script src="../common.js"></script>
+<script src="../moveAnimate.js"></script>
+<script>
+//1.获取相关的元素属性
+    var box=id("box");//获取大盒子
+   var screen=box.children[0];//获取screenul上级
+  var ul= screen.children[0];//获取ul
+   var img=ul.children;//获取li
+   var ol=screen.children[1];//获取ol
+  var arr=id("arr");//箭头的盒子
+  var left=id("left");//左边点击箭头
+  var right=id("right")//右边点击箭头
+  var list=ol.children;//新创的li
+ var  imgwidht=screen.offsetWidth;
+//console.log(imgwidht);
+    //2.动态创建数字按钮，根据广告图片的数量
+    for(var i=0;i<img.length;i++){
+        var newLi=document.createElement("li");
+        newLi.innerHTML=i+1;
+        ol.appendChild(newLi);
+    }
+    //3.给第一个数字按钮设置背景颜色
+    ol.children[0].setAttribute("class","current");
+    //4.遍历数字按钮，添加点击事件
+
+    for(var j=0;j<list.length;j++){
+        //设置索引
+          list[j].setAttribute("numIndex",j)
+        list[j].onclick= function () {
+            //颜色排他
+            for(var i=0;i<list.length;i++){
+                list[i].removeAttribute("class");
+            }
+            //修改颜色
+            this.setAttribute("class","current");
+            //根据numindex计算位移距离
+            var numIndex=this.getAttribute("numIndex");
+            var target=-numIndex*imgwidht;
+            //调用函数
+            animate(ul,target);
+            //数字按钮点击的同时，要同步所有的索引
+            picIndex=liIndex=this.getAttribute("numIndex");
+        }
+    }
+    //5.鼠标移入移出显示隐藏左右焦点
+      box.onmouseover= function () {
+          arr.style.display="block";
+          clearInterval(timeID);
+      };
+    box.onmouseout= function () {
+        arr.style.display="none";
+        timeID= setInterval(box1,3000);
+    }
+    //6.给右焦点设置点击事件
+    var picIndex=0;
+    var liIndex=0;
+    right.onclick= function () {
+        //8判断条件picIndex是否等于5
+//        if(picIndex==5){
+//            picIndex=0;
+//            ul.style.left="0px";
+//        }
+//        picIndex++;
+//        var target=-picIndex*imgwidht;
+//        animate(ul,target);
+//       //9设置焦点按钮点击时，同步修改数字按钮的背景颜色
+//        for(var i=0;i<list.length;i++){
+//            list[i].removeAttribute("class");
+//        }
+//        liIndex++;
+//        if(liIndex==5){
+//            liIndex=0;
+//        }
+//       list[liIndex].className="current";
+        box1();
+
+    }
+//7.因为时无限轮播，所以要克隆一张追加在最后
+ul.appendChild(img[0].cloneNode(true));
+//8.设置左焦点
+left.onclick= function () {
+    //8判断条件picIndex是否等于5
+    if(picIndex==0){
+        picIndex=5;
+        ul.style.left="0px";
+    }
+    picIndex--;
+    var target=-picIndex*imgwidht;
+    animate(ul,target);
+    //9设置焦点按钮点击时，同步修改数字按钮的背景颜色
+    for(var i=0;i<list.length;i++){
+        list[i].removeAttribute("class");
+    }
+    liIndex--;
+    if(liIndex==0){
+        liIndex=5;
+    }
+//    list[liIndex].setAttribute("class","current");
+    list[liIndex].className="current";
+
+}
+var timeID;
+    //10.设置定时器，定时调用右边焦点函数，完成自动轮播图
+     timeID= setInterval(box1,1000);
+       function box1(){
+        if(picIndex==5){
+            picIndex=0;
+            ul.style.left="0px";
+        }
+        picIndex++;
+        var target=-picIndex*imgwidht;
+        animate(ul,target);
+        //9设置焦点按钮点击时，同步修改数字按钮的背景颜色
+        for(var i=0;i<list.length;i++){
+            list[i].removeAttribute("class");
+        }
+        liIndex++;
+        if(liIndex==5){
+            liIndex=0;
+        }
+        list[liIndex].className="current";
+    }
+
+
+
+</script>

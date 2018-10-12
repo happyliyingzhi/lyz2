@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//创建对象的方式
+    //a.可以使用字面量
+//    var box={
+//        name:"李英芝"
+//    };
+//console.log(box.name);
+////b.可以使用内置的构造函数object 来创建
+//    var box2=new Object();
+//    box2.name="yiyi";
+//  var box3=new Object();
+//  box3.age=30;
+//   console.log(box3.age);
+//c.使用简单工厂模式来创建对象
+//    function  box4(name,age){
+//            var obj=new Object();
+//            obj.name=name;
+//            obj.age=age;
+//          return obj;
+//        }
+//    var obg=box4("lijide",12);
+//    var obg2=box4("dedede",23);
+          function arr(name,age){
+              var box=new Object();
+              box.name=name;
+              box.age=age;
+              return box;
+          }
+          console.log(arr("devec", 30).age);
+//console.log(obg, obg2);
+    //d.使用自定义函数
+//    function student(name,age){
+//        this.name=name;
+//        this.age=age;
+//    }
+//    var obj4=new student('xidie',30);
+//    var obj5=new student('died',20);
+//console.log(obj4, obj5);
+//      function  arr(name,age){
+//          this.name=name;
+//          this.age=age;
+//      }
+//    var box=new arr("djie",30);
+//    var box1=new arr("jdije",12);
+//console.log(box.name);
+//console.log(box1.age);
+</script>

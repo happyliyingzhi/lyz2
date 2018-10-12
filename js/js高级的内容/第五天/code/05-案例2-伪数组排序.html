@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.伪数组排序.
+
+    var weiArr = {
+      0:1109,
+      1:110,
+      2:220,
+      3:215,
+      4:210,
+      5:500,
+      6:400,
+      length:7
+    }
+
+    //weiArr.sort(); //报错了,伪数组不能直接点出sort方法.
+    Array.prototype.sort.call(weiArr, function (a,b) {
+      return a-b;
+    });
+    console.log(weiArr);
+
+
+
+
+
+
+
+
+
+
+
+    //------------------------------
+    // var arr = [1190,120,220,215,210,500,400,110];
+    // arr.sort(function (a,b) {
+    //   return b-a;
+    // });
+    // console.log(arr);
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

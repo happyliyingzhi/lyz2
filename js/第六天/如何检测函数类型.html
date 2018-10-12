@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    //1.使用typeof来检测
+       var arr =new Object();
+  //      var res=typeof arr;
+  //  console.log(res);//object,但是这里并不能说明他是对象
+        //2.使用instanceof
+      //     var res=arr instanceof Object ;
+      // console.log(res);//true
+        //3.使用object.prototype.toString.call()
+        var res=Object.prototype.toString.call(arr);
+        console.log(res);//object object
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

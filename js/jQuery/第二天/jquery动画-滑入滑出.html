@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="滑入" id="slideDown"/>
+<input type="button" value="滑出" id="slideUp"/>
+<input type="button" value="切换" id="slideToggle"/><br/><br/>
+<div id="div1"></div>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+       //滑入  slideDown
+        $('#slideDown').click(function () {
+            //如果不给参数，slideDowm()也是有默认的值，正常normal
+//            $('div').slideDown()
+            //如果有参数，已执行的参数为准，从上往下滑行
+//            $('div').slideDown(1000)
+            //slideDowm(执行参数)
+            $('div').slideDown(1000, function () {
+                alert("我是滑下的函数")
+            })
+        });
+        //滑上
+        $('#slideUp').click(function () {
+            $('div').slideUp(1000, function () {
+                alert('我是滑下的函数')
+            })
+        });
+        //切换
+        $('#slideToggle').click(function () {
+            $('div').slideToggle(1000)
+        })
+
+
+    });
+
+</script>

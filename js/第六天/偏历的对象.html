@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    var xy={
+        name:"悄悄",
+        age:19,
+        hi:function (){
+            console.log(this.name);
+        }
+
+    }
+   // console.log(xy);
+   //     xy.hi();
+   // console.log(xy.age);
+        //遍历对象：for in方法
+        //for (var key in 对象名){
+    //                console.log(对象名[key])
+    //}
+        for(var key in xy){
+            //根据key值，找到对象的每一个属性以及方法
+            console.log(xy[key]);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

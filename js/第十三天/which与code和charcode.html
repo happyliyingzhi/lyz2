@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //document.onkeydown = function () {
+    //    console.log("我被按在地上摩擦");
+    //}
+    //
+    //document.onkeyup = function () {
+    //    console.log("我被按在天上摩擦");
+    //}
+
+
+
+    //我想知道用户按的是哪个键
+    //ie8只有keyCode  火狐:which,charCode  欧朋:keyCode,which 谷歌:keyCode,charCode,which
+    document.onkeypress = function (e) {
+        e = e || window.event;
+        //console.log(e.which+":"+e.charCode+":"+e.keyCode);
+        //var code = e.which;
+        //var str = String.fromCharCode(code);
+        //console.log(str);
+        var key = e.keyCode || e.which || e.charCode;
+    }
+
+
+</script>

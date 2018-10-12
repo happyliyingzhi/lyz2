@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<ul id="ul1">
+    <li>隔壁老王1</li>
+    <li>隔壁老王2</li>
+    <li id="li3">隔壁老王333555</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+</ul>
+
+<ul id="ul2">
+    <li>隔壁老宋1</li>
+    <li>隔壁老宋2</li>
+    <li>隔壁老宋3</li>
+    <li>隔壁老宋4</li>
+    <li>隔壁老宋5</li>
+</ul>
+<input type="button" value="创建一个新的子元素" id="btn1">
+<input type="button" value="添加一个已经存在的元素" id="btn2">
+<input type="button" value="添加到另外一个父元素中" id="btn3">
+
+<!--1.添加新的元素,会直接在所有子元素的最后面追加
+    2.添加已经存在的元素,相当于把这个元素移动到最后面
+    3.将一个存在的子元素,添加到另外一个父元素中,相当于直接剪切,然后追加到最后面
+-->
+</body>
+</html>
+<script>
+var ul1=id("ul1");
+    var uli2=id("ul2");
+    var btn1=id("btn1");
+    var btn2=id("btn2");
+    var btn3=id("btn3");
+    var li3=id("li3");
+//1.添加一个新的元素，会直接在后面追加
+    btn1.onclick= function () {
+        var btn1=document.createElement("li");
+        btn1.innerHTML="我是一个新的子元素";
+        ul1.appendChild(btn1);
+    }
+    //2.如果添加是已经存在的元素：相当于把整个元素y移到自己的前面，自己始终在最后面
+    btn2.onclick= function () {
+        ul1.appendChild(li3);
+    }
+    //3.将已经存在的子元素，添加到另外的一个元素里面，:直接剪切过去，原来的就没有
+    btn3.onclick = function () {
+        uli2.appendChild(li3);
+    }
+</script>

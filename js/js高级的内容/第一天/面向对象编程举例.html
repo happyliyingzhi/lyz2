@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            height: 300px;
+            background-color: blueviolet;
+            margin-top: 10px;
+        }
+        p{
+            height: 100px;
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+</body>
+</html>
+<script>
+    //封装成函数来做
+//   function id(id){
+//    return document.getElementById(id);
+}
+//    function  tagName(tag){
+//        return document.getElementsByTagName(tag);
+//    }
+//    function setBorder(eles,attr){
+//        for(var i=0;i< eles.length;i++){
+//            eles[i].style.border=attr;
+//        }
+//    }
+//    var divs=tagName("div");
+//    var ps=tagName("p");
+//    setBorder(divs,"1px solid green")
+//    setBorder(ps,"1px solid red")
+    //升级成面向对象
+    var  arr={
+        di: function (id) {
+            return document.getElementById(id);
+        },
+        tagName: function (tag) {
+            return   document.getElementsByTagName(tag);
+        },
+        setBorder: function (ele,attr) {
+            for(var i=0;i<ele.length;i++){
+                ele[i].style.border=attr;
+            }
+        }
+    }
+     var divs=arr.tagName("div");
+    var ps=arr.tagName("p");
+    arr.setBorder(divs,"1px solide red")
+    arr.setBorder(ps,"1px solide green")
+</script>

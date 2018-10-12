@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="one" id="one"></div>
+<div class="one" id="two"></div>
+<div class="one" id="three"></div>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+//入口函数
+    $(function () {
+        //1.dom对象
+        //用原生js的api获取到的对象，就是dom对象
+        //只能使用dom方法，不能使用jQuery的方法
+     //  var box=document.getElementById("one");
+     //  box.setAttribute('index',1);//能设置上
+     //  box.css('border',"1px solid red");//报错
+        //原因，dom对象不能拥有Jquery的方法
+//        var $box=$('#one');
+//        console.log($box);
+//        $box.css('border',"1px solid red")//可以设置
+//        $box.setAttribute("index",1)//报错
+        //原因jquery不能直接调用dom的方法
+        //jquery 对象到底是什么？
+        //jquery对象其实是dom对象的一个包装集
+        //jquery对象其实就是一个伪数组
+//        var $box=$("#one");
+//        console.log($box);
+//        var $div=$('div');
+//        console.log($div);
+//        $div.push(11)//可以添加，是因为jquery的原型里面有push的方法
+//        $div.pop()//报错
+      //dom对象和jquery对象的相互转换
+        //1.dom对象转换成jquery对象
+     ///   var box=document.getElementById("one");
+     ///   var $box1=$(box);
+     ///   //这里dom对象直接转换成jquery对象里面，括号里面不需要加引号
+     ///   $box1.css('border',"1px solid red")
+        //可以直接引用jquery的方法
+     //2.jquery对象转换成dom对象
+        //使用下标的方法取出来
+//        var $box=$('div');
+//        var box1=$box[0];
+//        console.log(box1);
+////        box1.setAttribute("index",1)//可以添加上去
+//        var $box=$('#one');
+//        var box1=$box[0];
+//        console.log(box1);
+//        box1.setAttribute("index",1)
+        //2.2使用jQuery自己提供的一个get()方法
+//              var $box=$("#one");
+//               var box1=$box.get(0);
+//              box1.setAttribute("index",1)
+    //   console.log($box);
+      //  var $box=$("div");
+      //  var box1=$box.get(2);
+      //  box1.setAttribute("index",1)
+    })
+</script>

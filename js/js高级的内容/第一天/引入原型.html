@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//通用原型来添加方法，解决数据共享，节省内存空间
+//    function Person(name,age){
+//            this.name=name;
+//            this.age=age;
+//        }
+//      Person.prototype.eat= function () {
+//        console.log("吃东西");
+//    }
+//    var p1=new Person("小明",30);
+//    var p2=new Person("小红",20);
+////console.log(p1==p2);//fase
+////console.log(p1.eat==p2.eat);//true
+//console.log(p1);
+//console.log(Person);
+//console.log(p1.eat);
+//构造函数
+    function box(name,age){
+        this.name=name;
+        this.age=age;
+    }
+// 原型添加
+    box.prototype.sayHi=function(){
+    console.log("你好吗");
+}//实例对象
+    var arr=new box("理工",30);
+           console.dir(arr);//console.dir 是用来检测和输出对象的比log更具体
+           console.dir(box);
+    // 实例对象中有一个属性  __prote__,浏览器使用非标准的
+    //构造函数中有一个属性,prototype     ， 程序员使用的，标准的
+     //实例对象使用的属性或者方法，现在实例中查找，找到了则直接用，找不到，去实例对象的
+    //__proto__ 指向的原型对象prototype中找，找到了就使用，找不到就报错
+</script>

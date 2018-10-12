@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" id="clone" value="复制">
+<div id="box">我是一个box</div>
+
+</body>
+</html>
+<script>
+var box=document.getElementById("box");
+    var clone=document.getElementById("clone");
+    clone.onclick= function () {
+      var newBox=box.cloneNode();
+        console.log(newBox);
+    }
+    //cloneNode:克隆的节点，是不会主动放在页面的
+    //怎么将一个节点追加在页面上
+    clone.onclick= function () {
+        var newBox=box.cloneNode(true);
+        //修改id的值，但是赋值的id都是一样，只是与原本赋值那个id不一样
+        newBox.setAttribute("id","box2");
+        document.body.appendChild(newBox);
+        //将一个节点追加到body上
+    }
+    //浅拷贝（）以及深拷贝
+    //cloneNode(true)代表深拷贝，直接拷贝你的所有的节点，包括内容
+</script>

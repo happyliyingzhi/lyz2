@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    //函数是可以返回值的
+        //求两个数的和，但是不打印
+   //     function getSum(a,b){
+   //         var sum=a+b;
+   //         return sum;
+   //     }
+   //    var sr= getSum(10,20);
+   // console.log(sr);
+    //问题:设计一个函数,判断用户输入的值是不是偶数,返回结果,打印出来
+             function getEven(i){
+                 if(i%2==0){
+                        return true;
+                 }else{
+                    return false;
+                 }
+             }
+             var num=+prompt("请输入一个数字");
+            var res=getEven(num);
+          alert("你输入的数字是："+res?"偶数":"奇数")
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

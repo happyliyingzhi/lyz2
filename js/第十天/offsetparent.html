@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #father {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            /*position: relative;*/
+        }
+
+        #son {
+            width: 200px;
+            height: 200px;
+            background-color: deeppink;
+            position: relative;
+        }
+
+        #sun {
+            width: 100px;
+            height: 100px;
+            background-color: lightpink;
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+<a  href="#">百度</a>
+<div id="father">
+    <div id="son">
+        <div id="sun"></div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+var sun=document.getElementById("sun");
+console.log(sun.offsetParent);
+//offsetParent:找到距离自己最近的定位父盒子
+    //注意：如果元素自身是固定定位，那么offsetParent就是null
+    //如果元素本身是非fixed定位，而且父盒子都没定位，那么该元素的
+    //offserParet是body
+
+
+</script>

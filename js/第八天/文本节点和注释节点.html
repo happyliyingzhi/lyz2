@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+ 1.什么是节点：（元素，属性，文本注释）
+    2.节点的特点
+                    节点: node
+                    节点类型: nodeType
+                    节点名称: nodeName
+                    节点的值: nodeValue
+      3.文本节点：
+                   节点的类型：nodeType:3
+                   节点的名称：nodeName:#text;
+                   节点的值：nodeValue:文本内容
+       4.注释节点
+                    节点的类型：nodeType:8
+                    节点的名称：nodeName:#document
+                    节点的值：nodeValue:null
+
+-->
+<ul id="mubox">
+    jidfe
+    <!-- nidjfi e-->
+    <li>老宋1</li>
+    <li>老宋2</li>
+    <li>老宋3</li>
+    <li>老宋4</li>
+    <li>老宋5</li>
+</ul>
+</body>
+</html>
+<script src="common.js"></script>
+   <script>
+   var mybox=id("mubox");
+   console.log(mybox.childNodes);//子节点包括文本，元素，注释
+   //文本节点
+   console.log(mybox.childNodes[0].nodeType);//3
+   console.log(mybox.childNodes[0].nodeName);//#text
+   console.log(mybox.childNodes[0].nodeValue);//文本内容
+   //注释节点
+   console.log(mybox.childNodes[1].nodeType);//8
+   console.log(mybox.childNodes[1].nodeName);//#comment
+   console.log(mybox.childNodes[1].nodeValue);//文本内容
+       //文档节点
+   console.log(document.nodeType);//9
+   console.log(document.nodeName);//#document
+   console.log(document.nodeValue);//null
+   </script>

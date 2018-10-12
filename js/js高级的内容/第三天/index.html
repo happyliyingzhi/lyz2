@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .map {
+            width: 800px;
+            height: 600px;
+            background-color: #cccccc;
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+       /*.snack{*/
+           /*position: absolute;*/
+       /*}*/
+       /*span{*/
+           /*float: left;*/
+           /*height: 20px;*/
+           /*width: 20px;*/
+           /*background-color: red;*/
+       /*}*/
+       /*span:first-child {*/
+           /*background-color: blue;*/
+       /*}*/
+       /*span:nth-child(2n){*/
+           /*background-color: darkorange;*/
+       /*}*/
+    </style>
+</head>
+<body>
+<div class="map" id="map">
+</div>
+</body>
+</html>
+<!--<script src="snack.js"></script>-->
+<!--<script src="../common.js"></script>-->
+<script src="Food.js"></script>
+<script src="Snack1.js"></script>
+<script src="Game.js"></script>
+<script>
+   var map=document.getElementById("map");
+   //面向对象，创建一个游戏对象
+   var Game1=new Game(map);
+   //将创建的游戏显示在页面
+   Game1.Stratgame();
+   console.log(Game1);
+   console.log(Game1.food);
+   console.log(Game1.food.render);
+
+
+
+   //function arr(){
+//    console.log("我在这里");
+//}
+//
+//
+//   function box1(){
+//       console.log("我是box1");
+//   }
+//var box=new box1();
+//   box.arr1=new arr();
+//   console.log(box.arr1);
+
+   //实例化函数food
+//   var box=new Food();
+//   box.render(map);
+
+
+
+//实例化函数snack
+//   var box1=new Snack;
+//   box1.render(map);
+//    var eles=[];
+//   function Food(x,y,width,height,bgColor){
+//    //用来保存每个小方块的食物
+
+//      this.x=x||0;
+//      this.y=y||0;
+//     this.width=width||20;
+//    this.height=height||20;
+//    this.bgColor=bgColor||"green";
+//}
+//    Food.prototype.inner1= function (map) {
+//        //排他思想
+//        remove();
+//        this.x=Math.floor(Math.random()*map.offsetWidth/this.width)*this.width;
+//        this.y=Math.floor(Math.random()*map.offsetHeight/this.height)*this.height;
+//        var newDiv=document.createElement("div");
+//        newDiv.style.width=this.width+"px";
+//        newDiv.style.height=this.height+"px";
+//        newDiv.style.backgroundColor=this.bgColor;
+//        newDiv.style.left=this.x+"px";
+//        newDiv.style.top=this.y+"px";
+//        map.appendChild(newDiv);
+//        newDiv.style.position="absolute";
+//        eles.push(newDiv);
+//    }
+//   //保证页面上只有一个小方块，所以这里首先用排他思想
+//    function remove(){
+//        for(var i=0;i<eles.length;i++){
+//            var elements=eles[i];
+//            //这一步是从页面上删除的
+//            elements.parentNode.removeChild(elements);
+//            //再次把eles中的子元素删除
+//             eles.splice(i,1);
+//        }
+//    }
+
+//    for(var i=0;i<10;i++){
+//        var box=new Food();
+//       box.inner1(map);
+//    }
+//    //console.log(eles);
+
+//    var box=[10,30,40];
+//    box.splice(0,1);
+//    console.log(box);
+//    //下一步：蛇怎么写
+    //1.蛇会动：用到setinterval，
+    //2.按下上下左右蛇能根据你按的按钮进行操作，怎么知道，你按了什么键：鼠标弹起事件，还有识别用户按的什么键，这里用判断
+    //3.蛇活动的范围不能超过这个背景色的宽度，如果蛇碰到宽度，就弹出游戏结束，这里有一个判断，如果大于或者等于了就结束游戏，弹出窗口，如果没有，就继续游戏
+    //4.当蛇碰到了这个小方块，就吃掉这个食物，然后立马有出现一个小食物，判断蛇与食物的距离，如果小于等于零，就从页面删除这个食物，增加蛇的长度，然后里面调用Food函数，开始新建一个食物
+
+
+</script>

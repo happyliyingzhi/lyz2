@@ -1,0 +1,107 @@
+   <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0px;
+            display: none;
+
+        }
+        #div1 {
+            top:50px;
+        }
+        #div2 {
+            top: 170px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="从左到右800" id="lr800"/>
+<div id="div1"></div>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        //animate(参数一，参数二，参数三，参数四)
+        //参数一：必须要的，是一个对象，是要设置的动画css属性
+        //参数二：执行动画的时长
+        //参数三：easing ，取值是swing（缓动），linear（匀速）
+        //参数四：动画执行完毕后的回调函数
+          $('#lr800').click(function () {
+//              $('#div1').animate({
+//                  left:500,
+//                  width:500,
+//                  height:500
+//              },1000, function () {
+//                  alert('我是回调函数')
+//              })
+
+
+
+              $('#div1').fadeIn(1000, function () {
+                  $('#div1').animate({
+                      top:500,
+                      left:500,
+                      width:500
+                  },1000,function () {
+//                      alert("我执行完了")
+                      $('#div1').animate({
+                     top:0
+                      },1000, function () {
+                          alert('我是最后出现的')
+                      })
+                  })
+              })
+          })
+
+
+
+
+
+
+//        //给按钮设置一个点击事件
+//        $('#lr800').click(function () {
+//            //animate(参数1,参数2) 自定义动画函数
+//            //参数1:要做动画的属性,是一个对象
+//            //参数2:动画执行的时长
+//            //参数3:easing  匀速还是变速  匀速linear  缓动swing(默认)
+//            //参数4:callback 回调函数, 动画执行完毕后的回调函数.
+
+//            // $('#div1').animate({
+//            //   'left':800,
+//            //   'width':300,
+//            //   'height':300,
+//            //   'opacity':0.3
+//            // },3000)
+
+
+//            $('#div1').animate({
+//                'top':800
+//            },3000,"linear", function () {
+//               // alert("动画执行完毕了");
+//                $('#div1').animate({
+//                    'top':500,
+//                },2000);
+//            });
+
+
+
+////        $('#div2').animate({
+////          'left':800
+////        },3000,"swing");
+
+
+
+
+
+
+
+    });
+</script>

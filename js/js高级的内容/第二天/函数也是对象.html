@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//函数对象
+    function test(){
+        console.log("我是test的原型对象");
+    }
+    //把test函数作为一个对象，往里面添加一个属性
+    test.type="函数体";
+    test.sayHi= function () {
+        console.log("我是新加的函数");
+    }
+     test.gender="男";
+    //取值
+console.log(test.gender);
+console.log(test.type);//函数体
+    test.sayHi()//我是新加的函数
+    //结论：函数也是一个对象，因为他可以用对象的方法
+    //函数的原型链
+console.log(test.__proto__);//ƒ () { [native code] }
+console.log(test.__proto__.constructor);//ƒ Function() { [native code] }
+    //验证是否式Function
+console.log(test.__proto__ == Function.prototype);//true
+    //Function的原型呢
+console.log(test.__proto__.__proto__.constructor);//ƒ Object() { [native code] }
+console.log(test.__proto__.__proto__==Object.prototype);//true
+console.log(test.__proto__.__proto__.__proto__);//null
+
+
+console.dir(Function.__proto__.constructor);//ƒ Function()
+console.dir(Function.__proto__==Function.prototype);//true
+console.dir(Function.__proto__.__proto__.constructor);//object
+console.dir(Function.__proto__.__proto__.__proto__);//null
+
+</script>

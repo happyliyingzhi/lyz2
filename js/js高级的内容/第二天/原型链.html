@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//每个对象都有自己的原型，原型又是一个对象，所以原型又有原型，这就
+    //成为了一个链式结构，成为原型链
+//构造函数
+    function st(name,age){
+        this.name=name;
+        this.age=age;
+    }
+//原型函数
+    st.prototype.sayHi= function () {
+        console.log("我是st的原型");
+    }
+//实例化对象
+    var box=new st("意义",40);
+//console.log(box.name);//意义
+//console.log(box.age);//40
+//    box.sayHi()//我是st的原型
+//console.log(box.type);//undefined
+        box.toString();//没有报错，自己没有，原型中也没有，为什么没有报错
+//这里是因为原型的原型里面有，所以就没有报错
+//console.log(box);//[object Object]
+//结论：这里的成员（属性和方法）首先回去构造函数里面找，如果构造函数没有，
+    //就会往原型找，如果原型里面没有，就会往原型的原型找，如果都找不到就undefined
+
+  //验证：
+  //  box.toString();//没有报错，自己没有，原型中也没有，为什么没有报错
+//这里是因为原型的原型里面有，所以就没有报错
+    //实例化对象访问函数
+console.log(box.__proto__);//{sayHi: ƒ, constructor: ƒ}
+console.log(box.__proto__.constructor);//ƒ st(name,age){this.name=name;  this.age=age;}
+    //实例化对象的原型，访问原型
+//console.log(box.__proto__.__proto__);//constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …
+//    //原型的原型，访问原型的原型的构造函数，因为原型是有构造函数演变的
+//console.log(box.__proto__.__proto__.constructor);//ƒ Object() { [native code] }
+//    //验证这个原型的原型的构造函数是不是object构造函数
+//console.log(box.__proto__.__proto__ === Object.prototype);//true
+//console.log(box.__proto__.__proto__.constructor === Object);//true
+//    //原型的原型的原型是为null
+//console.log(box.__proto__.__proto__.__proto__);//null
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    .one {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //事件注册on,   事件解绑off
+
+      //1.给注册事件 按钮一个点击事件:给id为one的div注册事件.
+      $('#btn1').on('click', function () {
+        $('#one').on({
+          'click': function () {
+            console.log('我是单击事件');
+          },
+          'mouseenter': function () {
+            console.log('我是鼠标移入事件');
+          }
+        });
+      });
+
+
+      //2.给解绑事件  按钮一个点击事件:给id为one的div解绑事件
+      $('#btn2').on('click', function () {
+        //解绑所有的事件.
+        //$('#one').off();
+
+        //解绑指定的事件
+        $('#one').off('click');
+      });
+
+
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="注册事件" id="btn1"/>
+<input type="button" value="解绑事件" id="btn2"/> <br/><br/>
+<div class="one" id="one"></div>
+</body>
+</html>

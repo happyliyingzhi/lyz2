@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+    <style>
+        #box {
+            width: 400px;
+            height: 500px;
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn" value="创建">
+<br>
+<div id="box"></div>
+<!--不建议使用字符串拼接的方式来创建元素,因为这样很浪费性能-->
+</body>
+</html>
+<script>
+    //利用循环创建多个新元素
+  var btn=id("btn");
+  var box=id("box");
+ //  btn.onclick= function () {
+ //      for(var i=0;i<5;i++){
+ //          var p1=document.createElement("p");
+ //          p1.innerHTML="我是一个新的p标签";
+ //          box.appendChild(p1);
+ //      }
+
+
+ //  }
+    //2.直接用innerHtml来添加新标签
+ //  btn.onclick = function () {
+ //      var str = "";
+ //      for(var i = 0;i < 5;i++){
+ //          str += "<p>我是一个p标签</p>";
+ //      }
+ //      box.innerHTML = str;
+ //  }
+    btn.onclick= function () {
+        for(var i=0;i<1000;i++){
+            var p1=document.createElement("p");
+            p1.innerHTML="我是一个新来的mm"+(i+1);
+            box.appendChild(p1);
+        }
+
+    }
+</script>

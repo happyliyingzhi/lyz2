@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<div id="father">
+  <div>1
+    <span>s1
+       <s>s1</s>
+       <s>s2</s>
+    </span>
+    <span>s2</span>
+    <span>s3</span>
+  </div>
+  <div>2</div>
+  <div>3</div>
+  <p>p1
+    <b>1</b>
+    <b>2</b>
+    <b>3</b>
+  </p>
+  <p>p2</p>
+  <p>p3</p>
+</div>
+
+<script>
+  //1.递归
+  //函数自己调用自己，要有结束的条件。
+  // function test1(){
+  //   test1();
+  // }
+  // test1();
+
+
+  // function test1(){
+  //   test2();
+  // }
+  // function test2(){
+  //   test1();
+  // }
+  // test1();
+
+
+
+
+  //1-n  求这个数之前的累加和  加上这个数
+  //1+2+3+4+5
+  //1+2+3+4   5   //当前这个n(5) +  （n-1）之前的累加和。
+  //1+2+3     4   //当前这个n(4) +   (n-1)之前的累加和。
+
+//  function getSum(n){
+//    if(n == 1){
+//      return 1;
+//    }
+//    return getSum(n-1) + n;
+//  }
+
+
+
+
+  //1,1,2,3,5,8,13,21,34,55...
+  //因为求了很多的重复项(已经求过了的,又求一次或者多次,所以浪费时间,有性能问题),
+  //用一个对象,保存已经求过的项,以后要求这个项,就直接去对象中获取.
+  // function createFB(){
+  //   var obj = {};
+  //   function getFB(n){
+  //     if(obj[n] != undefined){
+  //       return obj[n];
+  //     }else {
+  //       if(n==1 ||n==2){
+  //         obj[n] = 1;
+  //         return 1;
+  //       }else {
+  //         obj[n] = getFB(n-1) + getFB(n-2);
+  //         return obj[n];
+  //       }
+  //     }
+  //   }
+  //   return getFB;
+  // }
+  // console.log(createFB()(8));
+
+
+  //直接求后代元素不现实，求子元素可以，然后求子元素的子元素，一直到没有子元素为止。
+  //  var list = [];
+  //  function getHDeles(ele){
+  //    var children = ele.children;
+  //    for(var i = 0 ; i < children.length; i++){
+  //      var child = children[i];
+  //      list.push(child);
+  //      getHDeles(child);
+  //    }
+  //  }
+  // getHDeles(document.body);
+  // console.log(list);
+
+
+
+
+
+  //求某个元素的所有的后代元素01.
+  // function createHDels(){
+  //   var list = [];
+  //   function getHDeles(ele){
+  //     var children = ele.children;
+  //     for(var i = 0 ; i < children.length; i++){
+  //       var child = children[i];
+  //       list.push(child);
+  //       getHDeles(child);
+  //     }
+  //   }
+  //   return {
+  //     list:list,
+  //     getHDeles:getHDeles
+  //   }
+  // }
+  // var obj = createHDels();
+  // obj.getHDeles(document.body);
+  // console.log(obj.list);
+
+
+
+  //求某个元素的所有的后代元素02.
+  // function getHDeles(ele){
+  //   var list = [];
+  //   var children = ele.children;
+  //   for(var i = 0 ; i < children.length; i++){
+  //     var child = children[i];
+  //     list.push(child);
+  //     var list1 = getHDeles(child);
+  //     list = list.concat(list1); //concat这个数组方法,不会改变原来的数组.
+  //   }
+  //   return list;
+  // }
+  // console.log(getHDeles(document.body));
+
+
+
+
+
+
+
+
+
+  //2.闭包
+  //闭包就是声明在一个函数内部可以访问他局部变量的函数。 js中有一个特点，只有函数内部的函数，才可以访问这个函数内部声明的局部变量。
+
+  //  function test1(){
+  //    var num = 10;
+  //    function test2(){
+  //      return num;
+  //    }
+  //    return test2;
+  //  }
+  //  var f1 =  test1();
+  //  console.log(f1());
+
+
+
+  //  var test = (function () {
+  //    var num = 1000;
+  //    function inner(){
+  //      return num;
+  //    }
+  //    return inner;
+  //  }());
+  //
+  //  console.log(test());
+
+
+
+  //提供了有限的访问权限
+  //   function outer(){
+  //     var num = 100;
+  //     return {
+  //       getNum: function () {
+  //         return num;
+  //       },
+  //       setNum: function (value) {
+  //         if(value > 100){
+  //           num = value;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   var obj = outer();
+  //   obj.setNum(200);
+  //   console.log(obj.getNum());
+
+
+
+//     for(var i = 0 ; i < 5; i++) {
+//
+//       function outer(){
+//         var j = i;
+//         function inner(){
+//           console.log(j);
+//         }
+//         return inner;
+//       }
+//
+//     	lis[i].onclick = outer();
+//     }
+
+
+
+  //沙箱  沙盒
+  //为了避免变量的污染； 模块化开发
+  // (function (w) {
+  //   function sayHi(){
+  //     console.log("哈哈");
+  //   }
+  //   w.sayHi = sayHi;
+  //
+  // }(window));
+  //  sayHi();
+
+
+
+  //函数的调用模式
+  //函数调用  方法调用  构造函数调用
+  //要会判断他们当中的this是谁
+
+  //不要看函数是如何声明的，要看函数是怎么调用的，谁调用你，那么你这个函数中的this就是谁。
+  function test1(){
+    console.log(this);
+  }
+  //test1();
+
+  var obj = {
+    sayHi :function () {
+      console.log("哈哈");
+      console.log(this);
+    }
+  }
+  //obj.sayHi();
+
+
+  // test1 = obj.sayHi;
+  // test1();
+
+
+
+
+  //计时器的回调函数中的this. //window
+  setTimeout(obj.sayHi,3000);
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

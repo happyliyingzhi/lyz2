@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1">
+    我是原来的内容div1
+    <p>我是p标签
+        <b>我是一个b标签</b>
+    </p>
+</div>
+<div id="div2">
+    我是原来的内容div2
+</div>
+<div id="div3">
+    我是原来的内容div3
+</div>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+//入口函数
+    $(function () {
+        //设置文本
+    //    text(设置的文本);
+        //会把原来的内容覆盖掉
+        //就算设置的文本中包含标签，也不会把这个标签解析出来
+      //  var $div1=$('#div1');
+      //  $div1.text("我是修改后的div");//会把div里面整个内容都改变
+     //  var $div1=$('b');
+     //  $div1.text("我是修改后的p")
+        //2.多个元素设置文本
+        //就会每个元素都设置上整个文本
+      /// var $divs=$('div');
+      /// $divs.text("我是修改后的test")
+        //这里修该了所有div标签，里面的内容全部修改这个
+
+
+        //获取多个元素文本
+        //xx.test()
+        var $divs=$('div');
+//          $divs.text("<h1>你好</h1>");
+//        console.log($divs.text());
+
+        //html()会解析标签，text()不会解析标签，只会成字符串显示在页面上面
+        $divs.html("<h1>你好</h1>");
+        console.log($divs.html());
+
+    })
+</script>

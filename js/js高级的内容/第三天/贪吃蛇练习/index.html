@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 1.首先分析页面需要的属性，
+      1.1.构造函数，构造食物，首先要宽高，背景色，还有坐标的随机数，
+      1.2.构造函数的原型：设置他的位置随机性，创建一个新的元素，添加在页面上
+      2.分析蛇的页面的属性
+      2.1构造函数，宽高 蛇身，方向数组三个，x抽y抽，背景色，
+      2.2 蛇身创建一个div用数组的循环，将蛇添加在页面
+       3.只保留页面上一个食物和一条蛇
+       3.1函数之前，创建一个新的空数组，然后在在添加页面上时，同时添加在空的数组里面
+       3.2在遍历循环建立的数组，找到父元素删除子元素，然后在函数创建之前执行这个删除的函数
+       4.蛇的移动：将前一个数组的下标给后一个数组的下标，蛇头判断方向后在执行加减
+       5.在game页面添加这个函数在里面，
+       6.设置一个函数，里面有计时器，将移动蛇和添加蛇放在里面，蛇就可以一直动起来
+       7.判断蛇的范围，在计时器里面移动蛇，就要判断蛇的距离，首先拿到蛇头的坐标，与背景图宽和高相比。然后清空计时器
+       8.判断蛇的方向：首先要获取，键盘的数组，然后在获取键盘的数组进行判断，执行判断的条件
+       9.蛇吃东西，然后长身体，首先拿到蛇头的x和y，然后在拿到食物的坐标，进行比较，然后相等就执行，
+       首先获取最后一个蛇身的坐标，当相等的时候，就执行增加蛇数组的长度，将拿到最后的蛇身的坐标添加里面
+       10.然后在重新调用添加食物在页面的函数，让重新产生一个新的食物
+
+    -->
+    <style>
+        .map {
+            width: 800px;
+            height: 600px;
+            background-color: #cccccc;
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="map" id="map"></div>
+
+</body>
+</html>
+<script src="Food.js"></script>
+<script src="snake.js"></script>
+<script src="Game.js"></script>
+<script>
+var map=document.getElementById("map");
+
+  var game=new Game();
+      game.startGame(map);
+
+
+
+
+
+//   var food=new Food();
+//    food.render(map)
+//   var snake1=new Snack();
+//    snake1.render(map);
+//    snake1.move();
+//snake1.render(map);
+//snake1.move();
+//snake1.render(map);
+</script>

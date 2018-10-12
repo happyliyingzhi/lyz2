@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    .thd{
+        background-color: blueviolet;
+    }
+        th,td{
+            border: 1px solid black;
+            width: 200px;
+        }
+        table{
+            border-collapse: collapse;
+
+
+        }
+        tbody{
+            background-color:pink;
+
+        }
+    </style>
+</head>
+<body>
+
+请输入姓名:
+<input type="text"  value=""/><br/>
+请输入邮箱:
+<input type="email" value=""/><br/>
+请输入手机:
+<input type="tel"  value=""/><br/>
+请输入地址:
+<input type="text"  value=""/><br/>
+  <button id="btn">添加</button>
+ <table id="tbl">
+     <thead class="thd">
+       <tr>
+           <th>姓名</th>
+           <th>邮箱</th>
+           <th>手机</th>
+           <th>地址</th>
+       </tr>
+     </thead >
+     <tbody id="thd">
+       <tr >
+           <td >小黑</td>
+           <td>xiaohei@126.com</td>
+           <td>1999900909</td>
+           <td>北京</td>
+       </tr>
+        <br/>
+     </tbody>
+ </table>
+</body>
+</html>
+<script>
+    //获取相关的元素
+    var btn=document.getElementById("btn");//按钮
+   var thd=document.getElementById("thd");//tbody
+    var input=document.getElementsByTagName("input");//input
+    console.log(input);
+    //点击按钮
+    btn.onclick= function () {
+        var flag=true;//标记法，假设全部都输入
+        for(var i=0;i<input.length;i++){
+            if(input[i].value.length==0){
+                flag=false;
+                break;
+            }
+        }
+        if(flag){
+            //创建新的一行
+            var newTr=document.createElement("tr");
+            //把行加入的到tbody中
+           thd.appendChild(newTr);
+           for(var j=0;j<input.length;j++){
+                var newTd=document.createElement("td");
+                newTd.innerHTML=input[j].value;
+               newTr.appendChild(newTd);
+
+            }
+        }else{
+            alert("请将数据填入完全");
+        }
+
+   //隔行变色
+    var  tr=document.getElementsByTagName("tr");
+    for(var i=0;i<tr.length;i++){
+        if(i%2==0){
+            tr[i].style.backgroundColor="blueviolet";
+        }else{
+            tr[i].style.backgroundColor="pink"
+        }
+    }
+    }
+
+
+    //     var student=["姓名","邮箱","手机","地址"]
+//var btn=document.getElementById("btn");
+//var txt=document.getElementById("txt");
+//var email=document.getElementById("email");
+//var tel=document.getElementById("tel");
+//var addtress=document.getElementById("addtress");
+//var trs=document.getElementById("trs");
+//var thd=document.getElementById("thd");
+
+
+//    btn.onclick= function () {
+//       for(var i=0;i<student.length;i++){
+//           var newLi=document.createElement("td");
+//           newLi.innerHTML=txt.innerHTML;
+////          document.write("<br/>")
+//           trs .appendChild(newLi);
+////        document.write("</tr>")
+//       }
+
+    <!--}-->
+
+</script>

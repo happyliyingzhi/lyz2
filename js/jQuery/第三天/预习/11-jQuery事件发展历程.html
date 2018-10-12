@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style> 
+    div {
+      width: 200px;
+      height: 200px;
+      margin-top: 10px;
+    }
+    .one  {
+      border: 1px solid red;
+    }
+    .two {
+      border: 1px solid green;
+    }
+  </style>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+
+
+      //4. jQuery1.7之后，jQuery用on统一了所有事件的处理方法。
+
+      //a.on简单注册事件
+      //同时注册多个
+      //不支持动态注册的.
+      // $('#btn').on({
+      //   'click': function () {
+      //     console.log('单击事件');
+      //   },
+      //   'mouseenter': function () {
+      //     console.log("输入移入事件");
+      //   }
+      // });
+
+
+      //  $('div').on('click', function () {
+      //    alert('我是div,我被单击了..');
+      //  });
+//
+      //  $('#btn').click(function () {
+      //     //创建一个新的div.
+      //     $('body').append($('<div style="width:100px;height: 100px;background-color: red">我是新创建的div</div>'));
+      //   });
+
+
+
+
+      //b.on事件委托注册
+      //同时注册多个
+      //支持动态注册
+      // $('body').on('click',"#btn", function () {
+      //   console.log('哈哈');
+      // });
+
+
+      $('body').on('click','div', function () {
+        alert("我是div,我被单击了...");
+      });
+
+        $('#btn').click(function () {
+           //创建一个新的div.
+           $('body').append($('<div style="width:100px;height: 100px;background-color: red">我是新创建的div</div>'));
+         });
+
+
+
+
+
+
+
+
+    });
+  </script>
+
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/> <br/><br/>
+<div class="one" id="one"></div>
+</body>
+</html>

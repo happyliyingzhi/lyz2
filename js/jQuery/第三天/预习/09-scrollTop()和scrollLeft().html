@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 2000px;
+      height: 2000px;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+      overflow: auto;
+    }
+    img {
+      vertical-align: top;
+      width: 400px;
+      height: 400px;
+    }
+  </style>
+
+ <script src="jquery-1.12.4.js"></script>
+ <script>
+   $(function () {
+     $('#btn').on('click', function () {
+       //1.内容滚出去的部分.
+       // console.log($('div').scrollTop());
+       // console.log($('div').scrollLeft());
+     });
+
+
+
+     //2.介绍一个事件  scroll事件
+     $('div').on('scroll', function () {
+       console.log($(this).scrollLeft() + ":" +$(this).scrollTop());
+     });
+
+
+     //3.页面滚出去的部分.
+//     $(window).on('scroll', function () {
+//       console.log($(this).scrollLeft() + ":" +$(this).scrollTop());
+//     });
+
+
+   });
+ </script>
+
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+<div>
+  <img src="1.jpg" alt=""/>
+</div>
+</body>
+</html>

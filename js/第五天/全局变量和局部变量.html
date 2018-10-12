@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //全局变量：声明在全局作用域中的变量，就是全部变量，在程序结束才会被销毁
+        //局部变量：声明在局部作用域中的变量，就是局部变量，当函数执行完之后，就会被销毁
+
+            var res=100;//在函数script里面就是全局变量
+        function arr(){
+            // var num=20;
+            //函数之内，局部变量
+            console.log(num);//100,局部作用域中，能访问到全局变量
+            var num=20;
+        }
+      arr()
+        console.log(num);//undefined,在全局中，是没有办法访问局部变量的
+        //全局变量：公共交通工具，都可以使用
+        //局部变量：私家车
+    </script>
+</head>
+<body>
+
+</body>
+</html>

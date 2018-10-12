@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>隔壁老王1</li>
+    <li>隔壁老王2</li>
+    <li>隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+    <li>隔壁老王6</li>
+</ul>
+</body>
+</html>
+<!--// onmouseover:时鼠标移入时 -->
+<!--onmouseout:鼠标移出时-->
+<script src="common.js"></script>
+<script>
+var list=tagName("li");
+console.log(list);
+var oldcolor;//用来存当前的颜色
+    for(var i=0;i<list.length;i++) {
+        if (i % 2 == 0) {
+            list[i].style.backgroundColor = "red";
+        } else {
+            list[i].style.backgroundColor = "green";
+        }
+        list[i].onmouseover = function () {//鼠标移入是的代码
+            oldcolor = this.style.backgroundColor;//将当前的颜色赋值给oldcolor
+            this.style.backgroundColor = "gold";//改变背景颜色
+        }
+        list[i].onmouseout = function () {//鼠标移出时，变回原来的颜色
+            this.style.backgroundColor = oldcolor;//将原本存的颜色赋值给鼠标移走
+        }
+    }
+</script>

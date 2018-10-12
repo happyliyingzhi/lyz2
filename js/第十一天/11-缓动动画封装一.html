@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #red {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="to400" value="到400">
+<input type="button" id="to800" value="到800">
+<div id="red"></div>
+</body>
+</html>
+<script>
+    //1.获取元素
+    var to400 = document.getElementById("to400");
+    var to800 = document.getElementById("to800");
+    var red = document.getElementById("red");
+    var timeID;
+
+    //2.给to400设置点击事件
+    to400.onclick = function () {
+        animate(400);
+    };
+
+    //3.设置到800
+    to800.onclick = function () {
+        animate(800);
+    };
+
+    /*******************************************************/
+    //4.动画函数封装
+    function animate(target) {
+        clearInterval(timeID);
+        //设置计时器
+        timeID = setInterval(function () {
+            //得到等前的位置
+            var current = red.offsetLeft;
+            //设置步长
+            //如果不想是匀速的话,那么步长就不能写死
+            var step = Math.ceil((target - current)/10);
+            console.log(step);
+            current += step;
+            //修改位置
+            if(current < target){
+                red.style.left = current + "px";
+            }else {
+                red.style.left = target+"px";
+                clearInterval(timeID);
+            }
+        },30)
+    }
+</script>

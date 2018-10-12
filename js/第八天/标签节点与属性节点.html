@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+1.什么时节点：（元素，属性，文本，注释）
+2.节点的特点：
+            节点：node
+            节点类型：nodeType
+            节点名称：nodeName
+            节点的值：nodeValue
+ 3.元素的节点//获得的是整个盒子的内容 标签包括的所有内容
+             节点类型：nodeType:1
+             节点名称：nodeName:标签名
+             节点的值：nodeValue:null
+ 4.属性节点  获得这个盒子里面所有的属性id.class,,,,,
+               节点类型：nodeType:2
+               节点名称：nodeName:属性名
+               节点的值：nodeValue:属性值
+
+
+-->
+<div id="box" class="mybox">我是一个</div>
+<p id="box1">我的是一个p</p>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+var box=id("box");
+console.log(box);
+//    //元素节点
+//console.log(box.nodeType);//1
+//console.log(box.nodeName);//div
+//console.log(box.nodeValue);//null
+//    var box1=id("box1");
+//console.log(box1.nodeName);//p
+//console.log(box1.nodeType);//1
+//console.log(box1.nodeValue);//null
+    //属性节点
+//console.log(box.attributes);
+    var arr=box.attributes;
+console.log(arr[0].nodeType);//2
+console.log(arr[0].nodeName);//id
+console.log(arr[0].nodeValue);//box
+console.log(arr[1].nodeType);//2
+console.log(arr[1].nodeName);//class
+console.log(arr[1].nodeValue);//mybox
+</script>

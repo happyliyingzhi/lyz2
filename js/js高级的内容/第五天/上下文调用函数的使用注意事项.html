@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//函数上下文调用模式注意的地方
+    //call(),apply(),bind();这三个方法式存在与Function.prototype里面的，说明js中所有的函数都可以调用这三个方法
+//    function test1(){
+//
+//    };
+//    function test2(){
+
+//    };
+//    test1.call();
+//    test2.call();
+    //如果上下文调用模式，第一个参数this的指向，指向一个number类型的数，那么this就指向包装类型的number
+    //如果上下文调用模式，第一个参数this的指向，指向一个string类型的数，那么this就指向包装类型的number
+    //如果上下文调用模式，第一个参数this的指向，指向一个boolean类型的数，那么this就指向包装类型的number
+    //如果上下文调用模式，第一个参数this的指向不写/null/undefiend/window,那么this的指向是window
+//       function test1(){
+//           console.log(this);
+//       };
+//    test1.call()//window
+    //那么函数用的上下文调用模式，那么函数的this才会发生修改
+    var obj={
+        name:"一样"
+    }
+    function test(){
+        console.log("我是test");
+        console.log(this);
+        test1();
+    }
+    function test1(){
+        console.log("我是test1");
+        console.log(this);//obj
+    }
+  //  test1.call(obj);
+    test.call(obj)
+    //这里的test的 console.log(this);obj
+    //   console.log(this);//window
+</script>

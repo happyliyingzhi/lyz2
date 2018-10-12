@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="myul">
+    <li>隔壁老宋1</li>
+    <li>隔壁老宋2</li>
+    <li id="li3">隔壁老宋3</li>
+    <li>隔壁老宋4</li>
+    <li>隔壁老宋5</li>
+</ul>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+var my=id("myul");
+console.log(my);
+    //获得上一个节点
+ //previousSibling:可以得到上一个节点(文本节点,注释节点,元素节点)
+//注意:ie8以及以下版本:非空文本节点,注释节点以及元素节点
+console.log(li3.previousSibling);
+    //2.获得上一个元素节点
+//previousElementSibling:获得上一个元素节点
+//注意:ie8以及以下版本,不支持
+console.log(li3.previousElementSibling);
+    //3.兼容
+    function getpreviousElement(ele){
+        //1先判断一下是否能得到
+        if(ele.previousElementSibling){
+            return ele.previousElementSibling;
+        }else{
+            //进入循环，直到找到上一个元素节点，跳出循环
+            var node=ele.previousSibling;
+            while(node.nodeType !=1){
+                node=ele.previousSibling;
+            }
+        }
+        return node;
+    }
+console.log(getpreviousElement(li3));
+</script>

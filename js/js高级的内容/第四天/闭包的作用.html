@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //闭包的作用：提升了局部变量的声明周期
+    function arr(){
+        var num=10;
+        console.log(num);
+    }
+arr();
+  //  console.log(num);//报错，因为局部变量在声明中函数外部访问不了，因为他被回收了
+    //局部变量的生命周期，变量从声明到销毁
+    //局部变量什么时候回收：声明他的函数执行完毕后就会被回收
+
+
+    //利用闭包将局部变量提升全局变量
+    function outer(){
+        var num=10;
+        function inner(){
+            console.log(num);
+        }
+        return inner;
+    }
+    var fu=outer();//返回的inner()函数
+    fu();//返回inner()函数的结果
+
+    // var num=0;
+//function test1(){
+//   var  num=10;
+//    console.log(num);
+//    function test2(){
+//        console.log(num);
+//    }
+//    return
+//}
+//    test1();
+//console.log(num);
+// function test(){
+//     console.log("我是调用的函数");
+// }
+// //如果是test()是直接执行函数返回的结果，然后在执行，函数返回的结果，undefined
+//  setInterval(test(),2000)
+   // setInterval(test,2000)
+  // console.log(setInterval(test(), 2000));
+</script>

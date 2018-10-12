@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrap {
+            width: 330px;
+            height: 30px;
+            margin: 100px auto 0;
+            padding-left: 10px;
+            background-image: url(images/bg.jpg);
+        }
+
+        .wrap li{
+            background-image: url(images/libg.jpg);
+        }
+
+        .wrap > ul > li {
+            float: left;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .wrap a {
+            display: block;
+            height: 30px;
+            width: 100px;
+            text-decoration: none;
+            color: #000;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .wrap li ul {
+            position: absolute;
+            top: 30px;
+            display: none;
+        }
+    </style>
+    <!--&lt;!&ndash;<script src="jquery-1.12.4.js"></script>&ndash;&gt;-->
+    <!--&lt;!&ndash;<script>&ndash;&gt;-->
+        <!--&lt;!&ndash;$(function () {&ndash;&gt;-->
+
+<!--//            //1.给三个一级菜单li设置鼠标移入事件.-->
+<!--//            $('.wrap>ul>li').mouseenter(function () {-->
+<!--//                //当前鼠标移入的这个li标签下面的ul,设置为显示.-->
+<!--//                $(this).children('ul').show();-->
+<!--//                console.log("鼠标进入");-->
+<!--//            });-->
+
+
+<!--//            //2.给三个一级菜单li设置鼠标移出事件.-->
+<!--//            $('.wrap>ul>li').mouseleave(function () {-->
+<!--//                //当前鼠标移入的这个li标签下面的ul,设置为隐藏-->
+<!--//                $(this).children('ul').hide();-->
+<!--//                console.log("鼠标离开");-->
+<!--//            });-->
+
+
+<!--//            //&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+<!--//            //以后如果遇到鼠标移入事件: 使用mouseenter事件.就不要在使用mouseover事件了.-->
+<!--//            //以后如果遇到鼠标移出事件: 使用mouseleave事件,就不要再使用mouseout事件了.-->
+
+
+        <!--&lt;!&ndash;});&ndash;&gt;-->
+    <!--&lt;!&ndash;</script>&ndash;&gt;-->
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li>
+            <a href="javascript:void(0);">一级菜单1</a>
+            <ul>
+                <li><a href="javascript:void(0);">二级菜单1</a></li>
+                <li><a href="javascript:void(0);">二级菜单2</a></li>
+                <li><a href="javascript:void(0);">二级菜单3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);">一级菜单1</a>
+            <ul>
+                <li><a href="javascript:void(0);">二级菜单1</a></li>
+                <li><a href="javascript:void(0);">二级菜单2</a></li>
+                <li><a href="javascript:void(0);">二级菜单3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);">一级菜单1</a>
+            <ul>
+                <li><a href="javascript:void(0);">二级菜单1</a></li>
+                <li><a href="javascript:void(0);">二级菜单2</a></li>
+                <li><a href="javascript:void(0);">二级菜单3</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    //首先获取相关的元素。
+    //mouseeter  是鼠标移入事件，鼠标移入事件，只会产生鼠标当前移入的位置，mouse over鼠标移入事件产生当前移入的后面的后代元素都有产生鼠标移入事件
+    //mouselevel  是鼠标移出事件
+    //show()  在jquery相当于 display：block；
+    //hide()   在jquery相当于 display:none
+    $('.wrap>ul>li').mouseenter(function () {
+
+         $(this).children('ul').show();
+       // console.log(box);
+    });
+
+    $('.wrap>ul>li').mouseleave(function () {
+
+        $(this).children('ul').hide();
+        // console.log(box);
+    })
+
+
+//$(function () {
+//    $('.wrap>ul>li').mouseenter(function () {
+//        $(this).children('ul') .css('display',"block");
+//    });
+//    $('.wrap>ul>li').mouseleave(function () {
+//        $(this).children('ul') .css('display',"none");
+//    })
+//})
+</script>

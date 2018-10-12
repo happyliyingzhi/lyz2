@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="显示" id="show"/>
+<input type="button" value="隐藏" id="hide"/>
+<input type="button" value="切换" id="toggle"/> <br/><br/>
+<div id="div1"></div>
+<br/><br/>
+<div id="div2"></div>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        $('#show').click(function () {
+            //1.如果show()没有参数的话。就是直接显示出来，没有任何动画效果
+//           $('div').show()
+            //如果show(1000)里面有参数的话，会出现动画效果，已原点为起点，慢慢的展出，
+            //里面的参数，fast(200),normal(400) ,slow(600),注意英文单词不要写错
+            //  $('div').show(1000)
+            //show(执行时间,回调函数)
+            $('div').show(1000, function () {
+                $('div').css('background-color', 'blue')
+                $('div').animate({
+                    width: 500,
+                    height: 500
+                }, 1000)
+            })
+        });
+        //2
+        $('#hide').click(function () {
+            //和show 的规则是一样
+//            $('div').hide()
+            $('div').hide(1000, function () {
+                alert("我隐藏完了")
+            })
+        });
+        //3.切换动画，taggle(),如果有移除，如果没有就添加
+        $('#toggle').click(function () {
+            $('div').toggle(1000, function () {
+                alert("我是切换")
+            })
+
+
+        });
+    })
+</script>

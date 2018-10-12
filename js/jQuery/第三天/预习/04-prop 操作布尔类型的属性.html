@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+
+      //按钮设置点击事件.
+      $('#btn1').on('click', function () {
+        //注意:在jQuery1.6之后，对于checked、selected、disabled这类boolean类型的属性来说，不能用attr方法，只能用prop方法。
+        //console.log($('#ckb1').attr('checked')); //得到的是undefined.
+
+        console.log($('#ckb1').prop("checked"));
+      });
+
+
+      //给第一个多选框设置单击事件.
+      $('#ckb1').on('click', function () {
+        //console.log($(this).prop('checked'));
+        //设置下面那三个多选框的checked值等于当前这个多选框的checked值.
+
+        //nextAll(); 查找的当前这个元素的下面所有的兄弟.
+        //console.log($(this).nextAll('input'));
+
+
+        $(this).nextAll('input').prop('checked',$(this).prop('checked'));
+
+      });
+
+
+    });
+  </script>
+
+</head>
+<body>
+<input type="button" value="按钮" id="btn1"/> <br/>
+<input type="checkbox" id="ckb1" /><br/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+</body>
+</html>

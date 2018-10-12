@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--<input type="text" id="box" />-->
+<!--<input type="button" id="box1" value="点我" />-->
+<!--<button id="box2">禁用</button>-->
+<!--//思路：首先要判断，用到if-->
+<!--//然后在用循环控制input的标签，将input标签转换成数组-->
+<input type="text" id="box" value="输入内容"/>
+<input type="button" id="box1" value="点我"/>
+<button id="btn">禁用</button>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+    var btn=id("btn");
+    var tag=tagName("input");
+   // console.log(btn);
+    btn.onclick=function (){
+        if(this.innerHTML=="禁用"){
+            for(var i=0;i<tag.length;i++){
+                tag[i].disabled=true;
+            }
+            this.innerHTML="启用"
+        }else{
+            for(var i=0;i<tag.length;i++){
+                tag[i].disabled=false;
+            }
+            this.innerHTML="禁用"
+        }
+    }
+    var box=id("box");
+    box.onfocus=function(){
+        if(this.value=="输入内容"){
+            this.value=""
+        }
+    }
+    box.onblur=function (){
+        if(this.value==""){
+            this.value="输入内容";
+        }
+    }
+    //<hr/>
+//  var box=id("box");
+//    var box2=id("box2");
+//  var box=tagName("input");
+//  console.log(box);
+//  console.log(box2);
+//    box2.onclick=function (){
+//        if(this.innerHTML=="禁用"){
+//            for(var i=0;i<box.length;i++){
+//                box[i].disabled=true;
+//            }
+//            this.innerHTML="启用"
+
+//        }else{
+//            for(var i=0;i<box.length;i++){
+//                box[i].disabled=false;
+//            }
+//            this.innerHTML="禁用"
+        <!--}-->
+    <!--}-->
+</script>

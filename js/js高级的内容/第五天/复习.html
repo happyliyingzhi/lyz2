@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//1-n   求这个数之前的累加和加上这个数
+    //1+2+3+4+ 5
+    //1+2+3+4
+    //1+2+3
+//    //1+2
+//    function getsum(n){
+//        if(n==1){
+//            return 1;
+//        }
+//        return getsum(n-1)+n
+//    }
+//console.log(getsum(3));
+    //斐波那契
+//    function creat(){
+//        var list={};
+//        function getfb(n){
+//               if(list[n]!=undefined){
+//                   return list[n];
+//               }else{
+//                   if(n==1||n==2){
+//                     list[n]=1;
+//                       return 1
+//                   }else{
+//                        list[n]=getfb(n-1)+getfb(n-2);
+//                       return list[n];
+//                   }
+//               }
+//            }
+//        return getfb;
+//    }
+//console.log(creat()(8));
+    //dom树
+//    var list=[];
+//    function getDh(ele){
+//        var children=ele.children;
+//        for(var i=0;i<children.length;i++){
+//            var child=children[i];
+//            list.push(child);
+//            getDh(child);
+//        }
+//    }
+//    getDh(document.body);
+//console.log(list);
+    //闭包，私人函数,避免全局污染
+// 方法一：   function getDom(){
+//        var list=[];
+//        function getDh(ele){
+//            var children=ele.children;
+//            for(var i=0;i<children.length;i++){
+//                var child=children[i];
+//                list.push(child);
+//                getDh(child);
+//            }
+//        }
+//        return {
+//            list:list,
+//            getDh:getDh
+//        }
+//    }
+//    var obj=getDom();
+//    obj.getDh(document);
+//console.log(obj.list);
+    //方法二：
+    function creatgt(ele){
+        var list=[];
+        var children= ele.children;
+        for(var i=0;i<children.length;i++){
+            var child=children[i];
+            list.push(child);
+            var list1=creatgt(child);//返回数要用一个变量接受他
+            list=list.concat(list1);//将返回的数组拼接在一起
+        }
+        return list;
+    }
+</script>

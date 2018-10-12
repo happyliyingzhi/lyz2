@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //原生js中,操作元素的属性:setAttribute  getAttribute removeAttribute
+
+      //1.获取属性值  attr(属性名);
+      $('#btn1').on('click', function () {
+        console.log($("img").attr('src')); //元素自带的属性.
+        console.log($("img").attr('aaa')); //自定义属性
+      });
+
+      //2.设置属性 attr(属性名,属性值);
+      $('#btn2').on('click', function () {
+        //a.设置单属性
+        // $("img").attr('src','992.gif');
+
+        //b.设置多属性
+        // $("img").attr({
+        //   'src':'992.gif',
+        //   'title':"美女喝水",
+        //   'aaa':'bbb'
+        // });
+
+        //c.多个元素,隐式迭代,会都设置上这些属性.
+        $("img").attr({
+             'src':'992.gif',
+             'title':"美女喝水",
+             'aaa':'bbb'
+        });
+      });
+
+
+      //3.移除属性 removeAttr(属性名);
+      $('#btn3').on('click', function () {
+        //a.移除单属性
+        //$('img').removeAttr('aaa'); //自定义的属性
+        //$('img').removeAttr('title'); //自带的属性
+        //b.移除多属性
+        $('img').removeAttr('title aaa');
+
+      });
+
+
+    });
+  </script>
+
+</head>
+<body>
+<input type="button" value="获取属性" id="btn1"/>
+<input type="button" value="设置属性" id="btn2"/>
+<input type="button" value="移除属性" id="btn3"/> <br/><br/>
+<img src="991.gif" alt="" title="周五晚睡" aaa='aaa'/>
+<!--<img src="991.gif" alt="" title="周五晚睡" aaa='aaa'/>-->
+
+
+</body>
+</html>

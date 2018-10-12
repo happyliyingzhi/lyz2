@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body {
+			perspective: 800px;
+			/* 视距 */
+			/* 观察的元素距离你的眼睛1000px */
+			/* 近大远小 */
+			/* 添加给观察元素的父盒子 */
+		}
+		img {
+			display: block;
+			width: 300px;
+			margin: 300px auto;
+			transition: all 1s;
+		}
+
+		img:hover {
+			transform: rotateX(360deg);
+		}
+	</style>
+</head>
+<body>
+	<img src="imgs/x.jpg" alt="">
+</body>
+</html>

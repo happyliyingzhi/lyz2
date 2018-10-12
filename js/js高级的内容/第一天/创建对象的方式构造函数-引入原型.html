@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//创建对象-构造函数
+    //把函数写在构造函数的里面，造成空间的浪费
+    //解决办法-把函数体提炼出来
+    //解决了内存空间浪费的问题，但是会造成全局变量的污染
+
+    //原型引入
+    //解决问题，既能解决内存浪费的问题，又能解决全局变量污染的问题
+    //我们声明一个构造函数，系统内部就会帮我们自动的生成一个
+    //和之对应的原型对象
+/// 这个是构造函数
+      function  student(name,age){
+          this.name=name;
+          this.age=age;
+      }
+    //如何访问：语法：构造函数名.prototype
+//console.log(student.prototype);
+    //Object  constructor  __proto__
+    //如何添加属性和方法
+     //语法：构造函数名.prototype.xx=xx
+      student.prototype.type="字符" ;
+      student.prototype.box= function () {
+          console.log("我是添加原型的方法");
+      }
+student.prototype.gender="男";
+console.log(student.prototype);
+// console.log(student.prototype);
+    //那么添加的属性和方法，谁可以去访问
+//实例化对象函数名.xx
+      var ps=new  student("李以",30);
+console.log(ps.type);
+console.log(ps.gender);
+console.log(ps.box);//是整个box函数
+      ps.box();//我是添加原型的方法
+</script>

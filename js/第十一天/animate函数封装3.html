@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <style>
+        .one {
+            height: 100px;
+            width: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0px;
+            top: 50px;
+        }
+        .two {
+            height: 100px;
+            width: 100px;
+            background-color: green;
+            position: absolute;
+            left: 0px;
+            top: 170px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="到400" id="to400"/>
+<input type="button" value="到800" id="to800"/>
+<div class="one" id="box"></div>
+<div class="two" id="box2"></div>
+</body>
+<script src="common.js"></script>
+<script>
+var to400=id("to400");
+    var to800=id("to800");
+    var box=id("box");
+    var box2=id("box2");
+//var timeID;
+var step=0;
+//点击400
+to400.onclick= function () {
+    animate(box,400);
+  //  animate(box2,400);
+}
+to800.onclick= function () {
+    animate(box,800);
+   // animate(box2,800);
+}
+function animate(ele,target){
+    clearInterval(ele.timeID);
+    ele.timeID=setInterval(function () {
+        var currentLeft=ele.offsetLeft;
+        //获取当前位置比目标位置要小，步长是正，如果当前位置比目标位置要大，步数为负
+        var step=currentLeft>target?-9:9;
+        //计算
+        currentLeft+=step;
+        //赋值
+        console.log(currentLeft);
+        //如果目标位置减去当前的的位置，不够走一步，就表示到了最后的，直接赋值
+        if(Math.abs(target-currentLeft)>Math.abs(step)){
+            ele.style.left=currentLeft+"px";
+        }else{
+            ele.style.left=target+"px";
+            clearInterval(ele.timeID);
+        }
+    },100)
+}
+</script>

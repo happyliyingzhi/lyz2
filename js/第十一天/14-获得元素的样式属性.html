@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 200px;
+            padding: 25px;
+            background-color: red;
+            border: 10px solid gold;
+            position: relative;
+            left: 100px;
+            top: 50px;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" style="height: 200px"></div>
+</body>
+</html>
+<script>
+    var box = document.getElementById("box");
+    //1.点语法
+    //console.log(box.style.height);//200px
+    //console.log(box.style.width);//没有得到,只能得到行内样式
+    //console.log(box.style.border);//空
+
+    //2.利用key值
+    //console.log(box.style["height"]);//200px
+    //console.log(box.style["width"]);//空
+
+    //3.offsetWidth/height:真实的宽高
+    //console.log(box.offsetHeight);
+    //console.log(box.offsetWidth);
+
+    //4.window.getComputedStyle(ele,null)["属性名"];
+    //console.log(window.getComputedStyle(box, null));
+    //console.log(window.getComputedStyle(box, null)["width"]);
+    //console.log(window.getComputedStyle(box, null)["border"]);
+    //console.log(window.getComputedStyle(box, null)["margin"]);
+
+    //5.但是ie8以及以下不支持
+    console.log(box.currentStyle["width"]);
+
+
+</script>

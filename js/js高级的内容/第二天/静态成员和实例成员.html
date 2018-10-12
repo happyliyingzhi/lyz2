@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//1静态成员和实例成员
+    //可以由构造函数直接点出来的就是静态成员
+    //必须要实例化一个对象才能点出来的就是实力成员
+    function box(name,age){
+        this.name=name;
+        this.age=age;
+        this.sayHi= function () {
+            console.log("哈哈");
+        }
+    }
+//这里是box点语化是静态成员
+box.prototype.arr= function () {
+    console.log("我是原型的");
+}
+box.arr1= function () {
+    console.log("我是box的函数");
+}
+    var pa=new box("yiyi",89);
+console.log(pa.name);//静态成员
+console.log(pa.age);//静态成员
+    pa.sayHi()//静态成员
+console.log(box.name);//不能出来
+    pa.arr()
+//静态成员
+    box.arr1()
+</script>

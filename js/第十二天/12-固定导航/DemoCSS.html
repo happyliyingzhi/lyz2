@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+    
+    img {
+      vertical-align: top;
+    }
+    
+    .main {
+      margin: 0 auto;
+      width: 1000px;
+      margin-top: 10px;
+    }
+    
+    .fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="top" id="topPart">
+  <img id="pic" src="images/top.png" alt=""/>
+</div>
+<div class="nav" id="navBar">
+  <img src="images/nav.png" alt=""/>
+</div>
+<div class="main" id="mainPart">
+  <img src="images/main.png" alt=""/>
+</div>
+<script>
+  //1 获取元素d
+  var topPart = document.getElementById("topPart");//顶部
+  var navBar = document.getElementById("navBar");//导航
+  var mainPart = document.getElementById("mainPart");//主体部分
+  
+  //2 滚动页面的时候执行效果
+  window.onscroll = function () {
+    //3 获取页面卷曲的高度，和顶部区域的高度进行对比
+    //如果页面卷曲高度>顶部区域的高度，让导航设置类名定位
+    if (myScroll().scrollTop > topPart.offsetHeight) {
+      navBar.className = "nav fixed";
+      //navBar定位后脱标，导致mainPart会向上插入
+      //可以通过设置marginTop为navBar的高度+10
+      mainPart.style.marginTop = navBar.offsetHeight + 10 + "px";
+    } else {
+      //取消导航的定位类名，去除marginTop
+      navBar.className = "nav";
+      mainPart.style.marginTop = "10px";
+    }
+  };
+  
+  
+  function myScroll() {
+    return {
+      //获取页面卷曲高度的兼容
+      scrollTop: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+      //获取页面卷曲宽度的兼容
+      scrollLeft: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+    };
+  }
+</script>
+</body>
+</html>

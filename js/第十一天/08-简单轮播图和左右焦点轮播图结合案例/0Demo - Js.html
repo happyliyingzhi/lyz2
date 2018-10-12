@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body, ul, ol, li, img {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 490px;
+            height: 270px;
+            padding: 5px;
+            position: relative;
+            border: 1px solid #ccc;
+            margin: 100px auto 0;
+        }
+
+        .ad {
+            width: 490px;
+            height: 270px;
+            /*overflow: hidden;*/
+            position: relative;
+        }
+
+        #box img {
+            width: 490px;
+        }
+
+        .ad ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .ad ol li {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background: #fff;
+            float: left;
+            margin-right: 10px;
+            cursor: pointer;
+            _display: inline;
+        }
+
+        .ad ol li.current {
+            background: yellow;
+        }
+
+        .ad ul li {
+            float: left;
+        }
+
+        .ad ul {
+            position: absolute;
+            top: 0;
+            width: 2940px;
+        }
+
+        .ad ul li.current {
+            display: block;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+
+        .square {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .square span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #c0c6ff;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        .square span.current {
+            background-color: orangered;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="all">
+    <div class="ad">
+        <ul id="imgs">
+            <li><img src="images/1.jpg"/></li>
+            <li><img src="images/2.jpg"/></li>
+            <li><img src="images/3.jpg"/></li>
+            <li><img src="images/4.jpg"/></li>
+            <li><img src="images/5.jpg"/></li>
+        </ul>
+        <div class="square">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+    </div>
+
+    <div id="arr">
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+</div>
+
+<script src="../animate.js"></script>
+<script>
+    //1.获取元素
+    var box = document.getElementById("box");
+    var ad = box.children[0];
+    var ul1 = document.getElementById("imgs");
+    var square = ad.children[1];
+    var spans = square.children; //右下角的那些span
+
+    //取出ad的宽，作为移动的单位宽。
+    var adWidth = ad.offsetWidth;
+
+    var arr = document.getElementById("arr");
+    var arrLeft = document.getElementById("left");
+    var arrRight = document.getElementById("right");
+
+
+    //2.box鼠标移入、移出事件，显示、隐藏左右焦点
+    box.onmouseover = function () {
+        arr.style.display = "block";
+    }
+    box.onmouseout = function () {
+        arr.style.display = "none";
+    }
+
+
+    //3.遍历出每一个span
+    for(var i = 0 ; i < spans.length; i++){
+        //3.1 给每一个span设置一个index值。
+        spans[i].setAttribute("index",i);
+
+    	//3.2 给每一个span注册一个单击事件
+        spans[i].onclick = function () {
+            //a.颜色排他
+            for(var j = 0 ; j < spans.length; j++){
+            	spans[j].removeAttribute("class");
+            }
+            //b.当前这个span的颜色要设置。
+            this.setAttribute("class","current");
+
+            //c.计算target值
+            //调用animate函数
+            var target = -this.getAttribute("index") * adWidth;
+            animate(ul1,target);
+
+
+            //8.点击sapn的时候，让picIndex值和index值同步
+            picIndex = this.getAttribute("index");
+        }
+    }
+
+
+    //4.1 声明一个变量，用来记录点击左右焦点的时候，滚出去的图片的个数
+    var picIndex = 0;
+
+    //4.给右边焦点注册一个单击事件
+    arrRight.onclick = function () {
+        if(picIndex < ul1.children.length -1 ){
+            picIndex++;
+            var target = -picIndex * adWidth;
+            animate(ul1,target);
+        }
+
+        //6.其他的span要颜色排他，对应的span要变色
+        //for(var j = 0 ; j < spans.length; j++){
+        //    spans[j].removeAttribute("class");
+        //}
+        spans[picIndex-1].removeAttribute("class");
+        spans[picIndex].setAttribute("class","current");
+
+    }
+
+    //5.给左边的焦点注册一个单击事件
+    arrLeft.onclick = function () {
+        if(picIndex > 0){
+            picIndex--;
+            var target = -picIndex * adWidth;
+            animate(ul1,target);
+        }
+
+        //7.其他的span要颜色排他，对应的span要变色
+        spans[picIndex+1].removeAttribute("class");
+        spans[picIndex].setAttribute("class","current");
+    }
+</script>
+</body>
+</html>

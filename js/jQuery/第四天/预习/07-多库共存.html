@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+  <script src="jQuery-sb.js"></script>
+  <script src="jquery-1.12.4.js"></script>
+  <script src="jquery-3.0.0.js"></script>
+
+
+  <script>
+    //$(function () {
+      //jQuery版本
+      //1.x 支持ie678  不更新
+      //2.x 不支持ie678 也不更新
+      //3.x 不支持ie678 更新
+
+      //我们如果想要用到新的一些方法,也要去支持老的浏览器,那就应该引入2个jQuery文件(1.x  3.x)
+
+      //1.问题就来了, 每个jQuery中都有$符号,那现在引入了2个jQuery文件,那现在使用$用的是那个版本中的$呢?
+      //当前使用的$是后引入的jQuery文件中的$.
+
+
+      //2.如何查看$是那个版本的.
+//       console.log($.prototype.jquery);
+
+
+
+//      //这里要用3.x
+//      $.xx;
+
+//
+//      //这里要用1.x
+        //怎么办?
+
+
+      //-----------------------------------------------------------------------
+      //如果现在引入了2个jQuery文件.
+//
+//      var _$= $.noConflict();
+//      var _$sb= $.noConflict();
+//       var _jj= $.noConflict();
+//    console.log(ajj.prototype.jquery);
+//    console.log(_$sb.prototype.jquery);//1.12.4
+//
+//    console.log(_$.prototype.jquery);//3.00
+//    console.log(jQuery.prototype.jquery);//3.00
+    //var haha = $.noConflict(); //意思就是当前的$释放了...
+      //  var _$ = $.noConflict();
+      //  //console.log(jQuery.prototype.jquery);//3.x
+      //  //console.log(haha.prototype.jquery); //3.x
+      //  (function ($) {
+      //    //是不是还可以继续使用$了
+      //    console.log($.prototype.jquery);//3.x
+      //  }(_$));
+//
+      //
+      //  console.log($.prototype.jquery);//1.x
+
+
+
+      //------------------------------------------------------------------------------
+      //如果现在引入了3个包含$的js文件
+      //console.log($.prototype.jquery); //3.x
+
+      //释放3.x里面的$
+       var _$_3_0= $.noConflict();
+    console.log(_$_3_0.prototype.jquery);//3.0
+
+    //释放1.x里面的$
+      var _$_1_0= $.noConflict();
+    console.log(_$_1_0.prototype.jquery);//1.14
+
+    console.log($);
+    //  console.log($_3_0.prototype.jquery); //3.x
+   //  console.log($_1_0.prototype.jquery); //1.x
+   //  console.log($);
+
+
+
+
+
+    //});
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #father {
+            width: 500px;
+            height: 500px;
+            background-color: gold;
+            position: relative;
+            margin:100px auto;
+        }
+        #box {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            background-color: red;
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="father">
+    <div id="box"></div>
+</div>
+</body>
+</html>
+<script src="tools.js"></script>
+<script>
+var father=document.getElementById("father");
+    var box=document.getElementById("box");
+    box.onclick= function (e) {
+        e=e||window.event;
+        var res=getPage(e);
+        //获取的当前鼠标页面点击的距离
+        var pageX=res.pageX;
+        var pageY=res.pageY;
+        //当前的距离=鼠标点击页面的x-父盒子的离左边的宽度-子盒子离左边的宽度
+         var boxX=pageX-father.offsetLeft-box.offsetLeft;
+        var boxY=pageY-father.offsetTop-box.offsetTop;
+        box.innerHTML=boxX+","+boxY;
+
+
+    }
+</script>

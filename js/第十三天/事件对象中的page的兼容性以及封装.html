@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <style>
+        * {
+            padding:  0;
+            margin:  0;
+        }
+        body {
+            width: 2000px;
+            height: 2000px;
+        }
+        .one {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="one" id="box"></div>
+</body>
+</html>
+<script>
+     var scrollleft=document.documentElement.scrollLeft
+     var box=document.getElementById("box");
+  box.onclick= function (e) {
+      e=e||window.event;
+      console.log("pagex:" + e.pageX + "pagey:" + e.pageY);//ie无法使用
+      //兼容，页面没有滚动，那么client数据等于page的数据
+      //如果页面有滚动，那page=client+滚动出去的位置
+      var pagex= e.clientX+document.documentElement.scrollLeft;
+      var pagey= e.clientY+document.documentElement.scrollTop;
+      console.log(pagex, pagey);
+
+  }
+//console.log(document.documentElement.scrollLeft);
+    //获得page位置的兼容方案
+    function getPage(e) {
+        e = e || window.event;
+        return {
+            pageX: e.pageX || e.clientX + document.documentElement.scrollLeft,
+            pageY: e.clientY || e.clientY+document.documentElement.scrollTop
+        }
+    }
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<ul id="ul1">
+    <li>我是隔壁老王1</li>
+    <li>我是隔壁老王2</li>
+    <li id="li3">我是隔壁老王3</li>
+    <li>我是隔壁老王4</li>
+    <li id="li5">我是隔壁老王5</li>
+</ul>
+
+<ul id="ul2">
+    <li>我是隔壁老宋1</li>
+    <li>我是隔壁老宋2</li>
+    <li>我是隔壁老宋3</li>
+    <li id="song4">我是隔壁老宋4</li>
+    <li>我是隔壁老宋5</li>
+</ul>
+</body>
+</html>
+<script>
+    var ul1=id("ul1");
+    var ul2=id("ul2");
+    var li3=id("li3");
+    var song4=id("song4");
+    var li5=id("li5");
+//1.新建一个li标签，然后插入指定的位置
+    var new1=document.createElement("li");
+    new1.innerHTML="我是一个新人";
+    //这里是有由父元素调入，前面是插入的新元素，后面的是在谁的前面
+    ul1.insertBefore(new1,li3);
+//2.如果放在li3之后
+    ul1.insertBefore(new1,getNextElement(li3))
+    //3.将已存在的元素，插入到某个元素之前，例如li3插入到li5之前
+    //直接原来的剪切掉
+    ul1.insertBefore(li3,li5);
+    //4.将另外的一个结构元素，插入到当前结构中，song4插入li3之前
+    //直接剪切
+    ul1.insertBefore(song4,li3)
+</script>

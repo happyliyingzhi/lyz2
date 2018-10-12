@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--1.什么事件：用户对网页中的元素做了操作，然后浏览器给你的回馈
+     2.事件的三要素：
+                   事件源：这个事件要加在谁身上
+                   事件类型：点击，鼠标移入，移出拖拽，，，
+                   事件结果：事件的效果或者式反应
+      3.设置事件的逻辑：
+                     先确定你要给谁添加事件
+                     给了这个元素设置事件类型，然后你要怎么触发他
+                     编写事件结果代码，就是最后你要反应是什么，想要达到的效果-->
+ <!--  4.点击事件的语法：
+                        xxx.onclick =function (){
+                                  点击之后执行的代码
+                        }-->
+<input type="button" id="btn" value="点我，点我"/>
+</body>
+</html>
+<script>
+    //获取元素
+     var num=document.getElementById("btn");
+    //设置事件类型
+      num.onclick=function (){
+          //当元素被点击的时候，执行这个函数
+          alert("已转账100万");
+      }
+
+</script>

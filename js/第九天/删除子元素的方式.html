@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<ul id="ul1">
+    <li>我是隔壁老王叔叔1</li>
+    <li>我是隔壁老王叔叔2</li>
+    <li id="li3">我是隔壁老王叔叔3111</li>
+    <li>我是隔壁老王叔叔4</li>
+    <li>我是隔壁老王叔叔5</li>
+</ul>
+<input type="button" id="btn" value="删除子元素">
+</body>
+</html>
+<script>
+   var ul1=id("ul1");
+    var btn=id("btn");
+    var li3=id("li3");
+    //1,如何删除指定的子元素  li3
+   //只能有父元素删掉子元素
+   //直接找到父元素，然后删掉子元素
+   //括号里面只有一个删掉的子元素
+ //   ul1.removeChild(li3);
+   //通过子元素然后找到父元素，在删掉元素
+  //  li3.parentNode.removeChild(li3)
+    btn.onclick= function () {
+        ul1.innerHTML="";
+    }
+</script>

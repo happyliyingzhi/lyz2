@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="html()" id="btnHtml1"/>
+<input type="button" value="$()" id="btn1"/> <br/><br/>
+<div id="div1">
+    <p>p1
+        <span>span1</span>
+    </p>
+
+</div>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+//dom里面，动态创建元素： document.write()  innerHTML()
+    //jquery创建元素  html()  $()
+    //1.html()
+     $(function () {
+//         $('#btnHtml1').click(function () {
+//             //html() 获取元素的内容，标签名一起获取
+//             console.log($('#div1').html());
+//         })
+         //2.设置内容
+         //会把原来的内容给覆盖掉
+         //如果设置的内容包含标签，会把标签给解析出来
+       //  $('#div1').html('我是百度连接<a href="http://www.baidu.com">百度</a>')
+   //2.$()
+         //创建出来的元素只会存在于内存中，如果要页面上显示，就要追加到页面的某个地方
+         $('#btn1').click(function () {
+             //创建了一个a标签但是存在内存里面，没有添加在页面
+            var $list= $('<a href="http://www.baidu.com">百度</a>')
+             console.log($list);
+             //把创建出来的a标签，追加到div1整个元素中
+             //append()
+             //不会把原来的内容覆盖
+             $('#div1').append($list)
+         })
+
+
+     })
+</script>

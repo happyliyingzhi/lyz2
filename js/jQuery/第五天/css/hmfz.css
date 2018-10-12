@@ -1,0 +1,132 @@
+.box1 {
+    height: 827px;
+    margin-bottom: 80px;
+}
+
+
+/*动画效果:淡入*/
+.box1 .box1_body {
+    width: 1120px;
+    height: 603px;
+    margin: 0 40px;
+    visibility: visible;
+    animation-name: zoomIn;
+}
+
+.box1 .box1_body li {
+    float: left;
+    width: 300px;
+    height: 156px;
+    margin:45px 36px 0px 36px;
+}
+
+.box1_body li .image {
+    width: 300px;
+    height: 110px;
+    position: relative;
+    perspective: 800px;
+}
+
+/*鼠标移入翻转*/
+.box1_body .image .before,
+.box1_body .image .after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+}
+
+
+.box1_body .image .before {
+    background: url("../images/1.png") no-repeat;
+}
+
+
+.box1_body .image .after {
+    backface-visibility: hidden;
+    background: url("../images/box1_img1.jpg") -300px 0 no-repeat;
+}
+
+.box1_body li:nth-child(2) .after {
+    backface-visibility: hidden;
+    background: url("../images/box1_img2.jpg") -300px 0 no-repeat;
+}
+
+.box1_body li:nth-child(3) .after {
+    backface-visibility: hidden;
+    background: url("../images/box1_img3.jpg") -300px 0 no-repeat;
+}
+
+.box1_body li:nth-child(4) .after {
+    backface-visibility: hidden;
+    background: url("../images/box1_img4.jpg") -300px 0 no-repeat;
+}
+
+.box1_body li:nth-child(5) .after {
+    backface-visibility: hidden;
+    background: url("../images/box1_img5.jpg") -300px 0 no-repeat;
+}
+
+.box1_body li:nth-child(6) .after {
+    backface-visibility: hidden;
+    background: url("../images/box1_img6.jpg") -300px 0 no-repeat;
+}
+
+.box1_body li:nth-child(7) .after {
+    backface-visibility: hidden;
+    background: url("../images/box1_img7.jpg") -300px 0 no-repeat;
+}
+
+.box1_body li:nth-child(8) .after {
+    backface-visibility: hidden;
+    background: url("../images/box1_img8.jpg") -300px 0 no-repeat;
+}
+
+.box1_body li:nth-child(9) .after {
+    backface-visibility: hidden;
+    background: url("../images/box1_img9.jpg") -300px 0 no-repeat;
+}
+
+.box1_body .image:hover div {
+    transform: rotateY(180deg);
+}
+
+.box1_body p {
+    width: 300px;
+    height: 26px;
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+.picture{
+    /*position: relative;*/
+    width: 200px;
+    height: 200px;
+    perspective: 600px;
+
+
+}
+.picture li{
+   /*position: absolute;*/
+    float: left;
+    width: 200px;
+    height: 200px;
+}
+/*.picture li:first-child img{*/
+    /*backface-visibility: hidden;*/
+/*}*/
+.picture img:last-child{
+
+    backface-visibility: hidden;
+}
+.picture img {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    transition: all 2s;
+}
+   .picture li:hover img{
+    /*transform: scale(1.1,1.1)*/
+    transform: rotateY(180deg);
+}

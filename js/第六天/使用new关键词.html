@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    //new 关键字创建对象
+        //1.创建一个对象，所以就不需要在重复创建一个对象
+        //2.把this指向这个对象
+        //3.将参数赋值给对象
+        //4.返回这个对象
+        function arrNew(name,age){
+            this.name=name;
+            this.age=age;
+            this.hi=function (){
+                console.log("你叫"+this.name +"年龄是："+this.age)
+            }
+        }
+        var arr=new arrNew("李美女",18);
+    console.log(arr);
+        arr.hi();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

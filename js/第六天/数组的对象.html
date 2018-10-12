@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    //1.push：在数组的最后，增加一个元素
+   //     var res=[1,2,3,4];
+   //        var res1=res.push(100);
+   // //相当于代码 ：res[5]=100;
+   // console.log(res);//[1,2,3,4,100]
+   // console.log(res1);//5长度为5
+
+//        //2.pop:删除数组的最后一个元素，并且返回这个元素的值
+//       var res=[1,2,3,100];
+//        var res1=res.pop();
+//    console.log(res);
+//    console.log(res1);//100,这里返回的值是pop删除的值
+        //3.unshift:在数组的开始位置添加一个元素，返回的是这个数组的长度
+   //var res=[1,2,3,100];
+   //var res1= res.unshift(200);
+   //console.log(res);//[200,1,2,3,100]
+   //console.log(res1);//5,返回长度为5
+        //4.shift：将数组的第0位删除，返回删除的这个数
+   // var res=[1,2,3,100];
+   //   var res1=res.shift()
+   // console.log(res);//[2,3,100]
+   // console.log(res1);//1
+        //5.concat:是连接两个数组的，返回一个新的数组,并没有改变之前的数组
+  //  var res=[1,2,3,100];
+  //  var res1=[1,2,3,100];
+  //      var arr=res.concat(res1);
+  //  console.log(arr);
+  //  console.log(res);
+  //  console.log(res1);
+    //6.join：将数组中的每个元素之间连接成字符串，如果不给参数就默认是逗号隔开，返回的是字符串
+    //    var arr=[20,30,20,10];
+    //    var ser=arr.join("|");//[20|30|20|10]如果这里是join（）为空默认是用逗号
+    //console.log(ser);
+        //7.reverse:反转数组
+ //      var res=[10,20,30,40];
+ //      res.reverse();
+ //  console.log(res);//[40,30,20,10]
+        //8.slice(start,end)用来截取数组
+ //      var res=[10,20,30,40,60,70];
+ //      var arr=res.slice(2,5);//从2开始，到5之前结束
+ //  console.log(arr);
+        //9.splice(index,howmany,item1.....)用来插入数据，删除数据，替换数据
+        //index:必需填，整数，插入或者删除开始的位置
+        //howmany：必须填，删除几个元素/设置为0则代表不删除
+        //item1:可选，添加的值，或者替换的值
+        //a.插入数据，不删只加
+       // var arr=[10,20,30,40,50];
+       //  arr.splice(3,0,100);//到第三位添加100
+       //console.log(arr);
+        //b.删除数据，只删不加
+   //var arr=[10,20,30,40,50];
+   //       arr.splice(2,2);
+   //console.log(arr);//从2开始往后删除连个2个数[10,20,50]
+        //c.替换数据，删多少个，加多少个
+  //  var arr=[10,20,30,40,50];
+  //        arr.splice(1,1,100);//从1开始，然后删除一个数，在插入一个数100，注意删除多少个就加多少个
+  //  console.log(arr);//[10,100,30,40,50]
+        //10.sort:用来给数组的内容排序
+//        var arr=[1,2,1,4,9,4,5,6];
+//        function arr1(a,b){
+//            return a-b;
+//            //a-b ：从小到大
+//            //b-a:从大到小
+//        }
+//        arr.sort(arr1);
+//    console.log(arr);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="box">
+    jiu
+    <!-- jifdfe-->
+    <li>老宋1</li>
+    <li>老宋2</li>
+    <li>老宋3</li>
+    <!-- jife f-->
+    <li>老宋4</li>
+    <li>老宋5</li>
+    <li>老宋6</li>
+    <li>老宋7</li>
+</ul>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+    var box=id("box");
+    console.log(box.childNodes);
+    //childNode：得到的是该元素的所有子节点（文本节点，空文本非空文本，注释节点，元素节点）
+    //注意ie8及一下版本，会获得：非空文本节点，注释节点，元素节点
+    //children:是可以获得子元素节点（标签），返回的数组，不包括获得文本节点和注释节点
+    //注意ie8以下，找到的注释节点以及子元素节点，
+    console.log(box.children);
+    //直接获得子元素的节点的长度
+    //注意在ie8及一下版本，是无法获取的undefined
+    console.log(box.childElementCount);
+    //所有版本都能兼容的
+    console.log(box.children.length);
+
+</script>

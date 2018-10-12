@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.范围类
+    //console.log(/[0123456789]/.test("ab0cd")); //true
+
+
+    // console.log(/[0-9]/.test("ab9cd")); //true
+
+
+    // console.log(/[a-z]/.test('1111')); //false
+    // console.log(/[a-z]/.test('1111h')); //true
+    // console.log(/[A-Z]/.test('aa'));//false
+    // console.log(/[A-Z]/.test('aaY'));//true
+
+
+
+
+
+
+
+ //--------学生疑问---------------------------------------------------------------------------------
+    //他是一个简单类，简单类代表的是一个字符，如果检测的字符串中，出现了中括号中的任何一个，都是true
+    // console.log(/[abc]/.test("a")); //true
+    // console.log(/[abc]/.test("b"));//true
+    // console.log(/[abc]/.test("c"));//true
+    // console.log(/[abc]/.test("abc")); //true
+
+
+    //自定义类 - 检测的字符串里面 至少要完整的出现一次，那么就是true.
+    //yaz   ybz   ycz
+    // console.log(/y[abc]z/.test("yabcz")); //false
+    // console.log(/y[abc]z/.test("yazcz")); //true
+    // console.log(/y[abc]z/.test("yaz")); //true
+    // console.log(/y[abc]z/.test("ybz")); //true
+    // console.log(/y[abc]z/.test("ycz")); //true
+    // console.log(/y[abc]z/.test("yczyazybzycz")); //true
+    // console.log(/y[abc]z/.test("fdsfgerjlygjwrkjfweyaz")); //true
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

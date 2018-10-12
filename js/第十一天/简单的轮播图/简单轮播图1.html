@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body, ul, ol, li, img {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 490px;
+            height: 270px;
+            padding: 5px;
+            position: relative;
+            border: 1px solid #ccc;
+            margin: 100px auto 0;
+        }
+
+        .ad {
+            width: 490px;
+            height: 270px;
+            /*overflow: hidden;*/
+            position: relative;
+        }
+
+        #box img {
+            width: 490px;
+        }
+
+        .ad ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .ad ol li {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background: #fff;
+            float: left;
+            margin-right: 10px;
+            cursor: pointer;
+            _display: inline;
+        }
+
+        .ad ol li.current {
+            background: yellow;
+        }
+
+        .ad ul li {
+            float: left;
+        }
+
+        .ad ul {
+            position: absolute;
+            top: 0;
+            width: 2940px;
+        }
+
+        .ad ul li.current {
+            display: block;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+
+        .square {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .square span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #c0c6ff;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        .square span.current {
+            background-color: orangered;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="all">
+    <div class="ad">
+        <ul id="imgs">
+            <li><img src="images/1.jpg"/></li>
+            <li><img src="images/2.jpg"/></li>
+            <li><img src="images/3.jpg"/></li>
+            <li><img src="images/4.jpg"/></li>
+            <li><img src="images/5.jpg"/></li>
+        </ul>
+        <div class="square">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+    </div>
+
+    <div id="arr">
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+</div>
+</body>
+<script src="common.js"></script>
+<script>
+//1.获取相关元素的属性
+var box=document.getElementById("box");//大父盒子
+//console.log(box);
+    var ad=box.children[0];//可视区ad
+//console.log(ad);
+  //  var pic=id("imgs");//图片
+  var list=ad.children[0];//图片ul
+//console.log(list);
+//console.log(pic);
+      var lis=list.children;//获得每个li
+//console.log(lis);
+    var sq=ad.children[1];//获得square下标
+     var sqs=sq.children;//获得span
+ var imgwid= ad.offsetWidth;//ul的宽度
+//console.log(sqs[3]);
+//console.log(sq);
+//.效果：点击下面的下标然后进行换图，是整个ul的图片移动，ul与下标对应
+    //2下标签进行循环
+    for(var i=0;i<sqs.length;i++){
+        //6.给下标设置索引
+        sqs[i].setAttribute("index",i);
+         //3.鼠标移入事件
+        sqs[i].onmouseover= function () {
+            //5，排他思想
+             for(var j=0;j<sqs.length;j++){
+                 sqs[j].className="";
+             }
+            //4.鼠标移入时改变背景颜色
+            this.className="current";
+            //获取当前鼠标移入的索引
+            var index=this.getAttribute("index");
+              animate(list,-index*imgwid);
+        }
+    }
+function animate(tag, target) {
+    clearInterval(tag.timer);
+    tag.timer = setInterval(function () {
+        var leader = tag.offsetLeft;
+        var step = 9;
+        step = leader > target ? -step : step;
+        if (Math.abs(leader - target) > Math.abs(step)) {
+            leader = leader + step;
+            tag.style.left = leader + "px";
+        } else {
+            tag.style.left = target + "px";
+            clearInterval(tag.timer);
+        }
+    }, 17);
+}
+    //第二部分，当点击箭头左右移动图片
+    var arr=document.getElementById("arr");
+    var left=document.getElementById("left");
+    var right=document.getElementById("right");
+
+//console.log(arr, left, right);
+    //1.当点击盒子时显示左右箭头
+     box.onmouseover= function () {
+        arr.style.display="block";
+    }
+    //2.当移出鼠标时箭头隐藏
+    box.onmouseout= function () {
+        arr.style.display="none";
+    }
+    //3.当点击时右边箭头时，会移出相应的照片
+      var index1=0;
+    right.onclick= function () {
+        //判断照片的数量和整个设置index的索引对应
+        if(index1<list.children.length-1){
+            index1++;
+            animate(list,-index1*imgwid)
+        }
+
+    }
+    //4.当点击左边箭头时，会溢出相应的照片
+    left.onclick= function () {
+        if(index1>0){
+            index1--;
+            animate(list,-index1*imgwid);
+        }
+    }
+
+</script>

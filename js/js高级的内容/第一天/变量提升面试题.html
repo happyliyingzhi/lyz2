@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//  function arr(num){
+//      console.log(num);
+//      num=100;
+////      console.log(num);
+////      console.log(num1);
+//  }
+//    num1=90;
+//   arr(num1)
+//  console.log(num1);
+  //console.log(num1);
+// a=100;
+// b=90;
+//
+//
+//console.log(a);
+//作用域链
+  //函数里面是局部变量，函数外，script之内是全局变量
+  //局部变量里面有函数。只会在局部函数里面找，，局部里面没有才会去外面找
+//  var num1 = 100;
+//      function test1(){
+//        var num1 = 10;
+//        function test2(){
+//          var num1 = 20;
+//          function test3(){
+//            var num1 = 30;
+//            console.log(num1);
+//          }
+//          test3();
+//        }
+//        test2();
+//      }
+
+      <!--test1();-->
+//变量的提升
+    //在执行任意的作用域的代码之前，会把当前作用域的声明提前到当前
+    //作用域的最顶端，赋值语句留在原地
+//   box();
+//    function box(){
+//        console.log("我在这里");
+//    };
+
+  // var box1
+  //  box1();//报错，会把什么提前，赋值语句留在原地
+   // box1=func(){}
+//    var box1 =function (){
+//        "我是老二呀"
+//    };
+
+//  function foo() {
+//    var num = 123;
+//    console.log(num); //123
+//     }
+//     foo();
+//      console.log(num); //报错。这里是局部变量，在全局变量里面不能访问到
+//
+//var scope = "global";
+//       function foo() {
+//           //var scope
+//         console.log(scope);
+//         //报错，这里是局部变量，首先会在自己局部变量里面找，如果有，会把所有的
+//           //申明提前，赋值语句会留在原地，如果局部里面没有这个变量才会在全局里面找
+//         var scope = "local";
+//         console.log(scope);
+//           //local
+//       }
+//       foo() ;
+
+//      var a; //声明一个全局变量,相当于给window添加了一个属性a
+//        if("a" in window){ //window能不能访问属性a,当然可以.
+//          a = 10;
+//        }
+//        alert(a); // 10
+
+//---------------------------
+//    if("a" in window){
+//      var a = 10;
+//    }
+//    alert(a); // ?
+
+
+
+  //var a;//这里是只有申明没有赋值，就是undefined，
+  //if( a in window){//然后在找window里面，有没有undefied,这里是有的有true
+  //    a=10;
+  //}
+  //alert()
+  //
+  ////---------------------------
+  //
+  //   if(a in window){
+  //      var a = 10;
+  //     }
+  //       alert(a); //10
+//分析过程
+//    var a;
+//    if(name in window){ //这里取name的值为"" , "" in window
+                 //没有""就是变量，变量要转换成值去看window里面有么有
+//      a = 10;
+//    }
+//    alert(a); //
+//-------------------
+//      if(name in window){
+//        var a = 10;
+//      }
+//      alert(a); //undefiend
+
+
+//     var a;
+//     if("name" in window){//这里是找window里面找有没有name这个属性，这是true
+//         a=100;
+//     }
+//alert(a)
+////-------------------
+//
+//   if("name" in window){
+//      var a = 100;
+//    }
+//    alert(a); //10
+var num = 123;
+function f1(num) { // 参数理解为：函数内部的一个变量
+
+    console.log(num); // 456
+}
+
+function f2() {
+    var num = 456;
+    f1(num);
+}
+
+f2();
+</script>

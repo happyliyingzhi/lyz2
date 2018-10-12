@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//1.工厂模式
+  // function creat(name,age){
+  //     var obj=new Object();
+  //     obj.name=name;
+  //     obj.age=age;
+  //     console.log(this);
+  //     return obj
+  // }
+  // var s1=creat("yiy",30)//window
+    //相当于  var s1=window.creat()
+    //2.寄生模式
+//这里是new创建出来的，所以就是new的创建出来的对象
+ //  function creat(name,age){
+ //      var obj=new Object();
+ //      obj.name=name;
+ //      obj.age=age;
+ //      console.log(this);
+ //      return obj;
+ //  }
+ //  var s1=new creat("yiyi",30)//creat
+    //构造函数不需要返回值，因为new关键字会自动返回new关键字
+    //创建出来的哪个对象
+    //如果在构造函数中有return，有返回值呢？就要看返回值的类型，如果是简单类型，就会忽略，
+    // 如果是复杂数据类型，就会覆盖new关键字出来的哪个对象
+function dag(name){
+    this.name=name;
+    console.log(this);
+    return {};//return 遇到复杂数据类型，会返回复杂数据类型
+}
+    var s1=new dag("yiy");
+console.log(s1);//{}
+</script>

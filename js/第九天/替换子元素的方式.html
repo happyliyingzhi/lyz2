@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<ul id="ul1">
+    <li>我是隔壁老王叔叔1</li>
+    <li>我是隔壁老王叔叔2</li>
+    <li id="li3">我是隔壁老王叔叔3</li>
+    <li>我是隔壁老王叔叔4</li>
+    <li id="li5">我是隔壁老王叔叔5</li>
+</ul>
+
+<ul id="ul2">
+    <li>我是隔壁老宋叔叔1</li>
+    <li>我是隔壁老宋叔叔2</li>
+    <li>我是隔壁老宋叔叔3</li>
+    <li>我是隔壁老宋叔叔4</li>
+    <li id="song5">我是隔壁老宋叔叔5</li>
+</ul>
+</body>
+</html>
+<script>
+var ul1=id("ul1");
+    var ul2=id("ul2");
+    var li3=id("li3");
+    var li5=id("li5");
+    var song5=id("song5");
+    //1.新建一个li标签，替换li3
+ //  var new1=document.createElement("li");
+ //  new1.innerHTML="我是一个新的标签";
+ //  ul1.replaceChild(new1,li3);
+
+//2.找到一个当前的存在的元素，替换另外一个元素
+//会直接覆盖
+ //   ul1.replaceChild(li3,li5)
+//3.将另外一个结构的元素,替换到当前结构中
+//直接剪切过去的
+ul1.replaceChild(song5,li5);
+</script>

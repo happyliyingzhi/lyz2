@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//1.函数执行的时候，判断他里面的this
+    //a.作为函数执行，
+    //this就是window
+    function test(){
+        console.log("哈哈");
+        console.log(this);
+    }
+    test();
+    //window.test()  这里的window可以不用写
+    //2.作为方法调用
+    //谁点出的这个方法调用，这个方法中this就是谁
+    var obj={
+        name:"yiy",
+        sayhi: function () {
+            console.log("hehe");
+            console.log(this);
+        }
+    }
+    obj.sayhi();
+    //c.这句话意思是：修改test1函数体为obj.sayhi
+     //函数不要看如何声明的，一定要去看他如何调用的
+//谁调用他，他里面的this就是谁
+    test=obj.sayhi;
+    test();//window
+//这里是将objsay函数修改为test函数
+    obj.sayhi=test;
+    obj.sayhi()//object
+    //3.当做构造函数来执行
+    //如果构造函数配合new关键字来执行，那么构造函数中的this就是这个new关键字
+    //创建出的对象
+    //如果构造函数当普通函数调用，那么这个构造函数中的this就是window
+    function Student(name,age){
+        this.name=name;
+        this.age=age;
+        console.log(this);
+    }
+    var s1=new Student("yiiyi",20)//Student
+</script>

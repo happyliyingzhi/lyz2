@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<link rel="stylesheet" href="css/easyui.css"/>
+<link rel="stylesheet" href="css/icon.css"/>
+<link rel="stylesheet" href="css/demo.css"/>
+<body>
+<h2>Basic ProgressBar</h2>
+<p>Click the button below to show progress information.</p>
+<div style="margin:20px 0;">
+    <a href="#" class="easyui-linkbutton" onclick="start()">Start</a>
+</div>
+<div id="p" class="easyui-progressbar" style="width:400px;"></div>
+<h2>Shared Calendar in DateBox</h2>
+<p>Multiple datebox components can share a calendar and use it to pick dates.</p>
+<div style="margin:20px 0;"></div>
+<table>
+    <tr>
+        <td>Start Date:</td>
+        <td>
+            <input class="easyui-datebox" data-options="sharedCalendar:'#cc'">
+        </td>
+        <td>End Date:</td>
+        <td>
+            <input class="easyui-datebox" data-options="sharedCalendar:'#cc'">
+        </td>
+    </tr>
+</table>
+<div id="cc" class="easyui-calendar"></div>
+</body>
+</html>
+<script src="jquery-1.12.4.js"></script>
+<script src="plugin/jquery.min.js"></script>
+<script src="plugin/jquery.easyui.min.js"></script>
+<script>
+    function start(){
+        var value = $('#p').progressbar('getValue');
+        if (value < 100){
+            value += Math.floor(Math.random() * 10);
+            $('#p').progressbar('setValue', value);
+            setTimeout(arguments.callee, 200);
+        }
+    };
+</script>

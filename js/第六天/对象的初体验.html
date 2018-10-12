@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    //创建一个对象
+  //    var liyz=new Object();
+  //    //点语法
+  //    liyz.name="利瑟";
+  //    liyz.age=18;
+  //    liyz.gender="女";
+  //    //以上时对象的属性
+  //    liyz.love=function () {
+  //        console.log("你好美");
+  //    };
+  //    //取对象值，也是利用点语法
+  //console.log(liyz.name);
+  //console.log(liyz.age);
+  //console.log(liyz.gender);
+
+        //对象怎么取函数
+    //对象方法时有归属的，有主人，只有对象可以调用
+       // liyz.love();
+        var lf=new Object();
+        lf.name="李非";
+        lf.age=18;
+        lf.gender="男";
+        function arr(){
+            console.log("我的名字" + this.name + "我的性别" + this.gender);
+        }
+        lf.res=arr;
+           lf.res();
+    console.log(lf.name);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

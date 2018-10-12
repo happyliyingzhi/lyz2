@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//1.数据类型
+    //基本数据类型：number  string boolean  null  undefiend
+    //复杂的数据类型：
+    // Array Function Object Math Date RegExp(正则表达式)
+    //Number String Boolean
+    //2.检测数据类型
+    //type of 需要检测的数据
+    //type of (需要检测的数据) 提高优先级
+//  typeof 能检测基本数据类型，除了null和function
+     //console.log(typeof 123);
+    // console.log(typeof (12+9));//number
+//     console.log(typeof ("123"));//string
+//     console.log(typeof null);//object  不能检测到具体的对象
+  //   console.log(typeof undefined);//undefined 不能检测到具体的对象
+   //  console.log(typeof false);//boolean 不能检测到具体的对象
+
+   //2.检测数组
+   // Array.isArray();
+//    var box=[12,23,54,67];
+//   console.log(Array.isArray(box));//true
+      //3.Object.prototype.toString.call(需要检测的内容)
+//这个检测是最强大的，一切数据类型都可以检测出来
+//console.log(Object.prototype.toString.call(123));//[object Number]
+//console.log(Object.prototype.toString.call("123"));//[object String]
+//console.log(Object.prototype.toString.call(null));//[object Null]
+//console.log(Object.prototype.toString.call(undefined));//[object Undefined]
+//console.log(Object.prototype.toString.call(NaN));//[object Number]
+
+    //4.基本包装类型
+    //    var num=123;
+//实际内部把num包装成一个对象
+//       var num=new String(123)
+//console.log(num.valueOf());//123  这里是数据类型
+//console.log(num.toString());//"123"  这里是字符串类型
+//布尔值
+    var b=true;
+console.log(b.valueOf());//true
+console.log(b.toString());//"true"
+
+</script>

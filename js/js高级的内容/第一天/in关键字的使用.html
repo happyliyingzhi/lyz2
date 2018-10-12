@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//1.in关键字的使用
+    //forin使用遍历的对象的。还可以遍历数组
+//    var box={
+//        name:"123",
+//        age:30
+//    };
+//    for(var key in box){
+//     //   console.log(key);
+//        console.log(box[key]);
+//    }
+  //  var num=[10,30,40];
+  //  for(var key in num){
+  //      console.log(key);//数组的下标
+  //      console.log(num[key]);//数组对应的值
+  //  }
+    //判断数组中是否拥有某个下标
+   // 这里判断的有没有这个数的下标
+    var arr=[1,2,3,4,5];
+//    console.log(1 in arr);//true  有没有1这个数组的下标
+//    console.log(0 in arr);//true
+//    console.log(5 in arr);//false   有没有第五位这个下标，这里是0-3，所以没有第五个下标
+   //判断数组中是否拥有某个数据，用indexof()
+console.log(arr.indexOf(3));//3  判断是3这个数据有没有在数组arr里面有这个3的数组，如果有就返回的是下标
+console.log(arr.indexOf(0));//-1  判断是0这个数据有没有在数组arr里面有这个0的数
+// 组，如果有就返回的是下标，如果没有就是-1
+</script>

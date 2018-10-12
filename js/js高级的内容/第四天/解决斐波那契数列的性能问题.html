@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var box={
+        1:10,
+        2:30,
+        4:40,
+        name:"lide",
+        age:30,
+        10:34
+    }
+    console.log(box.name);
+    console.log(box.age);
+    console.log(box[10]);
+    //斐波那契系数
+//var i=0//次数
+//    function Fb(n) {
+//        i++;
+//    if(n==1||n==2){
+//        return 1;
+//    }
+//        return Fb(n-1)+Fb(n-2);
+//}
+//console.log(Fb(30));//832040
+//console.log(i);//1664079
+    //问题，重复的次数很多，性能低下
+    //解决问题的思路：把已经求过的项。用一个东西，存起来，如果下次还要求这个项
+    //可以直接取出来，而不是调用函数
+//声明一个对象obj，用来保存已经求过的项
+// var obj={};
+//   function getFb(n){
+//       if(obj[n]!=undefined){
+//           return obj[n]
+//       }else{
+//           if(n==1||n==2){
+//               obj[n]=1;
+//               return 1;
+//           }else{
+//               obj[n]=obj[n-1]+obj[n-2];
+//               return obj[n]
+//           }
+//       }
+//   }
+</script>

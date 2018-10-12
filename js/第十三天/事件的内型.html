@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+var box=document.getElementById("box");
+    box.onclick= function (e) {
+        e=e||window.event;
+        console.log(e.type);
+    }
+    //e.type  检测事件的类型的属性
+</script>

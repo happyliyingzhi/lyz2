@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //案例1
+        //{
+        //    var num = 5;
+        //}
+        //console.log(num);
+        //只有函数可以分割作用域
+        //案例2
+     //  var num = 5;
+     //  if (num > 3) {
+     //      var sum = 7;
+     //  }
+     //  console.log(sum);//7
+        //案例3
+        //for (var i = 0; i < 10; i++) {
+        //
+        //}
+        //console.log(i);//10
+        //案例4 全局变量
+        //var name = "uzi";
+        //function f() {
+        //    name = "凉凉";
+        //}
+        //f();
+        //console.log(name);//凉凉，后面的会更爱前面的
+
+        //案例5
+       // function f() {
+       //     var name = "zs";
+       // }
+       // f();
+       // console.log(name);//空白
+        //name是非常特殊的变量
+        //案例6 作用域链
+     //   var color = "red";
+     //   function getColor() {
+     //       var anotherColor = "blue";
+//
+     //       function swapColor() {
+     //           var tmpColor = color;
+     //           color = anotherColor;
+     //           anotherColor = tmpColor;
+        //    就是互相交换
+     //       }
+     //       swapColor();
+     //   }
+//
+     //   getColor();
+     //   console.log(color);//blue
+
+
+
+
+    //  for(var i=0;i<5;i++){
+    //         setTimeout(() => {
+    //              console.log(i)//五个5
+    //         }, 1000);
+    //  }
+    //  for(let i=0;i<5;i++){
+    //      setTimeout(() => {
+    //          console.log(i)//0,1,2,3,4
+    //      }, 1000);
+    //  }
+
+    setTimeout(() => {
+        for(var i=0;i<5;i++){
+            console.log(i)//0,1,2,3,4
+        }
+    }, 1000);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.函数的三种执行模式:(函数调用  方法调用 构造函数调用模式),里面的this是无法更改的.
+    // var obj = {
+    //   name:"林绿群"
+    // }
+    // //lvalue左值:可以在赋值运算符的左边的就是左值.变量, obj.xx, arr[0]
+    // function test(){
+    //   //this = obj;
+    //   console.log(this);
+    // }
+    // test();
+
+
+    //2.有些时候,我们就是要去修改函数中的this的指向.怎么办?
+    //就要用到函数的第四种执行模式: 上下文调用模式.
+    //call();  apply();   bind();
+
+
+    var obj = {
+      name:"曾业福"
+    }
+
+    //3.call();
+    //语法: 函数名.call(this修改后的指向,arg1,arg2.....);
+    // function getSum(a,b){
+    //   console.log(a+b);
+    //   console.log(this);
+    // }
+    // getSum.call(obj,100,200);
+
+
+    //4.apply();
+    //语法:函数名.apply(this修改后的指向,数组或者伪数组);
+    //数组或者伪数组的元素,依次的交给函数的形参.
+    // function getSum(a,b){
+    //   console.log(a+b);
+    //   console.log(this);
+    // }
+    // getSum.apply(obj,[100,200]);
+
+
+
+    //5. bind();
+    //语法:函数名.bind(this修改后的指向,arg1,arg2...);
+    //并不会执行这个函数,而是会返回修改了this之后的这个函数.
+    function getSum(a,b){
+      console.log(a+b);
+      console.log(this);
+    }
+    var fn = getSum.bind(obj);
+    fn(100,200);
+
+
+
+    //setInterval(fn ,3000);
+
+  </script>
+</head>
+<body>
+</body>
+</html>

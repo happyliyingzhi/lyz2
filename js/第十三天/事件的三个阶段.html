@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <style>
+        .one {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 250px;
+            top: 250px;
+        }
+    </style>
+</head>
+<body>
+<div class="one" id="box">
+    <input type="button" value="按钮" id="btn"/>
+    <div class="son" id="son"></div>
+</div>
+
+<script>
+    var box = document.getElementById("box");
+    var btn = document.getElementById("btn");
+    var son = document.getElementById("son");
+
+    document.addEventListener("click",function (e) {
+        alert("document"+ e.eventPhase);
+    },false) ;
+
+    document.body.addEventListener("click", function (e) {
+        alert("哈哈，我是body"+ e.eventPhase);
+    },false);
+
+
+    box.addEventListener("click",function (e) {
+        alert("哈哈哈，我是粉色的盒子box..."+ e.eventPhase);
+    },false);
+
+
+
+    btn.addEventListener("click",function (e) {
+        alert("哈哈哈，我是按钮btn..."+ e.eventPhase);
+    },false);
+
+
+
+    son.addEventListener("click",function (e) {
+        alert("嘻嘻嘻，我是绿色的盒子son"+ e.eventPhase);
+
+    },false);
+
+
+    //事件的三个阶段:e.eventPhase
+    //捕获阶段  1
+    //正常阶段  2
+    //冒泡阶段  3
+
+
+
+</script>
+</body>
+</html>

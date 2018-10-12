@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    ////1.思考题 1：
+     var name = "The Window";
+     var object = {
+
+       name: "My Object",
+       getNameFunc: function () {
+         return function () {
+           return this.name;
+             //console.log(this);
+         };
+       }
+
+     };
+     console.log(object.getNameFunc()()); //"The Window"
+    //2.思考题 2：
+     var name = "The Window";
+     var object = {
+       name: "My Object",
+       getNameFunc: function () {
+         var that = this;
+         return function () {
+           return that.name;
+         };
+       }
+     };
+     console.log(object.getNameFunc()());//My Object
+</script>

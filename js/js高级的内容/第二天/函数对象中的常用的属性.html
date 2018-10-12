@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//1.函数是有一个对象，对象中肯定有一些默认的属性或者方法
+//test.length是参数的个数
+//function tst(a,b,c,d){
+//    console.log("我是函数体");
+//    console.log(test.length);//4
+//
+//}
+//console.log(tst);//函数体
+//    console.dir(tst)//ƒ tst(a,b,c,d)
+    //name:就是函数名
+    //caller
+    //如果函数B在函数A中调用，那么函数的B的caller就是这个调用函数A；
+    //如果函数B是直接调用的，那么他的caller就是null
+//    function  test(){
+//        console.log("test1");
+//        test1();
+//    }
+//    function test1(){
+//        console.log("我是test1");
+//        console.log(test1.caller);//返回的test的函数
+//    }
+//    test();
+//    test1()//null
+    //arguments
+//f.2 arguments.callee
+//就是这个函数本身.
+    function test1(a,b,c){
+        console.log(arguments);
+        console.log(arguments.callee);//函数本身的函数体
+        console.log(test1.arguments);
+    }
+    test1(20,40,50);
+    test1()
+//console.log(test1.arguments);
+
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .arr{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+
+        .num {
+            border:2px solid forestgreen;
+        }
+        .bg {
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="arr" style="font-size: 30px"></div>
+</body>
+</html>
+<script>
+    var arr1=document.getElementById("box");
+    console.log(arr1);
+    //将盒子arr1，只有一个arr类名，现在我想把num的这个类名也添加上，
+    // 注意这里是同时拥有这个两个类名的属性，而不是代替
+    //方法一：直接在后面空格添加类型
+  // arr1.className="arr num"
+    //方法二：使用+=来连接（class有多个类名时，后面用空格键隔开）
+    //arr1.className+= " bg";//注意这里是"空格bg"
+    //2.操作样式
+    //注意：点语法只能获取行内样式的，不能获取嵌套式和外链式的
+    arr1.style.width="500px";//修改样式的宽
+    console.log(arr1.style.width);//修改样式后控制台能打印出来
+    console.log(arr1.style.height);//这里原本的样式(嵌套式样式)，是打印不出来的，控制台是空
+    console.log(arr1.style.fontSize);//这里的行内式css是可以打印出来的
+
+    arr1.innerText="我们在哪里，超越时空的恋人"
+   // arr1.style.fontSize="30px";
+    arr1.style.fontFamily="宋体";
+</script>

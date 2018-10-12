@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//面向对象语言的三大特征：
+     //继承：混入式继承
+      var box={
+          car:"法拉利",
+          price:40000,
+          house:"北京"
+      }
+//      function box1(name) {
+//    this.name=name;
+//};
+//var arr=new  box1("依依");
+//  console.log(arr);
+////给继承上面的box的原型
+//    for(var key in box){
+//        box1.prototype[key]=box[key];
+//    }
+//console.log(arr);
+//console.log(arr.car);
+
+
+
+
+
+//替换原型
+//注意这里的替换的实例化对象，写在替换的之前的，就会输出替换之前的内容，
+//不会只从替换之后的内容，所以替换之后，实例化对象，要写修改后的函数执行，才有效果
+function box1(name) {
+    this.name=name;
+};
+box1.prototype.res= function () {
+    console.log("我是box1的原型");
+}
+var box2=new  box1("iyyi");
+console.log(box2);
+//替换原型，修改后的
+   box1.prototype=box;
+var box2=new  box1("iyyi");//写在修改后，才会执行有效果
+      console.log(box2);
+     // box2.res();//这里的res（）已经被替换调了，所以没有
+console.log(box2.car);
+
+
+
+
+//继承混合性
+//这里是不会改变他的box1原型里面原有的东西，只会在里面添加属性
+//      for(var key in box){
+//          box1.prototype[key]=box[key];
+//      }
+//console.log(box2);
+//console.log(box2.car);
+//box2.res();
+//
+//function box3(age){
+//    this.age=age;
+//}
+//box3.prototype.arr3= function () {
+//    console.log("我是box3");
+//}
+//var box4=new box3(30);
+//console.log(box4);
+////也要继承box的原型
+////for(var key in box){
+////    box3.prototype[key]=box[key];
+////};
+//   arr4(box3,box);
+//var box4=new box3(30);
+//console.log(box4);
+//console.log(box4.car);
+//
+////这里box2和box4都要继承他的原型可以封装成函数
+//  function  arr4(method,obj){
+//      for(var key in obj){
+//          method.prototype[key]=obj[key]
+//      }
+//  }
+//继承：构造函数的属性继承
+//   function student(name,age){
+//       this.name=name;
+//       this.age=age;
+//   };
+//   student.prototype.arr= function () {
+//       console.log("我是student的学生");
+//   };
+//   function student1(name,age){
+//       student.call(this,name,age);
+//   };
+//   var box=new student1("依依",30);
+//onsole.log(box);
+</script>

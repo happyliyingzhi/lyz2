@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="tools.js"></script>
+<script>
+    //首先要获得盒子的在改变之前的宽度，window.onresize
+window.onresize= function () {
+//    console.log("我被改变了");
+//    console.log(getClient().clientWidth);
+    //判断盒子改变的条件
+    if(getClient().clientWidth>1000){
+       document.body.style. backgroundColor="gold";
+    }else if(getClient().clientWidth>800){
+        document.body.style. backgroundColor="green";
+    }else if(getClient().clientWidth>500){
+        document.body.style. backgroundColor="pink";
+    }else{
+        document.body.style. backgroundColor="skyblue";
+    }
+}
+</script>

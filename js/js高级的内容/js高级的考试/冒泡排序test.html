@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //冒泡排序
+
+    var arr=[10,30,40,12,13]
+
+    function res(arr){
+        for(var i=0;i<arr.length-1;i++){
+            for(var j=0;j<arr.length-1-i;j++){
+
+                   if(arr[j]>arr[j+1]){
+                       var temp;
+                       temp=arr[j];
+                       arr[j]=arr[j+1];
+                       arr[j+1]=temp;
+                   }
+            }
+        }
+        return arr;
+
+
+    }
+
+    console.log(res(arr));
+
+    //    function Mysort() {
+//
+//    }
+//    //原型添加数组的方法
+//    Mysort.prototype = [];
+//    Mysort.prototype.mysort = function() {
+//        for(var i = 0; i < this.length - 1; i++) {
+//            for(var j = 0; j < this.length - 1 - i; j++) {
+//                if(this[j] > this[j + 1]) {
+//                    var temp;
+//                    temp = this[j + 1];
+//                    this[j + 1] = this[j];
+//                    this[j] = temp;
+//                }
+//            }
+//        }
+//    }
+//
+//    var sort = new Mysort();
+//    sort.unshift(12,3,4,66,20,19,8);
+//    sort.mysort();
+//    console.log(sort);
+</script>

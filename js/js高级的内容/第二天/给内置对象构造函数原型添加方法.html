@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+//var arr=[101,20,30,11,22];
+//    var arr1=new Array(600,200,400,500);
+//    //不管是哪个数组对象的原型，都指向Array.prototype.所以这个原型中的方法每一个数组都可以调用
+//console.log(arr.__proto__ == arr1.__proto__);//true
+//console.log(arr.__proto__ == Array.prototype);//true
+//    //给上面的数组用js高级的排好顺序
+//    Array.prototype.box= function () {
+//        for(var i=0;i<this.length-1;i++){
+//            for(var j=0;j<this.length-1-i;j++){
+//                if(this[j]>this[j+1]){
+//                    var temp;
+//                    temp=this[j];
+//                    this[j]=this[j+1];
+//                    this[j+1]=temp;
+//
+//                }
+//            }
+//        }
+//    }
+//
+//    arr.box();
+//console.log(arr);
+//    arr1.box();
+//console.log(arr1);
+    
+    
+    var arr=[20,30,10,40];
+    Array.prototype.box= function () {
+        for(var i=0;i<this.length-1;i++){
+            for(var j=0;j<this.length-1-i;j++){
+                if(this[j]>this[j+1]){
+                    var temp;
+                    temp=this[j];
+                    this[j]=this[j+1];
+                    this[j+1]=temp;
+                }
+            }
+        }
+    }
+    arr.box();
+console.log(arr);
+
+
+
+</script>

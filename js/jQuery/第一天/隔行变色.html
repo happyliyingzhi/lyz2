@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>我是第1个li标签</li>
+    <li>我是第2个li标签</li>
+    <li>我是第3个li标签</li>
+    <li>我是第4个li标签</li>
+    <li>我是第5个li标签</li>
+    <li>我是第6个li标签</li>
+    <li>我是第7个li标签</li>
+    <li>我是第8个li标签</li>
+    <li>我是第9个li标签</li>
+    <li>我是第10个li标签</li>
+</ul>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+//入口函数
+    $(function () {
+      var $list=$('li');
+    //    console.log($list);
+        for(var i=0;i<$list.length;i++){
+              //  var list= $list[i]
+            if(i%2==0){
+                $list[i].style.backgroundColor="pink";
+              //  list.style.backgroundColor="pink";
+            }else{
+                $list[i].style.backgroundColor="blue";;
+            }
+        }
+    })
+</script>

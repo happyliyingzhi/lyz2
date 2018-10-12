@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="ul1">
+    <li>我是第1个li标签</li>
+    <li>我是第2个li标签</li>
+    <li>我是第3个li标签</li>
+    <li>我是第4个li标签</li>
+    <li>我是第5个li标签</li>
+</ul>
+</body>
+</html>
+<script>
+    document.getElementById("ul1").onclick = function (e) {
+        e = e || window.event;
+        console.log(this);//谁调用这个方法就打印谁
+        console.log(e.currentTarget);//跟this是一样的
+
+        console.log(e.target);//事件源,触发这个事件的源头,ie8不支持
+        console.log(e.srcElement);//事件源,跟上面是一样的
+
+        var ele = e.target || e.srcElement;
+
+        //兼容ie基本都是在兼容ie9以下
+    };
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        .clock {
+            width: 600px;
+            height: 600px;
+            margin: 100px auto;
+            background: url(images/clock.jpg) no-repeat;
+            position: relative;
+        }
+
+        .clock div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(images/hour.png) no-repeat center center;
+        }
+
+        #m {
+            background-image: url(images/minute.png);
+        }
+
+        #s {
+            background-image: url(images/second.png);
+        }
+    </style>
+</head>
+<body>
+<div class="clock">
+
+    <div id="h"></div>
+    <div id="m"></div>
+    <div id="s"></div>
+</div>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+//1.获取相关元素的值
+    var hour=id("h");
+    var min=id("m");
+    var sec=id("s");
+console.log(hour, min, sec);
+var timeId;
+//2.封装函数，然后调用这个函数
+   timeId= function getTime(){
+         clearInterval(timeId);
+        //3.获取当前的系统时间，时，分，秒
+        var nowTime =new  Date();
+        var nowHour=nowTime.getHours();
+        var nowMin=nowTime.getMinutes();
+        var nowSec=nowTime.getSeconds();
+        //4.设置时，分，秒的度数
+        var Hdeg=nowHour*30+(nowMin/60*30)+"deg";
+        var Mdeg=nowMin*6+(nowSec/60*6)+"deg";
+        var Sdeg=nowSec*6+"deg";
+        //5,将旋转的度数添加到属性里面
+        hour.style.transform="rotate("+Hdeg+")";
+        min.style.transform="rotate("+Mdeg+")";
+        sec.style.transform="rotate("+Sdeg+")";
+    }
+      setInterval(timeId,1000);
+    //getTime();
+</script>

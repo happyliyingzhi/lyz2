@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+//        逻辑运算与,就是并且的意思     &&    全真才是真,有假就是家
+//        逻辑运算或,就是或者的意思      ||      有真就是真,全假才是假
+//        逻辑运算非,就是并且的意思       !      取相反的值
+//逻辑表达式： 表达式1 && 表达式2
+    //  var num=10,num1=100,num2=num>num1&&num>3;
+    //  console.log(num2);
+    //出的是false,有一个假就是假
+   var num=100,num1=2000,num2=!(num<num1||num1>200);
+        console.log(num2);
+        //取相反的值,这里是true,相反值就是false
+        var num=100,num1=2000,num2=num>num1||num>20&&!(num!==num1);
+        console.log(num2);
+        //这里有个优先级的关系,先运算非,在运算与,最后运算或
+        //!()>&&>||
+//var a = 1+1 && 3;//全真就是真，所以第一个是真，还有看后面的那个，如果后面是真，就是真，返回的是3
+//var b = 0 && 1+1;//
+//var c = 0 ||  2 && 3-1;//全假就是假，0是假，后面的才是决定因素
+//console.log(c);
+        //这里找决定性因素的那个，
+    </script>
+</head>
+<body>
+
+</body>
+</html>

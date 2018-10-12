@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="wang">
+    <li>隔壁老王1</li>
+    <li id="two">隔壁老王2</li>
+    <li>隔壁老王3</li>
+    <li>隔壁老王4</li>
+</ul>
+<ul id="li">
+    <li>隔壁李王1</li>
+    <li>隔壁李王2</li>
+    <li>隔壁李王3</li>
+    <li>隔壁李王4</li>
+</ul>
+</body>
+</html>
+<script>
+//1.想要找到所有的li的标签
+    //var liList= document.getElementsByTagName("li");
+  // console.log(liList);
+    //document.getElementsByTagName()可以找到所有网页相同标签，返回的是一个伪数组，有多少个元素，就是多长；
+    //这里搜索出来的有8个li，所以这里的长度伪8
+//这里只能寻找页面的标签，不能找到id和class
+
+    //2.想找第一个隔壁老王的li的标签
+//通过下标去找，通过document.getElementsByTagName搜索出来以及转变成伪数组了
+//console.log(liList[0]);//隔壁老王1
+    //3.想找第4个隔壁老王的li的标签
+//console.log(liList[3]);//隔壁老王4
+    //4. 我想找到隔壁老王的这一堆li标签
+    //思路：我要找到隔壁老王一堆上级ul
+ //  var ullist=document.getElementsByTagName("ul");
+ //  console.log(ullist);
+ //    var ullist1=ullist[0];//找到第一个老王li里面的下标
+ // console.log(ullist1);
+ //  var ullist2=ullist[1];//找到第二个ul里面的li
+ // console.log(ullist2);
+//4.能不能通过id找到老王的ul,再通过ul找到某个拥有id的li
+// document.getElementById()这只能是document对象调用，换成其他的会报错
+//     var wang=document.getElementById("wang");
+//      var wang1= wang.getElementById("two");//报错
+//console.log(wang1);
+// console.log(wang);
+    //5.我想要将隔壁老王的宽度都修改为500px;
+//思路：首先要获取第一个ul的标签
+    var box=document.getElementsByTagName("ul");
+     console.log(box);
+     console.log(box[0]);
+    //思路：然后在用循环打印
+    for(var i=0;i<box.length;i++){
+        box[0].style.fontSize="50px";
+    }
+
+</script>

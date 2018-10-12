@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 2400px;
+        }
+
+        #box {
+            width: 1200px;
+            height: 400px;
+            border: 2px solid red;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        #box li {
+            width: 240px;
+            height: 400px;
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+
+        //需求1:给每一个li添加内容图片.
+        //需求2:给么一个li设置鼠标移入事件:当前li的宽度变成800,其他兄弟li宽度变成100
+        //需求3:鼠标移出大盒子,所有的li的宽度都变成默认的240
+       var $list=  $('#box li');
+        for(var i=0;i<$list.length;i++){
+            $($list[i]).html('<img src="images/collapse/'+(i+1)+'.jpg" alt=""/>');
+        };
+//        console.log($list);
+            $list.mouseenter(function () {
+                $(this).stop(true,false).animate({
+                    width:800
+                }).siblings('li').stop(true,false).animate({
+                    width:100
+                })
+            })
+
+
+            $('#box').mouseleave(function () {
+                $list.stop(true,false).animate({
+                    width:240
+                },100)
+            })
+
+
+
+//        var index=0;
+//        var $list= $('#box li')
+//        console.log($list);
+//        for(var i=0;i<$list.length;i++){
+//            $($list[i]).html('<img src="images/collapse/'+(i+1)+'.jpg" />');
+//
+//        }
+//        $list.mouseenter(function () {
+//            $(this).stop(true,false).animate({
+//               'width':800,
+//            }).siblings('li').animate({
+//                'width':100
+//            });
+//        });
+//          $('#box').stop(true,false). mouseleave(function () {
+//             $list.animate({
+//                 'width':240
+//             });
+//        });
+
+
+
+
+
+
+//        //需求1
+//        var $lis = $('#box').find('li'); //找到了所有的li.
+//        //$lis.html('<img src="images/collapse/1.jpg" alt=""/>'); //设置li标签的内容为一张图片,有隐式迭代,这样的话每一个li都是一样的图片.
+//        //每一个li,要设置不一样的图片.
+//        for(var i = 0 ; i < $lis.length; i++){
+//            //使用的dom方法 innerHTML.
+//            //$lis[i].innerHTML = '<img src="images/collapse/'+(i+1)+'.jpg" alt=""/>';
+
+//            //使用jQuery的html方法.
+//            $($lis[i]).html('<img src="images/collapse/'+(i+1)+'.jpg" alt=""/>');
+//        }
+
+//        //需求2
+//        $lis.mouseenter(function () {
+//            $(this).stop(true,false).animate({
+//                'width':800
+//            },500).siblings('li').stop().animate({
+//                'width':100
+//            },500);
+//        });
+
+//        //需求3
+//        $('#box').mouseleave(function () {
+//            $lis.stop(true,false).animate({
+//                'width':240
+         //   <!--},500);-->
+        //<!--});-->
+
+
+
+
+
+    });
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div num="123" class="mybox" id="box" style="width: 200px;height: 200px;"></div>
+</body>
+</html>
+<script>
+var res=document.getElementById("box");
+    //1.使用点语法
+console.log(res.id);//使用点语法得到id
+    //2.利用对象key值
+console.log(res["id"]);
+    //3.利用以上两种方式得到不能得到自定义
+console.log(res.num);//undefined
+console.log(res["num"]);//undefined
+    //4.getAttribute:可以获取到用户自定义的属性
+console.log(res.getAttribute("id"));//box
+console.log(res.getAttribute("class"));//mybox
+console.log(res.getAttribute("num"));//num
+    //5.设置属性
+//1.利用之前的点语法和key值都无法在行内样式显示，但是getAttribut能显示
+    res.style.backgroundColor="red";
+    res.weight="500";
+//console.log(res.style.backgroundColor);
+console.log(res);
+   res.setAttribute("weight", "180");//可以在行内属性中显示
+
+</script>

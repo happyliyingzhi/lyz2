@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 1200px;
+            height: 600px;
+            margin: 50px auto;
+            position: relative;
+            border: 1px solid red;
+        }
+        li {
+            position: absolute;
+            list-style: none;
+            overflow: hidden;
+        }
+        span {
+            width: 76px;
+            height: 112px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 6;
+        }
+        .slideleft {
+            background: url("images/prev.png") no-repeat;
+            left: 0;
+            display: none;
+        }
+        .slideright {
+            background: url("images/next.png") no-repeat;
+            right: 0;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <ul>
+        <li><img src="images/slidepic1.jpg" alt=""/></li>
+        <li><img src="images/slidepic2.jpg" alt=""/></li>
+        <li><img src="images/slidepic3.jpg" alt=""/></li>
+        <li><img src="images/slidepic4.jpg" alt=""/></li>
+        <li><img src="images/slidepic5.jpg" alt=""/></li>
+        <!--<li><img src="images/slidepic6.jpg" alt=""/></li>-->
+        <!--<li><img src="images/slidepic7.jpg" alt=""/></li>-->
+        <!--<li><img src="images/slidepic8.jpg" alt=""/></li>-->
+        <!--<li><img src="images/slidepic9.jpg" alt=""/></li>-->
+    </ul>
+    <span class="slideleft"></span>
+    <span class="slideright"></span>
+</div>
+</body>
+</html>
+<script src="jquery/jquery-1.12.4.js"></script>
+<script>
+    $(function () {   //入口函数
+        //思路:
+        //旋转木马使用到的是透明度  opacity  li的定位置 top left 层级 z-index 图片的宽度
+        //使用json对象来存储这些数值,然后放入到数组中
+        var json = [
+            {//第一张图
+                'opacity': 0.5,
+                'top': 10,
+                'left': 220,
+                'z-index': 1,
+                'width': 300,
+                'height':300
+            },
+             {//第二张图
+                'opacity': 0.6,
+                'top': 60,
+                'left': 10,
+                'z-index': 2,
+                'width': 350,
+                 'height':350
+            },
+            {//第三张图
+                'opacity':1,
+                'top': 100,
+                'left': 300,
+                'z-index': 3,
+                'width': 600,
+                'height':500
+            },
+            {//第四张图
+                'opacity': 0.6,
+                'top': 60,
+                'left': 840,
+                'z-index': 2,
+                'width': 350,
+                'height':350
+            },
+            {//第五张图
+                'opacity': 0.5,
+                'top': 10,
+                'left': 700,
+                'z-index': 1,
+                'width': 300,
+                'height':300
+            }
+        ];
+        change();
+        function change(flag){
+            if(flag){
+                json.unshift(json.pop());
+                }else{
+                json.push(json.shift());
+            }
+            for(var i=0;i<json.length;i++) {
+                //需要用到回调函数,等动画执行完毕之后,返回一个值
+                $("li").eq(i).animate(json[i],1000, function () {
+                    contrl = true;
+                });
+            }
+        };
+
+        //重点思路是移动json数组中的位置
+        //点击右侧按钮事件   把最后一个移除 pop(),添加到第一个来 unshift(pop())
+            var contrl=true;  //控制不停点击按钮出现的不停转的bug,所以需要用条件来判断
+            $(".slideright").on("click", function () {
+                if(contrl==true){   //为真的时候,马上取反,执行函数,函数动画执行完之后,回调一个函数显示true
+                    contrl=false;
+                    change(true);
+                }
+            });
+        //点击左侧按钮事件  把第一个移除 shift(),放到最后一个去push(shift())
+            $(".slideleft").on("click", function () {
+                if(contrl==true){
+                    contrl = false;
+                    change(false);
+                }
+            });
+        //自动旋转
+        var timer = null;
+        timer=setInterval(change, 3000);
+
+        //鼠标移入清除定时器
+        $(".box").mouseenter(function () {
+            clearInterval(timer);
+            $("span").stop(true,false).fadeIn(500);
+        }).mouseleave(function () {
+            timer=setInterval(change, 2000);
+            $("span").stop(true,false).fadeOut(500);
+        })
+
+
+
+
+
+
+
+
+
+
+
+    })
+
+
+
+</script>

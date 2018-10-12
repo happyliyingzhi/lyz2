@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            margin-top: 10px;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="top" id="topPart">
+    <img id="pic" src="images/top.png" alt=""/>
+</div>
+<div class="nav" id="navBar">
+    <img src="images/nav.png" alt=""/>
+</div>
+<div class="main" id="mainPart">
+    <img src="images/main.png" alt=""/>
+</div>
+</body>
+<script src="../tools.js"></script>
+<script>
+    //获得相关的属性
+    var topPart=document.getElementById("topPart");
+    var nav=document.getElementById("navBar");
+    var main=document.getElementById("mainPart");
+//window.onscroll是获取当前的页面的滚动位置
+window.onscroll= function () {
+    //判断滚动位置的距离与图片顶部的位置，如果大于了，就将导航固定，
+    //同时将内容要加大高度，因为nav固定定位后，脱离标准流，所以下面的main要加大margin的高度
+    //这样页面的滚动下面不会跳转
+    if(getScroll().top>topPart.offsetHeight){
+        nav.className="nav fixed";
+        main.style.marginTop=nav.offsetHeight+10+"px";
+    }else{
+        //当不超过时，就去掉fixed的类名，修该main的margin的值
+        nav.className="nav";
+        main.style.marginTop=10+"px";
+    }
+}
+</script>

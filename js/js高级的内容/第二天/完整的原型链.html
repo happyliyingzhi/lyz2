@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+function Person(name,age){
+    this.name=name;
+    this.age=age;
+}
+    var p1=new Person("依依",18)
+//console.log(p1.__proto__.constructor);//person
+//console.log(p1.__proto__.__proto__.constructor);//person
+//console.log(p1.__proto__.__proto__.__proto__);//person
+//
+//
+//console.log(Person.__proto__.constructor);//Function
+//console.log(Person.__proto__.__proto__.constructor);//Object
+//console.log(Person.__proto__.__proto__.__proto__);//null
+console.log(Function.__proto__.constructor);//Function
+console.log(Object.__proto__.constructor);//Function
+console.log(Function.__proto__.__proto__.constructor);//Object
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="to400" value="到400">
+<input type="button" id="to800" value="到800">
+<div id="box"></div>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+    //1.获取相关元素的属性
+var to400=id("to400");
+    var to800=id("to800");
+    var box=id("box");
+    var timeID;
+    var step=0;
+console.log(to400, to800);
+//2.让盒子点击到400
+    to400.onclick= function () {
+        clearInterval(timeID);
+       timeID= setInterval(function () {
+            if(box.offsetLeft<400){
+                 step+=10;
+                box.style.left=step+"px";
+            }else{
+                box.style.left=400+"px";
+                clearInterval(timeID);
+            }
+        },100)
+    }
+    //3.让盒子点击到800
+    to800.onclick= function () {
+        clearInterval(timeID);
+       timeID= setInterval(function () {
+            if(box.offsetLeft<800){
+                step+=10;
+                box.style.left=step+"px";
+            }else{
+                box.style.left=800+"px";
+                clearInterval(timeID);
+            }
+        },100)
+    }
+</script>

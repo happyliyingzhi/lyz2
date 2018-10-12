@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+function box(){
+    var num=10;
+    function getnum(){
+        return num;
+       // console.log(this);
+    }
+    function  setnum(value){
+            if(value>0){
+                num=value;
+            }
+        }
+    return {
+        getNum:getnum,
+        setNum:setnum
+    }
+}
+    var obj= box();
+     obj.setNum(100)
+console.log(obj.getNum());//100
+console.log(obj.getNum());
+console.log(box());
+
+ //案例A
+    function outer(){
+        var name="li";
+        var yz=1000;
+        return {
+            getName: function () {
+                return name;
+            },
+            setName: function (value) {
+                if(value.indexOf("勾")==-1){
+                    name=value;
+                }
+            },
+            getYZ: function () {
+                return yz;
+            },
+            setYZ: function (value) {
+                if(value>100){
+                    yz=value;
+                }
+            }
+
+        }
+    };
+    var arr=outer();
+    arr.setName("里");//设置他的他的name值
+console.log(arr.getName());;//获取他修改过的值
+    arr.setYZ(10000);
+console.log(arr.getYZ());
+</script>

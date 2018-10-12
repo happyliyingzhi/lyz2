@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <style>
+        .map {
+            width: 800px;
+            height: 600px;
+            background-color: #cccccc;
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="map" id="map"></div>
+</body>
+</html>
+<script>
+  //  console.log(Math.floor(Math.random() * 40));
+//console.log(Math.random());
+  //思路：首先要随机获取他的x抽和y抽，创建一个新的元素，添加在页面上
+    //获取相关的属性
+  //设置一个函数，设置他的 下x,y,height,bgcolor
+  //包装他的原型函数  设置他的x抽随机，y抽随机的，在里面创建一个元素，添加他的属性，最后添加在map的页面上
+  //实现他的 创建一个新的对象，接受这个函数，然后调用原型函数
+  //添加元素在页面要点语法
+    var map=document.getElementById("map");
+  //  function  Food(x,y,width,height,bgcolor){
+//        this.x=x||0;
+//        this.y=y||0;
+//        this.width=width||20;
+//        this.height=height||20;
+//        this.bgcolor=bgcolor||"red";
+//    }
+//      Food.prototype.res= function (map) {
+//          this.x=Math.floor(Math.random()*map.offsetWidth/this.width)*this.width;//获取随机x抽坐标
+//          this.y=Math.floor(Math.random()*map.offsetHeight/this.height)*this.height;//获取随机y抽的坐标
+//          //创建元素
+//          var newli=document.createElement("div");
+//          newli.style.width=this.width+"px";
+//          newli.style.position="absolute";
+//           newli.style.height=this.height+"px";
+//          newli.style.left=this.x+"px";
+//          newli.style.top=this.y+"px";
+//          newli.style.backgroundColor=this.bgcolor;
+//          map.appendChild(newli);
+//      }
+//      var box=new Food();
+//             box.res(map)
+//     for(var i=0;i<10;i++){
+//         //调用构造函数，创建一个小方块对象
+//         var f1=new Food();
+//         f1.res(map);
+//     }
+
+
+
+    function box1(x,y,width,height,bgcolor){
+        this.x=x||0;
+        this.y=y||0;
+        this.width=width||20;
+        this.height=height||20;
+        this.bgcolor=bgcolor||"red";
+    }
+    box1.prototype.res= function (map){
+            this.x=Math.floor(Math.random()*map.offsetWidth/this.width)*this.width;
+           this.y=Math.floor(Math.random()*map.offsetHeight/this.height)*this.height;
+           var newli=document.createElement("div");
+           newli.style.position="absolute";
+           newli.style.width=this.width+"px";
+           newli.style.height=this.height+"px";
+         newli.style.backgroundColor=this.bgcolor;
+           newli.style.left=this.x+"px";
+          newli.style.top=this.y+"px";
+         map.appendChild(newli);
+  }
+    var arr=new box1();
+    arr.res(map);
+    for(var i=0;i<100;i++){
+        var arr1=new box1();
+            arr1.res(map);
+    }
+</script>

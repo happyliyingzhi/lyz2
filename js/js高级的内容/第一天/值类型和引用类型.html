@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//值类型：直接存放值就是值类型
+    //引用类型：存放的是数据的地址（引用）
+    //1.值类型的赋值
+// var num1 = 123;
+// var num2 = num1;
+// num2 = 100;  //这里是赋值，直接将num1=123赋值给num2，
+//       // 这里改变num2的值是不会改变num1的值
+// console.log(num1); //123
+    //2.引用类型的赋值
+//    var arr=[10,20,30]
+//     var arr2=arr;//这里将这个放在堆里面的地址引用，这里赋值是地址引用，
+//               //如果赋值的第二个改变了，原本的第一个也就改变了
+//      arr2[0]=100;
+//console.log(arr[0]);//100
+    //4.引用类型作为函数的参数
+function test2(arr){
+    if(Array.isArray(arr)){
+        arr[0] = 100;
+    }
+}
+
+var arr1 = [10,20,30];
+test2(arr1);
+console.log(arr1[0]); //100
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//1.
+    window.onload=function(){
+        console.log("我加载完了");
+        //当页面上所有的资源全部加载完毕之后，再来执行这里的代码
+    }
+    window.onunload= function () {
+        console.log("我关闭了");
+           //当关闭页面时候来执行的代码
+
+    }
+    window.onbeforeunload= function () {
+        console.log("我即将关闭");
+        //当页面关闭之前执行的代码
+
+    }
+</script>

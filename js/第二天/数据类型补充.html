@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+       var a;
+      // alert(a);
+       console.log(typeof a);
+     // 这里的变量是没有被申请的，undefined,如果使用了一个未被申明的，控制台会报错
+       //没被申明的，检测类型是undefined类型
+       // var num;
+       // num=null;
+       // console.log(num);
+    //           输出num
+   //  console.log(typeof num);
+     //这里输出类型是object
+     //判断undefined与null的值是否是一样？
+       // console.log(null==undefined) //ture
+       // console.log(null===undefined) //false
+      //  console.log(typeof null)//object类型
+      //  console.log(typeof undefined)//undefined类型
+        //4.NaN：not a number 不是一个数字
+    //  var a=10;
+    //  var b="abc";
+    //  var res=a-b;
+    //onsole.log(res);
+    //  //输出的NaN,不是一个数值，计算错误
+    //onsole.log(typeof res);
+    //  //输出的number 数值类型
+    //onsole.log(NaN == 1);
+    //  //输出的false
+    //onsole.log(NaN == "1");
+    //  //输出的false
+     //console.log(NaN == NaN);
+
+    // 这里看出NaN是不等于任何数据的，包括本身
+     //NaN：不是一个数字。。记住不是一个数字
+    // console.log(isNaN("123"));
+        //false
+     //意思是，"123"里面是一个数字的时候，NaN意思是我不是一个数字，"123"本身是数字，所以就是false
+     console.log(isNaN(123));
+        //false
+     //意思是，123本身就是数字，NaN本身意思就是我不是一个数字，所以这里是false
+     console.log(isNaN("abc"));
+        //true
+     //"abc"判断1，有引号是字符串，2.引号里面是不是数字，如果引号是数字在NaN就是数字，这里的本身不是数字，
+     //NaN本身意思就是我不是一个数字，这里的不是一个数字，所以就是true
+     console.log(isNaN(NaN));
+     //true
+     //isNaN是用来判断是否为NaN,如果数据是NaN是true
+        //如果数据类型，是字符串，不包括字符串里面是数字本身的，NaN会显示 true
+        // 如果数据类型，是数值类型和数字类型（就是字符串里面是数字）NaN会显示false
+        //记住，NaN本身不是一个数字，这里只有是数值类型和数字（字符串里面是数字）就是false
+        //如果完全是字符串不包括数字都是true，因为他不是一个数字
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

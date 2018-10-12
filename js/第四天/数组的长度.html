@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    //数组的长度是什么：数组中可以有几个元素
+      // var arr=[10,20,30,40];
+    //onsole.log(arr);
+        //怎么样得到数组的长度
+   // console.log(arr.length);
+        //长度的特点
+        //这个数组的下标是 0，1，2，3
+        //输出的长度为 4
+        //length=最大的下标数+1；这个公式在数组是永远成立的
+        //数组的长度能不能自己设置
+   //     var arr1=[];
+   // console.log(arr1.length);//这时候 数组的长度为0，这里是空值
+   //          arr1.length=10;
+   // console.log(arr1.length);//这时候的数组长度为10
+   // console.log(arr1);//10个空元素
+        //数组的长度可以扩大
+   //   var res=[10,20,30,40];
+   //  console.log(res.length);//输出长度为4
+   //   res.length=100;
+   //onsole.log(res.length);//输出长度为100
+   //onsole.log(res);
+        //数组的长度可以缩小，但是缩小后会直接删除后面的元素，即使你在扩大元素的长度数据也不会回复
+   //    var arr=[10,20,30,400,30];
+   //console.log(arr.length);//输出为5
+   //    arr.length=2;
+   //console.log(arr.length);//输出为2
+   //console.log(arr);//输出[10,20]
+   //    arr.length=20;
+   //console.log(arr.length);//输出为20
+   //console.log(arr);//输出[10,20,empty*18]
+        //删除数组中的数据，删除数据后就不能恢复以前的数据
+    //    var arr=[20,20,30,40,50];
+    //console.log(arr.length);//输出为5
+    //    arr.length=0;
+    //console.log(arr);//输出为空的数组了
+
+        //数组的长度的好处：在js中，数组的长度是拥有可变性，动态改变
+    // var arr=[20,30,40,40];
+    //       console.log(arr.length);//输出的长度为4
+    //  arr[4]=100;
+    //sole.log(arr.length);//输出的长度为5
+        //数组的长度会随着数组的元素增加而增加
+       // arr[5]=1;
+   // console.log(arr.length);//输出为6
+        //也可以这么表示数组的增加元素arr[arr.length]=xx;
+   ///    arr[arr.length]=1;
+   ///console.log(arr.length);//输出为6
+   ///console.log(arr);//输出[20,30,40,40,1]
+            //  arr[arr.length]=4;
+            //  arr[arr.length]=9;
+   // console.log(arr.length);
+        //将1-100存到了一个数组中
+    //思路，首先要准备一个空的数组，然后这个数组的值与1-100对应，用到长度不固定
+    //     var arr=[];
+    //    for(var i=1;i<=100;i++) {
+    //              arr[arr.length]=i;
+    //    }
+    //console.log(arr);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

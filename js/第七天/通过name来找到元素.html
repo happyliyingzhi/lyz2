@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="submit" name="tag"/>
+<input type="text" name="tag"/>
+<input type="radio" name="tag"/>
+<input type="submit" name="tag"/>
+</body>
+</html>
+<script>
+//获得以上name的值，document.getElementsByName()是获得一组数组
+//name 是window比较特殊的词
+//注意ie8一下的浏览器，用不了
+    var box=document.getElementsByName("tag");
+    console.log(box);
+
+</script>

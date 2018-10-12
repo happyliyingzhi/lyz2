@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: url("images/bg.gif");
+            font: 12px "simsun";
+        }
+        .content {
+            width: 960px;
+            height: 627px;
+            margin: 0 auto;
+            background: url("images/content_bg.jpg");
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+        .clearfix {
+            *zoom: 1;
+        }
+        .clearfix:before,.clearfix:after{
+            content: '';
+            display: table;
+        }
+        .clearfix:after{
+            clear: both;
+        }
+        .tip {
+            width: 227px;
+            position: absolute;
+            top: 100px;
+            left: 200px;
+        }
+        .tip-h {
+            padding-top: 50px;
+            background: url("images/tip1_h.gif") no-repeat;
+            cursor: default;
+        }
+        .text {
+            float: left;
+            padding-left: 10px;
+        }
+        .close {
+            float: right;
+            margin-right: 10px;
+        }
+        .tip-m {
+            min-height: 40px;
+            padding: 0 10px;
+            padding-top: 10px;
+            background: url("images/tip1_c.gif");
+        }
+        .tip-f {
+            height: 53px;
+            background: url("images/tip1_f.gif");
+            padding-top: 20px;
+        }
+        .icon {
+            float: left;
+            padding-left: 10px;
+        }
+        .name {
+            float: right;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="content" id="content">
+    <!--<div class="tip" id="tip">-->
+    <!--<div class="tip-h clearfix" title="双击关闭纸条">-->
+    <!--<div class="text">第[49568]条 2017-05-14 22:51:52</div>-->
+    <!--<div class="close" title="关闭纸条">x</div>-->
+    <!--</div>-->
+    <!--<div class="tip-m">努力学习，高薪就业</div>-->
+    <!--<div class="tip-f clearfix">-->
+    <!--<div class="icon">-->
+    <!--<img src="images/bpic_1.gif" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="name">林哥</div>-->
+    <!--</div>-->
+    <!--</div>-->
+</div>
+</body>
+<script src="common.js"></script>
+<script>
+    //此时这里的messages是一个数组，他的每一个元素都是一个json数据。
+    //每一个json数据其实就是纸条的信息。
+    var messages = [
+        {"id":1,"name":"mahu","content":"今天你拿苹果支付了么","time":"2016-02-17 00:00:00"},
+        {"id":2,"name":"haha","content":"今天天气不错，风和日丽的","time":"2016-02-18 12:40:00"},
+        {"id":3,"name":"jjjj","content":"常要说的事儿是乐生于苦","time":"2016-03-18 12:40:00"},
+        {"id":4,"name":"9.8的妹纸","content":"把朋友家厕所拉堵了 不敢出去 掏了半小时了都","time":"2016-03-18 12:40:00"},
+        {"id":5,"name":"雷锋ii.","content":"元宵节快乐","time":"2016-02-22 12:40:00"},
+        {"id":666,"name":"哎呦哥哥.","content":"据说今晚央视的元宵晚会导演和春晚导演是同一个人，真是躲得过初一，躲不过十五。","time":"2016-02-22 01:30:00"},
+        {"id":7,"name":"没猴哥，不春晚","content":"班主任:“小明，你都十二岁了，还是三年级，不觉得羞愧吗”？。小明:“一点也不觉得，老师你都四十多岁了，不也是年年在三年级混日子吗？羞愧的应该是你”。老师:……","time":"2016-02-22 01:30:00"},
+        {"id":8,"name":"哎呦杰杰.","content":"真搞不懂你们地球人，月亮有什么好看的，全是坑，还是对面那哥们好看，","time":"2016-02-22 01:30:00"},
+        {"id":9,"name":"哎呦哎呦","content":"今天哪里的烟花最好看！！？答：朋友圈。。。","time":"2016-02-22 02:30:00"}
+    ];
+     //1.获得相关的属性
+    var content=id("content");
+       for(var i=0;i<messages.length;i++){
+           //2.创建一个新的div
+           var newBox=document.createElement("div");
+           //9.跟换里面的内容,这里是数组里面包含对象，前面要用引号+字符串
+           newBox.innerHTML='<div class="tip-h clearfix" title="双击关闭纸条">\n' +
+                   '            <div class="text">'+messages[i].time+'</div>\n' +
+                   '            <div class="close" title="关闭纸条">x</div>\n' +
+                   '        </div>\n' +
+                   '        <div class="tip-m">'+messages[i].content+'</div>\n' +
+                   '        <div class="tip-f clearfix">\n' +
+                   '            <div class="icon">\n' +
+                   '                <img src="images/bpic_1.gif" alt=""/>\n' +
+                   '            </div>\n' +
+                   '            <div class="name">'+messages[i].name+'</div>\n' +
+                   '        </div>';
+
+
+            //4.添加classname和id名
+          // newBox.className="tip";
+           newBox.setAttribute("class","tip");
+          newBox.setAttribute("id",("tip"+i));
+//
+       //3.将新建的盒子添加到背景墙上
+           content.appendChild(newBox);
+            //5.将墙上的纸的位置，产生随机性
+            var Lefe= Math.floor( Math.random()*700);
+           var Top=Math.floor( Math.random()*400);
+           newBox.style.left=Lefe+"px";
+           newBox.style.top=Top+"px";
+           //10.点击增加层次
+          newBox.onclick=zindex1;
+
+       }
+       //6.点x关闭纸条盒子
+            var close=document.getElementsByClassName("close")
+          // console.log(close);
+    for(var i=0;i<close.length;i++){
+        close[i].onclick= function () {
+          this.parentNode.parentNode.parentNode.removeChild( this.parentNode.parentNode)
+        }
+    }
+    //7.双击头部关闭纸盒子
+      var Tiptop=document.getElementsByClassName("tip-h");
+  //  console.log(Tiptop);
+    for(var i=0;i<Tiptop.length;i++){
+        Tiptop[i].ondblclick=function(){
+            this.parentNode.parentNode.removeChild(this.parentNode);
+        }
+    }
+
+   //8.当点击时，会显示当前的纸盒子
+    var zindex=0;
+    function zindex1(){
+           zindex++;
+        this.style.zIndex=zindex;
+    }
+    //console.log(zindex1());
+</script>

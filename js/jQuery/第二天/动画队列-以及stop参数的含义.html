@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 200px;
+            height: 300px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="开始动画" id="start"/>
+<input type="button" value="停止动画" id="stop"/> <br/><br/>
+<div></div>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+   $('#start').click(function () {
+       $('div').slideDown(3000).slideUp(3000);
+   })
+       //stop(参数一,参数二)
+        //参数一：是否清楚队列
+        //参数二：是否跳转到最终效果
+        $('#stop').click(function () {
+            //如果没有写参数，就是默认两个false
+//            $('div').stop()
+            //参数一：是清楚后面的队列，所以就不用往后面走，
+            //参数二：不跳转到最终效果，就是停止了
+//            $('div').stop(true,false)
+            //两个参数都是true，会出现停止后直接到达目的效果
+//            $('div').stop(true,true)
+            //后面的动画继续执行，会马上跳转第一个的最终效果
+            $('div').stop(false,true)
+
+
+        })
+
+
+
+
+    });
+
+
+</script>

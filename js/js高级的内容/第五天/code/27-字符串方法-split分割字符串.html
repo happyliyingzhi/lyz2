@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.字符串方法-split.
+
+    //以前的做法
+    // var str = "张三|李四|王五";
+    // var arr = str.split("|");
+    // console.log(arr);
+
+
+    //现在可以使用正则
+    var str = "张三100李四200王五";
+    var arr = str.split(/\d{3}/);
+    console.log(arr);
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

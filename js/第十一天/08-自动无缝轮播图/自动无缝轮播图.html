@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        /*取消图片底部3像素距离*/
+        .box {
+            width: 300px;
+            height: 200px;
+            margin: 100px auto;
+            /*background-color: */
+            position: relative;
+            overflow: hidden;
+            background: pink;
+            /*background-size: 100%;*/
+        }
+
+        .box ul li {
+            float: left;
+        }
+
+        .box ul {
+            width: 1500px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="divBox">
+    <ul>
+        <li><img src="images/01.jpg" alt=""/></li>
+        <li><img src="images/02.jpg" alt=""/></li>
+        <li><img src="images/03.jpg" alt=""/></li>
+        <li><img src="images/04.jpg" alt=""/></li>
+        <li><img src="images/01.jpg" alt=""/></li>
+        <!--加一张替身图片(第一张)-->
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    //1.获取元素
+    var box = document.getElementById("divBox");
+    var ul = box.children[0];
+
+    //2.设置一个定时器可以自动滚动
+    setInterval(function () {
+        //获取当前的位置
+        var currentLeft = ul.offsetLeft;
+        //设置步长
+        var step = -8;
+        //注意方向问题
+        //位移的距离
+        currentLeft += step;
+
+        //修改位置
+        if(currentLeft > -1200){
+            ul.style.left = currentLeft + "px";
+        }else {
+            ul.style.left = "0px";
+        }
+
+    },30)
+
+</script>
+
+
+
+
+
+
+
+
+
+

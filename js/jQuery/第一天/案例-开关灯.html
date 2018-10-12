@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<button >开灯</button>
+<button>关灯</button>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+$(function () {
+    var $btn=$("button");
+   // console.log($btn);
+   //   //将jquery转换成dom对象
+   // $btn[1].onclick= function () {
+   //     document.body.style.backgroundColor="black";
+   // }
+   // //将dom对象转换成jquery对象
+   // $($btn[0]).click(function () {
+   //     $('body').css('backgroundColor',"pink");
+   // })
+
+       $($btn[0]).click(function () {
+        $('body').css('backgroundColor',"pink");
+           $($btn[0]).text('关灯')
+    })
+
+    $($btn[1]).click(function () {
+        $('body').css('backgroundColor',"green");
+        $($btn[1]).text('开灯')
+    })
+
+})
+
+
+
+
+
+
+
+</script>
+
+

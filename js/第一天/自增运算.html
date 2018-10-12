@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //前自增:++a
+        //后自增:a++
+      //  var num=10,num1=10;
+      //  ++num;
+      //  num1++;
+      //  console.log(num,num1);
+      //  这里输出的结果都是11,11
+        //相同点都是在自身基础上加1
+        //不同点:前自增是先改变自己在赋值在变得,后自增是先不变值,将原来没变的值赋值给被人,然后自己在变值
+      //  var num=10,num1=10;
+      //  var res=num++ +10;  这里是res=10+10=20,num=10+1=11
+      //  var res1=++num1 +10;   res1=11+10=21, num1=10+1=11
+      //  console.log(res,res1); res=20,res1=21
+      //  console.log(num,num1);
+//           这里是不同点
+//
+        var a= 5;  //a=5
+        var b=10;  //b=10
+        var c=15;  //c=15
+        var d=a++;  //d=5 a=6
+        var e=++b;  //e=11 b=11
+        var f=++a;  //f=7 a=7
+        var res= a++ +d;   //res=7+5=12 a=8 d=5
+        var res1= ++a +e;// res1= 9+11=20 a=9
+        //算出d,e,f,res,res1
+        console.log(a,d,e,f,res,res1);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

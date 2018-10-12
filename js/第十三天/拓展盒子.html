@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script src="tools.js"></script>
+<script>
+var box=document.getElementById("box");
+    box.onmousedown = function (e) {
+        e=e||window.event;
+        var res=getPage(e);
+        var pageX1=res.pageX-box.offsetLeft;
+        var pageY2=res.pageY-box.offsetTop;
+        window.onmousemove= function (e) {
+            e=e||window.event;
+            var pageX=getPage(e).pageX;
+            var pageY=getPage(e).pageY;
+             var xres=pageX-pageX1;
+             var yres=pageY-pageY2;
+            //鼠标最小的范围
+            xres=xres<0?0:xres;
+            yres=yres<0?0:yres;
+            //鼠标的最大的范围
+            xres=xres>(window.innerWidth-box.offsetWidth)?(window.innerWidth-box.offsetWidth):xres;
+            yres=yres>(window.innerHeight-box.offsetHeight)?(window.innerHeight-box.offsetHeight):yres;
+
+            box.style.left=xres+"px";
+            box.style.top=yres+"px";
+        }
+    }
+    box.onmouseup= function () {
+        window.onmousemove=null;
+    }
+</script>

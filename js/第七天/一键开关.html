@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+       /*#box1 {*/
+           /*margin: 0px auto;*/
+           /*display: none;*/
+       /*}*/
+    </style>
+</head>
+<body>
+<input type="button" id="box" value="关灯"/>
+<div id="box1"style="width: 200px; height: 200px;background-color:gold;"></div>
+</body>
+</html>
+<script>
+var box=document.getElementById("box");
+    box.onclick=function (){
+         if(this.value=="关灯"){
+             document.body.style.backgroundColor="black";
+               this.value="开灯";
+
+
+         }else{
+             document.body.style.backgroundColor="white";
+             this.value="关灯";
+         }
+
+    }
+   // var box1=document.getElementById("box1");
+
+</script>

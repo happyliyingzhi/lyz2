@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/> <br/><br/>
+<input type="text" id="txt" value="请输入内容"/>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+$(function () {
+    //表单元素的值,原生js中用value属性获取或者设置.
+    //jquery中使用val()方法设置或者获取表单元素的值
+    $('#btn').click(function () {
+        //1.获取 val()
+        console.log($('#txt').val());
+        //2.设置val(设置的值);
+        $('#txt').val("我是设置的值")
+    })
+
+   //模拟京东摸索框
+    //首选获取文本框的id
+    //设置焦点，要与是否是默认文字对比，如果是就清空
+    //失去焦点，要去失去焦点时候，文本框里面是为空，如果是空，就显示默认的内容
+    $('#txt').focus(function () {
+        if($(this).val()==this.defaultValue){
+          $(this).val('')
+        }
+    });
+    $('#txt').blur(function () {
+       if( $(this).val()==''){
+           $(this).val(this.defaultValue)
+       }
+    })
+
+
+
+
+
+
+
+
+    //获得焦点
+//    $('#txt').focus(function () {
+//        if($(this).val()==this.defaultValue){
+//            $(this).val('')
+//        }
+//    })
+////失去焦点
+//    $('#txt').blur(function () {
+//        if($(this).val()==''){
+//            $(this).val(this.defaultValue)
+//        }
+//    })
+
+})
+</script>

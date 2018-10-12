@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.call();apply();bind();他们在Function.prototype,意味着所有的函数都可以使用这三种方式来调用.
+    //console.dir(Function.prototype); //
+    // function test1(){
+    // }
+    // function test2(){
+    // }
+    // test1.call();
+    // test2.call();
+
+
+    //2.如果上下文调用模式的第一个参数是number类型的数,那么this就指向基本包装类型的Number对象.
+    //  如果上下文调用模式的第一个参数是string类型的数,那么this就指向基本包装类型的String对象.
+    //  如果上下文调用模式的第一个参数是boolean类型的数,那么this就指向基本包装类型的Boolean对象.
+
+    //如果上下文调用模式的第一个参数是null或者undefined.或者不写,那么this的执向就是window
+    // function test1(){
+    //   console.log(this);
+    // }
+    // //test1.call(123);
+    // //test1.call("abc");
+    // //test1.call(true);
+    // test1.call(null);
+    // test1.call(undefined);
+    // test1.call();
+    // test1.call(window);
+
+
+
+    //3.那个函数用上下文的模式调用,那个函数的this才会发生更改.
+    var obj = {
+      name:'林黑群'
+    };
+    function test1(){
+      console.log("我是test1函数");
+      console.log(this); //obj
+      test2();
+    }
+
+    function test2(){
+      console.log("我是test2函数");
+      console.log(this); //window
+    }
+
+    test1.call(obj);
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

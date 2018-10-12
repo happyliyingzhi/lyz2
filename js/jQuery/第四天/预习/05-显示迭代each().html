@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>复制</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        li {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background: pink;
+            text-align: center;
+            line-height: 200px;
+            margin: 0 20px 20px 0;
+        }
+    </style>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+      $(function () {
+         //隐式迭代,所有的li设置的样式透明度是一样的,都是0.5.
+         // $('#ulList>li').css('opacity','0.5');
+
+         //以前的做法.
+         // var $lis = $('#ulList>li');
+         // for(var i = 0 ; i < $lis.length; i++){
+         //    //dom元素调用dom方法.
+         // 	//$lis[i].style.opacity = (i+1)/10;
+         //    //jQuery元素调用jQuery的方法
+         //    $($lis[i]).css('opacity', (i+1)/10);
+         // }
+
+
+         //显示迭代 each();
+          $('#ulList>li').each(function (index,ele) {
+              $(ele).css('opacity',(index+1)/10)
+          })
+//         $('#ulList>li').each(function (index,li) {
+//             $(li).css('opacity',(index+1)/10)
+//         })
+
+
+
+      });
+    </script>
+</head>
+
+<body>
+<ul id="ulList">
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+    <li>什么都看不见</li>
+</ul>
+</body>
+
+</html>

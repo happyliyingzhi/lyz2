@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //1.伪数组排序.
+
+    var weiArr = {
+        0:1109,
+        1:110,
+        2:220,
+        3:215,
+        4:210,
+        5:500,
+        6:400,
+        length:7
+    }
+    Array.prototype.sort.call(weiArr, function (a,b) {
+        return a-b;
+    });
+    console.log(weiArr);
+</script>

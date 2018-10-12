@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="box" class="arr" name="res"></div>
+</body>
+</html>
+<script>
+ //获得id的方法
+    var box=document.getElementById("box");
+ console.log(box);
+ console.log(box.id);
+ //获得class的方法//数组，需要具体到元素
+    var arr=  document.getElementsByClassName("arr");//这里返回的是数组
+ console.log(arr);
+ console.log(arr[0].className);//必须要具体到某个元素，即使是一个元素，如果要具体打印某个元素的也要加[下标]
+    //获得标签名//数组
+    var div=document.getElementsByTagName("div");
+ console.log(div);
+ console.log(div[0]);
+    //获得name,//数组
+    var res=document.getElementsByName("res");
+    console.log(res);
+</script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1 {
+            width: 400px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="克隆" id="clone"/>
+<div id="div1">
+    <span>span1</span>
+    <p>p1
+        <b>b1</b>
+    </p>
+</div>
+<br/><br/>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        //原生js中有克隆节点: cloneNode();
+        //参数是true:深克隆,所有的后代都会被克隆到.
+        //参数是false:浅克隆,只能克隆自己.
+        //jquery中也有克隆的节点的方式:clone();
+        //克隆的节点只存在内存中，如果要在页面显示，就要追加
+        //参数布尔类型的
+        //true:深克隆   会把事件一起克隆过来
+        //false:浅克隆   默认不写也是浅克隆，不会把事件克隆
+        //注意：jquery中的深克隆和原生js中的深浅克隆是不一样的
+        //jquery中不管参数是什么，后代元素都会被克隆到
+        
+        $('#div1').click(function () {
+            alert('我是函数')
+        })
+      
+      //给克隆的按钮一个点击事件
+        $('#clone').click(function () {
+            //2.深克隆   连div的点击事件也能克隆
+            var $clone=$('#div1').clone(true);
+            $('body').append($clone)
+            //浅克隆   不能克隆点击事件
+            var $clone1=$('#div1').clone(false);
+            $('body').append($clone1)
+        })
+
+
+
+
+
+
+    })
+
+
+
+
+
+</script>

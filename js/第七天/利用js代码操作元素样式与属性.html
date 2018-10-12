@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<div id="box" class="res" style="width: 200px;height: 200px;background-color:lightgreen;">我是很开心</div>
+</body>
+</html>
+<script>
+var box1=document.getElementById("box");
+//通过这个方法获取的元素，是一个js对象，所以，我们可以通过对象来访问他的属性
+//console.log(box1);
+console.log(box1.id);//打印id名
+console.log(box1.className);//打印class类名，classname
+console.log(box1.style);//打印style的对象，拥有元素的css样式
+    box1.className="num";
+//可以通过元素来给一些对象属性赋值
+//修改类名
+console.log(box1.className);//num 修改class类名
+    box1.id="arr";
+console.log(box1.id);//arr  修改id名
+//var box1=document.getElementById("arr");
+//console.log(box1);
+//在js中修改css的样式，直接修改，不需要打印
+    box1.style.width="500px";
+    box1.style.height="500px";
+    box1.style.backgroundColor="blue";
+    //如何获取标签的文本  innertext
+    box1.innerText="后来的我们";
+console.log(arr);
+    //添加一个行内样式属性
+    box1.style.border="2px solid green"
+</script>

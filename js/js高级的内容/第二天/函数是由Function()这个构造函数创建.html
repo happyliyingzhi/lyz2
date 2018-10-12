@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//函数是一个对象，这个对象是有Function构造函数实例化，如何实例化
+    //1.声明一个没有函数体的函数
+    var test=new Function();
+console.log(test);//空的数组
+    //2.声明了一个有函数体的函数
+    var test2=new Function('console.log("我是函数体")');
+console.log(test2);//有函数内容的
+    test2()//我是函数体
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p></p>
+<div id="father">
+    <div>
+        <span>span1</span>
+        <span>span2</span>
+        <span>span3</span>
+    </div>
+    <div>
+        <b>1</b>
+        <div>div1</div>
+        <div>div2</div>
+        <div>div3</div>
+        <p></p>
+    </div>
+    <div></div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <span>sss1</span>
+</div>
+</body>
+</html>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+//jquery  基本选择期和复杂选择器用法和css里面的用法一样
+    $(function () {
+        //获取id选择器
+     //   console.log($('#father'));
+        //获取 所有的div
+       // console.log($('#father div')); //后代选择器
+      //  console.log($('#father').find('div'));//跟后代一样
+        //子代选择器
+     //   console.log($('#father>div'));
+        //console.log($('#father').children('div'));//跟子代选择器一样
+        //获取当前的索引的值
+     //   console.log($('p').index());
+        //找下一个兄弟
+        console.log($('span').next());
+        //找上一个兄弟
+        console.log($('p').prev());
+    })
+</script>
